@@ -194,7 +194,7 @@ If quick.Eroticasub=2 Then aa$ = "LGBTQ+ erotic literature" & " " & sd & "2 homo
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Gender_studiessub=0 Then ba$ = " "
@@ -206,7 +206,7 @@ If quick.Gender_studiessub=5 Then ba$ = "Transgender studies" & " " & sd & "2 ho
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.Information_provisionsub=0 Then ca$ = " "
@@ -217,7 +217,7 @@ If quick.Information_provisionsub=4 Then ca$ = "Sex education" & " " & sd & "2 h
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.LGBTQplus_autobiographysub=0 Then da$ = " "
@@ -230,7 +230,7 @@ If quick.LGBTQplus_autobiographysub=6 Then da$ = "Transgender autobiographies" &
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.LGBTQplus_biographiessub=0 Then ea$ = " "
@@ -243,7 +243,7 @@ If quick.LGBTQplus_biographiessub=6 Then ea$ = "Transgender biographies" & " " &
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.LGBTQplus_bookssub=0 Then fa$ = " "
@@ -252,7 +252,7 @@ If quick.LGBTQplus_bookssub=2 Then fa$ = "LGBTQ+ challenged books" & " " & sd & 
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.LGBTQplus_characterssub=0 Then ga$ = " "
@@ -265,7 +265,7 @@ If quick.LGBTQplus_characterssub=6 Then ga$ = "Transgender characters" & " " & s
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.LGBTQplus_filmssub=0 Then ha$ = " "
@@ -275,7 +275,7 @@ If quick.LGBTQplus_filmssub=3 Then ha$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" 
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.LGBTQplus_lit_critsub=0 Then ia$ = " "
@@ -288,7 +288,7 @@ If quick.LGBTQplus_lit_critsub=6 Then ia$ = "Transgender literary criticism" & "
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.LGBTQplus_periodicalssub=0 Then ja$ = " "
@@ -311,7 +311,7 @@ If quick.LGBTQplus_periodicalssub=16 Then ja$ = "Transgender newspapers" & " " &
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 If quick.LGBTQplus_porn_filmssub=0 Then ka$ = " "
@@ -326,7 +326,7 @@ If quick.LGBTQplus_porn_filmssub=8 Then ka$ = "LGBTQ+ vlogs" & " " & sd & "2 hom
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.LGBTQplus_presssub=0 Then la$ = " "
@@ -351,7 +351,7 @@ If quick.LGBTQplus_presssub=18 Then la$ = "Transgender newspapers" & " " & sd & 
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 
@@ -365,7 +365,7 @@ If quick.LGBTQplus_publisherssub=6 Then ma$ = "Transgender publishers" & " " & s
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.LGBTQplus_radiosub=0 Then na$ = " "
@@ -378,7 +378,7 @@ If quick.LGBTQplus_radiosub=6 Then na$ = "Transgender radio" & " " & sd & "2 hom
 
 If na$ = " " then
 else
-CS.AddField 1, "655 7" & na$
+CS.AddField 1, "650 7" & na$
 end if
 
 If quick.LGBTQplus_televisionsub=0 Then oa$ = " "
@@ -391,7 +391,7 @@ If quick.LGBTQplus_televisionsub=6 Then oa$ = "Transgender television" & " " & s
 
 If oa$ = " " then
 else
-CS.AddField 1, "655 7" & oa$
+CS.AddField 1, "650 7" & oa$
 end if
 
 If quick.Nude_artsub=0 Then pa$ = " "
@@ -400,7 +400,7 @@ If quick.Nude_artsub=2 Then pa$ = "Nude photographs" & " " & sd & "2 homoit" & "
 
 If pa$ = " " then
 else
-CS.AddField 1, "655 7" & pa$
+CS.AddField 1, "650 7" & pa$
 end if
 
 If quick.Social_mediasub=0 Then qa$ = " "
@@ -427,7 +427,7 @@ If quick.Social_mediasub=19 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 
 
 If qa$ = " " then
 else
-CS.AddField 1, "655 7" & qa$
+CS.AddField 1, "650 7" & qa$
 end if
 
 If quick.OptionGroup1 = 0 then OKbutton

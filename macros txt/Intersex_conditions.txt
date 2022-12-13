@@ -75,7 +75,7 @@ If quick.Intersex_conditionssub=15 Then aa$ = "Swyer syndrome" & " " & sd & "2 h
 If quick.Intersex_conditionssub=16 Then aa$ = "Turner syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001478"
 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

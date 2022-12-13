@@ -223,7 +223,7 @@ If quick.Sexual_identitysub=51 Then la$ = "Pups (Gay culture)" & " " & sd & "2 h
 
 If la$ = " " then
 else 
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 If quick.Relationship_orientationsub=0 Then yn$ = " "
@@ -246,7 +246,7 @@ If quick.Relationship_orientationsub=16 Then yn$ = "Non-consensual non-monogamy"
 
 If yn$ = " " then
 else 
-CS.AddField 1, "655 7" & yn$ 
+CS.AddField 1, "650 7" & yn$ 
 end if
 
 
@@ -263,7 +263,7 @@ If quick.Diversitysub=6 Then xn$ = "Pansexuality" & " " & sd & "2 homoit" & " " 
 
 If xn$ = " " then
 else 
-CS.AddField 1, "655 7" & xn$ 
+CS.AddField 1, "650 7" & xn$ 
 end if
 
 If quick.Role_behavioursub=0 Then un$ = " "
@@ -272,7 +272,7 @@ If quick.Role_behavioursub=2 Then un$ = "Gender roles" & " " & sd & "2 homoit" &
 If quick.Role_behavioursub=3 Then un$ = "Bears (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000105"
 If quick.Role_behavioursub=4 Then un$ = "Butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000231"
 If quick.Role_behavioursub=5 Then un$ = "Femmes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000440"
-If quick.Role_behavioursub=6 Then un$ = "Machismo" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000655"
+If quick.Role_behavioursub=6 Then un$ = "Machismo" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000650"
 If quick.Role_behavioursub=7 Then un$ = "Sissies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001313"
 If quick.Role_behavioursub=8 Then un$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
 If quick.Role_behavioursub=9 Then un$ = "Tomboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001374"
@@ -312,7 +312,7 @@ If quick.Role_behavioursub=42 Then un$ = "Vers (Sex)" & " " & sd & "2 homoit" & 
 
 If un$ = " " then
 else 
-CS.AddField 1, "655 7" & un$ 
+CS.AddField 1, "650 7" & un$ 
 end if
 
 '****************************************************************************************
@@ -331,7 +331,7 @@ If quick.LGBTQ_authorssub=10 Then mn$ = "Two-Spirit authors" & " " & sd & "2 hom
 
 If mn$ = " " then
 else
-CS.AddField 1, "655 7" & mn$
+CS.AddField 1, "650 7" & mn$
 end if
 
 If quick.LGBTQ_parenthoodsub=0 Then sn$ = " "
@@ -353,7 +353,7 @@ If quick.LGBTQ_parenthoodsub=15 Then sn$ = "LGBTQ+ social parenthood" & " " & sd
 
 If sn$ = " " then
 else
-CS.AddField 1, "655 7" & sn$
+CS.AddField 1, "650 7" & sn$
 end if
 
 '****************************************************************************************
@@ -374,7 +374,7 @@ If quick.LGBTQ_sex_workerssub=12 Then dn$ = "Transgender prostitutes" & " " & sd
 
 If dn$ = " " then
 else
-CS.AddField 1, "655 7" & dn$
+CS.AddField 1, "650 7" & dn$
 end if
 
 If quick.LGBTQ_religious_peoplesub=0 Then ln$ = " "
@@ -445,7 +445,7 @@ If quick.LGBTQ_religious_peoplesub=63 Then ln$ = "LGBTQ+ Taoists" & " " & sd & "
 
 If ln$ = " " then
 else
-CS.AddField 1, "655 7" & ln$
+CS.AddField 1, "650 7" & ln$
 end if
 
 '****************************************************************************************
@@ -461,7 +461,7 @@ If quick.LGBTQ_clergysub=7 Then hn$ = "Transgender clergy" & " " & sd & "2 homoi
 
 If hn$ = " " then
 else
-CS.AddField 1, "655 7" & hn$
+CS.AddField 1, "650 7" & hn$
 end if
 
 
@@ -472,7 +472,7 @@ If quick.LGBTQ_chorusessub=3 Then vn$ = "LGBTQ+ choruses" & " " & sd & "2 homoit
 
 If vn$ = " " then
 else 
-CS.AddField 1, "655 7" & vn$ 
+CS.AddField 1, "650 7" & vn$ 
 end if
 
 If quick.OptionGroup1 = 0 then OKbutton

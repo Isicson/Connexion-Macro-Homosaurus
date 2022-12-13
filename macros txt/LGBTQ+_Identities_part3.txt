@@ -166,7 +166,7 @@ If quick.Pronounssub=45 Then an$ = "Zme/Zmyr/Zmyrself (Pronouns)" & " " & sd & "
 
 If an$ = " " then
 else
-CS.AddField 1, "655 7" & an$
+CS.AddField 1, "650 7" & an$
 end if
 
 If quick.TwoSLGBTQplussub=0 Then am$ = " "
@@ -182,7 +182,7 @@ If quick.TwoSLGBTQplussub=9 Then am$ = "LGB" & " " & sd & "2 homoit" & " " & sd 
 
 If am$ = " " then
 else 
-CS.AddField 1, "655 7" & am$
+CS.AddField 1, "650 7" & am$
 end if
 
 If quick.LGBTQIAplussub=0 Then wn$ = " "
@@ -192,7 +192,7 @@ If quick.LGBTQIAplussub=3 Then wn$ = "LGBTQIA+" & " " & sd & "2 homoit" & " " & 
 
 If wn$ = " " then
 else 
-CS.AddField 1, "655 7" & wn$ 
+CS.AddField 1, "650 7" & wn$ 
 end if
 
 If quick.Heterosexualssub=0 Then en$ = " "
@@ -210,7 +210,7 @@ If quick.Heterosexualssub=11 Then en$ = "Heterosexual girls" & " " & sd & "2 hom
 
 If en$ = " " then
 else 
-CS.AddField 1, "655 7" & en$ 
+CS.AddField 1, "650 7" & en$ 
 end if
 
 If quick.Cisgender_peoplesub=0 Then nn$ = " "
@@ -220,7 +220,7 @@ If quick.Cisgender_peoplesub=3 Then nn$ = "Cisgender women" & " " & sd & "2 homo
 
 If nn$ = " " then
 else 
-CS.AddField 1, "655 7" & nn$ 
+CS.AddField 1, "650 7" & nn$ 
 end if
 
 If quick.HIV_positive_peoplesub=0 Then zn$ = " "
@@ -229,7 +229,7 @@ If quick.HIV_positive_peoplesub=2 Then zn$ = "HIV-undetectable people" & " " & s
 
 If zn$ = " " then
 else 
-CS.AddField 1, "655 7" & zn$
+CS.AddField 1, "650 7" & zn$
 end if
 
 If quick.Intersex_peoplesub=0 Then jn$ = " "
@@ -240,7 +240,7 @@ If quick.Intersex_peoplesub=4 Then jn$ = "Intersex youth" & " " & sd & "2 homoit
 
 If jn$ = " " then
 else 
-CS.AddField 1, "655 7" & jn$ 
+CS.AddField 1, "650 7" & jn$ 
 end if
 
 If quick.Alloromantic_peoplesub=0 Then rn$ = " "
@@ -252,7 +252,7 @@ If quick.Alloromantic_peoplesub=5 Then rn$ = "Panromantic people" & " " & sd & "
 
 If rn$ = " " then
 else
-CS.AddField 1, "655 7" & rn$ 
+CS.AddField 1, "650 7" & rn$ 
 end if
 
 

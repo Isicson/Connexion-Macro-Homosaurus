@@ -167,7 +167,7 @@ If quick.LGBTQplus_bookshopssub=7 Then aa$ = "Women's bookshops" & " " & sd & "2
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.LGBTQplus_centerssub=0 Then ba$ = " "
@@ -192,7 +192,7 @@ If quick.LGBTQplus_centerssub=17 Then ba$ = "LGBTQ+ youth centers" & " " & sd & 
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.LGBTQplus_hotelssub=0 Then ca$ = " "
@@ -201,7 +201,7 @@ If quick.LGBTQplus_hotelssub=2 Then aa$ = "LGBTQ+ resorts" & " " & sd & "2 homoi
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.LGBTQplus_meeting_placessub=0 Then da$ = " "
@@ -231,7 +231,7 @@ If quick.LGBTQplus_meeting_placessub=23 Then da$ = "Women's community centers" &
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.LGBTQplus_theatersub=0 Then ea$ = " "
@@ -249,7 +249,7 @@ If quick.LGBTQplus_theatersub=11 Then ea$ = "Transgender theater" & " " & sd & "
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.LGBTQplus_tourismsub=0 Then fa$ = " "
@@ -260,7 +260,7 @@ If quick.LGBTQplus_tourismsub=3 Then fa$ = "Sex tourism" & " " & sd & "2 homoit"
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.LGBTQ_focused_businessessub=0 Then ga$ = " "
@@ -273,7 +273,7 @@ If quick.LGBTQ_focused_businessessub=6 Then ga$ = "Transgender-focused businesse
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.LGBTQ_owned_businessessub=0 Then ha$ = " "
@@ -286,7 +286,7 @@ If quick.LGBTQ_owned_businessessub=6 Then ha$ = "Transgender-owned businesses" &
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.Public_facilitiessub=0 Then ia$ = " "
@@ -299,7 +299,7 @@ If quick.Public_facilitiessub=6 Then ia$ = "Public showers" & " " & sd & "2 homo
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.Sex_locationssub=0 Then ja$ = " "
@@ -314,7 +314,7 @@ If quick.Sex_locationssub=8 Then ja$ = "Glory holes" & " " & sd & "2 homoit" & "
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 
@@ -344,7 +344,7 @@ If quick.LGBTQ_cultural_heritagesub=22 Then ka$ = "LGBTQ+ special collections" &
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.Miscellanious_locationsub=0 Then la$ = " "
@@ -358,7 +358,7 @@ If quick.Miscellanious_locationsub=7 Then la$ = "Schools for LGBTQ+ youth" & " "
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$ 
+CS.AddField 1, "650 7" & la$ 
 end if
 
 Cancelled:   

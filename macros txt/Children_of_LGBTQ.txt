@@ -77,7 +77,7 @@ If quick.Children_of_LGBTQsub=20 Then aa$ = "Sons of transgender people" & " " &
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

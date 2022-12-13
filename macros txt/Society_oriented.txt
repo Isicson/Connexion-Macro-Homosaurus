@@ -202,7 +202,7 @@ If quick.Bullyingsub=2 Then aa$ = "Cyberbullying" & " " & sd & "2 homoit" & " " 
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Censorshipsub=0 Then ba$ = " "
@@ -214,7 +214,7 @@ If quick.Censorshipsub=5 Then ba$ = "LGBTQ+ film censorship" & " " & sd & "2 hom
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.Harassmentsub=0 Then ca$ = " "
@@ -226,7 +226,7 @@ If quick.Harassmentsub=5 Then ca$ = "Sexual harrassement" & " " & sd & "2 homoit
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.Human_rightssub=0 Then da$ = " "
@@ -241,7 +241,7 @@ If quick.Human_rightssub=8 Then da$ = "Transgender rights" & " " & sd & "2 homoi
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.Lesbian_separatismsub=0 Then ea$ = " "
@@ -251,7 +251,7 @@ If quick.Lesbian_separatismsub=3 Then ea$ = "Lesbian nation" & " " & sd & "2 hom
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.LGBTQplus_activismsub=0 Then fa$ = " "
@@ -275,7 +275,7 @@ If quick.LGBTQplus_activismsub=17 Then fa$ = "Transgender activism" & " " & sd &
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.LGBTQplus_discriminationsub=0 Then ga$ = " "
@@ -292,7 +292,7 @@ If quick.LGBTQplus_discriminationsub=10 Then ga$ = "Anti-Two-Spirit discriminati
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.LGBTQplus_persecutionssub=0 Then ha$ = " "
@@ -307,7 +307,7 @@ If quick.LGBTQplus_persecutionssub=8 Then ha$ = "Police raids" & " " & sd & "2 h
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.LGBTQplus_phobiasub=0 Then ia$ = " "
@@ -322,7 +322,7 @@ If quick.LGBTQplus_phobiasub=8 Then ia$ = "Transphobia" & " " & sd & "2 homoit" 
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.Sexual_violencesub=0 Then ja$ = " "
@@ -347,7 +347,7 @@ If quick.Sexual_violencesub=18 Then ja$ = "Sexual assault" & " " & sd & "2 homoi
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 
@@ -386,7 +386,7 @@ If quick.AntiLGBTQ_violencesub=12 Then ab$ = "Intimate partner violence" & " " &
 
 If ab$ = " " then
 else
-CS.AddField 1, "655 7" & ab$
+CS.AddField 1, "650 7" & ab$
 end if
 
 If quick.LGBTQplus_employmentsub=0 Then fb$ = " "
@@ -408,7 +408,7 @@ If quick.LGBTQplus_employmentsub=15 Then fb$ = "Transgender employment" & " " & 
 
 If fb$ = " " then
 else
-CS.AddField 1, "655 7" & fb$
+CS.AddField 1, "650 7" & fb$
 end if
 
 If quick.Miscellanious_civilsub=0 Then la$ = " "
@@ -421,7 +421,7 @@ If quick.Miscellanious_civilsub=6 Then la$ = "Trans inclusion" & " " & sd & "2 h
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 If quick.Misc_Discriminationsub=0 Then ma$ = " "
@@ -444,7 +444,7 @@ If quick.Misc_Discriminationsub=16 Then ma$ = "Transmisogyny" & " " & sd & "2 ho
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.Miscellanious_businesssub=0 Then na$ = " "
@@ -453,7 +453,7 @@ If quick.Miscellanious_businesssub=2 Then na$ = "Pinkwashing" & " " & sd & "2 ho
 
 If na$ = " " then
 else
-CS.AddField 1, "655 7" & na$
+CS.AddField 1, "650 7" & na$
 end if
 
 If quick.OptionGroup1 = 0 then OKbutton

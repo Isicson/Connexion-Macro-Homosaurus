@@ -67,7 +67,7 @@ If quick.Bisexual_peoplesub=11 Then aa$ = "Older bisexual people" & " " & sd & "
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

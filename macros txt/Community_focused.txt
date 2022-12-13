@@ -221,7 +221,7 @@ If quick.Family_memberssub=22 Then aa$ = "Siblings" & " " & sd & "2 homoit" & " 
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Homosocialitysub=0 Then ba$ = " "
@@ -233,7 +233,7 @@ If quick.Homosocialitysub=5 Then ba$ = "Women's friendships" & " " & sd & "2 hom
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.LGBTQplus_awardssub=0 Then ca$ = " "
@@ -242,7 +242,7 @@ If quick.LGBTQplus_awardssub=2 Then ca$ = "LGBTQ+ literary awards" & " " & sd & 
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.LGBTQplus_clubssub=0 Then da$ = " "
@@ -257,7 +257,7 @@ If quick.LGBTQplus_clubssub=8 Then da$ = "Sex clubs" & " " & sd & "2 homoit" & "
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.LGBTQplus_communitiessub=0 Then ea$ = " "
@@ -283,7 +283,7 @@ If quick.LGBTQplus_communitiessub=19 Then ea$ = "Two-Spirit community" & " " & s
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.LGBTQplus_death_dyingsub=0 Then fa$ = " "
@@ -292,7 +292,7 @@ If quick.LGBTQplus_death_dyingsub=2 Then fa$ = "LGBTQ+ suicide" & " " & sd & "2 
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.LGBTQplus_familiessub=0 Then ga$ = " "
@@ -340,7 +340,7 @@ If quick.LGBTQplus_familiessub=41 Then ga$ = "Two-Spirit families" & " " & sd & 
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.LGBTQplus_familyplanningsub=0 Then ha$ = " "
@@ -361,7 +361,7 @@ If quick.LGBTQplus_familyplanningsub=14 Then ha$ = "Second parent adoption" & " 
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.LGBTQplus_memorialssub=0 Then ia$ = " "
@@ -370,7 +370,7 @@ If quick.LGBTQplus_memorialssub=2 Then ia$ = "Transgender Day of Remembrance" & 
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.LGBTQplus_night_lifesub=0 Then ja$ = " "
@@ -381,7 +381,7 @@ If quick.LGBTQplus_night_lifesub=4 Then ja$ = "Glory holes" & " " & sd & "2 homo
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 If quick.LGBTQplus_relationshipssub=0 Then ka$ = " "
@@ -419,7 +419,7 @@ If quick.LGBTQplus_relationshipssub=31 Then ka$ = "Transgender relationships" & 
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.LGBTQplus_riotssub=0 Then la$ = " "
@@ -428,7 +428,7 @@ If quick.LGBTQplus_riotssub=2 Then la$ = "Stonewall riots" & " " & sd & "2 homoi
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 
@@ -461,7 +461,7 @@ If quick.Living_arrangementssub=25 Then ma$ = "Women's marriages" & " " & sd & "
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.Subculturessub=0 Then na$ = " "
@@ -515,7 +515,7 @@ If quick.Subculturessub=47 Then na$ = "Rubberwomen" & " " & sd & "2 homoit" & " 
 
 If na$ = " " then
 else
-CS.AddField 1, "655 7" & na$
+CS.AddField 1, "650 7" & na$
 end if
 
 If quick.Miscellanious_culturesub=0 Then oa$ = " "
@@ -525,7 +525,7 @@ If quick.Miscellanious_culturesub=3 Then oa$ = "LGBTQ+ older people's organisati
 
 If oa$ = " " then
 else
-CS.AddField 1, "655 7" & oa$
+CS.AddField 1, "650 7" & oa$
 end if
 
 If quick.Miscellanious_familysub=0 Then pa$ = " "
@@ -538,7 +538,7 @@ If quick.Miscellanious_familysub=6 Then pa$ = "Social parenthood" & " " & sd & "
 
 If pa$ = " " then
 else
-CS.AddField 1, "655 7" & pa$
+CS.AddField 1, "650 7" & pa$
 end if
 
 Cancelled:   

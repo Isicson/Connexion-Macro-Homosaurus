@@ -64,7 +64,7 @@ If quick.LGBTQplus_athletessub=8 Then aa$ = "Two-Spirit athletes" & " " & sd & "
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

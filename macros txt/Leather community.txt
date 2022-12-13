@@ -83,7 +83,7 @@ If quick.Leather_communitysub=25 Then aa$ = "Pups (Gay culture)" & " " & sd & "2
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

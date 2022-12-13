@@ -69,7 +69,7 @@ If quick.Bottom_surgerysub=10 Then aa$ = "Vaginectomy" & " " & sd & "2 homoit" &
 If quick.Bottom_surgerysub=11 Then aa$ = "Vaginoplasty" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001851"
 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

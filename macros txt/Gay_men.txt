@@ -75,7 +75,7 @@ If quick.Gay_mensub=17 Then aa$ = "Wolves (Gay culture)" & " " & sd & "2 homoit"
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

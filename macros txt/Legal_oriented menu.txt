@@ -98,7 +98,7 @@ If quick.Lawsub=18 Then aa$ = "Queer victims' rights" & " " & sd & "2 homoit" & 
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Legal_statussub=0 Then ba$ = " "
@@ -133,7 +133,7 @@ If quick.Legal_statussub=27 Then ba$ = "Partner rights" & " " & sd & "2 homoit" 
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 
@@ -143,7 +143,7 @@ If quick.Miscellanious_legalsub=1 Then ca$ = "Police" & " " & sd & "2 homoit" & 
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$
+CS.AddField 1, "650 7" & ca$
 end if
 
 

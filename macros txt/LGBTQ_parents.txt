@@ -107,7 +107,7 @@ If quick.LGBTQ_parentssub=44 Then aa$ = "Transgender parents" & " " & sd & "2 ho
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

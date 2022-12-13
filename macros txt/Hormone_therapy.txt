@@ -62,7 +62,7 @@ If quick.Hormone_therapysub=4 Then aa$ = "Puberty blockers" & " " & sd & "2 homo
 If quick.Hormone_therapysub=5 Then aa$ = "Testosterone" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001362"
 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

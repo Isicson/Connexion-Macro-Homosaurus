@@ -192,7 +192,7 @@ If quick.Body_adornmentsub=3 Then aa$ = "Tattoos" & " " & sd & "2 homoit" & " " 
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Clothingsub=0 Then ba$ = " "
@@ -202,7 +202,7 @@ If quick.Clothingsub=3 Then ba$ = "Lingerie" & " " & sd & "2 homoit" & " " & sd 
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.LGBTQplus_eventssub=0 Then ca$ = " "
@@ -221,7 +221,7 @@ If quick.LGBTQplus_eventssub=12 Then ca$ = "Women's music festivals" & " " & sd 
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.LGBTQplus_slangsub=0 Then da$ = " "
@@ -240,7 +240,7 @@ If quick.LGBTQplus_slangsub=12 Then da$ = "Transgender slang" & " " & sd & "2 ho
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.LGBTQplus_symbolssub=0 Then ea$ = " "
@@ -256,7 +256,7 @@ If quick.LGBTQplus_symbolssub=9 Then ea$ = "Red ribbons (AIDS)" & " " & sd & "2 
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 
@@ -271,7 +271,7 @@ If quick.Feminismsub=7 Then ga$ = "Second wave feminism" & " " & sd & "2 homoit"
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.Feministssub=0 Then ha$ = " "
@@ -280,7 +280,7 @@ If quick.Feministssub=2 Then ha$ = "Suffragettes" & " " & sd & "2 homoit" & " " 
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.LGBTQ_social_processessub=0 Then ia$ = " "
@@ -295,7 +295,7 @@ If quick.LGBTQ_social_processessub=8 Then ia$ = "LGBTQ+ visibility" & " " & sd &
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.Social_normssub=0 Then ja$ = " "
@@ -308,7 +308,7 @@ If quick.Social_normssub=6 Then ja$ = "Mononormativity" & " " & sd & "2 homoit" 
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 If quick.Theoriessub=0 Then ka$ = " "
@@ -325,7 +325,7 @@ If quick.Theoriessub=10 Then ka$ = "Social constructionism" & " " & sd & "2 homo
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.LGBTQplus_emotionssub=0 Then la$ = " "
@@ -338,7 +338,7 @@ If quick.LGBTQplus_emotionssub=6 Then la$ = "LGBTQ+ unrequited love" & " " & sd 
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 If quick.Romantic_orientationsub=0 Then ma$ = " "
@@ -354,7 +354,7 @@ If quick.Romantic_orientationsub=9 Then ma$ = "Greyromanticism" & " " & sd & "2 
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.Miscellanious_culturesub=0 Then na$ = " "
@@ -373,7 +373,7 @@ If quick.Miscellanious_culturesub=12 Then na$ = "Voguing" & " " & sd & "2 homoit
 
 If na$ = " " then 
 else
-CS.AddField 1, "655 7" & na$ 
+CS.AddField 1, "650 7" & na$ 
 end if
 
 If quick.Miscellanious_relatsub=0 Then oa$ = " "
@@ -390,7 +390,7 @@ If quick.Miscellanious_relatsub=10 Then oa$ = "t4t" & " " & sd & "2 homoit" & " 
 
 If oa$ = " " then 
 else
-CS.AddField 1, "655 7" & oa$ 
+CS.AddField 1, "650 7" & oa$ 
 end if
 
 If quick.Miscellanious_theorysub=0 Then pa$ = " "
@@ -403,7 +403,7 @@ If quick.Miscellanious_theorysub=6 Then pa$ = "Transmisogynoir" & " " & sd & "2 
 
 If pa$ = " " then 
 else
-CS.AddField 1, "655 7" & pa$ 
+CS.AddField 1, "650 7" & pa$ 
 end if
 
 If quick.Misc_societysub=0 Then qa$ = " "
@@ -416,7 +416,7 @@ If quick.Misc_societysub=6 Then qa$ = "Recreational drug use" & " " & sd & "2 ho
 
 If qa$ = " " then 
 else
-CS.AddField 1, "655 7" & qa$ 
+CS.AddField 1, "650 7" & qa$ 
 end if
 
 Cancelled:   

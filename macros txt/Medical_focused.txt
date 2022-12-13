@@ -205,7 +205,7 @@ If quick.Breast_sizesub=3 Then aa$ = "Small breasts" & " " & sd & "2 homoit" & "
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Castrationsub=0 Then ba$ = " "
@@ -216,7 +216,7 @@ If quick.Castrationsub=4 Then ba$ = "Penectomy" & " " & sd & "2 homoit" & " " & 
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.Donorssub=0 Then ca$ = " "
@@ -227,7 +227,7 @@ If quick.Donorssub=4 Then ca$ = "Sperm donors" & " " & sd & "2 homoit" & " " & s
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.Female_genitalmutilationsub=0 Then da$ = " "
@@ -236,7 +236,7 @@ If quick.Female_genitalmutilationsub=2 Then da$ = "Clitoridectomy" & " " & sd & 
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.Health_care_LGBTQ_peoplesub=0 Then ea$ = " "
@@ -251,7 +251,7 @@ If quick.Health_care_LGBTQ_peoplesub=8 Then ea$ = "Terminal care (AIDS)" & " " &
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.Hypersexualitysub=0 Then fa$ = " "
@@ -261,7 +261,7 @@ If quick.Hypersexualitysub=3 Then fa$ = "Orgasm" & " " & sd & "2 homoit" & " " &
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.Intersex_genitalmutilatsub=0 Then ga$ = " "
@@ -270,7 +270,7 @@ If quick.Intersex_genitalmutilatsub=2 Then ga$ = "Clitoridectomy" & " " & sd & "
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 If quick.Medical_caresub=0 Then ha$ = " "
@@ -314,7 +314,7 @@ If quick.Medical_caresub=37 Then ha$ = "Voice therapy (Gender)" & " " & sd & "2 
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.Mental_disorderssub=0 Then ia$ = " "
@@ -323,7 +323,7 @@ If quick.Mental_disorderssub=2 Then ia$ = "Ego-dystonic sexual orientation" & " 
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.Risk_behaviorsssub=0 Then ja$ = " "
@@ -332,7 +332,7 @@ If quick.Risk_behaviorsssub=2 Then ja$ = "Barebacking" & " " & sd & "2 homoit" &
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 If quick.Sexual_addictionsub=0 Then ka$ = " "
@@ -341,7 +341,7 @@ If quick.Sexual_addictionsub=2 Then aa$ = "Internet sex addiction" & " " & sd & 
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.Sexual_dysfunctionsub=0 Then la$ = " "
@@ -351,7 +351,7 @@ If quick.Sexual_dysfunctionsub=3 Then la$ = "Vaginismus" & " " & sd & "2 homoit"
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 
@@ -363,7 +363,7 @@ If quick.STDssub=4 Then ma$ = "GRID (Gay-Related Immune Deficiency)" & " " & sd 
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.Substance_abusesub=0 Then na$ = " "
@@ -374,7 +374,7 @@ If quick.Substance_abusesub=4 Then na$ = "Crystal meth addiction" & " " & sd & "
 
 If na$ = " " then
 else
-CS.AddField 1, "655 7" & na$
+CS.AddField 1, "650 7" & na$
 end if
 
 If quick.Transitioning_Gendersub=0 Then oa$ = " "
@@ -390,7 +390,7 @@ If quick.Transitioning_Gendersub=9 Then oa$ = "Pre-operative" & " " & sd & "2 ho
 
 If oa$ = " " then
 else
-CS.AddField 1, "655 7" & oa$
+CS.AddField 1, "650 7" & oa$
 end if
 
 If quick.Miscellanious_Medicalsub=0 Then pa$ = " "
@@ -424,7 +424,7 @@ If quick.Miscellanious_Medicalsub=27 Then pa$ = "Vaginal dilation" & " " & sd & 
 
 If pa$ = " " then
 else
-CS.AddField 1, "655 7" & pa$
+CS.AddField 1, "650 7" & pa$
 end if
 
 If quick.LGBTQplus_emotionssub=0 Then qa$ = " "
@@ -437,12 +437,12 @@ If quick.LGBTQplus_emotionssub=6 Then qa$ = "LGBTQ+ unrequited love" & " " & sd 
 
 If qa$ = " " then
 else
-CS.AddField 1, "655 7" & qa$
+CS.AddField 1, "650 7" & qa$
 end if
 
 If quick.Miscellanious_behaviorsub=0 Then ra$ = " "
 If quick.Miscellanious_behaviorsub=1 Then ra$ = "Compersion" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001649"
-If quick.Miscellanious_behaviorsub=2 Then ra$ = "Honeymooning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001655"
+If quick.Miscellanious_behaviorsub=2 Then ra$ = "Honeymooning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001650"
 If quick.Miscellanious_behaviorsub=3 Then ra$ = "Jealousy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000679"
 If quick.Miscellanious_behaviorsub=4 Then ra$ = "Latent homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000699"
 If quick.Miscellanious_behaviorsub=5 Then ra$ = "LGBTQ+ self-repression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000936"
@@ -452,7 +452,7 @@ If quick.Miscellanious_behaviorsub=7 Then ra$ = "Situational sexual behaviour" &
 
 If ra$ = " " then
 else
-CS.AddField 1, "655 7" & ra$
+CS.AddField 1, "650 7" & ra$
 end if
 
 Cancelled:   

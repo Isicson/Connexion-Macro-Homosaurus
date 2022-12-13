@@ -161,7 +161,7 @@ If quick.Sex_Actsub=44 Then fa$ = "Phallic sex" & " " & sd & "2 homoit" & " " & 
 
 If fa$ = " " then
 else
-CS.AddField 1, "655 7" & fa$
+CS.AddField 1, "650 7" & fa$
 end if
 
 If quick.Sex_accessoriessub=0 Then ha$ = " "
@@ -198,7 +198,7 @@ If quick.Sex_accessoriessub=30 Then ha$ = "Whips" & " " & sd & "2 homoit" & " " 
 
 If ha$ = " " then
 else
-CS.AddField 1, "655 7" & ha$
+CS.AddField 1, "650 7" & ha$
 end if
 
 If quick.Sexual_practicessub=0 Then ka$ = " "
@@ -255,7 +255,7 @@ If quick.Sexual_practicessub=50 Then ka$ = "Water sports (Sex)" & " " & sd & "2 
 
 If ka$ = " " then
 else
-CS.AddField 1, "655 7" & ka$
+CS.AddField 1, "650 7" & ka$
 end if
 
 If quick.Sex_worksub=0 Then aa$ = " "
@@ -269,7 +269,7 @@ If quick.Sex_worksub=7 Then aa$ = "Male prostitution" & " " & sd & "2 homoit" & 
 If quick.Sex_worksub=8 Then aa$ = "Transgender prostitution" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001438"
 If aa$ = " " then
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Miscellanious_sexsub=0 Then ba$ = " "
@@ -291,7 +291,7 @@ If quick.Miscellanious_sexsub=15 Then ba$ = "Sexual climax" & " " & sd & "2 homo
 If quick.Miscellanious_sexsub=16 Then ba$ = "Solo sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001328"
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$ 
+CS.AddField 1, "650 7" & ba$ 
 end if
 
 Cancelled:   

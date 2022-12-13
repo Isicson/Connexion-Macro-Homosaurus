@@ -163,7 +163,7 @@ If quick.Non_Euro_American_gendersub=89 Then aa$ = "Zenani" & " " & sd & "2 homo
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

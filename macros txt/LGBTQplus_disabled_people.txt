@@ -91,7 +91,7 @@ If quick.LGBTQplus_disabled_peoplesub=30 Then aa$ = "Transgender wheelchair user
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

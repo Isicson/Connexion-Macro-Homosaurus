@@ -59,7 +59,7 @@ If quick.Girlssub=5 Then aa$ = "Tomboys" & " " & sd & "2 homoit" & " " & sd & "0
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

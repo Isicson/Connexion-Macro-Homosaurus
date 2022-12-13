@@ -291,7 +291,7 @@ If quick.LGBTQ_peoplesub=68 then CS.RunMacro "Homosaurus_subjects.mbk!Women_who_
 
 If pn$ = " " then 
 else
-CS.AddField 1, "655 7" & pn$ 
+CS.AddField 1, "650 7" & pn$ 
 end if
 
 If quick.LGBTQ_religious_peoplesub=0 Then ln$ = " "
@@ -309,7 +309,7 @@ If quick.LGBTQ_religious_peoplesub=11 Then ln$ = "LGBTQ+ Taoists" & " " & sd & "
 
 If ln$ = " " then
 else
-CS.AddField 1, "655 7" & ln$
+CS.AddField 1, "650 7" & ln$
 end if
 
 If quick.Sexual_minoritiessub=0 Then fn$ = " "
@@ -328,7 +328,7 @@ If quick.Sexual_minoritiessub=12 Then fn$ = "Two-Spirit people" & " " & sd & "2 
 
 If fn$ = " " then
 else
-CS.AddField 1, "655 7" & fn$ 
+CS.AddField 1, "650 7" & fn$ 
 end if
 
 If quick.LGBTQ_sex_workerssub=0 Then dn$ = " "
@@ -347,7 +347,7 @@ If quick.LGBTQ_sex_workerssub=12 Then dn$ = "Transgender prostitutes" & " " & sd
 
 If dn$ = " " then
 else
-CS.AddField 1, "655 7" & dn$
+CS.AddField 1, "650 7" & dn$
 end if
 
 If quick.Pronounssub=0 Then an$ = " "
@@ -399,7 +399,7 @@ If quick.Pronounssub=45 Then an$ = "Zme/Zmyr/Zmyrself (Pronouns)" & " " & sd & "
 
 If an$ = " " then
 else
-CS.AddField 1, "655 7" & an$
+CS.AddField 1, "650 7" & an$
 end if
 
 If quick.gender_minoritiessub=0 Then bn$ = " "
@@ -418,7 +418,7 @@ If quick.gender_minoritiessub=12 Then bn$ = "Trigender people" & " " & sd & "2 h
 
 If bn$ = " " then
 else
-CS.AddField 1, "655 7" & bn$
+CS.AddField 1, "650 7" & bn$
 end if
 
 If quick.LGBTQ_parenthoodsub=0 Then sn$ = " "
@@ -435,7 +435,7 @@ If quick.LGBTQ_parenthoodsub=10 Then sn$ = "LGBTQ+ social parenthood" & " " & sd
 
 If sn$ = " " then
 else
-CS.AddField 1, "655 7" & sn$
+CS.AddField 1, "650 7" & sn$
 end if
 
 If quick.LGBTQ_authorssub=0 Then mn$ = " "
@@ -452,7 +452,7 @@ If quick.LGBTQ_authorssub=10 Then mn$ = "Two-Spirit authors" & " " & sd & "2 hom
 
 If mn$ = " " then
 else
-CS.AddField 1, "655 7" & mn$
+CS.AddField 1, "650 7" & mn$
 end if
 
 If quick.romantic_minoritiessub=0 Then cn$ = " "
@@ -466,7 +466,7 @@ If quick.Romantic_minoritiessub=7 Then cn$ = "Romantic minorities" & " " & sd & 
 
 If cn$ = " " then
 else
-CS.AddField 1, "655 7" & cn$ 
+CS.AddField 1, "650 7" & cn$ 
 end if
 
 If quick.LGBTQ_clergysub=0 Then hn$ = " "
@@ -479,7 +479,7 @@ If quick.LGBTQ_clergysub=6 Then hn$ = "Transgender clergy" & " " & sd & "2 homoi
 
 If hn$ = " " then
 else
-CS.AddField 1, "655 7" & hn$
+CS.AddField 1, "650 7" & hn$
 end if
 
 If quick.Youthsub=0 Then tn$ = " "
@@ -490,7 +490,7 @@ If quick.Youthsub=4 Then tn$ = "Youth" & " " & sd & "2 homoit" & " " & sd & "0 h
 
 If tn$ = " " then
 else
-CS.AddField 1, "655 7" & tn$ 
+CS.AddField 1, "650 7" & tn$ 
 end if
 
 If quick.Alloromantic_peoplesub=0 Then rn$ = " "
@@ -502,7 +502,7 @@ If quick.Alloromantic_peoplesub=5 Then rn$ = "Panromantic people" & " " & sd & "
 
 If rn$ = " " then
 else
-CS.AddField 1, "655 7" & rn$ 
+CS.AddField 1, "650 7" & rn$ 
 end if
 
 If quick.Heterosexualssub=0 Then en$ = " "
@@ -514,7 +514,7 @@ If quick.Heterosexualssub=5 Then en$ = "Heterosexuals" & " " & sd & "2 homoit" &
 
 If en$ = " " then
 else 
-CS.AddField 1, "655 7" & en$ 
+CS.AddField 1, "650 7" & en$ 
 end if
 
 If quick.Gendersub=0 Then im$ = " "
@@ -526,7 +526,7 @@ If quick.Gendersub=4 Then im$ = "Gender identity" & " " & sd & "2 homoit" & " " 
 
 If im$ = " " then
 else 
-CS.AddField 1, "655 7" & im$ 
+CS.AddField 1, "650 7" & im$ 
 end if
 
 If quick.Intersex_peoplesub=0 Then jn$ = " "
@@ -537,7 +537,7 @@ If quick.Intersex_peoplesub=4 Then jn$ = "Intersex youth" & " " & sd & "2 homoit
 
 If jn$ = " " then
 else 
-CS.AddField 1, "655 7" & jn$ 
+CS.AddField 1, "650 7" & jn$ 
 end if
 
 If quick.Relationship_minoritiessub=0 Then kn$ = " "
@@ -549,7 +549,7 @@ If quick.Relationship_minoritiessub=4 Then kn$ = "Relationship minorities" & " "
 
 If kn$ = " " then
 else 
-CS.AddField 1, "655 7" & kn$ 
+CS.AddField 1, "650 7" & kn$ 
 end if
 
 If quick.Cisgender_peoplesub=0 Then nn$ = " "
@@ -559,7 +559,7 @@ If quick.Cisgender_peoplesub=3 Then nn$ = "Cisgender women" & " " & sd & "2 homo
 
 If nn$ = " " then
 else 
-CS.AddField 1, "655 7" & nn$ 
+CS.AddField 1, "650 7" & nn$ 
 end if
 
 If quick.Femalessub=0 Then om$ = " "
@@ -569,7 +569,7 @@ If quick.Femalessub=3 Then om$ = "Trans women" & " " & sd & "2 homoit" & " " & s
 
 If om$ = " " then
 else 
-CS.AddField 1, "655 7" & om$ 
+CS.AddField 1, "650 7" & om$ 
 end if
 
 If quick.Malessub=0 Then qn$ = " "
@@ -580,7 +580,7 @@ If quick.Malessub=3 Then qn$ = "Trans men" & " " & sd & "2 homoit" & " " & sd & 
 
 If qn$ = " " then
 else 
-CS.AddField 1, "655 7" & qn$ 
+CS.AddField 1, "650 7" & qn$ 
 end if
 
 If quick.Role_behavioursub=0 Then un$ = " "
@@ -590,7 +590,7 @@ If quick.Role_behavioursub=3 Then un$ = "Sexual roles" & " " & sd & "2 homoit" &
 
 If un$ = " " then
 else 
-CS.AddField 1, "655 7" & un$ 
+CS.AddField 1, "650 7" & un$ 
 end if
 
 Cancelled:   

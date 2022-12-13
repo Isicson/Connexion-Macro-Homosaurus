@@ -102,7 +102,7 @@ If quick.LGBTQplus_victims_crimesub=39 Then aa$ = "Transgender victims of sexual
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 Cancelled:   

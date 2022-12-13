@@ -158,7 +158,7 @@ If quick.Consentsub=2 Then aa$ = "Age of consent" & " " & sd & "2 homoit" & " " 
 
 If aa$ = " " then 
 else
-CS.AddField 1, "655 7" & aa$ 
+CS.AddField 1, "650 7" & aa$ 
 end if
 
 If quick.Erogenous_body_partssub=0 Then ba$ = " "
@@ -177,7 +177,7 @@ If quick.Erogenous_body_partssub=12 Then ba$ = "Neovagina" & " " & sd & "2 homoi
 
 If ba$ = " " then
 else
-CS.AddField 1, "655 7" & ba$
+CS.AddField 1, "650 7" & ba$
 end if
 
 If quick.Eroticismsub=0 Then ca$ = " "
@@ -186,7 +186,7 @@ If quick.Eroticismsub=2 Then ca$ = "Homoeroticism" & " " & sd & "2 homoit" & " "
 
 If ca$ = " " then
 else
-CS.AddField 1, "655 7" & ca$ 
+CS.AddField 1, "650 7" & ca$ 
 end if
 
 If quick.Massagesub=0 Then da$ = " "
@@ -195,7 +195,7 @@ If quick.Massagesub=2 Then da$ = "Erotic massage" & " " & sd & "2 homoit" & " " 
 
 If da$ = " " then
 else
-CS.AddField 1, "655 7" & da$
+CS.AddField 1, "650 7" & da$
 end if
 
 If quick.Physical_affectionsub=0 Then ea$ = " "
@@ -204,7 +204,7 @@ If quick.Physical_affectionsub=2 Then ea$ = "Kissing" & " " & sd & "2 homoit" & 
 
 If ea$ = " " then
 else
-CS.AddField 1, "655 7" & ea$
+CS.AddField 1, "650 7" & ea$
 end if
 
 If quick.Sex_Bodysub=0 Then ga$ = " "
@@ -253,7 +253,7 @@ If quick.Sex_Bodysub=42 Then ga$ = "Stature" & " " & sd & "2 homoit" & " " & sd 
 
 If ga$ = " " then
 else
-CS.AddField 1, "655 7" & ga$
+CS.AddField 1, "650 7" & ga$
 end if
 
 
@@ -268,7 +268,7 @@ If quick.Sex_industrysub=7 Then ia$ = "Sex tourism" & " " & sd & "2 homoit" & " 
 
 If ia$ = " " then
 else
-CS.AddField 1, "655 7" & ia$ 
+CS.AddField 1, "650 7" & ia$ 
 end if
 
 If quick.Sexual_orientationsub=0 Then ja$ = " "
@@ -294,7 +294,7 @@ If quick.Sexual_orientationsub=19 Then ja$ = "Sexual function" & " " & sd & "2 h
 
 If ja$ = " " then
 else
-CS.AddField 1, "655 7" & ja$
+CS.AddField 1, "650 7" & ja$
 end if
 
 
@@ -346,7 +346,7 @@ If quick.Sexual_preferencesub=53 Then la$ = "Voyeurism" & " " & sd & "2 homoit" 
 
 If la$ = " " then
 else
-CS.AddField 1, "655 7" & la$
+CS.AddField 1, "650 7" & la$
 end if
 
 If quick.Sexualityssub=0 Then ma$ = " "
@@ -356,7 +356,7 @@ If quick.Sexualityssub=3 Then ma$ = "Organisations for sexual research and sexua
 
 If ma$ = " " then
 else
-CS.AddField 1, "655 7" & ma$
+CS.AddField 1, "650 7" & ma$
 end if
 
 If quick.OptionGroup1 = 0 then OKbutton
