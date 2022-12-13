@@ -2,7 +2,7 @@
 
 Macro for the OCLC Connexion client written by Wendy Isicson, University of North Carolina at Chapel Hill for adding MARC formatted 650_7 Homosaurus terms to bibliographic records.
 
-These macros were written and tested using Connexion client version 3.1.8196.28365 on a PC running Windows 10.  Other systems have not been tested for compatibility. 
+These macros were written and tested using Connexion client version 3.1.8196.28365 on a PC running Windows 10.  Other configurations have not been tested for compatibility. 
 
 The macrobook file is: Homosaurus_subjects.mbk. For installation help read the docx file.  
 
