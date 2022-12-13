@@ -1,0 +1,83 @@
+'MacroName:Intersex_conditions
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Intersex_conditions$
+Intersex_conditions$=" "+nd+ "Intersex conditions"+nd+"5-alpha reductase deficiency"+nd+"Androgen insensitivity syndrome"+nd+"Aphallia"+nd+"Clitoromegaly" _
++nd+"Congenital adrenal hyperplasia"+nd+"Gonadal dysgenesis"+nd+"Hypospadias"+nd+"Klinefelter syndrome"+nd+"Micropenis" _
++nd+"Mosaicism involving sex chromosomes"+nd+"Ovo-testes"+nd+"Partial androgen insensitivity syndrome"+nd+"Progestin induced virilization"+nd+"Swyer syndrome" _
++nd+"Turner syndrome"   
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 200, 100, "Intersex conditions and Narrower Terms"
+
+Text 14,7,150,14, "Intersex conditions"
+   DropListBox 14, 20, 150, 135, Intersex_conditions$, .Intersex_conditionssub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Intersex_conditionssub=0 Then aa$ = " "
+
+
+If aa$ = " " then 
+If quick.Intersex_conditionssub=1 Then aa$ = "Intersex conditions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000669"
+If quick.Intersex_conditionssub=2 Then aa$ = "5-alpha reductase deficiency" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000001"
+If quick.Intersex_conditionssub=3 Then aa$ = "Androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000044"
+If quick.Intersex_conditionssub=4 Then aa$ = "Aphallia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000064"
+If quick.Intersex_conditionssub=5 Then aa$ = "Clitoromegaly" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000283"
+If quick.Intersex_conditionssub=6 Then aa$ = "Congenital adrenal hyperplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000301"
+If quick.Intersex_conditionssub=7 Then aa$ = "Gonadal dysgenesis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000599"
+If quick.Intersex_conditionssub=8 Then aa$ = "Hypospadias" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000657"
+If quick.Intersex_conditionssub=9 Then aa$ = "Klinefelter syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000692"
+If quick.Intersex_conditionssub=10 Then aa$ = "Micropenis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001014"
+If quick.Intersex_conditionssub=11 Then aa$ = "Mosaicism involving sex chromosomes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001020"
+If quick.Intersex_conditionssub=12 Then aa$ = "Ovo-testes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001066"
+If quick.Intersex_conditionssub=13 Then aa$ = "Partial androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001079"
+If quick.Intersex_conditionssub=14 Then aa$ = "Progestin induced virilization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001134"
+If quick.Intersex_conditionssub=15 Then aa$ = "Swyer syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001354"
+If quick.Intersex_conditionssub=16 Then aa$ = "Turner syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001478"
+
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,70 @@
+'MacroName:LGBTQplus_chronic_ill
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_chronic_ill$
+LGBTQplus_chronic_ill$=" "+nd+ "Bisexual people with chronic illnesses"+nd+"Gay men with chronic illnesses"+nd+"Lesbians with chronic illnesses"+nd+"LGBTQ+ people with chronic illnesses"+nd+"Queer people with chronic illnesses" _
++nd+"Transgender people with chronic illnesses"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "LGBTQ+ people with chronic illnesses and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ people with chronic illnesses"
+   DropListBox 14, 20, 130, 135, LGBTQplus_chronic_ill$, .LGBTQplus_chronic_illsub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_chronic_illsub=0 Then aa$ = " "
+If quick.LGBTQplus_chronic_illsub=1 Then aa$ = "Bisexual people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001882"
+If quick.LGBTQplus_chronic_illsub=2 Then aa$ = "Gay men with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001881"
+If quick.LGBTQplus_chronic_illsub=3 Then aa$ = "Lesbians with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001880"
+If quick.LGBTQplus_chronic_illsub=4 Then aa$ = "LGBTQ+ people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001879"
+If quick.LGBTQplus_chronic_illsub=5 Then aa$ = "Queer people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001884"
+If quick.LGBTQplus_chronic_illsub=6 Then aa$ = "Transgender people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001883"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,109 @@
+'MacroName:Black_LGBTQplus_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Black_LGBTQplus_people$
+Black_LGBTQplus_people$=" "+nd+ "Black_LGBTQplus_people"+nd+"African American LGBTQ+ people"+nd+"  African American bisexual people"+nd+"  African American gay men"+nd+"  African American lesbians" _
++nd+"  African American queer people"+nd+"  African American transgender people"+nd+"  Down-low [slang]"+nd+"Afro-Canadian LGBTQ+ people"+nd+"  Afro-Canadian bisexual people" _
++nd+"  Afro-Canadian gay men"+nd+"  Afro-Canadian lesbians"+nd+"  Afro-Canadian queer people"+nd+"  Afro-Canadian transgender people"+nd+"Afro-Caribbean LGBTQ+ people" _
++nd+"  Afro-Caribbean bisexual people"+nd+"  Afro-Caribbean gay men"+nd+"  Afro-Caribbean queer people"+nd+"  Afro-Caribbean transgender people"+nd+"  Afro-Carribbean lesbians" _
++nd+"Afro-European LGBTQ+ people"+nd+"  Afro-European bisexual people"+nd+"  Afro-European gay men"+nd+"  Afro-European lesbians"+nd+"  Afro-European queer people" _
++nd+"  Afro-European transgender people"+nd+"Afro-Latin American LGBTQ+ people"+nd+"  Afro-Latin American bisexual people"+nd+"  Afro-Latin American gay men"+nd+"  Afro-Latin American lesbians" _
++nd+"  Afro-Latin American queer people"+nd+"  Afro-Latin American transgender people"+nd+"Black bisexual people"+nd+"Black gay men"+nd+"Black lesbians" _
++nd+"Black queer people"+nd+"Black transgender people"+nd+"Blaqueer people"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 175, 400, "Black LGBTQ+ people and Narrower Terms"
+
+Text 14,7,100,14, "Black LGBTQ+ people"
+   DropListBox 14, 20, 150, 350, Black_LGBTQplus_people$, .Black_LGBTQplus_peoplesub
+  
+Button 35,360,40,20, "I'm done",    .fin
+CancelButton 85,360,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Black_LGBTQplus_peoplesub=0 Then aa$ = " "
+If quick.Black_LGBTQplus_peoplesub=1 Then aa$ = "Black_LGBTQplus_people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000208"
+If quick.Black_LGBTQplus_peoplesub=2 Then aa$ = "African American LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000015"
+If quick.Black_LGBTQplus_peoplesub=3 Then aa$ = "African American bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000123"
+If quick.Black_LGBTQplus_peoplesub=4 Then aa$ = "African American gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000463"
+If quick.Black_LGBTQplus_peoplesub=5 Then aa$ = "African American lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000714"
+If quick.Black_LGBTQplus_peoplesub=6 Then aa$ = "African American queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001151"
+If quick.Black_LGBTQplus_peoplesub=7 Then aa$ = "African American transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001384"
+If quick.Black_LGBTQplus_peoplesub=8 Then aa$ = "Down-low" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000365"
+If quick.Black_LGBTQplus_peoplesub=9 Then aa$ = "Afro-Canadian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000016"
+If quick.Black_LGBTQplus_peoplesub=10 Then aa$ = "Afro-Canadian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000124"
+If quick.Black_LGBTQplus_peoplesub=11 Then aa$ = "Afro-Canadian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000464"
+If quick.Black_LGBTQplus_peoplesub=12 Then aa$ = "Afro-Canadian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000715"
+If quick.Black_LGBTQplus_peoplesub=13 Then aa$ = "Afro-Canadian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001152"
+If quick.Black_LGBTQplus_peoplesub=14 Then aa$ = "Afro-Canadian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001385"
+If quick.Black_LGBTQplus_peoplesub=15 Then aa$ = "Afro-Caribbean LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000017"
+If quick.Black_LGBTQplus_peoplesub=16 Then aa$ = "Afro-Caribbean bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000125"
+If quick.Black_LGBTQplus_peoplesub=17 Then aa$ = "Afro-Caribbean gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000465"
+If quick.Black_LGBTQplus_peoplesub=18 Then aa$ = "Afro-Caribbean queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001153"
+If quick.Black_LGBTQplus_peoplesub=19 Then aa$ = "Afro-Caribbean transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001386"
+If quick.Black_LGBTQplus_peoplesub=20 Then aa$ = "Afro-Carribbean lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000716"
+If quick.Black_LGBTQplus_peoplesub=21 Then aa$ = "Afro-European LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000018"
+If quick.Black_LGBTQplus_peoplesub=22 Then aa$ = "Afro-European bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000126"
+If quick.Black_LGBTQplus_peoplesub=23 Then aa$ = "Afro-European gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000466"
+If quick.Black_LGBTQplus_peoplesub=24 Then aa$ = "Afro-European lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000717"
+If quick.Black_LGBTQplus_peoplesub=25 Then aa$ = "Afro-European queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001154"
+If quick.Black_LGBTQplus_peoplesub=26 Then aa$ = "Afro-European transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001387"
+If quick.Black_LGBTQplus_peoplesub=27 Then aa$ = "Afro-Latin American LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000019"
+If quick.Black_LGBTQplus_peoplesub=28 Then aa$ = "Afro-Latin American bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000127"
+If quick.Black_LGBTQplus_peoplesub=29 Then aa$ = "Afro-Latin American gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000467"
+If quick.Black_LGBTQplus_peoplesub=30 Then aa$ = "Afro-Latin American lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000718"
+If quick.Black_LGBTQplus_peoplesub=31 Then aa$ = "Afro-Latin American queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001155"
+If quick.Black_LGBTQplus_peoplesub=32 Then aa$ = "Afro-Latin American transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001388"
+If quick.Black_LGBTQplus_peoplesub=33 Then aa$ = "Black bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000135"
+If quick.Black_LGBTQplus_peoplesub=34 Then aa$ = "Black gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000477"
+If quick.Black_LGBTQplus_peoplesub=35 Then aa$ = "Black lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000726"
+If quick.Black_LGBTQplus_peoplesub=36 Then aa$ = "Black queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001163"
+If quick.Black_LGBTQplus_peoplesub=37 Then aa$ = "Black transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001396"
+If quick.Black_LGBTQplus_peoplesub=38 Then aa$ = "Blaqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001782"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

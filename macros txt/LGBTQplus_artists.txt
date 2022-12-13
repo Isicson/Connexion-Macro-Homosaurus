@@ -1,0 +1,69 @@
+'MacroName:LGBTQplus_artists
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_artists$
+LGBTQplus_artists$=" "+nd+ "Bisexual artists"+nd+"Gay artists"+nd+"Lesbian artists"+nd+"LGBTQ+ artists"+nd+"Queer artists" _
++nd+"Transgender artists"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "LGBTQ+ artists and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ artists"
+   DropListBox 14, 20, 130, 135, LGBTQplus_artists$, .LGBTQplus_artistssub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_artistssub=0 Then aa$ = " "
+If quick.LGBTQplus_artistssub=1 Then aa$ = "Bisexual artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000129"
+If quick.LGBTQplus_artistssub=2 Then aa$ = "Gay artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000470"
+If quick.LGBTQplus_artistssub=3 Then aa$ = "Lesbian artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000720"
+If quick.LGBTQplus_artistssub=4 Then aa$ = "LGBTQ+ artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000070"
+If quick.LGBTQplus_artistssub=5 Then aa$ = "Queer artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001157"
+If quick.LGBTQplus_artistssub=6 Then aa$ = "Transgender artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001390"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

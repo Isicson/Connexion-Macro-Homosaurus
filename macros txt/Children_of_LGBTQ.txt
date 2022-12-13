@@ -1,0 +1,85 @@
+'MacroName:Children_of_LGBTQ
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Children_of_LGBTQ$
+Children_of_LGBTQ$=" "+nd+ "Children of LGBTQ+ people"+nd+"Children of aromantic people"+nd+"Children of asexual people"+nd+"Children of bisexual people"+nd+"Children of gay men" _
++nd+"Children of intersex people"+nd+"Children of lesbians"+nd+"Children of queer people"+nd+"Children of transgender people"+nd+"Children of Two-Spirit people" _
++nd+"Daughters of bisexual people"+nd+"Daughters of gay men"+nd+"Daughters of lesbians"+nd+"Daughters of queer people"+nd+"Daughters of transgender people" _
++nd+"Sons of bisexual people"+nd+"Sons of gay men"+nd+"Sons of lesbians"+nd+"Sons of queer people"+nd+"Sons of transgender people" 
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "Children of LGBTQ+ people and Narrower Terms"
+
+Text 14,7,100,14, "Children of LGBTQ+ people"
+   DropListBox 14, 20, 130, 135, Children_of_LGBTQ$, .Children_of_LGBTQsub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Children_of_LGBTQsub=0 Then aa$ = " "
+If quick.Children_of_LGBTQsub=1 Then aa$ = "Children of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000260"
+If quick.Children_of_LGBTQsub=2 Then aa$ = "Children of aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001765"
+If quick.Children_of_LGBTQsub=3 Then aa$ = "Children of asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001766"
+If quick.Children_of_LGBTQsub=4 Then aa$ = "Children of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000257"
+If quick.Children_of_LGBTQsub=5 Then aa$ = "Children of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000258"
+If quick.Children_of_LGBTQsub=6 Then aa$ = "Children of intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001767"
+If quick.Children_of_LGBTQsub=7 Then aa$ = "Children of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000259"
+If quick.Children_of_LGBTQsub=8 Then aa$ = "Children of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000262"
+If quick.Children_of_LGBTQsub=9 Then aa$ = "Children of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000261"
+If quick.Children_of_LGBTQsub=10 Then aa$ = "Children of Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001768"
+If quick.Children_of_LGBTQsub=11 Then aa$ = "Daughters of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000331"
+If quick.Children_of_LGBTQsub=12 Then aa$ = "Daughters of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000332"
+If quick.Children_of_LGBTQsub=13 Then aa$ = "Daughters of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000333"
+If quick.Children_of_LGBTQsub=14 Then aa$ = "Daughters of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000335"
+If quick.Children_of_LGBTQsub=15 Then aa$ = "Daughters of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000334"
+If quick.Children_of_LGBTQsub=16 Then aa$ = "Sons of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001330"
+If quick.Children_of_LGBTQsub=17 Then aa$ = "Sons of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001331"
+If quick.Children_of_LGBTQsub=18 Then aa$ = "Sons of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001332"
+If quick.Children_of_LGBTQsub=19 Then aa$ = "Sons of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001334"
+If quick.Children_of_LGBTQsub=20 Then aa$ = "Sons of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001333"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,71 @@
+'MacroName:MainTable
+'MacroDescription:Connexion macro for adding Homosaurus non-fiction terms.
+'August 26, 2022
+'Created by Wendy Isicson
+'University of North Carolina at Chapel Hill
+
+Sub Main
+
+Dim CS As Object
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+Begin Dialog allnotes 300, 200, "Choose the specific LGBTQ+ subject group you need:"
+   OptionGroup .OptionGroup1
+      Text 20,5,253,10, "Homosaurus Subjects Macro: select a broad catagory to begin"
+      OptionButton  6, 20, 106, 10, "LGBTQ+ Identity focused", .OptionButton1
+      OptionButton  135, 20, 103, 10, "LGBTQ+ Location focused", .OptionButton2
+      OptionButton  6, 40, 103, 10, " LGBTQ+ Media focused", .OptionButton3
+      OptionButton  135, 40, 103, 10, " LGBTQ+ Literature", .OptionButton4
+      OptionButton  6, 60, 103, 10, " Sex (Physical) focused", .OptionButton5
+      OptionButton  135, 60, 103, 10, " Law focused", .OptionButton6
+      OptionButton  6, 80, 103, 10, " Medical/Health focused", .OptionButton7
+      OptionButton  135, 80, 103, 10, " Community/Family focused", .OptionButton8
+      OptionButton  6, 100, 103, 10, " Society focused", .OptionButton9
+
+    OkButton  60, 150, 50, 14
+    CancelButton  130, 150, 50, 14
+   Text  75, 175, 200, 8, "Based on Homosaurus v. 3.2"
+End Dialog
+   Dim Buffy as allnotes
+   On Error Resume Next
+   Dialog Buffy
+   If Err=102 then
+      goto endm
+   End If
+ 
+If Buffy.OptionGroup1 = 0 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities"
+
+elseIf Buffy.OptionGroup1 = 1 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_locations"
+
+elseIf Buffy.OptionGroup1 = 2 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media"
+
+elseIf Buffy.OptionGroup1 = 3 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+
+elseIf Buffy.OptionGroup1 = 4 then
+CS.RunMacro "Homosaurus_subjects.mbk!Sex_oriented"
+
+elseIf Buffy.OptionGroup1 = 5 then
+CS.RunMacro "Homosaurus_subjects.mbk!Legal_oriented"
+
+elseIf Buffy.OptionGroup1 = 6 then
+CS.RunMacro "Homosaurus_subjects.mbk!Medical_focused"
+
+elseIf Buffy.OptionGroup1 = 7 then
+CS.RunMacro "Homosaurus_subjects.mbk!Community_focused"
+
+elseIf Buffy.OptionGroup1 = 8 then
+CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented"
+
+end if
+
+endm:
+End Sub

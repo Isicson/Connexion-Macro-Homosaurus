@@ -1,0 +1,99 @@
+'MacroName:LGBTQplus_disabled_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_disabled_people$
+LGBTQplus_disabled_people$=" "+nd+ "LGBTQ+ disabled people"+nd+"Bisexual disabled people"+nd+"Gay disabled people"+nd+"Lesbian disabled people"+nd+"Queer disabled people" _
++nd+"Transgender disabled people"+nd+"LGBTQ+ blind people"+nd+"  Bisexual blind people"+nd+"  Gay blind people"+nd+"  Lesbian blind people" _
++nd+"  Queer blind people"+nd+"  Transgender blind people"+nd+"LGBTQ+ Deaf people"+nd+"  Bisexual Deaf people"+nd+"  Gay Deaf people" _
++nd+"  Lesbian Deaf people"+nd+"  Queer Deaf people"+nd+"  Transgender Deaf people"+nd+"LGBTQ+ hard of hearing people"+nd+"  Bisexual hard of hearing people" _
++nd+"  Gay hard of hearing people"+nd+"  Lesbian hard of hearing people"+nd+"  Queer hard of hearing people"+nd+"  Transgender hard of hearing people"+nd+"LGBTQ+ wheelchair users" _
++nd+"  Bisexual wheelchair users"+nd+"  Gay wheelchair users"+nd+"  Lesbian wheelchair users"+nd+"  Queer wheelchair users"+nd+"  Transgender wheelchair users"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "LGBTQ+ disabled people and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ disabled people"
+   DropListBox 14, 20, 130, 135, LGBTQplus_disabled_people$, .LGBTQplus_disabled_peoplesub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_disabled_peoplesub=0 Then aa$ = " "
+If quick.LGBTQplus_disabled_peoplesub=1 Then aa$ = "LGBTQ+ disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001854"
+If quick.LGBTQplus_disabled_peoplesub=2 Then aa$ = "Bisexual disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001857"
+If quick.LGBTQplus_disabled_peoplesub=3 Then aa$ = "Gay disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001856"
+If quick.LGBTQplus_disabled_peoplesub=4 Then aa$ = "Lesbian disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001855"
+If quick.LGBTQplus_disabled_peoplesub=5 Then aa$ = "Queer disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001859"
+If quick.LGBTQplus_disabled_peoplesub=6 Then aa$ = "Transgender disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001858"
+If quick.LGBTQplus_disabled_peoplesub=7 Then aa$ = "LGBTQ+ blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000822"
+If quick.LGBTQplus_disabled_peoplesub=8 Then aa$ = "Bisexual blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001874"
+If quick.LGBTQplus_disabled_peoplesub=9 Then aa$ = "Gay blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001873"
+If quick.LGBTQplus_disabled_peoplesub=10 Then aa$ = "Lesbian blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001872"
+If quick.LGBTQplus_disabled_peoplesub=11 Then aa$ = "Queer blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001876"
+If quick.LGBTQplus_disabled_peoplesub=12 Then aa$ = "Transgender blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001875"
+If quick.LGBTQplus_disabled_peoplesub=13 Then aa$ = "LGBTQ+ Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001866"
+If quick.LGBTQplus_disabled_peoplesub=14 Then aa$ = "Bisexual Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001869"
+If quick.LGBTQplus_disabled_peoplesub=15 Then aa$ = "Gay Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001868"
+If quick.LGBTQplus_disabled_peoplesub=16 Then aa$ = "Lesbian Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001867"
+If quick.LGBTQplus_disabled_peoplesub=17 Then aa$ = "Queer Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001871"
+If quick.LGBTQplus_disabled_peoplesub=18 Then aa$ = "Transgender Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001870"
+If quick.LGBTQplus_disabled_peoplesub=19 Then aa$ = "LGBTQ+ hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001860"
+If quick.LGBTQplus_disabled_peoplesub=20 Then aa$ = "Bisexual hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001863"
+If quick.LGBTQplus_disabled_peoplesub=21 Then aa$ = "Gay hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001862"
+If quick.LGBTQplus_disabled_peoplesub=22 Then aa$ = "Lesbian hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001861"
+If quick.LGBTQplus_disabled_peoplesub=23 Then aa$ = "Queer hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001865"
+If quick.LGBTQplus_disabled_peoplesub=24 Then aa$ = "Transgender hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001864"
+If quick.LGBTQplus_disabled_peoplesub=25 Then aa$ = "LGBTQ+ wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001877"
+If quick.LGBTQplus_disabled_peoplesub=26 Then aa$ = "Bisexual wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001888"
+If quick.LGBTQplus_disabled_peoplesub=27 Then aa$ = "Gay wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001887"
+If quick.LGBTQplus_disabled_peoplesub=28 Then aa$ = "Lesbian wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001886"
+If quick.LGBTQplus_disabled_peoplesub=29 Then aa$ = "Queer wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001890"
+If quick.LGBTQplus_disabled_peoplesub=30 Then aa$ = "Transgender wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001889"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

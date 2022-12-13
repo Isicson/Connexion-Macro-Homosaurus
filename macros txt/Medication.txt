@@ -1,0 +1,72 @@
+'MacroName:Medication
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Medication$
+Medication$=" "+nd+ "Medication"+nd+"Erection pills"+nd+"HAART (Highly Active Antiretroviral Therapy)"+nd+"Hormone blockers"+nd+"Passive immune therapy" _
++nd+"PrEP"+nd+"Puberty blockers"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 200, 100, "Medication and Narrower Terms"
+
+Text 14,7,100,14, "Medication"
+   DropListBox 14, 20, 150, 135, Medication$, .Medicationsub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Medicationsub=0 Then aa$ = " "
+
+
+If aa$ = " " then 
+If quick.Medicationsub=1 Then aa$ = "Medication" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001007"
+If quick.Medicationsub=2 Then aa$ = "Erection pills" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000399"
+If quick.Medicationsub=3 Then aa$ = "HAART (Highly Active Antiretroviral Therapy)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001981"
+If quick.Medicationsub=4 Then aa$ = "Hormone blockers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000650"
+If quick.Medicationsub=5 Then aa$ = "Passive immune therapy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001091"
+If quick.Medicationsub=6 Then aa$ = "PrEP" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001130"
+If quick.Medicationsub=7 Then aa$ = "Puberty blockers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001138"
+
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,72 @@
+'MacroName:LGBTQplus_chefs
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_chefs$
+LGBTQplus_chefs$=" "+nd+ "Bisexual chefs"+nd+"Gay chefs"+nd+"Intersex chefs"+nd+"Lesbian chefs"+nd+"LGBTQ+ chefs" _
++nd+"Queer chefs"+nd+"Transgender chefs"+nd+"Two-Spirit chefs"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "LGBTQ+ chefs and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ chefs"
+   DropListBox 14, 20, 130, 135, LGBTQplus_chefs$, .LGBTQplus_chefssub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_chefssub=0 Then aa$ = " "
+If quick.LGBTQplus_chefssub=1 Then aa$ = "Bisexual chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001774"
+If quick.LGBTQplus_chefssub=2 Then aa$ = "Gay chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001773"
+If quick.LGBTQplus_chefssub=3 Then aa$ = "Intersex chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001777"
+If quick.LGBTQplus_chefssub=4 Then aa$ = "Lesbian chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001772"
+If quick.LGBTQplus_chefssub=5 Then aa$ = "LGBTQ+ chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001771"
+If quick.LGBTQplus_chefssub=6 Then aa$ = "Queer chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001776"
+If quick.LGBTQplus_chefssub=7 Then aa$ = "Transgender chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001775"
+If quick.LGBTQplus_chefssub=8 Then aa$ = "Two-Spirit chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001778"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,83 @@
+'MacroName:Gay_men
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Gay_men$
+Gay_men$=" "+nd+ "Baby gay"+nd+"Bears (Gay culture)"+nd+"  Cubs (Gay culture)"+nd+"Clones (Gay culture)"+nd+"Closeted gay men" _
++nd+"Gay men"+nd+"Gay parents"+nd+"Gay youth"+nd+"  Gay boys"+nd+"Macho men"_
+"Older gay men"+nd+"Otters (Gay culture)"+nd+"Pups (Gay culture)"+nd+"Queens (Gay culture)"+nd+"  Drag queens"+nd+"Twinks (Gay culture)"+nd+"Wolves (Gay culture)"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "Gay men and Narrower Terms"
+
+Text 14,7,100,14, "Gay men"
+   DropListBox 14, 20, 130, 135, Gay_men$, .Gay_mensub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Gay_mensub=0 Then aa$ = " "
+If quick.Gay_mensub=1 Then aa$ = "Baby gay" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000089"
+If quick.Gay_mensub=2 Then aa$ = "Bears (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000105"
+If quick.Gay_mensub=3 Then aa$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Gay_mensub=4 Then aa$ = "Clones (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000284"
+If quick.Gay_mensub=5 Then aa$ = "Closeted gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000286"
+If quick.Gay_mensub=6 Then aa$ = "Gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000506"
+If quick.Gay_mensub=7 Then aa$ = "Gay parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000492"
+If quick.Gay_mensub=8 Then aa$ = "Gay youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000544"
+If quick.Gay_mensub=9 Then aa$ = "Gay boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000479"
+If quick.Gay_mensub=10 Then aa$ = "Macho men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000978"
+If quick.Gay_mensub=11 Then aa$ = "Older gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001055"
+If quick.Gay_mensub=12 Then aa$ = "Otters (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001063"
+If quick.Gay_mensub=13 Then aa$ = "Pups (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Gay_mensub=14 Then aa$ = "Queens (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001148"
+If quick.Gay_mensub=15 Then aa$ = "Drag queens" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000375"
+If quick.Gay_mensub=16 Then aa$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
+If quick.Gay_mensub=17 Then aa$ = "Wolves (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001508"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,423 @@
+'MacroName:Society_oriented_part2
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim ka$
+ka$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+dim na$
+na$ = " "
+dim oa$
+oa$ = " "
+dim pa$
+pa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Body_adornment$
+Body_adornment$=" "+nd+ "Body adornment"+nd+"Piercings"
+
+dim Clothing$
+Clothing$=" "+nd+ "Clothing"+nd+"Costumes"+nd+"Lingerie"
+
+dim LGBTQplus_events$
+LGBTQplus_events$=" "+nd+ "LGBTQ+ events"+nd+"Drag balls"+nd+"Dyke marches"+nd+"Gay pride"+nd+"  Europride" _
++nd+"  Gay pride week"+nd+"  Sydney Gay and Lesbian Mardi Gras"+nd+"Halloween"+nd+"Lesbian pride"+nd+"LGBTQ+ sporting events" _
++nd+"Trans marches"+nd+"Women's music festivals"
+
+dim LGBTQplus_slang$
+LGBTQplus_slang$=" "+nd+ "LGBTQ+ slang"+nd+"Bisexual slang"+nd+"Gay slang"+nd+"Lesbian slang"+nd+"Poppers" _
++nd+"Queer slang"+nd+"Reclaimed terms"+nd+"  Crip"+nd+"  Dykes"+nd+"  Faggots" _
++nd+"  Queer people"+nd+"Transgender slang"
+
+dim LGBTQplus_symbols$
+LGBTQplus_symbols$=" "+nd+ "LGBTQ+ symbols"+nd+"Freedom rings"+nd+"Handkerchief codes"+nd+"Homomonuments"+nd+"Labrys" _
++nd+"Lambda"+nd+"Pink triangles"+nd+"Rainbow flags"+nd+"Red ribbons (AIDS)"
+
+dim LGBTQplus_emotions$
+LGBTQplus_emotions$=" "+nd+ "LGBTQ+ emotions"+nd+"LGBTQ+ intimacy"+nd+"LGBTQ+ love"+nd+"  Being in love"+nd+"  LGBTQ+ platonic love" _
++nd+"  LGBTQ+ unrequited love"
+
+dim Romantic_orientation$
+Romantic_orientation$=" "+nd+ "Romantic orientation"+nd+"Biromanticism"+nd+"Heteroromanticism"+nd+"Homoromanticism"+nd+"Panromanticism" _
++nd+"Alloromanticism"+nd+"Aromanticism"+nd+"Demiromanticism"+nd+"Greyromanticism"
+
+dim Feminism$
+Feminism$=" "+nd+ "Feminism"+nd+"Ecofeminism"+nd+"First wave feminism"+nd+"Heterosexual feminism"+nd+"Lesbian feminism" _
++nd+"Radical feminism"+nd+"Second wave feminism"
+
+dim Feminists$
+Feminists$=" "+nd+ "Feminists"+nd+"Suffragettes"
+
+dim LGBTQ_social_processes$
+LGBTQ_social_processes$=" "+nd+ "LGBTQ+ social processes"+nd+"Gay liberation"+nd+"Gay-straight alliances"+nd+"Gender relations"+nd+"  Lesbian-gay relations" _
++nd+"Lesbian liberation"+nd+"LGBTQ+ emancipation"+nd+"LGBTQ+ visibility"
+
+dim Social_norms$
+Social_norms$=" "+nd+ "Social norms"+nd+"Amatonormativity"+nd+"Compulsory sexuality"+nd+"Heteronormativity"+nd+"Homonormativity" _
++nd+"Mononormativity"
+
+dim Theories$
+Theories$=" "+nd+ "Theories"+nd+"Critical race theory"+nd+"Essentialism"+nd+"Etiology"+nd+"Feminist theory" _
++nd+"  Female gaze"+nd+"  Male gaze"+nd+"Queer theory"+nd+"  Queer gaze"+nd+"Social constructionism"
+
+dim Miscellanious_culture$ 
+Miscellanious_culture$=" "+nd+ "Camp (Gay culture)"+nd+"Gay sensibility"+nd+"Gay theatre groups"+nd+"Gaydar"+nd+"Lesbian sensibility" _
++nd+"Lesbian theatre groups"+nd+"LGBTQ+ weddings"+nd+"Musicals"+nd+"Nudism"+nd+"Sex scandals" _
++nd+"Social privilege"+nd+"Voguing"
+
+dim Miscellanious_relat$
+Miscellanious_relat$=" "+nd+ "Compulsory monogamy"+nd+"Male bonding"+nd+"Motherhood"+nd+"NRE (New Relationship Energy)"+nd+"Online dating" _
++nd+"Polyfidelity"+nd+"Relationship satisfaction"+nd+"Secondary partners"+nd+"Significant others"+nd+"t4t"
+
+dim Miscellanious_theory$
+Miscellanious_theory$=" "+nd+ "Anti-feminism"+nd+"Gender binaries"+nd+"Intersectionality"+nd+"Queer (Verb)"+nd+"Queer studies" _
++nd+"Transmisogynoir"
+
+dim Misc_society$
+Misc_society$=" "+nd+ "Gender segregation"+nd+"LGBTQ+ friendliness"+nd+"LGBTQ+-affirming religious groups"+nd+"Normalisation"+nd+"Queer theology" _
++nd+"Recreational drug use"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 600, 450, "Choose the Homosaurus term you want to use..."
+
+Text 14,20,200,14, "LGBTQ+ Culture topics"
+
+Text 14,45,120,14, "Body adornment"
+   DropListBox 14, 58, 130, 200, Body_adornment$, .Body_adornmentsub
+Text 200,45,200,14, "Clothing"
+   DropListBox 200, 58, 130, 135, Clothing$, .Clothingsub
+Text 400,45,95,135, "LGBTQ+ events"
+   DropListBox 400, 58, 130, 135, LGBTQplus_events$, .LGBTQplus_eventssub
+
+Text 14,83,80,14, "LGBTQ+ slang"
+   DropListBox 14, 96, 130, 135, LGBTQplus_slang$, .LGBTQplus_slangsub
+Text 200,83,95,135, "LGBTQ+ symbols"
+   DropListBox 200, 96, 130, 135, LGBTQplus_symbols$, .LGBTQplus_symbolssub
+Text 400,83,130,135, "Terms that are not in a hierarchy"
+   DropListBox 400, 96, 130, 135, Miscellanious_culture$, .Miscellanious_culturesub
+
+Text 14,135,200,14, "Relationship topics"
+
+Text 14,159,80,14, "LGBTQ+ emotions"
+   DropListBox 14, 172, 130, 135, LGBTQplus_emotions$, .LGBTQplus_emotionssub 
+Text 200,159,120,14, "Romantic orientation"
+   DropListBox 200, 172,130, 135, Romantic_orientation$, .Romantic_orientationsub
+Text 400,159,130,135, "Terms that are not in a hierarchy"
+   DropListBox 400, 172,130, 135, Miscellanious_relat$, .Miscellanious_relatsub
+
+Text 14,210,200,14, "Theory topics"
+
+Text 14,235,130,135, "Feminism"
+   DropListBox 14,250,130,130, Feminism$, .Feminismsub
+Text 200,235,130,135, "Feminists"
+   DropListBox 200,250,130,130, Feminists$, .Feministssub
+Text 400,235,130,130, "LGBTQ+ social processes"
+   DropListBox 400,250,130,130, LGBTQ_social_processes$, .LGBTQ_social_processessub
+
+Text 14,273,200,14, "Social norms"
+DropListBox 14,286,130,135, Social_norms$, .Social_normssub
+Text 200,273,95,135, "Theories"
+   DropListBox 200,286,130,135, Theories$, .Theoriessub
+Text 400,273,130,135, "Terms that are not in a hierarchy"
+   DropListBox 400,286,130,135, Miscellanious_theory$, .Miscellanious_theorysub
+
+Text 14,311,300,135, "General Social Terms that are not in a hierarchy"
+   DropListBox 14,324,130,130, Misc_society$, .Misc_societysub
+
+Button 200,390,40,20, "I'm done",    .fin
+CancelButton 270,390,40,20
+
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Body_adornmentsub=0 Then aa$ = " "
+If quick.Body_adornmentsub=1 Then aa$ = "Body adornment" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000214"
+If quick.Body_adornmentsub=2 Then aa$ = "Piercings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001114"
+If quick.Body_adornmentsub=3 Then aa$ = "Tattoos" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001356"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+If quick.Clothingsub=0 Then ba$ = " "
+If quick.Clothingsub=1 Then ba$ = "Clothing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000289"
+If quick.Clothingsub=2 Then ba$ = "Costumes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001808"
+If quick.Clothingsub=3 Then ba$ = "Lingerie" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000970"
+
+If ba$ = " " then
+else
+CS.AddField 1, "655 7" & ba$
+end if
+
+If quick.LGBTQplus_eventssub=0 Then ca$ = " "
+If quick.LGBTQplus_eventssub=1 Then ca$ = "LGBTQ+ events" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000861"
+If quick.LGBTQplus_eventssub=2 Then ca$ = "Drag balls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000368"
+If quick.LGBTQplus_eventssub=3 Then ca$ = "Dyke marches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000383"
+If quick.LGBTQplus_eventssub=4 Then ca$ = "Gay pride" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000522"
+If quick.LGBTQplus_eventssub=5 Then ca$ = "Europride" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000410"
+If quick.LGBTQplus_eventssub=6 Then ca$ = "Gay pride week" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000523"
+If quick.LGBTQplus_eventssub=7 Then ca$ = "Sydney Gay and Lesbian Mardi Gras" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001355"
+If quick.LGBTQplus_eventssub=8 Then ca$ = "Halloween" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000607"
+If quick.LGBTQplus_eventssub=9 Then ca$ = "Lesbian pride" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000767"
+If quick.LGBTQplus_eventssub=10 Then ca$ = "LGBTQ+ sporting events" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000949"
+If quick.LGBTQplus_eventssub=11 Then ca$ = "Trans marches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001379"
+If quick.LGBTQplus_eventssub=12 Then ca$ = "Women's music festivals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001515"
+
+If ca$ = " " then
+else
+CS.AddField 1, "655 7" & ca$ 
+end if
+
+If quick.LGBTQplus_slangsub=0 Then da$ = " "
+If quick.LGBTQplus_slangsub=1 Then da$ = "LGBTQ+ slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001317"
+If quick.LGBTQplus_slangsub=2 Then da$ = "Bisexual slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000185"
+If quick.LGBTQplus_slangsub=3 Then da$ = "Gay slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000535"
+If quick.LGBTQplus_slangsub=4 Then da$ = "Lesbian slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000779"
+If quick.LGBTQplus_slangsub=5 Then da$ = "Poppers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001125"
+If quick.LGBTQplus_slangsub=6 Then da$ = "Queer slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001208"
+If quick.LGBTQplus_slangsub=7 Then da$ = "Reclaimed terms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001559"
+If quick.LGBTQplus_slangsub=8 Then da$ = "Crip" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001891"
+If quick.LGBTQplus_slangsub=9 Then da$ = "Dykes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000384"
+If quick.LGBTQplus_slangsub=10 Then da$ = "Faggots" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000418"
+If quick.LGBTQplus_slangsub=11 Then da$ = "Queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001195"
+If quick.LGBTQplus_slangsub=12 Then da$ = "Transgender slang" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001445"
+
+If da$ = " " then
+else
+CS.AddField 1, "655 7" & da$
+end if
+
+If quick.LGBTQplus_symbolssub=0 Then ea$ = " "
+If quick.LGBTQplus_symbolssub=1 Then ea$ = "LGBTQ+ symbols" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000954"
+If quick.LGBTQplus_symbolssub=2 Then ea$ = "Freedom rings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000453"
+If quick.LGBTQplus_symbolssub=3 Then ea$ = "Handkerchief codes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000609"
+If quick.LGBTQplus_symbolssub=4 Then ea$ = "Homomonuments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000642"
+If quick.LGBTQplus_symbolssub=5 Then ea$ = "Labrys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000696"
+If quick.LGBTQplus_symbolssub=6 Then ea$ = "Lambda" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000698"
+If quick.LGBTQplus_symbolssub=7 Then ea$ = "Pink triangles" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001116"
+If quick.LGBTQplus_symbolssub=8 Then ea$ = "Rainbow flags" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001232"
+If quick.LGBTQplus_symbolssub=9 Then ea$ = "Red ribbons (AIDS)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000034"
+
+If ea$ = " " then
+else
+CS.AddField 1, "655 7" & ea$
+end if
+
+
+If quick.Feminismsub=0 Then ga$ = " "
+If quick.Feminismsub=1 Then ga$ = "Feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000437"
+If quick.Feminismsub=2 Then ga$ = "Ecofeminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000387"
+If quick.Feminismsub=3 Then ga$ = "First wave feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000444"
+If quick.Feminismsub=4 Then ga$ = "Heterosexual feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000622"
+If quick.Feminismsub=5 Then ga$ = "Lesbian feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000741"
+If quick.Feminismsub=6 Then ga$ = "Radical feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001230"
+If quick.Feminismsub=7 Then ga$ = "Second wave feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001260"
+
+If ga$ = " " then
+else
+CS.AddField 1, "655 7" & ga$
+end if
+
+If quick.Feministssub=0 Then ha$ = " "
+If quick.Feministssub=1 Then ha$ = "Feminists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000439"
+If quick.Feministssub=2 Then ha$ = "Suffragettes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001346"
+
+If ha$ = " " then
+else
+CS.AddField 1, "655 7" & ha$
+end if
+
+If quick.LGBTQ_social_processessub=0 Then ia$ = " "
+If quick.LGBTQ_social_processessub=1 Then ia$ = "LGBTQ+ social processes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000947"
+If quick.LGBTQ_social_processessub=2 Then ia$ = "Gay liberation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000500"
+If quick.LGBTQ_social_processessub=3 Then ia$ = "Gay-straight alliances" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000538"
+If quick.LGBTQ_social_processessub=4 Then ia$ = "Gender relations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000575"
+If quick.LGBTQ_social_processessub=5 Then ia$ = "Lesbian-gay relations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000499"
+If quick.LGBTQ_social_processessub=6 Then ia$ = "Lesbian liberation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000748"
+If quick.LGBTQ_social_processessub=7 Then ia$ = "LGBTQ+ emancipation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000857"
+If quick.LGBTQ_social_processessub=8 Then ia$ = "LGBTQ+ visibility" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000960"
+
+If ia$ = " " then
+else
+CS.AddField 1, "655 7" & ia$ 
+end if
+
+If quick.Social_normssub=0 Then ja$ = " "
+If quick.Social_normssub=1 Then ja$ = "Social norms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001323"
+If quick.Social_normssub=2 Then ja$ = "Amatonormativity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001532"
+If quick.Social_normssub=3 Then ja$ = "Compulsory sexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001535"
+If quick.Social_normssub=4 Then ja$ = "Heteronormativity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000620"
+If quick.Social_normssub=5 Then ja$ = "Homonormativity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000644"
+If quick.Social_normssub=6 Then ja$ = "Mononormativity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001555"
+
+If ja$ = " " then
+else
+CS.AddField 1, "655 7" & ja$
+end if
+
+If quick.Theoriessub=0 Then ka$ = " "
+If quick.Theoriessub=1 Then ka$ = "Theories" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001365"
+If quick.Theoriessub=2 Then ka$ = "Critical race theory" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001902"
+If quick.Theoriessub=3 Then ka$ = "Essentialism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000115"
+If quick.Theoriessub=4 Then ka$ = "Etiology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000408"
+If quick.Theoriessub=5 Then ka$ = "Feminist theory" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002039"
+If quick.Theoriessub=6 Then ka$ = "Female gaze" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002040"
+If quick.Theoriessub=7 Then ka$ = "Male gaze" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002041"
+If quick.Theoriessub=8 Then ka$ = "Queer theory" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001219"
+If quick.Theoriessub=9 Then ka$ = "Queer gaze" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002042"
+If quick.Theoriessub=10 Then ka$ = "Social constructionism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001320"
+
+If ka$ = " " then
+else
+CS.AddField 1, "655 7" & ka$
+end if
+
+If quick.LGBTQplus_emotionssub=0 Then la$ = " "
+If quick.LGBTQplus_emotionssub=1 Then la$ = "LGBTQ+ emotions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000858"
+If quick.LGBTQplus_emotionssub=2 Then la$ = "LGBTQ+ intimacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000889"
+If quick.LGBTQplus_emotionssub=3 Then la$ = "LGBTQ+ love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000894"
+If quick.LGBTQplus_emotionssub=4 Then la$ = "Being in love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000107"
+If quick.LGBTQplus_emotionssub=5 Then la$ = "LGBTQ+ platonic love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000921"
+If quick.LGBTQplus_emotionssub=6 Then la$ = "LGBTQ+ unrequited love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000957"
+
+If la$ = " " then
+else
+CS.AddField 1, "655 7" & la$
+end if
+
+If quick.Romantic_orientationsub=0 Then ma$ = " "
+If quick.Romantic_orientationsub=1 Then ma$ = "Romantic orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001828"
+If quick.Romantic_orientationsub=2 Then ma$ = "Biromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001792"
+If quick.Romantic_orientationsub=3 Then ma$ = "Heteroromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001794"
+If quick.Romantic_orientationsub=4 Then ma$ = "Homoromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001793"
+If quick.Romantic_orientationsub=5 Then ma$ = "Panromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001795"
+If quick.Romantic_orientationsub=6 Then ma$ = "Alloromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001791"
+If quick.Romantic_orientationsub=7 Then ma$ = "Aromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001644"
+If quick.Romantic_orientationsub=8 Then ma$ = "Demiromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001986"
+If quick.Romantic_orientationsub=9 Then ma$ = "Greyromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001988"
+
+If ma$ = " " then
+else
+CS.AddField 1, "655 7" & ma$
+end if
+
+If quick.Miscellanious_culturesub=0 Then na$ = " "
+If quick.Miscellanious_culturesub=1 Then na$ = "Camp (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000238"
+If quick.Miscellanious_culturesub=2 Then na$ = "Gay sensibility" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000533"
+If quick.Miscellanious_culturesub=3 Then na$ = "Gay theatre groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000547"
+If quick.Miscellanious_culturesub=4 Then na$ = "Gaydar" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000559"
+If quick.Miscellanious_culturesub=5 Then na$ = "Lesbian sensibility" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000777"
+If quick.Miscellanious_culturesub=6 Then na$ = "Lesbian theatre groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000789"
+If quick.Miscellanious_culturesub=7 Then na$ = "LGBTQ+ weddings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000963"
+If quick.Miscellanious_culturesub=8 Then na$ = "Musicals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001031"
+If quick.Miscellanious_culturesub=9 Then na$ = "Nudism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001038"
+If quick.Miscellanious_culturesub=10 Then na$ = "Sex scandals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001273"
+If quick.Miscellanious_culturesub=11 Then na$ = "Social privilege" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001133"
+If quick.Miscellanious_culturesub=12 Then na$ = "Voguing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001494"
+
+If na$ = " " then 
+else
+CS.AddField 1, "655 7" & na$ 
+end if
+
+If quick.Miscellanious_relatsub=0 Then oa$ = " "
+If quick.Miscellanious_relatsub=1 Then oa$ = "Compulsory monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001650"
+If quick.Miscellanious_relatsub=2 Then oa$ = "Male bonding" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000981"
+If quick.Miscellanious_relatsub=3 Then oa$ = "Motherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001001"
+If quick.Miscellanious_relatsub=4 Then oa$ = "NRE (New Relationship Energy)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001661"
+If quick.Miscellanious_relatsub=5 Then oa$ = "Online dating" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000664"
+If quick.Miscellanious_relatsub=6 Then oa$ = "Polyfidelity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001664"
+If quick.Miscellanious_relatsub=7 Then oa$ = "Relationship satisfaction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001236"
+If quick.Miscellanious_relatsub=8 Then oa$ = "Secondary partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001638"
+If quick.Miscellanious_relatsub=9 Then oa$ = "Significant others" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001311"
+If quick.Miscellanious_relatsub=10 Then oa$ = "t4t" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001780"
+
+If oa$ = " " then 
+else
+CS.AddField 1, "655 7" & oa$ 
+end if
+
+If quick.Miscellanious_theorysub=0 Then pa$ = " "
+If quick.Miscellanious_theorysub=1 Then pa$ = "Anti-feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000054"
+If quick.Miscellanious_theorysub=2 Then pa$ = "Gender binaries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000563"
+If quick.Miscellanious_theorysub=3 Then pa$ = "Intersectionality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000667"
+If quick.Miscellanious_theorysub=4 Then pa$ = "Queer (Verb)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001149"
+If quick.Miscellanious_theorysub=5 Then pa$ = "Queer studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001210"
+If quick.Miscellanious_theorysub=6 Then pa$ = "Transmisogynoir" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001903"
+
+If pa$ = " " then 
+else
+CS.AddField 1, "655 7" & pa$ 
+end if
+
+If quick.Misc_societysub=0 Then qa$ = " "
+If quick.Misc_societysub=1 Then qa$ = "Gender segregation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000578"
+If quick.Misc_societysub=2 Then qa$ = "LGBTQ+ friendliness" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000873"
+If quick.Misc_societysub=3 Then qa$ = "LGBTQ+-affirming religious groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000530"
+If quick.Misc_societysub=4 Then qa$ = "Normalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000080"
+If quick.Misc_societysub=5 Then qa$ = "Queer theology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001218"
+If quick.Misc_societysub=6 Then qa$ = "Recreational drug use" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001235"
+
+If qa$ = " " then 
+else
+CS.AddField 1, "655 7" & qa$ 
+end if
+
+Cancelled:   
+End Sub

@@ -1,0 +1,75 @@
+'MacroName:Queer_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Queer_people$
+Queer_people$=" "+nd+ ""Closeted queer people"+nd+"Indigiqueer people"+nd+"Queer men"+nd+"Queer people"+nd+"Queer transgender people" _
++nd+"Queer women"+nd+"Queer youth"+nd+"  Queer children"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 150, 100, "Queer people and Narrower Terms"
+
+Text 14,7,100,14, "Queer people"
+   DropListBox 14, 20, 130, 135, Queer_people$, .Queer_peoplesub
+  
+Button 25,58,40,20, "I'm done",    .fin
+CancelButton 75,58,40,20
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Queer_peoplesub=0 Then aa$ = " "
+If quick.Queer_peoplesub=1 Then aa$ = "Closeted queer people" & " " & sd & "2 homoit" & " " & sd & "0 URI"
+If quick.Queer_peoplesub=2 Then aa$ = "Indigiqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001785"
+If quick.Queer_peoplesub=3 Then aa$ = "Queer men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001809"
+If quick.Queer_peoplesub=4 Then aa$ = "Queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001185"
+If quick.Queer_peoplesub=5 Then aa$ = "Queer transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001195"
+If quick.Queer_peoplesub=6 Then aa$ = "Queer women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001220"
+If quick.Queer_peoplesub=7 Then aa$ = "Queer youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001227"
+If quick.Queer_peoplesub=8 Then aa$ = "Queer children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001215"
+
+
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

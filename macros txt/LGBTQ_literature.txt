@@ -1,0 +1,346 @@
+'MacroName:LGBTQ_literature
+'MacroDescription:Add headings from Homosaurus thesaurus for LGBTQ+ literature
+'July 1, 2021
+'Edited Aug 26, 2021
+'Edited March 17, 2022 
+'Copied and revised by Wendy Isicson 10/28/2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+dim pn$
+pn$ = " "
+dim ln$
+ln$ = " "
+dim fn$
+fn$ = " "
+dim dn$
+dn$ = " "
+dim an$
+an$ = " "
+dim bn$
+bn$ = " "
+dim sn$
+sn$ = " "
+dim mn$
+mn$ = " "
+dim cn$
+cn$ = " "
+dim hn$
+hn$ = " "
+dim tn$
+tn$ = " "
+dim rn$
+rn$ = " "
+dim en$
+en$ = " " 
+dim aa$
+aa$ = " " 
+
+Dim lit$
+lit$=" " +nd+ "LGBTQ+ literature"+nd+"Queer literature"+nd+"LGBTQ+ fiction"+nd+"Gay literature" _
++nd+"LGBTQ+ poetry"+nd+"Gay youth literature"+nd+"Transgender literature"+nd+"Transgender youth literature" _
++nd+"Lesbian literature"+nd+"Lesbian youth literature"+nd+"LGBTQ+ youth literature"+nd+"Bisexual literature"+nd+"LGBTQ+ drama"
+
+Dim poetry$
+poetry$=" "+nd+"LGBTQ+ poetry"+nd+"Queer poetry"+nd+"Bisexual poetry"+nd+"Gay poetry"+nd+"Transgender poetry"+nd+"Lesbian poetry"
+
+dim youth$
+youth$=" "+nd+"LGBTQ+ youth literature"+nd+"Queer youth literature"+nd+"Bisexual youth literature"+nd+"Gay youth literature"+nd+"Transgender youth literature" _
++nd+"Lesbian youth literature"
+
+dim drama$
+drama$=" "+nd+"LGBTQ+ drama"+nd+"Queer drama"+nd+"Gay drama"+nd+"Transgender drama"+nd+"Lesbian drama"+nd+"Bisexual drama"
+
+dim fiction$
+fiction$=" "+nd+"LGBTQ+ fiction"+nd+"Queer fiction"+nd+"Bisexual fiction"+nd+"Gay fiction"+nd+"Transgender fiction"+nd+"Lesbian fiction"+nd+"LGBTQ+ graphic novels"+nd+"LGBTQ+ fantasy fiction" _
++nd+"LGBTQ+ science fiction"+nd+"LGBTQ+ mystery and detective fiction"+nd+"LGBTQ+ horror fiction"+nd+"LGBTQ+ comics"+nd+"LGBTQ+ romance fiction"+nd+"LGBTQ+ erotic literature" _
++nd+"LGBTQ+ short stories"+nd+"Asexual fiction"+nd+"Aromantic fiction"+nd+"Intersex fiction"+nd+"Two-spirit fiction"
+
+dim fantasy$
+fantasy$=" "+nd+"LGBTQ+ fantasy fiction"+nd+"Lesbian fantasy fiction"+nd+"Gay fantasy fiction"+nd+"Bisexual fantasy fiction"+nd+"Transgender fantasy fiction" _
++nd+"Queer fantasy fiction"
+
+dim science$
+science$=" "+nd+"LGBTQ+ science fiction"+nd+"Lesbian science fiction"+nd+"Gay science fiction"+nd+"Bisexual science fiction"+nd+"Transgender science fiction"+nd+"Queer science fiction"
+
+dim mystery$
+mystery$=" "+nd+"LGBTQ+ mystery and detective fiction"+nd+"Lesbian mystery and detective fiction"+nd+"Gay mystery and detective fiction"+nd+"Bisexual mystery and detective fiction" _
++nd+"Transgender mystery and detective fiction"+nd+"Queer mystery and detective fiction"
+
+dim comics$
+comics$=" "+nd+"LGBTQ+ comics"+nd+"LGBTQ+ cartoons"+nd+"LGBTQ+ graphic novels"+nd+"LGBTQ+ manga"+nd+"Lesbian comics"+nd+"Gay comics"+nd+"Bisexual comics"+nd+"Transgender comics" _
++nd+"Queer comics"
+
+dim horror$
+horror$=" "+nd+"LGBTQ+ horror fiction"+nd+"Lesbian horror fiction"+nd+"Gay horror fiction"+nd+"Bisexual horror fiction"+nd+"Transgender horror fiction"+nd+"Queer horror fiction"
+
+dim short$
+short$=" "+nd+"LGBTQ+ short stories"+nd+"Lesbian short stories"+nd+"Gay short stories"+nd+"Bisexual short stories"+nd+"Transgender short stories"+nd+"Queer short stories"
+
+dim romance$
+romance$=" "+nd+"LGBTQ+ romance fiction"+nd+"Lesbian romance fiction"+nd+"Gay romance fiction"+nd+"Bisexual romance fiction"+nd+"Transgender romance fiction"+nd+"Queer romance fiction"
+
+dim erotic$
+erotic$=" "+nd+"LGBTQ+ erotic literature"+nd+"Gay erotic literature"+nd+"Lesbian erotic literature"+nd+"Bisexual erotic literature"+nd+"Transgender erotic literature" _
++nd+"Queer erotic literature"
+
+dim Miscellanious_lit$
+Miscellanious_lit$=" "+nd+"LGBTQ+ plays"
+
+Begin Dialog MFHL 400, 350, "Choose the Homosaurus literature term you want to use..."
+ Text 14,7,100,14, "LGBTQ+ literature"
+  DropListBox 14, 20, 130, 135, lit$, .litsub
+ Text 200,7,60,14, "LGBTQ+ fiction"
+  DropListBox 200, 20, 95, 135, fiction$, .ficsub
+   Text 14,45,80,14, "LGBTQ+ youth literature"
+ DropListBox 14, 58, 130, 135, youth$, .youthsub
+ Text 14,83,60,14, "LGBTQ+ poetry"
+ DropListBox 14, 96, 95, 135, poetry$, .poetsub
+ Text 14,121,80,14, "LGBTQ+ drama"
+  DropListBox 14, 135, 110, 135, drama$, .dramsub
+ Text 200,45,80,14, "LGBTQ+ fantasy fiction"
+  DropListBox 200, 58, 130, 135, fantasy$, .fantsub
+ Text 200,83,90,14, "LGBTQ+ science fiction"
+ DropListBox 200, 96, 95, 135, science$, .scisub
+ Text 200,121,120,14, "LGBTQ+ mystery and detective fiction"
+  DropListBox 200, 135, 145, 135, mystery$, .mystsub
+ Text 14,159,95,135, "LGBTQ+ comics"
+   DropListBox 14,172,95,135, comics$, .comicsub 
+ Text 14,197,95,115, "LGBTQ+ horror fiction"
+  DropListBox 14,210,95,135, horror$, .horrsub
+  Text 200,159,95,135, "LGBTQ+ romance fiction"
+  DropListBox 200,172,95,135, romance$, .romsub
+ Text 200,197,95,135, "LGBTQ+ erotic literature"
+  DropListBox 200,210,95,135, erotic$, .eroticsub    
+ Text 14,235,95,105, "LGBTQ+ short stories"
+   DropListBox 14,248,95,135, short$, .shortsub
+Text 200,235,130,105, "Terms that are not in a hierarchy"
+   DropListBox 200,248,95,135, Miscellanious_lit$, .Miscellanious_litsub
+
+ Button 64,280,40,20, "I'm done",    .fin
+ CancelButton 130,280,40,20
+ Text 130,305,100,14, "Rev. 10/28/2022"
+
+End Dialog
+  
+ dim quick as MFHL
+ On Error Goto Cancelled
+ dialog quick
+   
+   
+If quick.litsub=0 Then pn$ = " "
+If quick.litsub=1 Then pn$ = "LGBTQ+ literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000972"
+If quick.litsub=2 Then pn$ = "Queer literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001183"
+If quick.litsub=3 Then pn$ = "LGBTQ+ fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000443"
+If quick.litsub=4 Then pn$ = "Gay literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000502"
+If quick.litsub=5 Then pn$ = "LGBTQ+ poetry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001118"
+If quick.litsub=6 Then pn$ = "Gay youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000557" 
+If quick.litsub=7 Then pn$ = "Transgender literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001419"
+If quick.litsub=8 Then pn$ = "Transgender youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001462"
+If quick.litsub=9 Then pn$ = "Lesbian literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000750"
+If quick.litsub=10 Then pn$ = "Lesbian youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000798"
+If quick.litsub=11 Then pn$ = "LGBTQ+ youth literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001522"
+If quick.litsub=12 Then pn$ = "Bisexual literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000157"
+If quick.litsub=13 Then pn$ = "LGBTQ+ drama" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000376"
+
+If pn$ = " " then 
+else
+CS.AddField 1, "655 7" & pn$ 
+end if
+
+If quick.poetsub=0 Then ln$ = " "
+If quick.poetsub=1 Then ln$ ="LGBTQ+ poetry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001118"
+If quick.poetsub=2 Then ln$ ="Queer poetry." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001197"
+If quick.poetsub=3 Then ln$ ="Bisexual poetry." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000174"
+If quick.poetsub=4 Then ln$ ="Gay poetry." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000517"
+If quick.poetsub=5 Then ln$ ="Transgender poetry." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001433"
+If quick.poetsub=6 Then ln$ ="Lesbian poetry." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000762"
+
+If ln$ = " " then
+else
+CS.AddField 1, "655 7" & ln$
+end if
+
+If quick.youthsub=0 Then fn$ = " "
+If quick.youthsub=1 Then fn$ = "LGBTQ+ youth literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001522"
+If quick.youthsub=2 Then fn$ = "Queer youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001228"
+If quick.youthsub=3 Then fn$ = "Bisexual youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000203"
+If quick.youthsub=4 Then fn$ = "Gay youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000557"
+If quick.youthsub=5 Then fn$ = "Transgender youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001462"
+If quick.youthsub=6 Then fn$ = "Lesbian youth literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000798"
+
+If fn$ = " " then
+else
+CS.AddField 1, "655 7" & fn$ 
+end if
+
+If quick.dramsub=0 Then dn$ = " "
+If quick.dramsub=1 Then dn$ = "LGBTQ+ drama" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000376"
+If quick.dramsub=2 Then dn$ = "Queer drama." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001174"
+If quick.dramsub=3 Then dn$ = "Gay drama." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000489"
+If quick.dramsub=4 Then dn$ = "Transgender drama." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001411"
+If quick.dramsub=5 Then dn$ ="Lesbian drama." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000739"
+If quick.dramsub=6 Then dn$ ="Bisexual drama." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000149"
+
+If dn$ = " " then
+else
+CS.AddField 1, "655 7" & dn$
+end if
+
+If quick.ficsub=0 Then an$ = " "
+If quick.ficsub=1 Then an$ ="LGBTQ+ fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000443"
+If quick.ficsub=2 Then an$ ="Queer fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001177"
+If quick.ficsub=3 Then an$ ="Bisexual fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000151"
+If quick.ficsub=4 Then an$ ="Gay fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000493"
+If quick.ficsub=5 Then an$ ="Transgender fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001414"
+If quick.ficsub=6 Then an$ ="Lesbian fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000742"
+If quick.ficsub=7 Then an$ ="LGBTQ+ graphic novels" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000874"
+If quick.ficsub=8 Then an$ ="LGBTQ+ fantasy fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000865"
+If quick.ficsub=9 Then an$ ="LGBTQ+ science fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000934"
+If quick.ficsub=10 Then an$ ="LGBTQ+ mystery and detective fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000852"
+If quick.ficsub=11 Then an$ ="LGBTQ+ horror fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001580"
+If quick.ficsub=12 Then an$ ="LGBTQ+ comics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000841"
+If quick.ficsub=13 Then an$ ="LGBTQ+ romance fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001586"
+If quick.ficsub=14 Then an$ ="LGBTQ+ erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000859"
+If quick.ficsub=15 Then an$ ="LGBTQ+ short stories" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001608"
+If quick.ficsub=16 Then an$ ="Asexual fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001754"
+If quick.ficsub=17 Then an$ ="Aromantic fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001753"
+If quick.ficsub=18 Then an$ ="Intersex fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001752"
+If quick.ficsub=19 Then an$ ="Two-spirit fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001751"
+
+If an$ = " " then
+else
+CS.AddField 1, "655 7" & an$
+end if
+
+If quick.fantsub=0 Then bn$ = " "
+If quick.fantsub=1 Then bn$ ="LGBTQ+ fantasy fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000865"
+If quick.fantsub=2 Then bn$ ="Lesbian fantasy fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001565"
+If quick.fantsub=3 Then bn$ ="Gay fantasy fiction."  & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001566"
+If quick.fantsub=4 Then bn$ ="Bisexual fantasy fiction."  & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001567"
+If quick.fantsub=5 Then bn$ ="Transgender fantasy fiction."  & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001568"
+If quick.fantsub=6 Then bn$ ="Queer fantasy fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001569"
+
+If bn$ = " " then
+else
+CS.AddField 1, "655 7" & bn$
+end if
+
+If quick.scisub=0 Then sn$ = " "
+If quick.scisub=1 Then sn$ ="LGBTQ+ science fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000934"
+If quick.scisub=2 Then sn$ ="Lesbian science fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001570"
+If quick.scisub=3 Then sn$ ="Gay science fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001571"
+If quick.scisub=4 Then sn$ ="Bisexual science fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001572"
+If quick.scisub=5 Then sn$ ="Transgender science fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001573"
+If quick.scisub=6 Then sn$ ="Queer science fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001574"
+
+If sn$ = " " then
+else
+CS.AddField 1, "655 7" & sn$
+end if
+
+If quick.mystsub=0 Then mn$ = " "
+If quick.mystsub=1 Then mn$ ="LGBTQ+ mystery and detective fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000852"
+If quick.mystsub=2 Then mn$ ="Lesbian mystery and detective fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001575"
+If quick.mystsub=3 Then mn$ ="Gay mystery and detective fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001576"
+If quick.mystsub=4 Then mn$ ="Bisexual mystery and detective fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001577"
+If quick.mystsub=5 Then mn$ ="Transgender mystery and detective fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001578"
+If quick.mystsub=6 Then mn$ ="Queer mystery and detective fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001579"
+
+If mn$ = " " then
+else
+CS.AddField 1, "655 7" & mn$
+end if
+
+If quick.comicsub=0 Then cn$ = " "
+If quick.comicsub=1 Then cn$ ="LGBTQ+ comics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000841"
+If quick.comicsub=2 Then cn$ ="LGBTQ+ cartoons." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000828"
+If quick.comicsub=3 Then cn$ ="LGBTQ+ graphic novels." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000874"
+If quick.comicsub=4 Then cn$ ="LGBTQ+ manga." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000897"
+If quick.comicsub=5 Then cn$ ="Lesbian comics." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001587"
+If quick.comicsub=6 Then cn$ ="Gay comics." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001588"
+If quick.comicsub=7 Then cn$ ="Bisexual comics." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001589"
+If quick.comicsub=8 Then cn$ ="Transgender comics." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001590"
+If quick.comicsub=9 Then cn$ ="Queer comics." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001591"
+
+If cn$ = " " then
+else
+CS.AddField 1, "655 7" & cn$ 
+end if
+
+If quick.horrsub=0 Then hn$ = " "
+If quick.horrsub=1 Then hn$ ="LGBTQ+ horror fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001580"
+If quick.horrsub=2 Then hn$ ="Lesbian horror fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001581"
+If quick.horrsub=3 Then hn$ ="Gay horror fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001582"
+If quick.horrsub=4 Then hn$ ="Bisexual horror fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001583"
+If quick.horrsub=5 Then hn$ ="Transgender horror fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001584"
+If quick.horrsub=6 Then hn$ ="Queer horror fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001585"
+
+If hn$ = " " then
+else
+CS.AddField 1, "655 7" & hn$
+end if
+
+If quick.shortsub=0 Then tn$ = " "
+If quick.shortsub=1 Then tn$ ="LGBTQ+ short stories" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001608"
+If quick.shortsub=2 Then tn$ ="Lesbian short stories." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001609"
+If quick.shortsub=3 Then tn$ ="Gay short stories." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001610"
+If quick.shortsub=4 Then tn$ ="Bisexual short stories." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001611"
+If quick.shortsub=5 Then tn$ ="Transgender short stories." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001612"
+If quick.shortsub=6 Then tn$ ="Queer short stories." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001613" 
+
+If tn$ = " " then
+else
+CS.AddField 1, "655 7" & tn$ 
+end if
+
+If quick.romsub=0 Then rn$ = " "
+If quick.romsub=1 Then rn$ ="LGBTQ+ romance fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001586"
+If quick.romsub=2 Then rn$ ="Lesbian romance fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001592"
+If quick.romsub=3 Then rn$ ="Gay romance fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001593"
+If quick.romsub=4 Then rn$ ="Bisexual romance fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001594"
+If quick.romsub=5 Then rn$ ="Transgender romance fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001595"
+If quick.romsub=6 Then rn$ ="Queer romance fiction." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001596"
+
+If rn$ = " " then
+else
+CS.AddField 1, "655 7" & rn$ 
+end if
+
+If quick.eroticsub=0 Then en$ = " "
+If quick.eroticsub=1 Then en$ ="LGBTQ+ erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000859" 
+If quick.eroticsub=2 Then en$ ="Gay erotic literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001598"
+If quick.eroticsub=3 Then en$ ="Lesbian erotic literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001597"
+If quick.eroticsub=4 Then en$ ="Bisexual erotic literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001599"
+If quick.eroticsub=5 Then en$ ="Transgender erotic literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001600"
+If quick.eroticsub=6 Then en$ ="Queer erotic literature." & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001601"
+
+If en$ = " " then
+else
+CS.AddField 1, "655 7" & en$ 
+end if
+
+If quick.Miscellanious_litsub=0 Then aa$ = " "
+If quick.Miscellanious_litsub=1 Then aa$ ="LGBTQ+ plays" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000922" 
+
+If aa$ = " " then
+else
+CS.AddField 1, "655 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
