@@ -246,12 +246,12 @@ If quick.Sexual_practicessub=41 Then ka$ = "Sexual intercourse" & " " & sd & "2 
 If quick.Sexual_practicessub=42 Then ka$ = "Soft swap" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001640"
 If quick.Sexual_practicessub=43 Then ka$ = "Spanking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001335"
 If quick.Sexual_practicessub=44 Then ka$ = "Striptease" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001344"
-If quick.Sexual_practicessub=45 Then ka$ = "Tantric sex" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0001039"
-If quick.Sexual_practicessub=46 Then ka$ = "Tearoom sex" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0001357"
-If quick.Sexual_practicessub=47 Then ka$ = "Vaginal sex" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0001487"
-If quick.Sexual_practicessub=48 Then ka$ = "Vampirism (Sex)" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0000211"
-If quick.Sexual_practicessub=49 Then ka$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0001257"
-If quick.Sexual_practicessub=50 Then ka$ = "Water sports (Sex)" & " " & sd & "2 homoit" & " " & sd & "0https://homosaurus.org/v3/homoit0000597"
+If quick.Sexual_practicessub=45 Then ka$ = "Tantric sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001039"
+If quick.Sexual_practicessub=46 Then ka$ = "Tearoom sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001357"
+If quick.Sexual_practicessub=47 Then ka$ = "Vaginal sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001487"
+If quick.Sexual_practicessub=48 Then ka$ = "Vampirism (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000211"
+If quick.Sexual_practicessub=49 Then ka$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001257"
+If quick.Sexual_practicessub=50 Then ka$ = "Water sports (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000597"
 
 If ka$ = " " then
 else
