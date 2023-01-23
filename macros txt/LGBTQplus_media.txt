@@ -84,8 +84,10 @@ dim LGBTQplus_characters$
 LGBTQplus_characters$=" "+nd+ "LGBTQ+ characters"+nd+"Bisexual characters"+nd+"Gay characters"+nd+"Lesbian characters"+nd+"Queer characters" _
 +nd+"Transgender characters"
 
-dim LGBTQplus_films$
-LGBTQplus_films$=" "+nd+ "LGBTQ+ films"+nd+"LGBTQ+ home movies"+nd+"  LGBTQ+ vlogs"
+dim LGBTQ_cinema$
+LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Gay cinema"+nd+"    Gay films"+nd+"      Gay porn films"+nd+"  Lesbian cinema" _
++nd+"    Lesbian films"+nd+"      Lesbian porn films"+nd+"  LGBTQ+ films"+nd+"    Gay films"+nd+"    Lesbian films" _
++nd+"    LGBTQ+ home movies"+nd+"      LGBTQ+ vlogs"
 
 dim LGBTQplus_lit_crit$
 LGBTQplus_lit_crit$=" "+nd+ "LGBTQ+ literary criticism"+nd+"Bisexual literary criticism"+nd+"Gay literary criticism"+nd+"Lesbian literary criticism"+nd+"Queer literary criticism" _
@@ -128,6 +130,9 @@ Social_media$=" "+nd+ "Social media"+nd+"Blogs"+nd+"  LGBTQ+ blogs"+nd+"    LGBT
 +nd+"    LGBTQ+ vlogs"+nd+"Chatrooms"+nd+"  LGBTQ+ chatrooms"+nd+"Dating applications"+nd+"  LGBTQ+ dating applications" _
 +nd+"Dating websites"+nd+"  LGBTQ+ dating websites"+nd+"Internet forums"+nd+"  LGBTQ+ Internet forums"
 
+dim Miscellanious_media$
+Miscellanious_media$=" "+nd+ "Queer coding"
+
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
@@ -148,8 +153,8 @@ Text 200,83,90,14, "LGBTQ+ books"
    DropListBox 200, 96, 130, 135, LGBTQplus_books$, .LGBTQplus_bookssub
 Text 14,121,80,14, "LGBTQ+ characters"
    DropListBox 14, 135, 130, 135, LGBTQplus_characters$, .LGBTQplus_characterssub
-Text 200,121,120,14, "LGBTQ+ films"
-   DropListBox 200, 135,130, 135, LGBTQplus_films$, .LGBTQplus_filmssub
+Text 200,121,120,14, "LGBTQ+ cinema"
+   DropListBox 200, 135,130, 135, LGBTQ_cinema$, .LGBTQ_cinemasub
 Text 14,159,130,135, "LGBTQ+ literary criticism"
    DropListBox 14,172,130,130, LGBTQplus_lit_crit$, .LGBTQplus_lit_critsub 
 Text 200,159,130,135, "LGBTQ+ periodicals"
@@ -168,13 +173,15 @@ Text 200,273,95,135, "Nude art"
    DropListBox 200,286,130,135, Nude_art$, .Nude_artsub
 Text 14,311,95,135, "Social media"
    DropListBox 14,324,130,135, Social_media$, .Social_mediasub
+Text 200,311,95,135, "Miscellanious media"
+   DropListBox 200,324,130,135, Miscellanious_media$, .Miscellanious_mediasub
 
 OptionGroup .OptionGroup1
-      OptionButton  200, 311, 200, 10, " Stay on this page", .OptionButton1
-      OptionButton  200, 324, 200, 13, "See LGBTQ+ literature terms", .OptionButton2
+      OptionButton  14, 350, 200, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 360, 200, 13, "See LGBTQ+ literature terms", .OptionButton2
 
-Button 64,375,40,20, "I'm done",    .fin
-CancelButton 130,375,40,20
+Button 64,395,40,20, "I'm done",    .fin
+CancelButton 130,395,40,20
 
 
 End Dialog
@@ -268,11 +275,19 @@ else
 CS.AddField 1, "650 7" & ga$
 end if
 
-If quick.LGBTQplus_filmssub=0 Then ha$ = " "
-If quick.LGBTQplus_filmssub=1 Then ha$ = "LGBTQ+ films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000869"
-If quick.LGBTQplus_filmssub=2 Then ha$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
-If quick.LGBTQplus_filmssub=3 Then ha$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
-
+If quick.LGBTQ_cinemasub=0 Then ha$ = " "
+If quick.LGBTQ_cinemasub=1 Then ha$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQ_cinemasub=2 Then ha$ = "Gay cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002330"
+If quick.LGBTQ_cinemasub=3 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=4 Then ha$ = "Gay porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000520"
+If quick.LGBTQ_cinemasub=5 Then ha$ = "Lesbian cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002328"
+If quick.LGBTQ_cinemasub=6 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=7 Then ha$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000013"
+If quick.LGBTQ_cinemasub=8 Then ha$ = "LGBTQ+ films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000869"
+If quick.LGBTQ_cinemasub=9 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=10 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=11 Then ha$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
+If quick.LGBTQ_cinemasub=12 Then ha$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
 If ha$ = " " then
 else
 CS.AddField 1, "650 7" & ha$
@@ -430,8 +445,21 @@ else
 CS.AddField 1, "650 7" & qa$
 end if
 
+
+If quick.Miscellanious_mediasub=0 Then ra$ = " "
+If quick.Miscellanious_mediasub=1 Then ra$ = "Queer coding" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002192"
+
+If ra$ = " " then
+else
+CS.AddField 1, "650 7" & ra$
+end if
+
+
+
 If quick.OptionGroup1 = 0 then OKbutton
 If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+
+
 
 Cancelled:   
 End Sub
