@@ -1,6 +1,7 @@
 'MacroName:Bisexual_people
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 10/2022, Rev. 01/2023
 
 Sub Main
    
@@ -27,21 +28,22 @@ aa$ = " "
 '****************************************************************************************
 
 dim Bisexual_people$
-Bisexual_people$=" "+nd+ ""Bisexual children"+nd+"  Bisexual boys"+nd+"  Bisexual girls"+nd+"Bisexual men"+nd+"Bisexual parents" _
+Bisexual_people$=" "+nd+"Bisexual children"+nd+"  Bisexual boys"+nd+"  Bisexual girls"+nd+"Bisexual men"+nd+"Bisexual parents" _
 +nd+"Bisexual people"+nd+"Bisexual women"+nd+"  Mati"+nd+"Bisexual youth"+nd+"Closeted bisexual people"+nd+"Older bisexual people"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Bisexual people and Narrower Terms"
+Begin Dialog MFHL 230, 195, "Bisexual people and Narrower Terms"
 
 Text 14,7,100,14, "Bisexual people"
    DropListBox 14, 20, 130, 135, Bisexual_people$, .Bisexual_peoplesub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
-
+Button 25,135,40,20, "I'm done",    .fin
+CancelButton 75,135,40,20
+Text  14, 165, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 175, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 End Dialog
 dim quick as MFHL
 On Error Goto Cancelled
