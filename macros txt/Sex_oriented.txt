@@ -1,8 +1,8 @@
 'MacroName:Sex_oriented
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'September, 2022, Rev. 01/2023 for v.3.3
 'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
-'Menu layout and terms satisfactory for ver.1, Oct. 2022/wi
+
 
 Sub Main
    
@@ -72,7 +72,7 @@ Sex_Body$=" "+nd+ "Sex (Body)"+nd+"Assigned sex"+nd+"  Sex assigned at birth"+nd
 +nd+"  Clitoromegaly"+nd+"    Congenital adrenal hyperplasia"+nd+"    Gonadal dysgenesis"+nd+"    Hypospadias"+nd+"    Klinefelter syndrome" _
 +nd+"  Micropenis"+nd+"    Mosaicism involving sex chromosomes"+nd+"    Ovo-testes"+nd+"    Partial androgen insensitivity syndrome"+nd+"    Progestin induced virilization" _
 +nd+"  Swyer syndrome"+nd+"    Turner syndrome"+nd+"Secondary sex characteristics"+nd+"  Breast"+nd+"  Fat distribution" _
-+nd+"  Hair"+nd+"  Stature"+nd+"  Voice" _
++nd+"  Hair"+nd+"    Mustaches"+nd+"      Cookie dusters (slang)"+nd+"  Stature"+nd+"  Voice"
 
 dim Sex_industry$
 Sex_industry$=" "+nd+ "Sex industry"+nd+"Brothels"+nd+"Porn industry"+nd+"Sex cinemas"+nd+"Sex clubs" _
@@ -86,17 +86,18 @@ Sexual_orientation$=" "+nd+ "Sexual orientation"+nd+"Allosexuality"+nd+"Asexuali
 
 
 dim Sexual_preference$
-Sexual_preference$=" "+nd+ "Sexual preference"+nd+"Chasers"+nd+"Demisexual people"+nd+"Fetishism"+nd+"Chasers" _
-+nd+"Exhibitionism"+nd+"Masochism"+nd+"Partialism"+nd+"Breast fetishism"+nd+"Sadism" _
-+nd+"Vampirism (Sex)"+nd+"Voyeurism"+nd+"Masochism"+nd+"Partner preference"+nd+"Monogamy" _
-+nd+"Polygamy"+nd+"Pederasts"+nd+"Polysexuality"+nd+"Bisexuality"+nd+"Pansexuality" _
-+nd+"Sadism"+nd+"Sexual roles"+nd+"Bottoms (Sex)"+nd+"Butches"+nd+"Femmes" _
-+nd+"Leather daddies"+nd+"Leather mommies"+nd+"LGBTQ+ dominatrices"+nd+"Bisexual dominatrices"+nd+"Lesbian dominatrices" _
-+nd+"Queer dominatrices"+nd+"Transgender dominatrices"+nd+"LGBTQ+ masters (BDSM culture)"+nd+"Bisexual masters"+nd+"Gay masters" _
-+nd+"Queer masters"+nd+"Transgender masters"+nd+"LGBTQ+ mistresses (BDSM culture)"+nd+"Bisexual mistresses"+nd+"Lesbian mistresses" _
-+nd+"Queer mistresses"+nd+"Transgender mistresses"+nd+"Rubbermen"+nd+"Rubberwomen"+nd+"Slaves (BDSM culture)" _
-+nd+"Studs"+nd+"Switches (Sex)"+nd+"Tops (Sex)"+nd+"LGBTQ+ dominatrices"+nd+"LGBTQ+ masters (BDSM culture)" _
-+nd+"LGBTQ+ mistresses (BDSM culture)"+nd+"Vers (Sex)"+nd+"Voyeurism"
+Sexual_preference$=" "+nd+ "Sexual preference"+nd+"  Chasers"+nd+"  Demisexual people"+nd+"  Fetishism"+nd+"    Chasers" _
++nd+"    Exhibitionism"+nd+"    Masochism"+nd+"    Partialism"+nd+"      Breast fetishism"+nd+"    Sadism" _
++nd+"    Vampirism (Sex)"+nd+"    Voyeurism"+nd+"  Masochism"+nd+"  Partner preference"+nd+"    Monogamy" _
++nd+"    Polygamy"+nd+"  Pederasts"+nd+"  Polysexuality"+nd+"    Bisexuality"+nd+"    Pansexuality" _
++nd+"  Sadism"+nd+"  Sexual roles"+nd+"    Bottoms (Sex)"+nd+"    Butches"+nd+"    Femmes" _
++nd+"    Leather daddies"+nd+"    Leather mommies"+nd+"    LGBTQ+ dominatrices"+nd+"      Bisexual dominatrices"+nd+"      Lesbian dominatrices" _
++nd+"      Queer dominatrices"+nd+"      Transgender dominatrices"+nd+"    LGBTQ+ masters (BDSM culture)"+nd+"      Bisexual masters"+nd+"      Gay masters" _
++nd+"      Queer masters"+nd+"      Transgender masters"+nd+"    LGBTQ+ mistresses (BDSM culture)"+nd+"      Bisexual mistresses"+nd+"      Lesbian mistresses" _
++nd+"      Queer mistresses"+nd+"      Transgender mistresses"+nd+"    Rubbermen"+nd+"    Rubberwomen"+nd+"    Slaves (BDSM culture)" _
++nd+"    Studs"+nd+"    Switches (Sex)"+nd+"    Tops (Sex)"+nd+"      LGBTQ+ dominatrices"+nd+"      LGBTQ+ masters (BDSM culture)" _
++nd+"      LGBTQ+ mistresses (BDSM culture)"+nd+"    Vers (Sex)"+nd+"  Voyeurism"
+
 
 dim Sexuality$
 Sexuality$=" "+nd+ "Sexuality"+nd+"Children's sexuality"+nd+"Organisations for sexual research and sexual reform"
@@ -108,9 +109,9 @@ Sexuality$=" "+nd+ "Sexuality"+nd+"Children's sexuality"+nd+"Organisations for s
 Begin Dialog MFHL 400, 300, "Choose the Homosaurus term you want to use..."
 
 Text 14,7,100,14, "Sexual preference"
-   DropListBox 14, 20, 130, 350, Sexual_preference$, .Sexual_preferencesub
+   DropListBox 14, 20, 150, 350, Sexual_preference$, .Sexual_preferencesub
 Text 200,7,100,14, "Sex (Body)"
-   DropListBox 200, 20, 130, 350, Sex_Body$, .Sex_Bodysub
+   DropListBox 200, 20, 150, 350, Sex_Body$, .Sex_Bodysub
 
 Text 14,45,80,14, "Eroticism"
    DropListBox 14, 58, 130, 135, Eroticism$, .Eroticismsub
@@ -249,7 +250,11 @@ If quick.Sex_Bodysub=38 Then ga$ = "Secondary sex characteristics" & " " & sd & 
 If quick.Sex_Bodysub=39 Then ga$ = "Breast" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000222"
 If quick.Sex_Bodysub=40 Then ga$ = "Fat distribution" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000422"
 If quick.Sex_Bodysub=41 Then ga$ = "Hair" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000605"
-If quick.Sex_Bodysub=42 Then ga$ = "Stature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001339"
+If quick.Sex_Bodysub=42 Then ga$ = "Mustaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002287"
+If quick.Sex_Bodysub=43 Then ga$ = "Cookie dusters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002288"
+If quick.Sex_Bodysub=44 Then ga$ = "Stature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001339"
+If quick.Sex_Bodysub=45 Then ga$ = "Voice" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001495"
+
 
 If ga$ = " " then
 else
