@@ -47,7 +47,7 @@ Fandom$=" "+nd+ "Fandom"+nd+"  Anime and manga fandom"+nd+"    Bara fandom"+nd+"
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 230, 250, "Fandom and Narrower Terms"
+Begin Dialog MFHL 230, 270, "Fandom and Narrower Terms"
 
 Text 14,7,100,14, "Fandom"
    DropListBox 14, 20, 150, 185, Fandom$, .Fandomsub
@@ -55,8 +55,8 @@ Text 14,7,100,14, "Fandom"
 Button 25,210,40,20, "I'm done",    .fin
 CancelButton 75,210,40,20
 
-Text  14, 235, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
-Text  14, 235, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+Text  14, 245, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 255, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 End Dialog
 dim quick as MFHL
 On Error Goto Cancelled
