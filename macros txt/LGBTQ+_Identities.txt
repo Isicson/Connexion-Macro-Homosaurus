@@ -33,10 +33,6 @@ dim cn$
 cn$ = " "
 dim kn$
 kn$ = " "
-dim om$
-om$ = " "
-dim qn$
-qn$ = " "
 dim tn$
 tn$ = " "
 
@@ -131,7 +127,7 @@ Begin Dialog MFHL 425, 300, "Choose the Homosaurus term you want to use..."
 
 
 Text 14,7,150,14, "LGBTQ+ people"
-   DropListBox 14, 20, 170, 300, LGBTQ_people$, .LGBTQ_peoplesub
+   DropListBox 14, 20, 170, 280, LGBTQ_people$, .LGBTQ_peoplesub
 Text 250,7,135,14, "Terms that are not in a hierarchy"
    DropListBox 250, 20, 165, 135, Miscellanious_identity$, .Miscellanious_identitysub
 
@@ -147,21 +143,16 @@ Text 250,83,95,135, "Romantic minorities"
 
 Text 14,121,80,14, "Relationship minorities"
    DropListBox 14, 135, 130, 135, Relationship_minorities$, .Relationship_minoritiessub
-'Text 250,121,80,14, "Females"
-'   DropListBox 250, 135, 130, 135, Females$, .Femalessub
-
-'Text 14,159,95,135, "Males"
-'   DropListBox 14, 172, 130, 135, Males$, .Malessub
-Text 250,159,80,14, "Youth"
-   DropListBox 250, 172, 130, 135, Youth$, .Youthsub
+Text 250,121,80,14, "Youth"
+   DropListBox 250, 135, 130, 135, Youth$, .Youthsub
 
 OptionGroup .OptionGroup1
       OptionButton  14, 197, 250, 10, " Stay on this page", .OptionButton1
       OptionButton  14, 210, 250, 10, "See LGBTQ+ identity groups, page 2", .OptionButton2
       OptionButton  14, 223, 250, 10, "See LGBTQ+ identity groups, page 3", .OptionButton3
    
-Button 100,250,40,20, "I'm done",    .fin
-CancelButton 250,250,40,20
+Button 100,275,40,20, "I'm done",    .fin
+CancelButton 250,275,40,20
 
 End Dialog
 dim quick as MFHL
@@ -447,28 +438,6 @@ else
 CS.AddField 1, "650 7" & kn$ 
 end if
 
-
-'If quick.Femalessub=0 Then om$ = " "
-'If quick.Femalessub=1 Then om$ = "Cissexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000273"
-'If quick.Femalessub=2 Then om$ = "Females" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000435"
-'If quick.Femalessub=3 Then om$ = "Trans women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001642"
-
-'If om$ = " " then
-'else 
-'CS.AddField 1, "650 7" & om$ 
-'end if
-
-'****************************************************************************************
-
-'If quick.Malessub=0 Then qn$ = " "
-'If quick.Malessub=1 Then qn$ = "Cissexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000273"
-'If quick.Malessub=2 Then qn$ = "Males" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000985"
-'If quick.Malessub=3 Then qn$ = "Trans men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001643"
-
-'If qn$ = " " then
-'else 
-'CS.AddField 1, "650 7" & qn$ 
-'end if
 
 If quick.Youthsub=0 Then tn$ = " "
 If quick.Youthsub=1 Then tn$ = "Youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001520"
