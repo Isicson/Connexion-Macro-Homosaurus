@@ -1,0 +1,81 @@
+'MacroName:Mothers
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Mothers$
+Mothers$=" "+nd+ "Mothers"+nd+"  LGBTQ+ co-mothers"+nd+"  LGBTQ+ mothers"+nd+"    Bisexual mothers"+nd+"    Gay mothers" _
++nd+"    Lesbian mothers"+nd+"    Queer mothers"+nd+"    Transgender mothers"+nd+"  LGBTQ+ single mothers"+nd+"  Mothers of LGBTQ+ people" _
++nd+"    Mothers of bisexual people"+nd+"    Mothers of gay men"+nd+"    Mothers of lesbians"+nd+"    Mothers of queer people"+nd+"    Mothers of transgender people"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "Mothers and Narrower Terms"
+
+Text 14,7,100,14, "Mothers"
+   DropListBox 14, 20, 130, 135, Mothers$, .Motherssub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Motherssub=0 Then aa$ = " "
+If quick.Motherssub=1 Then aa$ = "Mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001021"
+If quick.Motherssub=2 Then aa$ = "LGBTQ+ co-mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000838"
+If quick.Motherssub=3 Then aa$ = "LGBTQ+ mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002343"
+If quick.Motherssub=4 Then aa$ = "Bisexual mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002344"
+If quick.Motherssub=5 Then aa$ = "Gay mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002345"
+If quick.Motherssub=6 Then aa$ = "Lesbian mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002346"
+If quick.Motherssub=7 Then aa$ = "Queer mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002347"
+If quick.Motherssub=8 Then aa$ = "Transgender mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001422"
+If quick.Motherssub=9 Then aa$ = "LGBTQ+ single mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000942"
+If quick.Motherssub=10 Then aa$ = "Mothers of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002348"
+If quick.Motherssub=11 Then aa$ = "Mothers of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001022"
+If quick.Motherssub=12 Then aa$ = "Mothers of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001023"
+If quick.Motherssub=13 Then aa$ = "Mothers of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001024"
+If quick.Motherssub=14 Then aa$ = "Mothers of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002280"
+If quick.Motherssub=15 Then aa$ = "Mothers of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001025"
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

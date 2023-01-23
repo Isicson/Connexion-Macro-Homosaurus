@@ -1,0 +1,79 @@
+'MacroName:LGBTQ_cinema
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'January 2023
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_cinema$
+LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Gay cinema"+nd+"    Gay films"+nd+"      Gay porn films"+nd+"  Lesbian cinema" _
++nd+"    Lesbian films"+nd+"      Lesbian porn films"+nd+"  LGBTQ+ films"+nd+"    Gay films"+nd+"    Lesbian films" _
++nd+"    LGBTQ+ home movies"+nd+"      LGBTQ+ vlogs"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ cinema and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ cinema"
+   DropListBox 14, 20, 130, 135, LGBTQ_cinema$, .LGBTQ_cinemasub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_cinemasub=0 Then aa$ = " "
+If quick.LGBTQ_cinemasub=1 Then aa$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQ_cinemasub=2 Then aa$ = "Gay cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002330"
+If quick.LGBTQ_cinemasub=3 Then aa$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=4 Then aa$ = "Gay porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000520"
+If quick.LGBTQ_cinemasub=5 Then aa$ = "Lesbian cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002328"
+If quick.LGBTQ_cinemasub=6 Then aa$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=7 Then aa$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000013"
+If quick.LGBTQ_cinemasub=8 Then aa$ = "LGBTQ+ films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000869"
+If quick.LGBTQ_cinemasub=9 Then aa$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=10 Then aa$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=11 Then aa$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
+If quick.LGBTQ_cinemasub=12 Then aa$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

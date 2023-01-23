@@ -1,0 +1,72 @@
+'MacroName:Slash_fanworks
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Slash_fanworks$
+Slash_fanworks$=" "+nd+ "Slash fanworks"+nd+"  Slash art"+nd+"  Slash fiction"+nd+"    NT > Slash fiction"+nd+"  Slash manips" _
++nd+"  Slash roleplay"+nd+"  Slash vidding"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "Slash fanworks and Narrower Terms"
+
+Text 14,7,100,14, "Slash fanworks"
+   DropListBox 14, 20, 130, 135, Slash_fanworks$, .Slash_fanworkssub
+  
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Slash_fanworkssub=0 Then aa$ = " "
+If quick.Slash_fanworkssub=1 Then aa$ = "Slash fanworks" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002204"
+If quick.Slash_fanworkssub=2 Then aa$ = "Slash art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002201"
+If quick.Slash_fanworkssub=3 Then aa$ = "Slash fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002205"
+If quick.Slash_fanworkssub=4 Then CS.RunMacro "Homosaurus_subjects.mbk!Slash_fiction"
+If quick.Slash_fanworkssub=5 Then aa$ = "Slash manips" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002206"
+If quick.Slash_fanworkssub=6 Then aa$ = "Slash roleplay" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002207"
+If quick.Slash_fanworkssub=7 Then aa$ = "Slash vidding" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002209"
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

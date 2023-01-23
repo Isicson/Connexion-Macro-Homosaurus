@@ -1,0 +1,71 @@
+'MacroName:LGBTQplus_fathers
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_fathers$
+LGBTQplus_fathers$=" "+nd+ "LGBTQ+ fathers"+nd+"  Bisexual fathers"+nd+"  Gay fathers"+nd+"  Lesbian fathers"+nd+"  Queer fathers" _
++nd+"  Transgender fathers"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "LGBTQ+ fathers and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ fathers"
+   DropListBox 14, 20, 130, 135, LGBTQplus_fathers$, .LGBTQplus_fatherssub
+  
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_fatherssub=0 Then aa$ = " "
+If quick.LGBTQplus_fatherssub=1 Then aa$ = "LGBTQ+ fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002337"
+If quick.LGBTQplus_fatherssub=2 Then aa$ = "Bisexual fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002338"
+If quick.LGBTQplus_fatherssub=3 Then aa$ = "Gay fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002339"
+If quick.LGBTQplus_fatherssub=4 Then aa$ = "Lesbian fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002340"
+If quick.LGBTQplus_fatherssub=5 Then aa$ = "Queer fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002341"
+If quick.LGBTQplus_fatherssub=6 Then aa$ = "Transgender fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001413"
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
