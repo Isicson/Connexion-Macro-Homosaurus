@@ -3,6 +3,7 @@
 'September, 2022
 'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
 'Menu layout and terms satisfactory for ver.1, Oct. 2022/wi
+'updated 1/23 for v.3.3
 
 Sub Main
    
@@ -33,7 +34,7 @@ ca$ = " "
 
 dim Law$
 Law$=" "+nd+ "Law"+nd+"Anti-discrimination law"+nd+"Court orders"+nd+"Criminal law"+nd+"  Criminalisation" _
-+nd+"  Decriminalisation"+nd+"  Sexual offences laws"+nd+"    Sodomy laws"+nd+"LGBTQ+ personal and family law"+nd+"  Legal name" _
++nd+"  Decriminalisation"+nd+"  Sexual offenses laws"+nd+"    Sodomy laws"+nd+"LGBTQ+ personal and family law"+nd+"  Legal name" _
 +nd+"  Legal name change"+nd+"  Marriage law"+nd+"    Common law marriage"+nd+"LGBTQ+ victims' rights"+nd+"  Bisexual victims' rights" _
 +nd+"  Gay victims' rights"+nd+"  Lesbian victims' rights"+nd+"  Queer victims' rights"+nd+"  Transgender victims' rights"+nd+"Public bathroom bills" _
 
@@ -51,7 +52,7 @@ Miscellanious_legal$=" "+nd+ "Police"
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 350, 300, "Choose the Homosaurus term you want to use..."
+Begin Dialog MFHL 350, 320, "Choose the Homosaurus term you want to use..."
 
 Text 14,7,100,14, "Law"
    DropListBox 14, 20, 130, 250, Law$, .Lawsub
@@ -63,6 +64,8 @@ Text 14,45,175,14, "Terms that are not in a hierarchy:"
 Button 104,260,40,20, "I'm done",    .fin
 CancelButton 170,260,40,20
 
+Text  14, 295, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 305, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -81,7 +84,7 @@ If quick.Lawsub=3 Then aa$ = "Court orders" & " " & sd & "2 homoit" & " " & sd &
 If quick.Lawsub=4 Then aa$ = "Criminal law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000313"
 If quick.Lawsub=5 Then aa$ = "Criminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000314"
 If quick.Lawsub=6 Then aa$ = "Decriminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000339"
-If quick.Lawsub=7 Then aa$ = "Sexual offences laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001289"
+If quick.Lawsub=7 Then aa$ = "Sexual offenses laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001289"
 If quick.Lawsub=8 Then aa$ = "Sodomy laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001326"
 If quick.Lawsub=9 Then aa$ = "LGBTQ+ personal and family law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000918"
 If quick.Lawsub=10 Then aa$ = "Legal name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000711"
