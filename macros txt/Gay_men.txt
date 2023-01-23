@@ -1,6 +1,7 @@
 'MacroName:Gay_men
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created, 12/2022, Rev. 01/2023
 
 Sub Main
    
@@ -28,21 +29,24 @@ aa$ = " "
 
 dim Gay_men$
 Gay_men$=" "+nd+ "Baby gay"+nd+"Bears (Gay culture)"+nd+"  Cubs (Gay culture)"+nd+"Clones (Gay culture)"+nd+"Closeted gay men" _
-+nd+"Gay men"+nd+"Gay parents"+nd+"Gay youth"+nd+"  Gay boys"+nd+"Macho men"_
-"Older gay men"+nd+"Otters (Gay culture)"+nd+"Pups (Gay culture)"+nd+"Queens (Gay culture)"+nd+"  Drag queens"+nd+"Twinks (Gay culture)"+nd+"Wolves (Gay culture)"
++nd+"Gay men"+nd+"Gay parents"+nd+"Gay youth"+nd+"  Gay boys"+nd+"Macho men" _
++nd+"Older gay men"+nd+"Otters (Gay culture)"+nd+"Pups (Roleplay)"+nd+"Queens (Gay culture)"+nd+"  Drag queens"+nd+"Twinks (Gay culture)"+nd+"Wolves (Gay culture)"
 
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Gay men and Narrower Terms"
+Begin Dialog MFHL 230, 195, "Gay men and Narrower Terms"
 
 Text 14,7,100,14, "Gay men"
    DropListBox 14, 20, 130, 135, Gay_men$, .Gay_mensub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 172, 150, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 180, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -66,7 +70,7 @@ If quick.Gay_mensub=9 Then aa$ = "Gay boys" & " " & sd & "2 homoit" & " " & sd &
 If quick.Gay_mensub=10 Then aa$ = "Macho men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000978"
 If quick.Gay_mensub=11 Then aa$ = "Older gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001055"
 If quick.Gay_mensub=12 Then aa$ = "Otters (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001063"
-If quick.Gay_mensub=13 Then aa$ = "Pups (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Gay_mensub=13 Then aa$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
 If quick.Gay_mensub=14 Then aa$ = "Queens (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001148"
 If quick.Gay_mensub=15 Then aa$ = "Drag queens" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000375"
 If quick.Gay_mensub=16 Then aa$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
