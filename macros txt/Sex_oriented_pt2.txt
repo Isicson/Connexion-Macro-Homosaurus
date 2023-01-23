@@ -1,8 +1,7 @@
 'MacroName:sex_oriented_pt2
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'September, 2022, Rev. 01/2023 for v.3.3
 'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
-'Menu layout and terms satisfactory for ver.1, Oct. 2022/wi
 
 Sub Main
    
@@ -36,19 +35,16 @@ ba$ = " "
 '****************************************************************************************
 
 dim Sex_Act$
-Sex_Act$=" "+nd+ "Sex (Act)"+nd+"Anal sex"+nd+"  Barebacking"+nd+"  Scat (Sex)"+nd+"Autoerotic asphyxiation" _
-+nd+"BDSM"+nd+"  Bondage"+nd+"    Rope play"+nd+"  Masochism"+nd+"  SM" _
-+nd+"    Flagellation"+nd+"    Sadism"+nd+"    Spanking"+nd+"Clitoral sex"+nd+"Cottaging (Gay culture)" _
-+nd+"Cruising (LGBTQ+ culture)"+nd+"Erotic massage"+nd+"Exhibitionism"+nd+"Frottage"+nd+"Fucking" _
-+nd+"  Ass fucking"+nd+"Getting laid"+nd+"Kissing"+nd+"Manual sex"+nd+"  Fingering" _
-+nd+"  Fisting"+nd+"    Anal fisting"+nd+"    Vaginal fisting"+nd+"  Pinching"+nd+"  Wacking off" _
-+nd+"  Wanking"+nd+"Masturbation"+nd+"  Jerking off"+nd+"Mud sex"+nd+"Mutual masturbation" _
-+nd+"Nipple play"+nd+"Oral sex"+nd+"  Biting"+nd+"  Cunnilingus"+nd+"  Fellatio" _
-+nd+"  Kissing"+nd+"  Licking"+nd+"    Rimming"+nd+"Phallic sex"+nd+"Phone sex" _
-+nd+"Roleplay"+nd+"  Ageplay"+nd+"  Gender swapping"+nd+"Rubber sex"+nd+"Safer sex" _
-+nd+"Scissoring"+nd+"Sexting"+nd+"Sexual abstinence"+nd+"  Virginity"+nd+"Sexual intercourse" _
-+nd+"Strap-on sex"+nd+"Tantric sex"+nd+"Tribadism"+nd+"Vaginal sex"+nd+"Voyeurism" _
-+nd+"Water sports (Sex)"  
+Sex_Act$=" "+nd+ "Sex (Act)"+nd+"  Anal sex"+nd+"    NT > Anal sex"+nd+"  Autoerotic asphyxiation"+nd+"  BDSM" _
++nd+"    NT > BDSM"+nd+"  Chemsex"+nd+"  Clitoral sex"+nd+"    NT > Clitoral sex"+nd+"  Cottaging (Gay culture)" _
++nd+"  Cruising (LGBTQ+ culture)"+nd+"  Cunnilingus"+nd+"  Erotic massage"+nd+"  Exhibitionism"+nd+"  Fellatio" _
++nd+"  Frottage"+nd+"    Scissoring"+nd+"  Fucking"+nd+"    Ass fucking"+nd+"  Getting laid" _
++nd+"  Kissing"+nd+"  Manual sex"+nd+"    NT > Manual sex"+nd+"  Masturbation"+nd+"    NT > Masturbation" _
++nd+"  Mud sex"+nd+"  Mutual masturbation"+nd+"  Nipple play"+nd+"  Oral sex"+nd+"    NT > Oral sex" _
++nd+"  Phallic sex"+nd+"    NT > Phallic sex"+nd+"  Phone sex"+nd+"  Roleplay"+nd+"    NT > Roleplay" _
++nd+"  Rubber sex"+nd+"  Safer sex"+nd+"  Scissoring"+nd+"  Sexting"+nd+"  Sexual abstinence" _
++nd+"    Virginity"+nd+"  Sexual intercourse"+nd+"  Strap-on sex"+nd+"  Tantric sex"+nd+"  Tribadism" _
++nd+"  Vaginal sex"+nd+"    NT > Vaginal sex"+nd+"  Voyeurism"+nd+"  Water sports (Sex)"
 
 dim Sex_accessories$
 Sex_accessories$=" "+nd+ "Sex accessories"+nd+"Anal beads"+nd+"Ballgags"+nd+"Blindfolds"+nd+"Buttplugs" _
@@ -115,49 +111,53 @@ dialog quick
 If quick.Sex_Actsub=0 Then fa$ = " "
 If quick.Sex_Actsub=1 Then fa$ = "Sex (Act)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001267"
 If quick.Sex_Actsub=2 Then fa$ = "Anal sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000043"
-If quick.Sex_Actsub=3 Then fa$ = "Barebacking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000099"
-If quick.Sex_Actsub=4 Then fa$ = "Scat (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000305"
-If quick.Sex_Actsub=5 Then fa$ = "Autoerotic asphyxiation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000075"
-If quick.Sex_Actsub=6 Then fa$ = "BDSM" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000102"
-If quick.Sex_Actsub=7 Then fa$ = "Bondage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000086"
-If quick.Sex_Actsub=8 Then fa$ = "Rope play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001243"
-If quick.Sex_Actsub=9 Then fa$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
-If quick.Sex_Actsub=10 Then fa$ = "SM" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000036"
-If quick.Sex_Actsub=11 Then fa$ = "Flagellation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000447"
-If quick.Sex_Actsub=12 Then fa$ = "Sadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001250"
-If quick.Sex_Actsub=13 Then fa$ = "Spanking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001335"
-If quick.Sex_Actsub=14 Then fa$ = "Clitoral sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000280"
-If quick.Sex_Actsub=15 Then fa$ = "Cottaging (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000309"
-If quick.Sex_Actsub=16 Then fa$ = "Cruising (LGBTQ+ culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000319"
-If quick.Sex_Actsub=17 Then fa$ = "Erotic massage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000402"
-If quick.Sex_Actsub=18 Then fa$ = "Exhibitionism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000412"
-If quick.Sex_Actsub=19 Then fa$ = "Frottage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000456"
-If quick.Sex_Actsub=20 Then fa$ = "Fucking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000459"
-If quick.Sex_Actsub=21 Then fa$ = "Ass fucking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000076"
-If quick.Sex_Actsub=22 Then fa$ = "Getting laid" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000588"
-If quick.Sex_Actsub=23 Then fa$ = "Kissing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000691"
-If quick.Sex_Actsub=24 Then fa$ = "Manual sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000988"
-If quick.Sex_Actsub=25 Then fa$ = "Fingering" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000446"
-If quick.Sex_Actsub=26 Then fa$ = "Fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000445"
-If quick.Sex_Actsub=27 Then fa$ = "Anal fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000042"
-If quick.Sex_Actsub=28 Then fa$ = "Vaginal fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001486"
-If quick.Sex_Actsub=29 Then fa$ = "Pinching" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001115"
-If quick.Sex_Actsub=30 Then fa$ = "Wacking off" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001498"
-If quick.Sex_Actsub=31 Then fa$ = "Wanking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001500"
-If quick.Sex_Actsub=32 Then fa$ = "Masturbation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001000"
-If quick.Sex_Actsub=33 Then fa$ = "Jerking off" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000681"
-If quick.Sex_Actsub=34 Then fa$ = "Mud sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001028"
-If quick.Sex_Actsub=35 Then fa$ = "Mutual masturbation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001033"
-If quick.Sex_Actsub=36 Then fa$ = "Nipple play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001046"
-If quick.Sex_Actsub=37 Then fa$ = "Oral sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000593"
-If quick.Sex_Actsub=38 Then fa$ = "Biting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000206"
-If quick.Sex_Actsub=39 Then fa$ = "Cunnilingus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000239"
-If quick.Sex_Actsub=40 Then fa$ = "Fellatio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000212"
-If quick.Sex_Actsub=41 Then fa$ = "Kissing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000691"
-If quick.Sex_Actsub=42 Then fa$ = "Licking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000969"
-If quick.Sex_Actsub=43 Then fa$ = "Rimming" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000049"
-If quick.Sex_Actsub=44 Then fa$ = "Phallic sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001109"
-
+If quick.Sex_Actsub=3 Then CS.RunMacro "Homosaurus_subjects.mbk!anal_sex"
+If quick.Sex_Actsub=4 Then fa$ = "Autoerotic asphyxiation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000075"
+If quick.Sex_Actsub=5 Then fa$ = "BDSM" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000102"
+If quick.Sex_Actsub=6 Then CS.RunMacro "Homosaurus_subjects.mbk!BDSM"
+If quick.Sex_Actsub=7 Then fa$ = "Chemsex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002289"
+If quick.Sex_Actsub=8 Then fa$ = "Clitoral sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000280"
+If quick.Sex_Actsub=9 Then CS.RunMacro "Homosaurus_subjects.mbk!Clitoral_sex"
+If quick.Sex_Actsub=10 Then fa$ = "Cottaging (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000309"
+If quick.Sex_Actsub=11 Then fa$ = "Cruising (LGBTQ+ culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000319"
+If quick.Sex_Actsub=12 Then fa$ = "Cunnilingus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000239"
+If quick.Sex_Actsub=13 Then fa$ = "Erotic massage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000402"
+If quick.Sex_Actsub=14 Then fa$ = "Exhibitionism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000412"
+If quick.Sex_Actsub=15 Then fa$ = "Fellatio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000212"
+If quick.Sex_Actsub=16 Then fa$ = "Frottage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000456"
+If quick.Sex_Actsub=17 Then fa$ = "Scissoring" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001667"
+If quick.Sex_Actsub=18 Then fa$ = "Fucking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000459"
+If quick.Sex_Actsub=19 Then fa$ = "Ass fucking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000076"
+If quick.Sex_Actsub=20 Then fa$ = "Getting laid" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000588"
+If quick.Sex_Actsub=21 Then fa$ = "Kissing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000691"
+If quick.Sex_Actsub=22 Then fa$ = "Manual sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000988"
+If quick.Sex_Actsub=23 Then CS.RunMacro "Homosaurus_subjects.mbk!Manual_sex"
+If quick.Sex_Actsub=24 Then fa$ = "Masturbation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001000"
+If quick.Sex_Actsub=25 Then CS.RunMacro "Homosaurus_subjects.mbk!Masturbation"
+If quick.Sex_Actsub=26 Then fa$ = "Mud sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001028"
+If quick.Sex_Actsub=27 Then fa$ = "Mutual masturbation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001033"
+If quick.Sex_Actsub=28 Then fa$ = "Nipple play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001046"
+If quick.Sex_Actsub=29 Then fa$ = "Oral sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000593"
+If quick.Sex_Actsub=30 Then CS.RunMacro "Homosaurus_subjects.mbk!Oral_sex"
+If quick.Sex_Actsub=31 Then fa$ = "Phallic sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001109"
+If quick.Sex_Actsub=32 Then CS.RunMacro "Homosaurus_subjects.mbk!Phallic_sex"
+If quick.Sex_Actsub=33 Then fa$ = "Phone sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001110"
+If quick.Sex_Actsub=34 Then fa$ = "Roleplay" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001242"
+If quick.Sex_Actsub=35 Then CS.RunMacro "Homosaurus_subjects.mbk!Roleplay"
+If quick.Sex_Actsub=36 Then fa$ = "Rubber sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001246"
+If quick.Sex_Actsub=37 Then fa$ = "Safer sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001251"
+If quick.Sex_Actsub=38 Then fa$ = "Scissoring" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001667"
+If quick.Sex_Actsub=39 Then fa$ = "Sexting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001281"
+If quick.Sex_Actsub=40 Then fa$ = "Sexual abstinence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001282"
+If quick.Sex_Actsub=41 Then fa$ = "Virginity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001493"
+If quick.Sex_Actsub=42 Then fa$ = "Sexual intercourse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000662"
+If quick.Sex_Actsub=43 Then fa$ = "Strap-on sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001342"
+If quick.Sex_Actsub=44 Then fa$ = "Tantric sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001039"
+If quick.Sex_Actsub=45 Then fa$ = "Tribadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001669"
+If quick.Sex_Actsub=46 Then fa$ = "Vaginal sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001487"
+If quick.Sex_Actsub=47 Then CS.RunMacro "Homosaurus_subjects.mbk!Vaginal_sex"
+If quick.Sex_Actsub=48 Then fa$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001257"
+If quick.Sex_Actsub=49 Then fa$ = "Water sports (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000597"
 
 If fa$ = " " then
 else
