@@ -1,6 +1,7 @@
 'MacroName:Leather_community
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022, Rev. 01/2023
 
 Sub Main
    
@@ -31,19 +32,22 @@ Leather_community$=" "+nd+"Leather community"+nd+"Bootblacking"+nd+"Leather fami
 +nd+"Leathermen"+nd+"  Leather daddies"+nd+"Leatherwomen"+nd+"  Leather mommies"+nd+"LGBTQ+ dominatrices" _
 +nd+"  Bisexual dominatrices"+nd+"  Lesbian dominatrices"+nd+"  Queer dominatrices"+nd+"  Transgender dominatrices"+nd+"LGBTQ+ masters (BDSM culture)" _
 +nd+"  Bisexual masters"+nd+"  Gay masters"+nd+"  Queer masters"+nd+"  Transgender masters"+nd+"LGBTQ+ mistresses (BDSM culture)" _
-+nd+"  Bisexual mistresses"+nd+"  Lesbian mistresses"+nd+"  Queer mistresses"+nd+"  Transgender mistresses"+nd+"Pups (Gay culture)" 
++nd+"  Bisexual mistresses"+nd+"  Lesbian mistresses"+nd+"  Queer mistresses"+nd+"  Transgender mistresses"+nd+"Pups (Roleplay)" 
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Leather community and Narrower Terms"
+Begin Dialog MFHL 225, 195, "Leather community and Narrower Terms"
 
 Text 14,7,100,14, "Leather community"
-   DropListBox 14, 20, 130, 135, Leather_community$, .Leather_communitysub
+   DropListBox 14, 20, 150, 135, Leather_community$, .Leather_communitysub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  5, 175, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  5, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -79,7 +83,7 @@ If quick.Leather_communitysub=21 Then aa$ = "Bisexual mistresses" & " " & sd & "
 If quick.Leather_communitysub=22 Then aa$ = "Lesbian mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000751"
 If quick.Leather_communitysub=23 Then aa$ = "Queer mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001186"
 If quick.Leather_communitysub=24 Then aa$ = "Transgender mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001421"
-If quick.Leather_communitysub=25 Then aa$ = "Pups (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Leather_communitysub=25 Then aa$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
 
 If aa$ = " " then 
 else
