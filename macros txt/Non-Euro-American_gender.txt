@@ -1,13 +1,14 @@
 'MacroName:Non-Euro-American_gender
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'September, 2022
+'Updated for v.3.3 1/9/2023 wi
 
 Sub Main
    
 Dim CS As Object
 Dim sData as String
 dim sd
-sd = chr(223) 
+sd = chr(223)
 dim nd
 nd = chr$(9)   
     
@@ -27,38 +28,42 @@ aa$ = " "
 '****************************************************************************************
 
 dim Non_Euro_American_gender$
-Non_Euro_American_gender$=" "+nd+ "Non-Euro-American gender and sexual identities"+nd+"Acault"+nd+"Agi"+nd+"Akava'ine"+nd+"Ali" _
-+nd+"Alyha"+nd+"Androgynos"+nd+"Aravani"+nd+"Ashtime"+nd+"Aylonit" _
-+nd+"Bading"+nd+"Bakla"+nd+"Bantut"+nd+"Bayot"+nd+"Binabae" _
-+nd+"Bissu"+nd+"Biza'ah"+nd+"Brotherboys"+nd+"Burrnesha"+nd+"Calabai" _
-+nd+"Calalai"+nd+"Chakka"+nd+"Dee"+nd+"Dhurani"+nd+"Dilbaa" _
-+nd+"Eunuchs"+nd+"Fa'afafine"+nd+"Fa'afatama"+nd+"Fakaleiti"+nd+"Femminiello" _
-+nd+"Galli"+nd+"Guevedoche"+nd+"Hemaneh"+nd+"Hijra"+nd+"Hwame" _
-+nd+"Indigiqueer"+nd+"Jankha"+nd+"Jogappa"+nd+"Kocek"+nd+"Katoey" _
-+nd+"Khawaja sara"+nd+"Khusra"+nd+"Kinnar"+nd+"Kothi"+nd+"Kteuy" _
-+nd+"Lakin-on"+nd+"Lhamana"+nd+"Mahu"+nd+"Mak nyah"+nd+"Mangaiko" _
-+nd+"Mashoga"+nd+"Metis"+nd+"Mukhannathun"+nd+"Muxe"+nd+"Nadleehi" _
-+nd+"Namban"+nd+"Niizh manidoowag"+nd+"Ninauposkitzipxpe"+nd+"Palao'ana"+nd+"Pangender people" _
-+nd+"Quariwarmi"+nd+"Sak veng"+nd+"Saris"+nd+"Sekhet"+nd+"Sekrata" _
-+nd+"Shiv-Shakthis"+nd+"Sistergirls"+nd+"Skoptsy"+nd+"Srey sros"+nd+"Takatapui" _
-+nd+"Third gender"+nd+"Thirunambi"+nd+"Thirunangai"+nd+"Tida wena"+nd+"Travesti" _
-+nd+"Trigender people"+nd+"Tritiya-Prakriti"+nd+"Tumtum"+nd+"Two-Spirit identity"+nd+"Two-Spirit people" _
-+nd+"Wakatane"+nd+"Waria"+nd+"Whakawahine"+nd+"Winkte"+nd+"Xanith" _
-+nd+"X-jenda"+nd+"Yinyang ren"+nd+"Zenanas"+nd+"Zenani"
+Non_Euro_American_gender$=" "+nd+"Non-Euro-American gender and sexual identities"+nd+"Acault (Burmese)"+nd+"Agî (Filipino, contextual slur)"+nd+"Akava'ine (Cook Islands Maori)"+nd+"Ali (Tamil slur)" _
++nd+"Alyha (Native American Mohave tribes)"+nd+"Androgynos (Israeli term used in Rabbinical literature)"+nd+"Aravani (Indian term)"+nd+"Ashtime (Maale people in Ethiopia)"+nd+"Aylonit (Israeli term)" _
++nd+"Bading (Derogatory Filipino term)"+nd+"Bakla (Filipino term)"+nd+"Bantut (Filipino term)"+nd+"Bayot (Derogatory Cebuano term used in the Philippines)"+nd+"Binabae (Tagalog term)" _
++nd+"Bissu (Bugis (Indonesia) culture)"+nd+"Biza'ah (Zapotec in Teotitlán del Valle, Mexico)"+nd+"Brotherboys (Indigenous Australian term)"+nd+"Burrnesha (Balkans)"+nd+"Calabai (Bugis culture)" _
++nd+"Calalai (Bugis culture)"+nd+"Chakka (Derogatory term, Karnataka culture in India)"+nd+"Dee (Thailand)"+nd+"Dhurani (Bengali term)"+nd+"Dilbaa (Navajo term)" _
++nd+"Eunuchs (Historical)"+nd+"Fa'afafine (New Zealand, Samoan people)"+nd+"Fa'afatama (New Zealand, Samoan people)"+nd+"Fakaleiti (Tongan people)"+nd+"Femminiello (Italy Neapolitan term)" _
++nd+"Galli (Ancient Rome)"+nd+"Güevedoce (Dominican Republic)"+nd+"Hemaneh (Cheyenne term)"+nd+"Hijras (Hindi term used in South Asia)"+nd+"Hwame (Native American Mohave tribes)" _
++nd+"Indigiqueer (self-identified Indigenous and queer)"+nd+"Jankha (India)"+nd+"Jogappa (India)"+nd+"Katoey (Thailand)"+nd+"Khaniths (Arabic term used in Oman)" _
++nd+"Khawaja sara (Urdu term used in Southeast Asia)"+nd+"Khteuy  (Khmer term)"+nd+"Khusra (Pakistan and Northern India)"+nd+"Kinnar (variant term for hijras, northern India)"+nd+"Köçek (Turkish)" _
++nd+"Kothis (South Asia)"+nd+"Lakin-on  (Cebuano term)"+nd+"Lhamana (Native American Zuni term)"+nd+"Mahu (Hawaiian and Tahitian cultures)"+nd+"Mak nyahs (Malaysian)" _
++nd+"Mangaiko (Mbo term)"+nd+"Mashoga (Swahili term)"+nd+"Metis (Nepal)"+nd+"Mukhannathun (classical Arabic)"+nd+"Muxe (Zapotec cultures of Oaxaca (southern Mexico))" _
++nd+"Nádleehi  (Native American Navajo tribe)"+nd+"Niizh manidoowag (Native American Ojibwa term)"+nd+"Ninauposkitzipxpe (Native American Blackfoot tribes term)"+nd+"Palao'ana (Chamorro (Mariana Islands) term)" _
++nd+"Pangender people (General Social category)"+nd+"Quariwarmi (North American Inca term)"+nd+"Sak veng (Cambodia)"+nd+"Saris (Jewish culture)"+nd+"Sekhet (Egyptian term)" _
++nd+"Sekrata (Madagascar)"+nd+"Shiv-Shakthis (Andhra Pradesh region of India)"+nd+"Sistergirls (Indigenous Australian term)" _
++nd+"Skoptsy (Sect within larger Spiritual Christianity movement, Russian Empire)"+nd+"Srey sros (Cambodia)" _
++nd+"Takatapui (Maori & Indigenous Polynesian people of mainland Aotearoa (NZ)"+nd+"Third gender (General Social category)" _
++nd+"Thirunambi (Regional term, Tamil Nadu, India)"+nd+"Thirunangai (Regional term, Tamil Nadu, India)"+nd+"Tida wena (Venezuela's indigenous Warao culture)" _
++nd+"Tom (Thailand)"+nd+"Travestis (South American Spanish term)"+nd+"Trigender people (General Social category)"+nd+"Tritiya-Prakriti (Ancient Hindu term)"+nd+"Tumtum (Israeli term)" _
++nd+"Two-Spirit identity (Indigenous people, North America)"+nd+"Two-Spirit people (Indigenous people, North America)"+nd+"Waria (Indonesia)" _
++nd+"Whakatane (Maori culture, New Zealand)"+nd+"Whakawahine (Maori culture, New Zealand)" _
++nd+"Winkté (North American Lakota term)"+nd+"X-jenda (Japanese term)"+nd+"Yan daudu (Nigerian term)"+nd+"Yinyángrén (Chinese term)"+nd+"Zenanas (northern India and Pakistan)"
 
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 300, 250, "Non-Euro-American gender and sexual identities and Narrower Terms"
+Begin Dialog MFHL 300, 280, "Non-Euro-American gender and sexual identities and Narrower Terms"
 
 Text 14,7,200,14, "Non-Euro-American gender and sexual identities"
-   DropListBox 14, 20, 200, 200, Non_Euro_American_gender$, .Non_Euro_American_gendersub
+   DropListBox 14, 20, 280, 200, Non_Euro_American_gender$, .Non_Euro_American_gendersub
   
 Button 25,225,40,20, "I'm done",    .fin
 CancelButton 75,225,40,20
-
+Text  25, 255, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  25, 265, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 End Dialog
 dim quick as MFHL
 On Error Goto Cancelled
@@ -71,7 +76,7 @@ dialog quick
 If quick.Non_Euro_American_gendersub=0 Then aa$ = " "
 If quick.Non_Euro_American_gendersub=1 Then aa$ = "Non-Euro-American gender and sexual identities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000322"
 If quick.Non_Euro_American_gendersub=2 Then aa$ = "Acault" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000003"
-If quick.Non_Euro_American_gendersub=3 Then aa$ = "Agi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000023"
+If quick.Non_Euro_American_gendersub=3 Then aa$ = "Agiã" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000023"
 If quick.Non_Euro_American_gendersub=4 Then aa$ = "Akava'ine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000035"
 If quick.Non_Euro_American_gendersub=5 Then aa$ = "Ali" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000037"
 If quick.Non_Euro_American_gendersub=6 Then aa$ = "Alyha" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000039"
@@ -97,34 +102,34 @@ If quick.Non_Euro_American_gendersub=25 Then aa$ = "Dilbaa" & " " & sd & "2 homo
 If quick.Non_Euro_American_gendersub=26 Then aa$ = "Eunuchs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000240"
 If quick.Non_Euro_American_gendersub=27 Then aa$ = "Fa'afafine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000413"
 If quick.Non_Euro_American_gendersub=28 Then aa$ = "Fa'afatama" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000414"
-If quick.Non_Euro_American_gendersub=29 Then aa$ = "Fakaleiti" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000419"
+If quick.Non_Euro_American_gendersub=29 Then aa$ = "Fakaleitiå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000419"
 If quick.Non_Euro_American_gendersub=30 Then aa$ = "Femminiello" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000441"
 If quick.Non_Euro_American_gendersub=31 Then aa$ = "Galli" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000461"
-If quick.Non_Euro_American_gendersub=32 Then aa$ = "Guevedoche" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000604"
+If quick.Non_Euro_American_gendersub=32 Then aa$ = "Guèevedoce" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000604"
 If quick.Non_Euro_American_gendersub=33 Then aa$ = "Hemaneh" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000616"
-If quick.Non_Euro_American_gendersub=34 Then aa$ = "Hijra" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000632"
+If quick.Non_Euro_American_gendersub=34 Then aa$ = "Hijras" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000632"
 If quick.Non_Euro_American_gendersub=35 Then aa$ = "Hwame" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000654"
 If quick.Non_Euro_American_gendersub=36 Then aa$ = "Indigiqueer" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001810"
 If quick.Non_Euro_American_gendersub=37 Then aa$ = "Jankha" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000678"
 If quick.Non_Euro_American_gendersub=38 Then aa$ = "Jogappa" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000684"
-If quick.Non_Euro_American_gendersub=39 Then aa$ = "Kocek" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000693"
-If quick.Non_Euro_American_gendersub=40 Then aa$ = "Katoey" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000687"
+If quick.Non_Euro_American_gendersub=39 Then aa$ = "Katoey" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000687"
+If quick.Non_Euro_American_gendersub=40 Then aa$ = "Khaniths" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001517"
 If quick.Non_Euro_American_gendersub=41 Then aa$ = "Khawaja sara" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000689"
-If quick.Non_Euro_American_gendersub=42 Then aa$ = "Khusra" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000688"
-If quick.Non_Euro_American_gendersub=43 Then aa$ = "Kinnar" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000690"
-If quick.Non_Euro_American_gendersub=44 Then aa$ = "Kothi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000694"
-If quick.Non_Euro_American_gendersub=45 Then aa$ = "Kteuy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000695"
-If quick.Non_Euro_American_gendersub=46 Then aa$ = "Lakin-on" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000697"
-If quick.Non_Euro_American_gendersub=47 Then aa$ = "Lhamana" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000966"
-If quick.Non_Euro_American_gendersub=48 Then aa$ = "Mahu" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000979"
-If quick.Non_Euro_American_gendersub=49 Then aa$ = "Mak nyah" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000980"
-If quick.Non_Euro_American_gendersub=50 Then aa$ = "Mangaiko" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000987"
-If quick.Non_Euro_American_gendersub=51 Then aa$ = "Mashoga" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000996"
-If quick.Non_Euro_American_gendersub=52 Then aa$ = "Metis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001013"
-If quick.Non_Euro_American_gendersub=53 Then aa$ = "Mukhannathun" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001029"
-If quick.Non_Euro_American_gendersub=54 Then aa$ = "Muxe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001034"
-If quick.Non_Euro_American_gendersub=55 Then aa$ = "Nadleehi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001035"
-If quick.Non_Euro_American_gendersub=56 Then aa$ = "Namban" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001036"
+If quick.Non_Euro_American_gendersub=42 Then aa$ = "Khteuy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000695"
+If quick.Non_Euro_American_gendersub=43 Then aa$ = "Khusra" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000688"
+If quick.Non_Euro_American_gendersub=44 Then aa$ = "Kinnar" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000690"
+If quick.Non_Euro_American_gendersub=45 Then aa$ = "Koècðek" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000693"
+If quick.Non_Euro_American_gendersub=46 Then aa$ = "Kothis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000694"
+If quick.Non_Euro_American_gendersub=47 Then aa$ = "Lakin-on " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000697"
+If quick.Non_Euro_American_gendersub=48 Then aa$ = "Lhamana" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000966"
+If quick.Non_Euro_American_gendersub=49 Then aa$ = "Maåhuå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000979"
+If quick.Non_Euro_American_gendersub=50 Then aa$ = "Mak nyahs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000980"
+If quick.Non_Euro_American_gendersub=51 Then aa$ = "Mangaiko" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000987"
+If quick.Non_Euro_American_gendersub=52 Then aa$ = "Mashoga" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000996"
+If quick.Non_Euro_American_gendersub=53 Then aa$ = "Metis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001013"
+If quick.Non_Euro_American_gendersub=54 Then aa$ = "Mukhannathun" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001029"
+If quick.Non_Euro_American_gendersub=55 Then aa$ = "Muxe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001034"
+If quick.Non_Euro_American_gendersub=56 Then aa$ = "Naâdleehi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001035"
 If quick.Non_Euro_American_gendersub=57 Then aa$ = "Niizh manidoowag" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001043"
 If quick.Non_Euro_American_gendersub=58 Then aa$ = "Ninauposkitzipxpe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001044"
 If quick.Non_Euro_American_gendersub=59 Then aa$ = "Palao'ana" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001070"
@@ -138,27 +143,201 @@ If quick.Non_Euro_American_gendersub=66 Then aa$ = "Shiv-Shakthis" & " " & sd & 
 If quick.Non_Euro_American_gendersub=67 Then aa$ = "Sistergirls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001314"
 If quick.Non_Euro_American_gendersub=68 Then aa$ = "Skoptsy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001316"
 If quick.Non_Euro_American_gendersub=69 Then aa$ = "Srey sros" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001338"
-If quick.Non_Euro_American_gendersub=70 Then aa$ = "Takatapui" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000898"
+If quick.Non_Euro_American_gendersub=70 Then aa$ = "Takataåpui" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000898"
 If quick.Non_Euro_American_gendersub=71 Then aa$ = "Third gender" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001368"
 If quick.Non_Euro_American_gendersub=72 Then aa$ = "Thirunambi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001371"
 If quick.Non_Euro_American_gendersub=73 Then aa$ = "Thirunangai" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001370"
 If quick.Non_Euro_American_gendersub=74 Then aa$ = "Tida wena" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001372"
-If quick.Non_Euro_American_gendersub=75 Then aa$ = "Travesti" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001471"
-If quick.Non_Euro_American_gendersub=76 Then aa$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
-If quick.Non_Euro_American_gendersub=77 Then aa$ = "Tritiya-Prakriti" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001475"
-If quick.Non_Euro_American_gendersub=78 Then aa$ = "Tumtum" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001477"
-If quick.Non_Euro_American_gendersub=79 Then aa$ = "Two-Spirit identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001914"
-If quick.Non_Euro_American_gendersub=80 Then aa$ = "Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001480"
-If quick.Non_Euro_American_gendersub=81 Then aa$ = "Wakatane" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001499"
+If quick.Non_Euro_American_gendersub=75 Then aa$ = "Tom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001373"
+If quick.Non_Euro_American_gendersub=76 Then aa$ = "Travestis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001471"
+If quick.Non_Euro_American_gendersub=77 Then aa$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
+If quick.Non_Euro_American_gendersub=78 Then aa$ = "Tritiya-Prakriti" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001475"
+If quick.Non_Euro_American_gendersub=79 Then aa$ = "Tumtum" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001477"
+If quick.Non_Euro_American_gendersub=80 Then aa$ = "Two-Spirit identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001914"
+If quick.Non_Euro_American_gendersub=81 Then aa$ = "Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001480"
 If quick.Non_Euro_American_gendersub=82 Then aa$ = "Waria" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001501"
-If quick.Non_Euro_American_gendersub=83 Then aa$ = "Whakawahine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001502"
-If quick.Non_Euro_American_gendersub=85 Then aa$ = "Winkte" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001506"
-If quick.Non_Euro_American_gendersub=85 Then aa$ = "Xanith" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001517"
-If quick.Non_Euro_American_gendersub=86 Then aa$ = "X-jenda" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001518"
-If quick.Non_Euro_American_gendersub=87 Then aa$ = "Yinyang ren" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001519"
-If quick.Non_Euro_American_gendersub=88 Then aa$ = "Zenanas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001523"
-If quick.Non_Euro_American_gendersub=89 Then aa$ = "Zenani" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001524"
+If quick.Non_Euro_American_gendersub=83 Then aa$ = "Whakatane" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001499"
+If quick.Non_Euro_American_gendersub=84 Then aa$ = "Whakawaåhine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001502"
+If quick.Non_Euro_American_gendersub=85 Then aa$ = "Winkteâ" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001506"
+If quick.Non_Euro_American_gendersub=86 Then aa$ = "X-jendaå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001518"
+If quick.Non_Euro_American_gendersub=87 Then aa$ = "Yan daudu" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002286"
+If quick.Non_Euro_American_gendersub=88 Then aa$ = "Yiånyaângreân" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001519"
+If quick.Non_Euro_American_gendersub=89 Then aa$ = "Zenanas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001523"
 
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
+'MacroName:Non-Euro-American_gender
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+'Updated for v.3.3 1/9/2023 wi
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223)
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Non_Euro_American_gender$
+Non_Euro_American_gender$=" "+nd+"Non-Euro-American gender and sexual identities"+nd+"Acault (Burmese)"+nd+"Agî (Filipino, contextual slur)"+nd+"Akava'ine (Cook Islands Maori)"+nd+"Ali (Tamil slur)" _
++nd+"Alyha (Native American Mohave tribes)"+nd+"Androgynos (Israeli term used in Rabbinical literature)"+nd+"Aravani (Indian term)"+nd+"Ashtime (Maale people in Ethiopia)"+nd+"Aylonit (Israeli term)" _
++nd+"Bading (Derogatory Filipino term)"+nd+"Bakla (Filipino term)"+nd+"Bantut (Filipino term)"+nd+"Bayot (Derogatory Cebuano term used in the Philippines)"+nd+"Binabae (Tagalog term)" _
++nd+"Bissu (Bugis (Indonesia) culture)"+nd+"Biza'ah (Zapotec in Teotitlán del Valle, Mexico)"+nd+"Brotherboys (Indigenous Australian term)"+nd+"Burrnesha (Balkans)"+nd+"Calabai (Bugis culture)" _
++nd+"Calalai (Bugis culture)"+nd+"Chakka (Derogatory term, Karnataka culture in India)"+nd+"Dee (Thailand)"+nd+"Dhurani (Bengali term)"+nd+"Dilbaa (Navajo term)" _
++nd+"Eunuchs (Historical)"+nd+"Fa'afafine (New Zealand, Samoan people)"+nd+"Fa'afatama (New Zealand, Samoan people)"+nd+"Fakaleiti (Tongan people)"+nd+"Femminiello (Italy Neapolitan term)" _
++nd+"Galli (Ancient Rome)"+nd+"Güevedoce (Dominican Republic)"+nd+"Hemaneh (Cheyenne term)"+nd+"Hijras (Hindi term used in South Asia)"+nd+"Hwame (Native American Mohave tribes)" _
++nd+"Indigiqueer (self-identified Indigenous and queer)"+nd+"Jankha (India)"+nd+"Jogappa (India)"+nd+"Katoey (Thailand)"+nd+"Khaniths (Arabic term used in Oman)" _
++nd+"Khawaja sara (Urdu term used in Southeast Asia)"+nd+"Khteuy  (Khmer term)"+nd+"Khusra (Pakistan and Northern India)"+nd+"Kinnar (variant term for hijras, northern India)"+nd+"Köçek (Turkish)" _
++nd+"Kothis (South Asia)"+nd+"Lakin-on  (Cebuano term)"+nd+"Lhamana (Native American Zuni term)"+nd+"Mahu (Hawaiian and Tahitian cultures)"+nd+"Mak nyahs (Malaysian)" _
++nd+"Mangaiko (Mbo term)"+nd+"Mashoga (Swahili term)"+nd+"Metis (Nepal)"+nd+"Mukhannathun (classical Arabic)"+nd+"Muxe (Zapotec cultures of Oaxaca (southern Mexico))" _
++nd+"Nádleehi  (Native American Navajo tribe)"+nd+"Niizh manidoowag (Native American Ojibwa term)"+nd+"Ninauposkitzipxpe (Native American Blackfoot tribes term)"+nd+"Palao'ana (Chamorro (Mariana Islands) term)" _
++nd+"Pangender people (General Social category)"+nd+"Quariwarmi (North American Inca term)"+nd+"Sak veng (Cambodia)"+nd+"Saris (Jewish culture)"+nd+"Sekhet (Egyptian term)" _
++nd+"Sekrata (Madagascar)"+nd+"Shiv-Shakthis (Andhra Pradesh region of India)"+nd+"Sistergirls (Indigenous Australian term)" _
++nd+"Skoptsy (Sect within larger Spiritual Christianity movement, Russian Empire)"+nd+"Srey sros (Cambodia)" _
++nd+"Takatapui (Maori & Indigenous Polynesian people of mainland Aotearoa (NZ)"+nd+"Third gender (General Social category)" _
++nd+"Thirunambi (Regional term, Tamil Nadu, India)"+nd+"Thirunangai (Regional term, Tamil Nadu, India)"+nd+"Tida wena (Venezuela's indigenous Warao culture)" _
++nd+"Tom (Thailand)"+nd+"Travestis (South American Spanish term)"+nd+"Trigender people (General Social category)"+nd+"Tritiya-Prakriti (Ancient Hindu term)"+nd+"Tumtum (Israeli term)" _
++nd+"Two-Spirit identity (Indigenous people, North America)"+nd+"Two-Spirit people (Indigenous people, North America)"+nd+"Waria (Indonesia)" _
++nd+"Whakatane (Maori culture, New Zealand)"+nd+"Whakawahine (Maori culture, New Zealand)" _
++nd+"Winkté (North American Lakota term)"+nd+"X-jenda (Japanese term)"+nd+"Yan daudu (Nigerian term)"+nd+"Yinyángrén (Chinese term)"+nd+"Zenanas (northern India and Pakistan)"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 300, 280, "Non-Euro-American gender and sexual identities and Narrower Terms"
+
+Text 14,7,200,14, "Non-Euro-American gender and sexual identities"
+   DropListBox 14, 20, 280, 200, Non_Euro_American_gender$, .Non_Euro_American_gendersub
+  
+Button 25,225,40,20, "I'm done",    .fin
+CancelButton 75,225,40,20
+Text  25, 255, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  25, 265, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Non_Euro_American_gendersub=0 Then aa$ = " "
+If quick.Non_Euro_American_gendersub=1 Then aa$ = "Non-Euro-American gender and sexual identities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000322"
+If quick.Non_Euro_American_gendersub=2 Then aa$ = "Acault" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000003"
+If quick.Non_Euro_American_gendersub=3 Then aa$ = "Agiã" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000023"
+If quick.Non_Euro_American_gendersub=4 Then aa$ = "Akava'ine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000035"
+If quick.Non_Euro_American_gendersub=5 Then aa$ = "Ali" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000037"
+If quick.Non_Euro_American_gendersub=6 Then aa$ = "Alyha" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000039"
+If quick.Non_Euro_American_gendersub=7 Then aa$ = "Androgynos" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000046"
+If quick.Non_Euro_American_gendersub=8 Then aa$ = "Aravani" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000065"
+If quick.Non_Euro_American_gendersub=9 Then aa$ = "Ashtime" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000072"
+If quick.Non_Euro_American_gendersub=10 Then aa$ = "Aylonit" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000085"
+If quick.Non_Euro_American_gendersub=11 Then aa$ = "Bading" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000090"
+If quick.Non_Euro_American_gendersub=12 Then aa$ = "Bakla" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000091"
+If quick.Non_Euro_American_gendersub=13 Then aa$ = "Bantut" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000096"
+If quick.Non_Euro_American_gendersub=14 Then aa$ = "Bayot" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000101"
+If quick.Non_Euro_American_gendersub=15 Then aa$ = "Binabae" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000113"
+If quick.Non_Euro_American_gendersub=16 Then aa$ = "Bissu" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000205"
+If quick.Non_Euro_American_gendersub=17 Then aa$ = "Biza'ah" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000207"
+If quick.Non_Euro_American_gendersub=18 Then aa$ = "Brotherboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000224"
+If quick.Non_Euro_American_gendersub=19 Then aa$ = "Burrnesha" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000229"
+If quick.Non_Euro_American_gendersub=20 Then aa$ = "Calabai" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000234"
+If quick.Non_Euro_American_gendersub=21 Then aa$ = "Calalai" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000235"
+If quick.Non_Euro_American_gendersub=22 Then aa$ = "Chakka" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000246"
+If quick.Non_Euro_American_gendersub=23 Then aa$ = "Dee" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000340"
+If quick.Non_Euro_American_gendersub=24 Then aa$ = "Dhurani" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000350"
+If quick.Non_Euro_American_gendersub=25 Then aa$ = "Dilbaa" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000353"
+If quick.Non_Euro_American_gendersub=26 Then aa$ = "Eunuchs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000240"
+If quick.Non_Euro_American_gendersub=27 Then aa$ = "Fa'afafine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000413"
+If quick.Non_Euro_American_gendersub=28 Then aa$ = "Fa'afatama" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000414"
+If quick.Non_Euro_American_gendersub=29 Then aa$ = "Fakaleitiå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000419"
+If quick.Non_Euro_American_gendersub=30 Then aa$ = "Femminiello" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000441"
+If quick.Non_Euro_American_gendersub=31 Then aa$ = "Galli" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000461"
+If quick.Non_Euro_American_gendersub=32 Then aa$ = "Guèevedoce" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000604"
+If quick.Non_Euro_American_gendersub=33 Then aa$ = "Hemaneh" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000616"
+If quick.Non_Euro_American_gendersub=34 Then aa$ = "Hijras" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000632"
+If quick.Non_Euro_American_gendersub=35 Then aa$ = "Hwame" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000654"
+If quick.Non_Euro_American_gendersub=36 Then aa$ = "Indigiqueer" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001810"
+If quick.Non_Euro_American_gendersub=37 Then aa$ = "Jankha" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000678"
+If quick.Non_Euro_American_gendersub=38 Then aa$ = "Jogappa" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000684"
+If quick.Non_Euro_American_gendersub=39 Then aa$ = "Katoey" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000687"
+If quick.Non_Euro_American_gendersub=40 Then aa$ = "Khaniths" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001517"
+If quick.Non_Euro_American_gendersub=41 Then aa$ = "Khawaja sara" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000689"
+If quick.Non_Euro_American_gendersub=42 Then aa$ = "Khteuy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000695"
+If quick.Non_Euro_American_gendersub=43 Then aa$ = "Khusra" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000688"
+If quick.Non_Euro_American_gendersub=44 Then aa$ = "Kinnar" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000690"
+If quick.Non_Euro_American_gendersub=45 Then aa$ = "Koècðek" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000693"
+If quick.Non_Euro_American_gendersub=46 Then aa$ = "Kothis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000694"
+If quick.Non_Euro_American_gendersub=47 Then aa$ = "Lakin-on " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000697"
+If quick.Non_Euro_American_gendersub=48 Then aa$ = "Lhamana" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000966"
+If quick.Non_Euro_American_gendersub=49 Then aa$ = "Maåhuå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000979"
+If quick.Non_Euro_American_gendersub=50 Then aa$ = "Mak nyahs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000980"
+If quick.Non_Euro_American_gendersub=51 Then aa$ = "Mangaiko" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000987"
+If quick.Non_Euro_American_gendersub=52 Then aa$ = "Mashoga" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000996"
+If quick.Non_Euro_American_gendersub=53 Then aa$ = "Metis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001013"
+If quick.Non_Euro_American_gendersub=54 Then aa$ = "Mukhannathun" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001029"
+If quick.Non_Euro_American_gendersub=55 Then aa$ = "Muxe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001034"
+If quick.Non_Euro_American_gendersub=56 Then aa$ = "Naâdleehi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001035"
+If quick.Non_Euro_American_gendersub=57 Then aa$ = "Niizh manidoowag" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001043"
+If quick.Non_Euro_American_gendersub=58 Then aa$ = "Ninauposkitzipxpe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001044"
+If quick.Non_Euro_American_gendersub=59 Then aa$ = "Palao'ana" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001070"
+If quick.Non_Euro_American_gendersub=60 Then aa$ = "Pangender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001072"
+If quick.Non_Euro_American_gendersub=61 Then aa$ = "Quariwarmi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001147"
+If quick.Non_Euro_American_gendersub=62 Then aa$ = "Sak veng" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001253"
+If quick.Non_Euro_American_gendersub=63 Then aa$ = "Saris" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001256"
+If quick.Non_Euro_American_gendersub=64 Then aa$ = "Sekhet" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001263"
+If quick.Non_Euro_American_gendersub=65 Then aa$ = "Sekrata" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001264"
+If quick.Non_Euro_American_gendersub=66 Then aa$ = "Shiv-Shakthis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001309"
+If quick.Non_Euro_American_gendersub=67 Then aa$ = "Sistergirls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001314"
+If quick.Non_Euro_American_gendersub=68 Then aa$ = "Skoptsy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001316"
+If quick.Non_Euro_American_gendersub=69 Then aa$ = "Srey sros" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001338"
+If quick.Non_Euro_American_gendersub=70 Then aa$ = "Takataåpui" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000898"
+If quick.Non_Euro_American_gendersub=71 Then aa$ = "Third gender" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001368"
+If quick.Non_Euro_American_gendersub=72 Then aa$ = "Thirunambi" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001371"
+If quick.Non_Euro_American_gendersub=73 Then aa$ = "Thirunangai" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001370"
+If quick.Non_Euro_American_gendersub=74 Then aa$ = "Tida wena" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001372"
+If quick.Non_Euro_American_gendersub=75 Then aa$ = "Tom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001373"
+If quick.Non_Euro_American_gendersub=76 Then aa$ = "Travestis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001471"
+If quick.Non_Euro_American_gendersub=77 Then aa$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
+If quick.Non_Euro_American_gendersub=78 Then aa$ = "Tritiya-Prakriti" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001475"
+If quick.Non_Euro_American_gendersub=79 Then aa$ = "Tumtum" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001477"
+If quick.Non_Euro_American_gendersub=80 Then aa$ = "Two-Spirit identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001914"
+If quick.Non_Euro_American_gendersub=81 Then aa$ = "Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001480"
+If quick.Non_Euro_American_gendersub=82 Then aa$ = "Waria" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001501"
+If quick.Non_Euro_American_gendersub=83 Then aa$ = "Whakatane" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001499"
+If quick.Non_Euro_American_gendersub=84 Then aa$ = "Whakawaåhine" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001502"
+If quick.Non_Euro_American_gendersub=85 Then aa$ = "Winkteâ" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001506"
+If quick.Non_Euro_American_gendersub=86 Then aa$ = "X-jendaå" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001518"
+If quick.Non_Euro_American_gendersub=87 Then aa$ = "Yan daudu" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002286"
+If quick.Non_Euro_American_gendersub=88 Then aa$ = "Yiånyaângreân" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001519"
+If quick.Non_Euro_American_gendersub=89 Then aa$ = "Zenanas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001523"
 
 
 If aa$ = " " then 
