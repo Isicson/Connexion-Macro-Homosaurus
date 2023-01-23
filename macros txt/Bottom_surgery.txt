@@ -1,6 +1,7 @@
 'MacroName:Bottom_surgery
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Menu layout satisfactory for ver.1, Oct. 2022/wi. rev. 010/2023 
 
 Sub Main
    
@@ -27,21 +28,23 @@ aa$ = " "
 '****************************************************************************************
 
 dim Bottom_surgery$
-Bottom_surgery$=" "+nd+ "Bottom surgery"+nd+"Clitoroplasty"+nd+"Hysterectomy"+nd+"Labiaplasty"+nd+"Metoidioplasty" _
-+nd+"Orchiectomy"+nd+"Penectomy"+nd+"Phalloplasty"+nd+"Scrotoplasty"+nd+"Vaginectomy" _
-+nd+"Vaginoplasty"
+Bottom_surgery$=" "+nd+ "Bottom surgery"+nd+"  Clitoroplasty"+nd+"  Hysterectomy"+nd+"  Labiaplasty"+nd+"  Metoidioplasty" _
++nd+"  Orchiectomy"+nd+"  Penectomy"+nd+"  Phalloplasty"+nd+"  Scrotoplasty"+nd+"  Vaginectomy" _
++nd+"  Vaginoplasty"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Bottom surgery and Narrower Terms"
+Begin Dialog MFHL 230, 200, "Bottom surgery and Narrower Terms"
 
 Text 14,7,100,14, "Bottom surgery"
    DropListBox 14, 20, 130, 135, Bottom_surgery$, .Bottom_surgerysub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,140,40,20, "I'm done",    .fin
+CancelButton 75,140,40,20
+Text  14, 170, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 180, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
