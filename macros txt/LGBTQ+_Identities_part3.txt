@@ -58,11 +58,13 @@ dim LGBTQIAplus$
 LGBTQIAplus$=" "+nd+"LGB"+nd+"LGBTQ"+nd+"LGBTQIA+"
 
 dim Heterosexuals$
-Heterosexuals$=" "+nd+ "Heterosexuals"+nd+"Allies"+nd+"Heterosexual men"+nd+"  Dutch boys [slang]"+nd+"  Fag stags [slang]" _
-+nd+"Heterosexual women"+nd+"  Fag hags [slang]"+nd+"  Goldilocks (Gay culture) [slang]"+nd+"Heterosexual youth"+nd+"  Heterosexual boys"+nd+"  Heterosexual girls"
+Heterosexuals$=" "+nd+ "Heterosexuals"+nd+"Allies"+nd+"Heterosexual men"+nd+"  Dutch boys (slang)"+nd+"  Fag stags (slang)" _
++nd+"Heterosexual women"+nd+"  Fag hags (slang)"+nd+"  Goldilocks (Gay culture) (slang)"+nd+"Heterosexual youth"+nd+"  Heterosexual boys" _
++nd+"  Heterosexual children"+nd+"  Heterosexual girls"
 
 dim Cisgender_people$
-Cisgender_people$=" "+nd+"Cisgender men"+nd+"Cisgender people"+nd+"Cisgender women"
+Cisgender_people$=" "+nd+ "Cisgender people"+nd+"  Cisgender children"+nd+"    Cisgender boys"+nd+"    Cisgender girls"+nd+"  Cisgender men" _
++nd+"  Cisgender women"+nd+"  Cisgender youth"+nd+"    Cisgender boys"+nd+"    Cisgender children"+nd+"    Cisgender girls"
 
 dim HIV_positive_people$
     HIV_positive_people$=" "+nd+"HIV-positive people"+nd+"HIV-undetectable people"
@@ -206,7 +208,8 @@ If quick.Heterosexualssub=7 Then en$ = "Fag hags" & " " & sd & "2 homoit" & " " 
 If quick.Heterosexualssub=8 Then en$ = "Goldilocks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000598"
 If quick.Heterosexualssub=9 Then en$ = "Heterosexual youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000630"
 If quick.Heterosexualssub=10 Then en$ = "Heterosexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000621"
-If quick.Heterosexualssub=11 Then en$ = "Heterosexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000623"
+If quick.Heterosexualssub=11 Then en$ = "Heterosexual children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002285"
+If quick.Heterosexualssub=12 Then en$ = "Heterosexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000623"
 
 If en$ = " " then
 else 
@@ -214,9 +217,16 @@ CS.AddField 1, "650 7" & en$
 end if
 
 If quick.Cisgender_peoplesub=0 Then nn$ = " "
-If quick.Cisgender_peoplesub=1 Then nn$ = "Cisgender men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000270"
-If quick.Cisgender_peoplesub=2 Then nn$ = "Cisgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000271"
-If quick.Cisgender_peoplesub=3 Then nn$ = "Cisgender women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000272"
+If quick.Cisgender_peoplesub=1 Then kn$ = "Cisgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000271"
+If quick.Cisgender_peoplesub=2 Then kn$ = "Cisgender children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002282"
+If quick.Cisgender_peoplesub=3 Then kn$ = "Cisgender boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002283"
+If quick.Cisgender_peoplesub=4 Then kn$ = "Cisgender girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002284"
+If quick.Cisgender_peoplesub=5 Then kn$ = "Cisgender men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000270"
+If quick.Cisgender_peoplesub=6 Then kn$ = "Cisgender women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000272"
+If quick.Cisgender_peoplesub=7 Then kn$ = "Cisgender youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002281"
+If quick.Cisgender_peoplesub=8 Then kn$ = "Cisgender boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002283"
+If quick.Cisgender_peoplesub=9 Then kn$ = "Cisgender children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002282"
+If quick.Cisgender_peoplesub=10 Then kn$ = "Cisgender girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002284"
 
 If nn$ = " " then
 else 
