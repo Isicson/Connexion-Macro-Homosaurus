@@ -1,6 +1,7 @@
 'MacroName:Closeted_LGBTQplus_people
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'rev. 01/2023/ wi
 
 Sub Main
    
@@ -27,20 +28,23 @@ aa$ = " "
 '****************************************************************************************
 
 dim Closeted_LGBTQplus_people$
-Closeted_LGBTQplus_people$=" "+nd+"Closeted bisexual people"+nd+"Closeted gay men"+nd+"Closeted intersex people"+nd+"Closeted lesbians"+nd+"Closeted LGBTQ+ people" _
-+nd+"Closeted queer people"+nd+"Closeted transgender people"+nd+"Closeted Two-Spirit people"
+Closeted_LGBTQplus_people$=" "+nd+ "Closeted LGBTQ+ people"+nd+"  Closeted bisexual people"+nd+"  Closeted gay men"+nd+"  Closeted intersex people"+nd+"  Closeted lesbians" _
++nd+"  Closeted queer people"+nd+"  Closeted transgender people"+nd+"  Closeted Two-Spirit people"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Closeted LGBTQ+ people and Narrower Terms"
+Begin Dialog MFHL 230, 165, "Closeted LGBTQ+ people and Narrower Terms"
 
 Text 14,7,100,14, "Closeted LGBTQ+ people"
    DropListBox 14, 20, 130, 135, Closeted_LGBTQplus_people$, .Closeted_LGBTQplus_peoplesub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -52,15 +56,14 @@ dialog quick
 '****************************************************************************************
 
 If quick.Closeted_LGBTQplus_peoplesub=0 Then aa$ = " "
-If quick.Closeted_LGBTQplus_peoplesub=1 Then aa$ = "Closeted bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000285"
-If quick.Closeted_LGBTQplus_peoplesub=2 Then aa$ = "Closeted gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000286"
-If quick.Closeted_LGBTQplus_peoplesub=3 Then aa$ = "Closeted intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001786"
-If quick.Closeted_LGBTQplus_peoplesub=4 Then aa$ = "Closeted lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000287"
-If quick.Closeted_LGBTQplus_peoplesub=5 Then aa$ = "Closeted LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001783"
+If quick.Closeted_LGBTQplus_peoplesub=1 Then aa$ = "Closeted LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001783"
+If quick.Closeted_LGBTQplus_peoplesub=2 Then aa$ = "Closeted bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000285"
+If quick.Closeted_LGBTQplus_peoplesub=3 Then aa$ = "Closeted gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000286"
+If quick.Closeted_LGBTQplus_peoplesub=4 Then aa$ = "Closeted intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001786"
+If quick.Closeted_LGBTQplus_peoplesub=5 Then aa$ = "Closeted lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000287"
 If quick.Closeted_LGBTQplus_peoplesub=6 Then aa$ = "Closeted queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001785"
 If quick.Closeted_LGBTQplus_peoplesub=7 Then aa$ = "Closeted transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001784"
 If quick.Closeted_LGBTQplus_peoplesub=8 Then aa$ = "Closeted Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001787"
-
 
 If aa$ = " " then 
 else
