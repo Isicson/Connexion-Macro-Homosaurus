@@ -1,6 +1,7 @@
 'MacroName:Girls
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'January, 2023
 
 Sub Main
    
@@ -27,19 +28,24 @@ aa$ = " "
 '****************************************************************************************
 
 dim Girls$
-Girls$=" "+nd+ "Girls"+nd+"Bisexual girls"+nd+"Heterosexual girls"+nd+"Lesbian girls"+nd+"Tomboys"
+Girls$=" "+nd+ "Girls"+nd+"  Bisexual girls"+nd+"  Cisgender girls"+nd+"  Heterosexual girls"+nd+"  Lesbian girls" _
++nd+"  Tomboys"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Girls and Narrower Terms"
+Begin Dialog MFHL 230, 165, "Girls and Narrower Terms"
 
 Text 14,7,100,14, "Girls"
    DropListBox 14, 20, 130, 135, Girls$, .Girlssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
 
 End Dialog
 dim quick as MFHL
@@ -53,10 +59,10 @@ dialog quick
 If quick.Girlssub=0 Then aa$ = " "
 If quick.Girlssub=1 Then aa$ = "Girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000590"
 If quick.Girlssub=2 Then aa$ = "Bisexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000152"
-If quick.Girlssub=3 Then aa$ = "Heterosexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000623"
-If quick.Girlssub=4 Then aa$ = "Lesbian girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000743"
-If quick.Girlssub=5 Then aa$ = "Tomboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001374"
-
+If quick.Girlssub=3 Then aa$ = "Cisgender girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002284"
+If quick.Girlssub=4 Then aa$ = "Heterosexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000623"
+If quick.Girlssub=5 Then aa$ = "Lesbian girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000743"
+If quick.Girlssub=6 Then aa$ = "Tomboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001374"
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
