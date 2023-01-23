@@ -1,6 +1,7 @@
 'MacroName:Boys
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'September, 2022
+'Rev. 01/2023 for v.3.3
 
 Sub Main
    
@@ -27,19 +28,23 @@ aa$ = " "
 '****************************************************************************************
 
 dim Boys$
-Boys$=" "+nd+ "Boys"+nd+"Bisexual boys"+nd+"Gay boys"+nd+"Heterosexual boys"
+Boys$=" "+nd+ "Boys"+nd+"  Bisexual boys"+nd+"  Cisgender boys"+nd+"  Gay boys"+nd+"  Heterosexual boys" _
++nd+"  Sissies (Pejorative term)"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Boys and Narrower Terms"
+Begin Dialog MFHL 230, 165, "Boys and Narrower Terms"
 
 Text 14,7,100,14, "Boys"
    DropListBox 14, 20, 130, 135, Boys$, .Boyssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
 
 End Dialog
 dim quick as MFHL
@@ -53,10 +58,10 @@ dialog quick
 If quick.Boyssub=0 Then aa$ = " "
 If quick.Boyssub=1 Then aa$ = "Boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000220"
 If quick.Boyssub=2 Then aa$ = "Bisexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000137"
-If quick.Boyssub=3 Then aa$ = "Gay boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000479"
-If quick.Boyssub=4 Then aa$ = "Heterosexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000621"
-
-
+If quick.Boyssub=3 Then aa$ = "Cisgender boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002283"
+If quick.Boyssub=4 Then aa$ = "Gay boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000479"
+If quick.Boyssub=5 Then aa$ = "Heterosexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000621"
+If quick.Boyssub=6 Then aa$ = "Sissies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001313"
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
