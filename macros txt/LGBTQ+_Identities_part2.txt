@@ -52,11 +52,11 @@ Sexual_identity$=" "+nd+ "Sexual identity"+nd+"Bears (Gay culture)"+nd+"  Cubs (
 +nd+"  Lesbian dominatrices"+nd+"  Queer dominatrices"+nd+"  Transgender dominatrices"+nd+"LGBTQ+ masters (BDSM culture)"+nd+"  Bisexual masters" _
 +nd+"  Gay masters"+nd+"  Queer masters"+nd+"  Transgender masters"+nd+"LGBTQ+ mistresses (BDSM culture)"+nd+"  Bisexual mistresses" _
 +nd+"  Lesbian mistresses"+nd+"  Queer mistresses"+nd+"  Transgender mistresses"+nd+"Megasexuality"+nd+"Otters (Gay culture)" _
-+nd+"Pansexuality"+nd+"Polysexuality"+nd+"  Bisexuality"+nd+"  Pansexuality"+nd+"Pups (Gay culture)" _
-+nd+"Queer identity"+nd+"Same-gender-loving"+nd+"Slaves (BDSM culture)"+nd+"Soft butches"+nd+"Stone butches" _
-+nd+"Studs"+nd+"Switches (Sex)"+nd+"Tops (Sex)"+nd+"  LGBTQ+ dominatrices"+nd+"  LGBTQ+ masters (BDSM culture)" _
-+nd+"  LGBTQ+ mistresses (BDSM culture)"+nd+"Twinks (Gay culture)"+nd+"Vers (Sex)"+nd+"Wolves (Gay culture)"+nd+"  Cubs (Gay culture)" _
-+nd+"  Pups (Gay culture)"
++nd+"Pansexuality"+nd+"Polysexuality"+nd+"  Bisexuality"+nd+"  Pansexuality"+nd+"Pups (Roleplay)" _
++nd+"Queer identity"+nd+"Same-gender-loving"+nd+"Sapphic identity"+nd+"Slaves (BDSM culture)"+nd+"Soft butches" _
++nd+"Stone butches"+nd+"Studs"+nd+"Switches (Sex)"+nd+"Tops (Sex)"+nd+"  LGBTQ+ dominatrices" _
++nd+"  LGBTQ+ masters (BDSM culture)"+nd+"  LGBTQ+ mistresses (BDSM culture)"+nd+"Twinks (Gay culture)"+nd+"Vers (Sex)"+nd+"Wolves (Gay culture)" _
++nd+"  Cubs (Gay culture)"+nd+"  Pups (Roleplay)"
 
 dim Relationship_orientation$
 Relationship_orientation$=" "+nd+ "Relationship orientation"+nd+"Monogamy"+nd+"Non-monogamy"+nd+"  Consensual non-monogamy"+nd+"    DADT relationships" _
@@ -203,23 +203,24 @@ If quick.Sexual_identitysub=31 Then la$ = "Pansexuality" & " " & sd & "2 homoit"
 If quick.Sexual_identitysub=32 Then la$ = "Polysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001558"
 If quick.Sexual_identitysub=33 Then la$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
 If quick.Sexual_identitysub=34 Then la$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
-If quick.Sexual_identitysub=35 Then la$ = "Pups (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Sexual_identitysub=35 Then la$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
 If quick.Sexual_identitysub=36 Then la$ = "Queer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001178"
 If quick.Sexual_identitysub=37 Then la$ = "Same-gender-loving" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001254"
-If quick.Sexual_identitysub=38 Then la$ = "Slaves (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
-If quick.Sexual_identitysub=39 Then la$ = "Soft butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001327"
-If quick.Sexual_identitysub=40 Then la$ = "Stone butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001340"
-If quick.Sexual_identitysub=41 Then la$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
-If quick.Sexual_identitysub=42 Then la$ = "Switches (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001353"
-If quick.Sexual_identitysub=43 Then la$ = "Tops (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001376"
-If quick.Sexual_identitysub=44 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
-If quick.Sexual_identitysub=45 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
-If quick.Sexual_identitysub=46 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
-If quick.Sexual_identitysub=47 Then la$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
-If quick.Sexual_identitysub=48 Then la$ = "Vers (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001779"
-If quick.Sexual_identitysub=49 Then la$ = "Wolves (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001508"
-If quick.Sexual_identitysub=50 Then la$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
-If quick.Sexual_identitysub=51 Then la$ = "Pups (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Sexual_identitysub=38 Then la$ = "Sapphic identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002276"
+If quick.Sexual_identitysub=39 Then la$ = "Slaves (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
+If quick.Sexual_identitysub=40 Then la$ = "Soft butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001327"
+If quick.Sexual_identitysub=41 Then la$ = "Stone butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001340"
+If quick.Sexual_identitysub=42 Then la$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
+If quick.Sexual_identitysub=43 Then la$ = "Switches (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001353"
+If quick.Sexual_identitysub=44 Then la$ = "Tops (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001376"
+If quick.Sexual_identitysub=45 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Sexual_identitysub=46 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Sexual_identitysub=47 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Sexual_identitysub=48 Then la$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
+If quick.Sexual_identitysub=49 Then la$ = "Vers (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001779"
+If quick.Sexual_identitysub=50 Then la$ = "Wolves (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001508"
+If quick.Sexual_identitysub=51 Then la$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Sexual_identitysub=52 Then la$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
 
 If la$ = " " then
 else 
