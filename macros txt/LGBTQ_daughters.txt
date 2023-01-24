@@ -27,20 +27,22 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQ_daughters$
-LGBTQ_daughters$=" "+nd+ "LGBTQ+ daughters"+nd+"Bisexual daughters"+nd+"Daughters of bisexual people"+nd+"Daughters of gay men"+nd+"Daughters of lesbians" _
-+nd+"Daughters of queer people"+nd+"Daughters of transgender people"+nd+"Lesbian daughters"+nd+"Queer daughters"+nd+"Transgender daughters"
+LGBTQ_daughters$=" "+nd+ "LGBTQ+ daughters"+nd+"  Bisexual daughters"+nd+"  Lesbian daughters"+nd+"  Queer daughters"+nd+"  Transgender daughters" _
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ daughters and Narrower Terms"
+Begin Dialog MFHL 230, 165, "LGBTQ+ daughters and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ daughters"
    DropListBox 14, 20, 130, 135, LGBTQ_daughters$, .LGBTQ_daughterssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -54,15 +56,9 @@ dialog quick
 If quick.LGBTQ_daughterssub=0 Then aa$ = " "
 If quick.LGBTQ_daughterssub=1 Then aa$ = "LGBTQ+ daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000330"
 If quick.LGBTQ_daughterssub=2 Then aa$ = "Bisexual daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000146"
-If quick.LGBTQ_daughterssub=3 Then aa$ = "Daughters of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000331"
-If quick.LGBTQ_daughterssub=4 Then aa$ = "Daughters of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000332"
-If quick.LGBTQ_daughterssub=5 Then aa$ = "Daughters of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000333"
-If quick.LGBTQ_daughterssub=6 Then aa$ = "Daughters of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000335"
-If quick.LGBTQ_daughterssub=7 Then aa$ = "Daughters of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000334"
-If quick.LGBTQ_daughterssub=8 Then aa$ = "Lesbian daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000736"
-If quick.LGBTQ_daughterssub=9 Then aa$ = "Queer daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001173"
-If quick.LGBTQ_daughterssub=10 Then aa$ = "Transgender daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001407"
-
+If quick.LGBTQ_daughterssub=3 Then aa$ = "Lesbian daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000736"
+If quick.LGBTQ_daughterssub=4 Then aa$ = "Queer daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001173"
+If quick.LGBTQ_daughterssub=5 Then aa$ = "Transgender daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001407"
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
