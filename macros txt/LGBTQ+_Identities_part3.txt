@@ -79,7 +79,7 @@ Alloromantic_people$=" "+nd+"Alloromantic people"+nd+"Biromantic people"+nd+"Het
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 400, 450, "Choose the Homosaurus term you want to use..."
+Begin Dialog MFHL 400, 320, "Choose the Homosaurus term you want to use..."
 
 Text 14,7,60,14, "Pronouns"
    DropListBox 14, 20, 140, 300, Pronouns$, .Pronounssub
