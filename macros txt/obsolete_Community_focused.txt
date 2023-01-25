@@ -1,6 +1,7 @@
 'MacroName:Community_focused
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'September, 2022
+'Topics transferred to Society, Culture, Family/Relationships menus. 1/2023
 
 Sub Main
    
