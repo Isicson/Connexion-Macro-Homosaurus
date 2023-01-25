@@ -1,6 +1,7 @@
 'MacroName:LGBTQ+_ethnic_groups
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'September, 2022
+'obsoleted 1/2023 in favor of larger menu setup.  Not updated for v.3.3
 
 Sub Main
    
