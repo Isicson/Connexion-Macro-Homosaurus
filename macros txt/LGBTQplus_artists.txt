@@ -1,6 +1,7 @@
 'MacroName:LGBTQplus_artists
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022, Rev. 01/2023
 
 Sub Main
    
@@ -27,20 +28,22 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_artists$
-LGBTQplus_artists$=" "+nd+ "Bisexual artists"+nd+"Gay artists"+nd+"Lesbian artists"+nd+"LGBTQ+ artists"+nd+"Queer artists" _
-+nd+"Transgender artists"
+LGBTQplus_artists$=" "+nd+ "LGBTQ+ artists"+nd+"  Bisexual artists"+nd+"  Gay artists"+nd+"  Lesbian artists"+nd+"  Queer artists" _
++nd+"  Transgender artists"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ artists and Narrower Terms"
+Begin Dialog MFHL 230, 165, "LGBTQ+ artists and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ artists"
    DropListBox 14, 20, 130, 135, LGBTQplus_artists$, .LGBTQplus_artistssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -52,13 +55,12 @@ dialog quick
 '****************************************************************************************
 
 If quick.LGBTQplus_artistssub=0 Then aa$ = " "
-If quick.LGBTQplus_artistssub=1 Then aa$ = "Bisexual artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000129"
-If quick.LGBTQplus_artistssub=2 Then aa$ = "Gay artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000470"
-If quick.LGBTQplus_artistssub=3 Then aa$ = "Lesbian artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000720"
-If quick.LGBTQplus_artistssub=4 Then aa$ = "LGBTQ+ artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000070"
+If quick.LGBTQplus_artistssub=1 Then aa$ = "LGBTQ+ artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000070"
+If quick.LGBTQplus_artistssub=2 Then aa$ = "Bisexual artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000129"
+If quick.LGBTQplus_artistssub=3 Then aa$ = "Gay artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000470"
+If quick.LGBTQplus_artistssub=4 Then aa$ = "Lesbian artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000720"
 If quick.LGBTQplus_artistssub=5 Then aa$ = "Queer artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001157"
 If quick.LGBTQplus_artistssub=6 Then aa$ = "Transgender artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001390"
-
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
