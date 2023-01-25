@@ -1,6 +1,7 @@
 'MacroName:LGBTQplus_chronic_ill
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022 / Rev. 1/2023
 
 Sub Main
    
@@ -27,21 +28,24 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_chronic_ill$
-LGBTQplus_chronic_ill$=" "+nd+ "Bisexual people with chronic illnesses"+nd+"Gay men with chronic illnesses"+nd+"Lesbians with chronic illnesses"+nd+"LGBTQ+ people with chronic illnesses"+nd+"Queer people with chronic illnesses" _
-+nd+"Transgender people with chronic illnesses"
-
+LGBTQplus_chronic_ill$=" "+nd+ "LGBTQ+ people with chronic illnesses"+nd+"  Bisexual people with chronic illnesses"+nd+"  Gay men with chronic illnesses"+nd+"  Lesbians with chronic illnesses"+nd+"  Queer people with chronic illnesses" _
++nd+"  Transgender people with chronic illnesses"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ people with chronic illnesses and Narrower Terms"
+Begin Dialog MFHL 250, 165, "LGBTQ+ people with chronic illnesses and Narrower Terms"
 
-Text 14,7,100,14, "LGBTQ+ people with chronic illnesses"
-   DropListBox 14, 20, 130, 135, LGBTQplus_chronic_ill$, .LGBTQplus_chronic_illsub
+Text 14,7,200,14, "LGBTQ+ people with chronic illnesses"
+   DropListBox 14, 20, 200, 135, LGBTQplus_chronic_ill$, .LGBTQplus_chronic_illsub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+  
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -53,10 +57,10 @@ dialog quick
 '****************************************************************************************
 
 If quick.LGBTQplus_chronic_illsub=0 Then aa$ = " "
-If quick.LGBTQplus_chronic_illsub=1 Then aa$ = "Bisexual people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001882"
-If quick.LGBTQplus_chronic_illsub=2 Then aa$ = "Gay men with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001881"
-If quick.LGBTQplus_chronic_illsub=3 Then aa$ = "Lesbians with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001880"
-If quick.LGBTQplus_chronic_illsub=4 Then aa$ = "LGBTQ+ people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001879"
+If quick.LGBTQplus_chronic_illsub=1 Then aa$ = "LGBTQ+ people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001879"
+If quick.LGBTQplus_chronic_illsub=2 Then aa$ = "Bisexual people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001882"
+If quick.LGBTQplus_chronic_illsub=3 Then aa$ = "Gay men with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001881"
+If quick.LGBTQplus_chronic_illsub=4 Then aa$ = "Lesbians with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001880"
 If quick.LGBTQplus_chronic_illsub=5 Then aa$ = "Queer people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001884"
 If quick.LGBTQplus_chronic_illsub=6 Then aa$ = "Transgender people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001883"
 
