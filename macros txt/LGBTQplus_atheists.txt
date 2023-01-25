@@ -1,6 +1,7 @@
 'MacroName:LGBTQplus_atheists
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022, Rev. 01/2023
 
 Sub Main
    
@@ -21,26 +22,30 @@ End If
 
 dim aa$
 aa$ = " "
-LGBTQplus_atheists$=" "+nd+ "Bisexual atheists"+nd+"Gay atheists"+nd+"Lesbian atheists"+nd+"LGBTQ+ atheists"+nd+"Queer atheists" _
-+nd+"Transgender atheists"
+
 
 '****************************************************************************************
 ' Drop-down menu selections/lists
 '****************************************************************************************
 
 dim LGBTQplus_atheists$
-
+LGBTQplus_atheists$=" "+nd+ "LGBTQ+ atheists"+nd+"  Bisexual atheists"+nd+"  Gay atheists"+nd+"  Lesbian atheists"+nd+"  Queer atheists" _
++nd+"  Transgender atheists"
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ atheists and Narrower Terms"
+Begin Dialog MFHL 230, 165, "LGBTQ+ atheists and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ atheists"
    DropListBox 14, 20, 130, 135, LGBTQplus_atheists$, .LGBTQplus_atheistssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
 
 End Dialog
 dim quick as MFHL
@@ -52,12 +57,13 @@ dialog quick
 '****************************************************************************************
 
 If quick.LGBTQplus_atheistssub=0 Then aa$ = " "
-If quick.LGBTQplus_atheistssub=1 Then aa$ = "Bisexual atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000132"
-If quick.LGBTQplus_atheistssub=2 Then aa$ = "Gay atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000473"
-If quick.LGBTQplus_atheistssub=3 Then aa$ = "Lesbian atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000723"
-If quick.LGBTQplus_atheistssub=4 Then aa$ = "LGBTQ+ atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000082"
+If quick.LGBTQplus_atheistssub=1 Then aa$ = "LGBTQ+ atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000082"
+If quick.LGBTQplus_atheistssub=2 Then aa$ = "Bisexual atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000132"
+If quick.LGBTQplus_atheistssub=3 Then aa$ = "Gay atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000473"
+If quick.LGBTQplus_atheistssub=4 Then aa$ = "Lesbian atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000723"
 If quick.LGBTQplus_atheistssub=5 Then aa$ = "Queer atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001160"
 If quick.LGBTQplus_atheistssub=6 Then aa$ = "Transgender atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001393"
+
 
 
 If aa$ = " " then 
