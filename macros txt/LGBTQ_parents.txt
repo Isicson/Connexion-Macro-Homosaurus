@@ -27,28 +27,29 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQ_parents$
-LGBTQ_parents$=" "+nd+ "LGBTQ+ parents"+nd+"Adoptive parents"+nd+"Aromantic parents"+nd+"Asexual parents"+nd+"Bisexual parents" _
-+nd+"Fathers"+nd+"  Fathers of bisexual people"+nd+"  Fathers of gay men"+nd+"  Fathers of lesbians"+nd+"  Fathers of queer people" _
-+nd+"  Fathers of transgender people"+nd+"  LGBTQ+ co-fathers"+nd+"  LGBTQ+ single fathers"+nd+"  Transgender fathers"+nd+"Gay parents" _
-+nd+"Grandparents"+nd+"Intersex parents"+nd+"Lesbian parents"+nd+"LGBTQ+ adoptive parents"+nd+"LGBTQ+ biological parents" _
-+nd+"  Biological parenthood"+nd+"  Genetic parenthood"+nd+"  Gestational parenthood"+nd+"    Birth parents"+nd+"      LGBTQ+ birth parents" _
-+nd+"    Surrogacy"+nd+"LGBTQ+ co-parents"+nd+"LGBTQ+ foster parents"+nd+"LGBTQ+ single parents"+nd+"Mothers" _
-+nd+"  LGBTQ+ co-mothers"+nd+"  LGBTQ+ single mothers"+nd+"  Mothers of bisexual people"+nd+"  Mothers of gay men"+nd+"  Mothers of lesbians" _
-+nd+"  Mothers of transgender people"+nd+"  Transgender mothers"+nd+"Parents of bisexual people"+nd+"Parents of crossdressers"+nd+"Parents of gay men" _
-+nd+"Parents of queer people"+nd+"Parents of transgender people"+nd+"Queer parents"+nd+"Transgender parents"+nd+"Two-Spirit parents"
-
+LGBTQ_parents$=" "+nd+ "LGBTQ+ parents"+nd+"  Aromantic parents"+nd+"  Asexual parents"+nd+"  Bisexual parents"+nd+"  Gay parents" _
++nd+"  Intersex parents"+nd+"  Lesbian parents"+nd+"  LGBTQ+ adoptive parents"+nd+"  LGBTQ+ biological parents"+nd+"    Biological parenthood" _
++nd+"    Genetic parenthood"+nd+"    Gestational parenthood"+nd+"      Birth parents"+nd+"        LGBTQ+ birth parents"+nd+"      Surrogacy" _
++nd+"  LGBTQ+ birth parents"+nd+"  LGBTQ+ co-parents"+nd+"    LGBTQ+ co-fathers"+nd+"    LGBTQ+ co-mothers"+nd+"  LGBTQ+ foster parents" _
++nd+"  LGBTQ+ mothers"+nd+"    Bisexual mothers"+nd+"    Gay mothers"+nd+"    Lesbian mothers"+nd+"    Queer mothers" _
++nd+"    Transgender mothers"+nd+"  LGBTQ+ single parents"+nd+"    LGBTQ+ single fathers"+nd+"    LGBTQ+ single mothers"+nd+"  Queer parents" _
++nd+"  Transgender parents"+nd+"    Transgender mothers"+nd+"  Two-Spirit parents"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ parents and Narrower Terms"
+Begin Dialog MFHL 230, 200, "LGBTQ+ parents and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ parents"
    DropListBox 14, 20, 130, 135, LGBTQ_parents$, .LGBTQ_parentssub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -61,49 +62,40 @@ dialog quick
 
 If quick.LGBTQ_parentssub=0 Then aa$ = " "
 If quick.LGBTQ_parentssub=1 Then aa$ = "LGBTQ+ parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001075"
-If quick.LGBTQ_parentssub=2 Then aa$ = "Adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001761"
-If quick.LGBTQ_parentssub=3 Then aa$ = "Aromantic parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001762"
-If quick.LGBTQ_parentssub=4 Then aa$ = "Asexual parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000169"
-If quick.LGBTQ_parentssub=5 Then aa$ = "Bisexual parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000423"
-If quick.LGBTQ_parentssub=6 Then aa$ = "Fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000424"
-If quick.LGBTQ_parentssub=7 Then aa$ = "Fathers of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000425"
-If quick.LGBTQ_parentssub=8 Then aa$ = "Fathers of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000426"
-If quick.LGBTQ_parentssub=9 Then aa$ = "Fathers of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000427"
-If quick.LGBTQ_parentssub=10 Then aa$ = "Fathers of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000428"
-If quick.LGBTQ_parentssub=11 Then aa$ = "Fathers of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000837"
-If quick.LGBTQ_parentssub=12 Then aa$ = "LGBTQ+ co-fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000941"
-If quick.LGBTQ_parentssub=13 Then aa$ = "LGBTQ+ single fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001413"
-If quick.LGBTQ_parentssub=14 Then aa$ = "Transgender fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000492"
-If quick.LGBTQ_parentssub=15 Then aa$ = "Gay parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000602"
-If quick.LGBTQ_parentssub=16 Then aa$ = "Grandparents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001763"
-If quick.LGBTQ_parentssub=17 Then aa$ = "Intersex parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000752"
-If quick.LGBTQ_parentssub=18 Then aa$ = "Lesbian parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000812"
-If quick.LGBTQ_parentssub=19 Then aa$ = "LGBTQ+ adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000819"
-If quick.LGBTQ_parentssub=20 Then aa$ = "LGBTQ+ biological parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000116"
-If quick.LGBTQ_parentssub=21 Then aa$ = "Biological parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000583"
-If quick.LGBTQ_parentssub=22 Then aa$ = "Genetic parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000587"
-If quick.LGBTQ_parentssub=23 Then aa$ = "Gestational parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000121"
-If quick.LGBTQ_parentssub=24 Then aa$ = "Birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
-If quick.LGBTQ_parentssub=25 Then aa$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
-If quick.LGBTQ_parentssub=26 Then aa$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000840"
-If quick.LGBTQ_parentssub=27 Then aa$ = "LGBTQ+ co-parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000872"
-If quick.LGBTQ_parentssub=28 Then aa$ = "LGBTQ+ foster parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000944"
-If quick.LGBTQ_parentssub=29 Then aa$ = "LGBTQ+ single parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001021"
-If quick.LGBTQ_parentssub=30 Then aa$ = "Mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000838"
-If quick.LGBTQ_parentssub=31 Then aa$ = "LGBTQ+ co-mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000942"
-If quick.LGBTQ_parentssub=32 Then aa$ = "LGBTQ+ single mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001022"
-If quick.LGBTQ_parentssub=33 Then aa$ = "Mothers of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001023"
-If quick.LGBTQ_parentssub=34 Then aa$ = "Mothers of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001024"
-If quick.LGBTQ_parentssub=35 Then aa$ = "Mothers of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001025"
-If quick.LGBTQ_parentssub=36 Then aa$ = "Mothers of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001422"
-If quick.LGBTQ_parentssub=37 Then aa$ = "Transgender mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000173"
-If quick.LGBTQ_parentssub=38 Then aa$ = "Parents of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001076"
-If quick.LGBTQ_parentssub=39 Then aa$ = "Parents of crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000509"
-If quick.LGBTQ_parentssub=40 Then aa$ = "Parents of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001077"
-If quick.LGBTQ_parentssub=41 Then aa$ = "Parents of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001078"
-If quick.LGBTQ_parentssub=42 Then aa$ = "Parents of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001194"
-If quick.LGBTQ_parentssub=43 Then aa$ = "Queer parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001430"
-If quick.LGBTQ_parentssub=44 Then aa$ = "Transgender parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001764"
+If quick.LGBTQ_parentssub=2 Then aa$ = "Aromantic parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001761"
+If quick.LGBTQ_parentssub=3 Then aa$ = "Asexual parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001762"
+If quick.LGBTQ_parentssub=4 Then aa$ = "Bisexual parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000169"
+If quick.LGBTQ_parentssub=5 Then aa$ = "Gay parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000492"
+If quick.LGBTQ_parentssub=6 Then aa$ = "Intersex parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001763"
+If quick.LGBTQ_parentssub=7 Then aa$ = "Lesbian parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000752"
+If quick.LGBTQ_parentssub=8 Then aa$ = "LGBTQ+ adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000812"
+If quick.LGBTQ_parentssub=9 Then aa$ = "LGBTQ+ biological parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000819"
+If quick.LGBTQ_parentssub=10 Then aa$ = "Biological parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000116"
+If quick.LGBTQ_parentssub=11 Then aa$ = "Genetic parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000583"
+If quick.LGBTQ_parentssub=12 Then aa$ = "Gestational parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000587"
+If quick.LGBTQ_parentssub=13 Then aa$ = "Birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000121"
+If quick.LGBTQ_parentssub=14 Then aa$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.LGBTQ_parentssub=15 Then aa$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
+If quick.LGBTQ_parentssub=16 Then aa$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.LGBTQ_parentssub=17 Then aa$ = "LGBTQ+ co-parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000840"
+If quick.LGBTQ_parentssub=18 Then aa$ = "LGBTQ+ co-fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000837"
+If quick.LGBTQ_parentssub=19 Then aa$ = "LGBTQ+ co-mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000838"
+If quick.LGBTQ_parentssub=20 Then aa$ = "LGBTQ+ foster parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000872"
+If quick.LGBTQ_parentssub=21 Then aa$ = "LGBTQ+ mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002343"
+If quick.LGBTQ_parentssub=22 Then aa$ = "Bisexual mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002344"
+If quick.LGBTQ_parentssub=23 Then aa$ = "Gay mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002345"
+If quick.LGBTQ_parentssub=24 Then aa$ = "Lesbian mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002346"
+If quick.LGBTQ_parentssub=25 Then aa$ = "Queer mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002347"
+If quick.LGBTQ_parentssub=26 Then aa$ = "Transgender mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001422"
+If quick.LGBTQ_parentssub=27 Then aa$ = "LGBTQ+ single parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000944"
+If quick.LGBTQ_parentssub=28 Then aa$ = "LGBTQ+ single fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000941"
+If quick.LGBTQ_parentssub=29 Then aa$ = "LGBTQ+ single mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000942"
+If quick.LGBTQ_parentssub=30 Then aa$ = "Queer parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001194"
+If quick.LGBTQ_parentssub=31 Then aa$ = "Transgender parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001430"
+If quick.LGBTQ_parentssub=32 Then aa$ = "Transgender mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001422"
+If quick.LGBTQ_parentssub=33 Then aa$ = "Two-Spirit parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001764"
+
+
 
 If aa$ = " " then 
 else
