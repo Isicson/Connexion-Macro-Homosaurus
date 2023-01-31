@@ -1,6 +1,7 @@
 'MacroName:LGBTQplus_victims_bully
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, Rev. 01/2023'
 
 Sub Main
    
@@ -27,23 +28,26 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_victims_bully$
-LGBTQplus_victims_bully$=" "+nd+ "LGBTQ+ victims of bullying"+nd+"Asexual victims of bullying"+nd+"Bisexual victims of bullying"+nd+"Gay victims of bullying"+nd+"Intersex victims of bullying" _
-+nd+"Lesbian victims of bullying"+nd+"LGBTQ+ survivors of bullying"+nd+"  Asexual survivors of bullying"+nd+"  Bisexual survivors of bullying"+nd+"  Gay survivors of bullying"_
-+nd+"  Intersex survivors of bullying"+nd+"  Lesbian survivors of bullying"+nd+"  Queer survivors of bullying"+nd+"  Transgender survivors of bullying"+nd+"Two-Spirit survivors of bullying"_
-+nd+"Queer victims of bullying"+nd+"Transgender victims of bullying"+nd+"Two-Spirit victims of bullying"
-
+LGBTQplus_victims_bully$=" "+nd+ "LGBTQ+ victims of bullying"+nd+"  Asexual victims of bullying"+nd+"  Bisexual victims of bullying"+nd+"  Gay victims of bullying"+nd+"  Intersex victims of bullying" _
++nd+"  Lesbian victims of bullying"+nd+"  LGBTQ+ survivors of bullying"+nd+"    Asexual survivors of bullying"+nd+"    Bisexual survivors of bullying"+nd+"    Gay survivors of bullying" _
++nd+"    Intersex survivors of bullying"+nd+"    Lesbian survivors of bullying"+nd+"    Queer survivors of bullying"+nd+"    Transgender survivors of bullying"+nd+"    Two-Spirit survivors of bullying" _
++nd+"  Queer victims of bullying"+nd+"  Transgender victims of bullying"+nd+"  Two-Spirit victims of bullying"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 250, 100, "LGBTQ+ victims of bullying and Narrower Terms"
+Begin Dialog MFHL 250, 200, "LGBTQ+ victims of bullying and Narrower Terms"
 
 Text 14,7,200,14, "LGBTQ+ victims of bullying"
    DropListBox 14, 20, 200, 135, LGBTQplus_victims_bully$, .LGBTQplus_victims_bullysub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
 
 End Dialog
 dim quick as MFHL
