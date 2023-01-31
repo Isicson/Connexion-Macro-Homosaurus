@@ -1,6 +1,6 @@
 'MacroName:LGBTQplus_victims_crime
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'September, 2022, Rev. 01/2023
 
 Sub Main
    
@@ -27,27 +27,29 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_victims_crime$
-LGBTQplus_victims_crime$=" "+nd+ "LGBTQ+ victims of crime"+nd+"LGBTQ+ victims of hate crimes"+nd+"  Bisexual victims of hate crimes"+nd+"  Gay victims of hate crimes"+nd+"  Lesbian victims of hate crimes" _
-+nd+"  LGBTQ+ survivors of hate crimes"+nd+"   Bisexual survivors of hate crimes"+nd+"   Gay survivors of hate crimes"+nd+"   Lesbian survivors of hate crimes"+nd+"   Queer survivors of hate crimes" _
-+nd+"   Transgender survivors of hate crimes"+nd+"  Queer victims of hate crimes"+nd+"  Transgender victims of hate crimes"+nd+"LGBTQ+ victims of rape"+nd+"  Bisexual victims of rape" _
-+nd+"Gay victims of rape"+nd+"  Lesbian victims of rape"+nd+"  LGBTQ+ survivors of rape"+nd+"   Bisexual survivors of rape"+nd+"   Gay survivors of rape" _
-+nd+"   Lesbian survivors of rape"+nd+"   Queer survivors of rape"+nd+"   Transgender survivors of rape"+nd+"  Queer victims of rape"+nd+"  Transgender victims of rape" _
-+nd+"LGBTQ+ victims of sexual abuse"+nd+"  Bisexual victims of sexual abuse"+nd+"  Gay victims of sexual abuse"+nd+"  Lesbian victims of sexual abuse"+nd+"  LGBTQ+ incest victims" _
-+nd+"  LGBTQ+ survivors of sexual abuse"+nd+"   Bisexual survivors of sexual abuse"+nd+"   Gay survivors of sexual abuse"+nd+"   Lesbian survivors of sexual abuse"+nd+"   Transgender survivors of sexual abuse" _
-+nd+"   Queer survivors of sexual abuse"+nd+"  Queer victims of sexual abuse"+nd+"  Sexually abused LGBTQ+ children"+nd+"  Transgender victims of sexual abuse"
-
+LGBTQplus_victims_crime$=" "+nd+ "LGBTQ+ victims of crime"+nd+"  LGBTQ+ victims of hate crimes"+nd+"    Bisexual victims of hate crimes"+nd+"    Gay victims of hate crimes"+nd+"    Lesbian victims of hate crimes" _
++nd+"    LGBTQ+ survivors of hate crimes"+nd+"      Bisexual survivors of hate crimes"+nd+"      Gay survivors of hate crimes"+nd+"      Lesbian survivors of hate crimes"+nd+"      Queer survivors of hate crimes" _
++nd+"      Transgender survivors of hate crimes"+nd+"    Queer victims of hate crimes"+nd+"    Transgender victims of hate crimes"+nd+"  LGBTQ+ victims of rape"+nd+"    Bisexual victims of rape" _
++nd+"    Gay victims of rape"+nd+"    Lesbian victims of rape"+nd+"    LGBTQ+ survivors of rape"+nd+"      Bisexual survivors of rape"+nd+"      Gay survivors of rape" _
++nd+"      Lesbian survivors of rape"+nd+"      Queer survivors of rape"+nd+"      Transgender survivors of rape"+nd+"    Queer victims of rape"+nd+"    Transgender victims of rape" _
++nd+"  LGBTQ+ victims of sexual abuse"+nd+"    Bisexual victims of sexual abuse"+nd+"    Gay victims of sexual abuse"+nd+"    Lesbian victims of sexual abuse"+nd+"    LGBTQ+ incest victims" _
++nd+"      LGBTQ+ incest survivors"+nd+"    LGBTQ+ survivors of sexual abuse"+nd+"      Bisexual survivors of sexual abuse"+nd+"      Gay survivors of sexual abuse"+nd+"      Lesbian survivors of sexual abuse" _
++nd+"      Transgender survivors of sexual abuse"+nd+"      Queer survivors of sexual abuse"+nd+"    Queer victims of sexual abuse"+nd+"    Sexually abused LGBTQ+ children"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ victims of crime and Narrower Terms"
+Begin Dialog MFHL 230, 200, "LGBTQ+ victims of crime and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ victims of crime"
-   DropListBox 14, 20, 130, 135, LGBTQplus_victims_crime$, .LGBTQplus_victims_crimesub
+   DropListBox 14, 20, 200, 135, LGBTQplus_victims_crime$, .LGBTQplus_victims_crimesub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -89,15 +91,17 @@ If quick.LGBTQplus_victims_crimesub=27 Then aa$ = "Bisexual victims of sexual ab
 If quick.LGBTQplus_victims_crimesub=28 Then aa$ = "Gay victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000550"
 If quick.LGBTQplus_victims_crimesub=29 Then aa$ = "Lesbian victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000794"
 If quick.LGBTQplus_victims_crimesub=30 Then aa$ = "LGBTQ+ incest victims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000885"
-If quick.LGBTQplus_victims_crimesub=31 Then aa$ = "LGBTQ+ survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001351"
-If quick.LGBTQplus_victims_crimesub=32 Then aa$ = "Bisexual survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000190"
-If quick.LGBTQplus_victims_crimesub=33 Then aa$ = "Gay survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000542"
-If quick.LGBTQplus_victims_crimesub=34 Then aa$ = "Lesbian survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000784"
-If quick.LGBTQplus_victims_crimesub=35 Then aa$ = "Transgender survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001450"
-If quick.LGBTQplus_victims_crimesub=36 Then aa$ = "Queer survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001213"
-If quick.LGBTQplus_victims_crimesub=37 Then aa$ = "Queer victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001223"
-If quick.LGBTQplus_victims_crimesub=38 Then aa$ = "Sexually abused LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001307"
-If quick.LGBTQplus_victims_crimesub=39 Then aa$ = "Transgender victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001458"
+If quick.LGBTQplus_victims_crimesub=31 Then aa$ = "LGBTQ+ incest survivors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002062"
+If quick.LGBTQplus_victims_crimesub=32 Then aa$ = "LGBTQ+ survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001351"
+If quick.LGBTQplus_victims_crimesub=33 Then aa$ = "Bisexual survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000190"
+If quick.LGBTQplus_victims_crimesub=34 Then aa$ = "Gay survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000542"
+If quick.LGBTQplus_victims_crimesub=35 Then aa$ = "Lesbian survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000784"
+If quick.LGBTQplus_victims_crimesub=36 Then aa$ = "Transgender survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001450"
+If quick.LGBTQplus_victims_crimesub=37 Then aa$ = "Queer survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001213"
+If quick.LGBTQplus_victims_crimesub=38 Then aa$ = "Queer victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001223"
+If quick.LGBTQplus_victims_crimesub=39 Then aa$ = "Sexually abused LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001307"
+If quick.LGBTQplus_victims_crimesub=40 Then aa$ = "Transgender victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001458"
+
 
 
 If aa$ = " " then 
