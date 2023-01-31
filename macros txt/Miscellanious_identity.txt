@@ -1,6 +1,7 @@
 'MacroName:Miscellanious_identity
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, Rev. 01/2023'
 
 Sub Main
    
@@ -27,23 +28,27 @@ aa$ = " "
 '****************************************************************************************
 
 dim Miscellanious_identity$
-Miscellanious_identity$=" "+nd+ "Allosexual people"+nd+"Beards (Gay culture)"+nd+"BIPOC"+nd+"Chosen name"+nd+"Coming out" _
+Miscellanious_identity$=" "+nd+ "Allosexual people"+nd+"BIPOC"+nd+"Chosen name"+nd+"Cissexual people"+nd+"Coming out" _
 +nd+"Denial of sexual orientation"+nd+"Drag kings"+nd+"Drag performers"+nd+"Endosex people"+nd+"Given name" _
-+nd+"Intersex identity"+nd+"LGBTQ+ alcoholics"+nd+"LGBTQ+ spiritual people"+nd+"Monogamous people"+nd+"Monosexual people" _
-+nd+"Partners of crossdressers"+nd+"Passing (Gender)"+nd+"Passing (Sexuality)"+nd+"Situational sexual behaviour"+nd+"Stealth" _
-+nd+"Tom"+nd+"Trans"+nd+"Wimmin"+nd+"Womyn"+nd+"Xenogender people"
++nd+"Intersex identity"+nd+"LGBTQ+ people of the African diaspora"+nd+"LGBTQ+ spiritual people"+nd+"Monogamous people"+nd+"Monosexual people" _
++nd+"Passing (Gender)"+nd+"Passing (Sexuality)"+nd+"QTPOC"+nd+"Situational sexual behaviour"+nd+"Stealth" _
++nd+"Trans"+nd+"Wimmin"+nd+"Womyn"+nd+"Xenogender people"
+
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Terms that are not in a hierarchy."
+Begin Dialog MFHL 230, 170, "Terms that are not in a hierarchy."
 
 Text 14,7,100,14, "Miscellanious identity terms"
-   DropListBox 14, 20, 130, 135, Miscellanious_identity$, .Miscellanious_identitysub
+   DropListBox 14, 20, 130, 100, Miscellanious_identity$, .Miscellanious_identitysub
   
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+Button 25,120,40,20, "I'm done",    .fin
+CancelButton 75,120,40,20
+
+Text  14, 150, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 160, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -56,9 +61,9 @@ dialog quick
 
 If quick.Miscellanious_identitysub=0 Then aa$ = " "
 If quick.Miscellanious_identitysub=1 Then aa$ = "Allosexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001917"
-If quick.Miscellanious_identitysub=2 Then aa$ = "Beards (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001788"
-If quick.Miscellanious_identitysub=3 Then aa$ = "BIPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001928"
-If quick.Miscellanious_identitysub=4 Then aa$ = "Chosen name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000264"
+If quick.Miscellanious_identitysub=2 Then aa$ = "BIPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001928"
+If quick.Miscellanious_identitysub=3 Then aa$ = "Chosen name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000264"
+If quick.Miscellanious_identitysub=4 Then aa$ = "Cissexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000273"
 If quick.Miscellanious_identitysub=5 Then aa$ = "Coming out" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000295"
 If quick.Miscellanious_identitysub=6 Then aa$ = "Denial of sexual orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000345"
 If quick.Miscellanious_identitysub=7 Then aa$ = "Drag kings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000373"
@@ -66,15 +71,19 @@ If quick.Miscellanious_identitysub=8 Then aa$ = "Drag performers" & " " & sd & "
 If quick.Miscellanious_identitysub=9 Then aa$ = "Endosex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001897"
 If quick.Miscellanious_identitysub=10 Then aa$ = "Given name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000592"
 If quick.Miscellanious_identitysub=11 Then aa$ = "Intersex identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000671"
-If quick.Miscellanious_identitysub=12 Then aa$ = "LGBTQ+ alcoholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001540"
+If quick.Miscellanious_identitysub=12 Then aa$ = "LGBTQ+ people of the African diaspora" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002333"
 If quick.Miscellanious_identitysub=13 Then aa$ = "LGBTQ+ spiritual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000948"
 If quick.Miscellanious_identitysub=14 Then aa$ = "Monogamous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001916"
 If quick.Miscellanious_identitysub=15 Then aa$ = "Monosexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001915"
-If quick.Miscellanious_identitysub=16 Then aa$ = "aartners of crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001085"
-If quick.Miscellanious_identitysub=17 Then aa$ = "aassing (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001090"
-If quick.Miscellanious_identitysub=18 Then aa$ = "aassing (Sexuality)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001901"
-
-
+If quick.Miscellanious_identitysub=16 Then aa$ = "Passing (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001090"
+If quick.Miscellanious_identitysub=17 Then aa$ = "Passing (Sexuality)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001901"
+If quick.Miscellanious_identitysub=18 Then aa$ = "QTPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002273"
+If quick.Miscellanious_identitysub=19 Then aa$ = "Situational sexual behaviour" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001315"
+If quick.Miscellanious_identitysub=20 Then aa$ = "Stealth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000288"
+If quick.Miscellanious_identitysub=21 Then aa$ = "Trans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001563"
+If quick.Miscellanious_identitysub=22 Then aa$ = "Wimmin" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001505"
+If quick.Miscellanious_identitysub=23 Then aa$ = "Womyn" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001516"
+If quick.Miscellanious_identitysub=24 Then aa$ = "Xenogender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001671"
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
