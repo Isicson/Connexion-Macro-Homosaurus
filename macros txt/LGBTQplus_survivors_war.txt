@@ -1,6 +1,7 @@
 'MacroName:LGBTQplus_survivors_war
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022, Rev. 01/2023
 
 Sub Main
    
@@ -27,20 +28,23 @@ aa$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_survivors_war$
-LGBTQplus_survivors_war$=" "+nd+ "Bisexual survivors of war"+nd+"Gay survivors of war"+nd+"Lesbian survivors of war"+nd+"LGBTQ+ survivors of war"+nd+"Queer survivors of war" _
-+nd+"Transgender survivors of war"
+LGBTQplus_survivors_war$=" "+nd+ "LGBTQ+ survivors of war"+nd+"  Bisexual survivors of war"+nd+"  Gay survivors of war"+nd+"  Lesbian survivors of war"+nd+"  Queer survivors of war" _
++nd+"  Transgender survivors of war"
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "LGBTQ+ survivors war and Narrower Terms"
+Begin Dialog MFHL 230, 165, "LGBTQ+ survivors war and Narrower Terms"
 
 Text 14,7,100,14, "LGBTQ+ survivors war"
    DropListBox 14, 20, 130, 135, LGBTQplus_survivors_war$, .LGBTQplus_survivors_warsub
-  
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -52,13 +56,12 @@ dialog quick
 '****************************************************************************************
 
 If quick.LGBTQplus_survivors_warsub=0 Then aa$ = " "
-If quick.LGBTQplus_survivors_warsub=1 Then aa$ = "Bisexual survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000191"
-If quick.LGBTQplus_survivors_warsub=2 Then aa$ = "Gay survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000543"
-If quick.LGBTQplus_survivors_warsub=3 Then aa$ = "Lesbian survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000785"
-If quick.LGBTQplus_survivors_warsub=4 Then aa$ = "LGBTQ+ survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001352"
+If quick.LGBTQplus_survivors_warsub=1 Then aa$ = "LGBTQ+ survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001352"
+If quick.LGBTQplus_survivors_warsub=2 Then aa$ = "Bisexual survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000191"
+If quick.LGBTQplus_survivors_warsub=3 Then aa$ = "Gay survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000543"
+If quick.LGBTQplus_survivors_warsub=4 Then aa$ = "Lesbian survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000785"
 If quick.LGBTQplus_survivors_warsub=5 Then aa$ = "Queer survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001214"
 If quick.LGBTQplus_survivors_warsub=6 Then aa$ = "Transgender survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001451"
-
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
@@ -66,4 +69,3 @@ end if
 
 Cancelled:   
 End Sub
-
