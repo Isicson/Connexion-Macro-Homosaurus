@@ -1,6 +1,7 @@
 'MacroName:Top_surgery
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, Rev. 01/2023'
 
 Sub Main
    
@@ -27,20 +28,24 @@ aa$ = " "
 '****************************************************************************************
 
 dim Top_surgery$
-Top_surgery$=" "+nd+ "Top surgery"+nd+"Breast augmentation"+nd+"Chest reconstruction surgery"+nd+"Mastectomy"
+Top_surgery$=" "+nd+ "Top surgery"+nd+"  Breast augmentation"+nd+"  Chest reconstruction surgery"+nd+"  Mastectomy"
 
 
 '****************************************************************************************
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 150, 100, "Top surgery and Narrower Terms"
+Begin Dialog MFHL 230, 165, "Top surgery and Narrower Terms"
 
 Text 14,7,100,14, "Top surgery"
    DropListBox 14, 20, 130, 135, Top_surgery$, .Top_surgerysub
-  
-Button 25,58,40,20, "I'm done",    .fin
-CancelButton 75,58,40,20
+
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
 
 End Dialog
 dim quick as MFHL
