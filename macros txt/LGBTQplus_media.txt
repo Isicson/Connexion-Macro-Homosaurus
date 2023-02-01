@@ -1,6 +1,6 @@
 'MacroName:LGBTQplus_media
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'September, 2022, Revised 01/2023
 
 Sub Main
    
@@ -61,28 +61,29 @@ ra$ = " "
 '****************************************************************************************
 
 dim Erotica$
-Erotica$=" "+nd+ "Erotica"+nd+"LGBTQ+ erotic literature"
+Erotica$=" "+nd+ "Erotica"+nd+"  LGBTQ+ erotic literature"+nd+"    Bisexual erotic literature"+nd+"    Gay erotic literature"+nd+"    Lesbian erotic literature"+nd+"    Queer erotic literature" _
++nd+"    Transgender erotic literature"
 
 dim Gender_studies$
-Gender_studies$=" "+nd+ "Gender studies"+nd+"Bisexual studies"+nd+"Gay studies"+nd+"Lesbian studies"+nd+"Transgender studies"
+Gender_studies$=" "+nd+ "Gender studies"+nd+"  Bisexual studies"+nd+"  Gay studies"+nd+"  Lesbian studies"+nd+"  Transgender studies"
 
 dim Information_provision$
-Information_provision$=" "+nd+ "Information provision"+nd+"AIDS education""LGBTQ+ health education"+nd+"Sex education"
+Information_provision$=" "+nd+ "Information provision"+nd+"  AIDS education"+nd+"  LGBTQ+ health education"+nd+"  Sex education"
 
 dim LGBTQplus_autobiography$
-LGBTQplus_autobiography$=" "+nd+ "LGBTQ+ autobiographies"+nd+"Bisexual autobiographies"+nd+"Gay autobiographies"+nd+"Lesbian autobiographies"+nd+"Queer autobiographies" _
-+nd+"Transgender autobiographies"
+LGBTQplus_autobiography$=" "+nd+ "LGBTQ+ autobiographies"+nd+"  Bisexual autobiographies"+nd+"  Gay autobiographies"+nd+"  Lesbian autobiographies"+nd+"  Queer autobiographies" _
++nd+"  Transgender autobiographies"
 
 dim LGBTQplus_biographies$
-LGBTQplus_biographies$=" "+nd+ "LGBTQ+ biographies"+nd+"Bisexual biographies"+nd+"Gay biographies"+nd+"Lesbian biographies"+nd+"Queer biographies" _
-+nd+"Transgender biographies"
+LGBTQplus_biographies$=" "+nd+ "LGBTQ+ biographies"+nd+"  Bisexual biographies"+nd+"  Gay biographies"+nd+"  Lesbian biographies"+nd+"  Queer biographies" _
++nd+"  Transgender biographies"
 
 dim LGBTQplus_books$
-LGBTQplus_books$=" "+nd+ "LGBTQ+ books"+nd+"LGBTQ+ challenged books"
+LGBTQplus_books$=" "+nd+ "LGBTQ+ books"+nd+"  LGBTQ+ challenged books"
 
 dim LGBTQplus_characters$
-LGBTQplus_characters$=" "+nd+ "LGBTQ+ characters"+nd+"Bisexual characters"+nd+"Gay characters"+nd+"Lesbian characters"+nd+"Queer characters" _
-+nd+"Transgender characters"
+LGBTQplus_characters$=" "+nd+ "LGBTQ+ characters"+nd+"  Bisexual characters"+nd+"  Gay characters"+nd+"  Lesbian characters"+nd+"  Queer characters" _
++nd+"  Transgender characters"
 
 dim LGBTQ_cinema$
 LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Gay cinema"+nd+"    Gay films"+nd+"      Gay porn films"+nd+"  Lesbian cinema" _
@@ -90,45 +91,45 @@ LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Gay cinema"+nd+"    Gay films"+nd+" 
 +nd+"    LGBTQ+ home movies"+nd+"      LGBTQ+ vlogs"
 
 dim LGBTQplus_lit_crit$
-LGBTQplus_lit_crit$=" "+nd+ "LGBTQ+ literary criticism"+nd+"Bisexual literary criticism"+nd+"Gay literary criticism"+nd+"Lesbian literary criticism"+nd+"Queer literary criticism" _
-+nd+"Transgender literary criticism"
+LGBTQplus_lit_crit$=" "+nd+ "LGBTQ+ literary criticism"+nd+"  Bisexual literary criticism"+nd+"  Gay literary criticism"+nd+"  Lesbian literary criticism"+nd+"  Queer literary criticism" _
++nd+"  Transgender literary criticism"
 
 dim LGBTQplus_periodicals$
-LGBTQplus_periodicals$=" "+nd+ "LGBTQ+ periodicals"+nd+"AIDS periodicals"+nd+"LGBTQ+ magazines"+nd+"LGBTQ+ newsletters"+nd+"  Bisexual newsletters" _
-+nd+"  Gay newsletters"+nd+"  Lesbian newsletters"+nd+"  Queer newsletters"+nd+"  Transgender newsletters"+nd+"LGBTQ+ newspapers" _
-+nd+"  Bisexual newspapers"+nd+"  Gay newspapers"+nd+"  Lesbian newspapers"+nd+"  LGBTQ+ obituaries"+nd+"  Queer newspapers"+nd+"  Transgender newspapers"
+LGBTQplus_periodicals$=" "+nd+ "LGBTQ+ periodicals"+nd+"  AIDS periodicals"+nd+"  LGBTQ+ magazines"+nd+"  LGBTQ+ newsletters"+nd+"    Bisexual newsletters" _
++nd+"    Gay newsletters"+nd+"    Lesbian newsletters"+nd+"    Queer newsletters"+nd+"    Transgender newsletters"+nd+"  LGBTQ+ newspapers" _
++nd+"    Bisexual newspapers"+nd+"    Gay newspapers"+nd+"    Lesbian newspapers"+nd+"    LGBTQ+ obituaries"+nd+"    Queer newspapers"+nd+"    Transgender newspapers"
 
 dim LGBTQplus_porn_films$
-LGBTQplus_porn_films$=" "+nd+ "LGBTQ+ porn films"+nd+"Bisexual porn films"+nd+"Gay porn films"+nd+"Lesbian porn films"+nd+"Queer porn films" _
-+nd+"Transgender porn films"+nd+"LGBTQ+ home movies"+nd+"  LGBTQ+ vlogs"
+LGBTQplus_porn_films$=" "+nd+ "LGBTQ+ porn films"+nd+"  Bisexual porn films"+nd+"  Gay porn films"+nd+"  Lesbian porn films"+nd+"  Queer porn films" _
++nd+"  Transgender porn films"
 
 dim LGBTQplus_press$
-LGBTQplus_press$=" "+nd+ "LGBTQ+ press"+nd+"Bisexual press"+nd+"Gay press"+nd+"Lesbian press"+nd+"LGBTQ+ magazines" _
-+nd+"LGBTQ+ newsletters"+nd+"  Bisexual newsletters"+nd+"  Gay newsletters"+nd+"  Lesbian newsletters"+nd+"  Queer newsletters" _
-+nd+"  Transgender newsletters"+nd+"LGBTQ+ newspapers"+nd+"  Bisexual newspapers"+nd+"  Gay newspapers"+nd+"  Lesbian newspapers" _
-+nd+"  LGBTQ+ obituaries"+nd+"  Queer newspapers"+nd+"  Transgender newspapers"+nd+"LGBTQ+ porn magazines"+nd+"LGBTQ+ zines" _
-+nd+"Queer press"+nd+"Transgender press"    
+LGBTQplus_press$=" "+nd+ "LGBTQ+ press"+nd+"  Bisexual press"+nd+"  Gay press"+nd+"  Lesbian press"+nd+"  LGBTQ+ magazines" _
++nd+"  LGBTQ+ newsletters"+nd+"    Bisexual newsletters"+nd+"    Gay newsletters"+nd+"    Lesbian newsletters"+nd+"    Queer newsletters" _
++nd+"    Transgender newsletters"+nd+"  LGBTQ+ newspapers"+nd+"    Bisexual newspapers"+nd+"    Gay newspapers"+nd+"    Lesbian newspapers" _
++nd+"    LGBTQ+ obituaries"+nd+"    Queer newspapers"+nd+"    Transgender newspapers"+nd+"  LGBTQ+ porn magazines"+nd+"  LGBTQ+ zines" _
++nd+"  Queer press"+nd+"  Transgender press"    
 
 dim LGBTQplus_publishers$
-LGBTQplus_publishers$=" "+nd+ "LGBTQ+ publishers"+nd+"Bisexual publishers"+nd+"Gay publishers"+nd+"Lesbian publishers"+nd+"Queer publishers" _
-+nd+"Transgender publishers"    
+LGBTQplus_publishers$=" "+nd+ "LGBTQ+ publishers"+nd+"  Bisexual publishers"+nd+"  Gay publishers"+nd+"  Lesbian publishers"+nd+"  Queer publishers" _
++nd+"  Transgender publishers"    
 
 dim LGBTQplus_radio$
-LGBTQplus_radio$=" "+nd+ "LGBTQ+ radio"+nd+"Bisexual radio"+nd+"Gay radio"+nd+"Lesbian radio"+nd+"Queer radio" _
-+nd+"Transgender radio"
+LGBTQplus_radio$=" "+nd+ "LGBTQ+ radio"+nd+"  Bisexual radio"+nd+"  Gay radio"+nd+"  Lesbian radio"+nd+"  Queer radio" _
++nd+"  Transgender radio"
 
 dim LGBTQplus_television$
-LGBTQplus_television$=" "+nd+ "LGBTQ+ television"+nd+"Bisexual television"+nd+"Gay television"+nd+"Lesbian television"+nd+"Queer television" _
-+nd+"Transgender television"
+LGBTQplus_television$=" "+nd+ "LGBTQ+ television"+nd+"  Bisexual television"+nd+"  Gay television"+nd+"  Lesbian television"+nd+"  Queer television" _
++nd+"  Transgender television"
 
 dim Nude_art$
-Nude_art$=" "+nd+ "Nude art"+nd+"Nude photographs"
+Nude_art$=" "+nd+ "Nude art"+nd+"  Nude photographs"
 
 dim Social_media$
-Social_media$=" "+nd+ "Social media"+nd+"Blogs"+nd+"  LGBTQ+ blogs"+nd+"    LGBTQ+ social media"+nd+"      LGBTQ+ blogs" _
-+nd+"      LGBTQ+ chatrooms"+nd+"      LGBTQ+ Internet forums"+nd+"      LGBTQ+ dating applications"+nd+"      LGBTQ+ websites"+nd+"        LGBTQ+ dating websites" _
-+nd+"    LGBTQ+ vlogs"+nd+"Chatrooms"+nd+"  LGBTQ+ chatrooms"+nd+"Dating applications"+nd+"  LGBTQ+ dating applications" _
-+nd+"Dating websites"+nd+"  LGBTQ+ dating websites"+nd+"Internet forums"+nd+"  LGBTQ+ Internet forums"
+Social_media$=" "+nd+ "Social media"+nd+"  Blogs"+nd+"    LGBTQ+ blogs"+nd+"    LGBTQ+ vlogs"+nd+"  Chatrooms" _
++nd+"    LGBTQ+ chatrooms"+nd+"  Dating applications"+nd+"    LGBTQ+ dating applications"+nd+"  Dating websites"+nd+"    LGBTQ+ dating websites" _
++nd+"  Internet forums"+nd+"    LGBTQ+ Internet forums"+nd+"  LGBTQ+ social media"+nd+"    LGBTQ+ blogs"+nd+"    LGBTQ+ chatrooms" _
++nd+"    LGBTQ+ Internet forums"+nd+"    LGBTQ+ dating applications"+nd+"    LGBTQ+ websites"+nd+"      LGBTQ+ dating websites"
 
 dim Miscellanious_media$
 Miscellanious_media$=" "+nd+ "Queer coding"
@@ -172,16 +173,20 @@ Text 14,273,95,135, "LGBTQ+ television"
 Text 200,273,95,135, "Nude art"
    DropListBox 200,286,130,135, Nude_art$, .Nude_artsub
 Text 14,311,95,135, "Social media"
-   DropListBox 14,324,130,135, Social_media$, .Social_mediasub
+   DropListBox 14,324,130,100, Social_media$, .Social_mediasub
 Text 200,311,95,135, "Miscellanious media"
    DropListBox 200,324,130,135, Miscellanious_media$, .Miscellanious_mediasub
 
 OptionGroup .OptionGroup1
       OptionButton  14, 350, 200, 10, " Stay on this page", .OptionButton1
-      OptionButton  14, 360, 200, 13, "See LGBTQ+ literature terms", .OptionButton2
+      OptionButton  14, 360, 200, 13, "LGBTQ+ Literature (655_7)", .OptionButton2
+      OptionButton  14, 370, 200, 13, "LGBTQ+ Literature (650_7)", .OptionButton3
+      
+Button 120,395,40,20, "I'm done",    .fin
+CancelButton 190,395,40,20
 
-Button 64,395,40,20, "I'm done",    .fin
-CancelButton 130,395,40,20
+Text  14, 425, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 435, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 
 End Dialog
@@ -198,6 +203,11 @@ dialog quick
 If quick.Eroticasub=0 Then aa$ = " "
 If quick.Eroticasub=1 Then aa$ = "Erotica" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000403"
 If quick.Eroticasub=2 Then aa$ = "LGBTQ+ erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000859"
+If quick.Eroticasub=3 Then aa$ = "Bisexual erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001599"
+If quick.Eroticasub=4 Then aa$ = "Gay erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001598"
+If quick.Eroticasub=5 Then aa$ = "Lesbian erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001597"
+If quick.Eroticasub=6 Then aa$ = "Queer erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001601"
+If quick.Eroticasub=7 Then aa$ = "Transgender erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001600"
 
 If aa$ = " " then 
 else
@@ -336,8 +346,6 @@ If quick.LGBTQplus_porn_filmssub=3 Then ka$ = "Gay porn films" & " " & sd & "2 h
 If quick.LGBTQplus_porn_filmssub=4 Then ka$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000765"
 If quick.LGBTQplus_porn_filmssub=5 Then ka$ = "Queer porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001199"
 If quick.LGBTQplus_porn_filmssub=6 Then ka$ = "Transgender porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001435"
-If quick.LGBTQplus_porn_filmssub=7 Then ka$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
-If quick.LGBTQplus_porn_filmssub=8 Then ka$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
 
 If ka$ = " " then
 else
@@ -422,24 +430,22 @@ If quick.Social_mediasub=0 Then qa$ = " "
 If quick.Social_mediasub=1 Then qa$ = "Social media" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001321"
 If quick.Social_mediasub=2 Then qa$ = "Blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000210"
 If quick.Social_mediasub=3 Then qa$ = "LGBTQ+ blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000823"
-If quick.Social_mediasub=4 Then qa$ = "LGBTQ+ social media" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000946"
-If quick.Social_mediasub=5 Then qa$ = "LGBTQ+ blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000823"
+If quick.Social_mediasub=4 Then qa$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+If quick.Social_mediasub=5 Then qa$ = "Chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000250"
 If quick.Social_mediasub=6 Then qa$ = "LGBTQ+ chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000832"
-If quick.Social_mediasub=7 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
+If quick.Social_mediasub=7 Then qa$ = "Dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000328"
 If quick.Social_mediasub=8 Then qa$ = "LGBTQ+ dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000846"
-If quick.Social_mediasub=9 Then qa$ = "LGBTQ+ websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000962"
+If quick.Social_mediasub=9 Then qa$ = "Dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000329"
 If quick.Social_mediasub=10 Then qa$ = "LGBTQ+ dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000847"
-If quick.Social_mediasub=11 Then qa$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
-If quick.Social_mediasub=12 Then qa$ = "Chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000250"
-If quick.Social_mediasub=13 Then qa$ = "LGBTQ+ chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000832"
-If quick.Social_mediasub=14 Then qa$ = "Dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000328"
-If quick.Social_mediasub=15 Then qa$ = "LGBTQ+ dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000846"
-If quick.Social_mediasub=16 Then qa$ = "Dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000329"
-If quick.Social_mediasub=17 Then qa$ = "LGBTQ+ dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000847"
-If quick.Social_mediasub=18 Then qa$ = "Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000665"
-If quick.Social_mediasub=19 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
-
-
+If quick.Social_mediasub=11 Then qa$ = "Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000665"
+If quick.Social_mediasub=12 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
+If quick.Social_mediasub=13 Then qa$ = "LGBTQ+ social media" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000946"
+If quick.Social_mediasub=14 Then qa$ = "LGBTQ+ blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000823"
+If quick.Social_mediasub=15 Then qa$ = "LGBTQ+ chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000832"
+If quick.Social_mediasub=16 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
+If quick.Social_mediasub=17 Then qa$ = "LGBTQ+ dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000846"
+If quick.Social_mediasub=18 Then qa$ = "LGBTQ+ websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000962"
+If quick.Social_mediasub=19 Then qa$ = "LGBTQ+ dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000847"
 If qa$ = " " then
 else
 CS.AddField 1, "650 7" & qa$
@@ -457,7 +463,8 @@ end if
 
 
 If quick.OptionGroup1 = 0 then OKbutton
-If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature_655"
+If quick.OptionGroup1 = 2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
 
 
 
