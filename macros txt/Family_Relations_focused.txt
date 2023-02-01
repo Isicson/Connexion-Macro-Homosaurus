@@ -1,6 +1,6 @@
 'MacroName:Family_Relations_focused
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'January 2023
 
 Sub Main
    
@@ -73,22 +73,22 @@ LGBTQplus_families$=" "+nd+ "LGBTQ+ families"+nd+"Aromantic families"+nd+"Asexua
 +nd+"Two-Spirit families"
 
 dim LGBTQplus_familyplanning$
-LGBTQplus_familyplanning$=" "+nd+ "LGBTQ+ family planning"+nd+"Conception by LGBTQ+ people"+nd+"  In vitro fertilisation"+nd+"    Reciprocal in vitro fertilisation"+nd+"  Insemination" _
-+nd+"    In vitro fertilisation"+nd+"    Self-insemination"+nd+"  Self-insemination"+nd+"  Surrogacy"+nd+"LGBTQ+ adoption" _
-+nd+"  LGBTQ+ adoptive parenthood"+nd+"  LGBTQ+ adoptive parents"+nd+"  LGBTQ+ birth parents"+nd+"  Second parent adoption"
+LGBTQplus_familyplanning$=" "+nd+ "LGBTQ+ family planning"+nd+"  Conception by LGBTQ+ people"+nd+"    In vitro fertilisation"+nd+"      Reciprocal in vitro fertilisation"+nd+"    Insemination" _
++nd+"      In vitro fertilisation"+nd+"      Self-insemination"+nd+"    Self-insemination"+nd+"    Surrogacy"+nd+"  LGBTQ+ adoption" _
++nd+"    LGBTQ+ adoptive parenthood"+nd+"    LGBTQ+ adoptive parents"+nd+"    LGBTQ+ birth parents"+nd+"    Second parent adoption"
 
 dim Miscellanious_family$
 Miscellanious_family$=" "+nd+ "Child custody"+nd+"Desire to have children"+nd+"Domestic partnership retirement benefits"+nd+"Fatherhood"+nd+"Foster parents" _
 +nd+"Social parenthood" 
 
 dim LGBTQplus_relationships$
-LGBTQplus_relationships$=" "+nd+ "LGBTQ+ relationships"+nd+"Bisexual relationships"+nd+"Butch-femme relationships"+nd+"Cross-cultural relationships"+nd+"Friendships" _
-+nd+"  Boys' friendships"+nd+"  Girls' friendships"+nd+"  Men's friendships"+nd+"  Romantic friendships"+nd+"  Women's friendships" _
-+nd+"  Gay relationships"+nd+"Heterosociality"+nd+"Intergenerational relationships"+nd+"Lesbian relationships"+nd+"LGBTQ+ couples" _
-+nd+"  Bisexual couples"+nd+"  Boston marriages"+nd+"  Gay couples"+nd+"  Lesbian couples"+nd+"  Married people" _
-+nd+"  Queer couples"+nd+"  Serodiscordant couples"+nd+"  Transgender couples"+nd+"  Unmarried couples"+nd+"Queer relationships" _
-+nd+"Sexual relationships"+nd+"  Casual sex"+nd+"  Love triangles"+nd+"  Monogamy"+nd+"  Polygamy" _
-+nd+"Transgender relationships"
+LGBTQplus_relationships$=" "+nd+ "LGBTQ+ relationships"+nd+"  Bisexual relationships"+nd+"  Butch-femme relationships"+nd+"  Cross-cultural relationships"+nd+"  Friendships" _
++nd+"    Boys' friendships"+nd+"    Girls' friendships"+nd+"    Men's friendships"+nd+"    Romantic friendships"+nd+"    Women's friendships" _
++nd+"  Gay relationships"+nd+"  Heterosociality"+nd+"  Intergenerational relationships"+nd+"  Lesbian relationships"+nd+"  LGBTQ+ couples" _
++nd+"    Bisexual couples"+nd+"    Boston marriages"+nd+"    Gay couples"+nd+"    Lesbian couples"+nd+"    Married people" _
++nd+"    Queer couples"+nd+"    Serodiscordant couples"+nd+"    Transgender couples"+nd+"    Unmarried couples"+nd+"  Queer relationships" _
++nd+"  Sexual relationships"+nd+"    Casual sex"+nd+"    Love triangles"+nd+"    Monogamy"+nd+"    Polygamy" _
++nd+"  Transgender relationships"
 
 dim partners$
 partners$=" "+nd+ "Partners"+nd+"  Anchor partners"+nd+"  LGBTQ+ partners"+nd+"    NT > LGBTQ+ partners"+nd+"  Nesting partners" _
@@ -96,27 +96,27 @@ partners$=" "+nd+ "Partners"+nd+"  Anchor partners"+nd+"  LGBTQ+ partners"+nd+" 
 +nd+"    Partners of queer people"+nd+"    Partners of transgender people"+nd+"  Primary partners"+nd+"  Secondary partners"
 
 dim LGBTQplus_communities$
-LGBTQplus_communities$=" "+nd+ "LGBTQ+ communities"+nd+"BDSM community"+nd+"  Leather families"+nd+"    Leather daddies"+nd+"    Leather mommies" _
-+nd+"Bisexual community"+nd+"  Drag community"+nd+"Drag families"+nd+"    Drag fathers"+nd+"    Drag mothers" _
-+nd+"Gay community"+nd+"Leather community"+nd+"  NT > Leather community"+nd+"Lesbian community"+nd+"LGBTQ+ communes" _
-+nd+"LGBTQ+ Deaf culture"+nd+"Queer community"+nd+"Transgender community"+nd+"Two-Spirit community"
+LGBTQplus_communities$=" "+nd+ "LGBTQ+ communities"+nd+"  BDSM community"+nd+"    Leather families"+nd+"      Leather daddies"+nd+"      Leather mommies" _
++nd+"  Bisexual community"+nd+"  Drag community"+nd+"  Drag families"+nd+"      Drag fathers"+nd+"      Drag mothers" _
++nd+"  Gay community"+nd+"  Leather community"+nd+"    NT > Leather community"+nd+"  Lesbian community"+nd+"  LGBTQ+ communes" _
++nd+"  LGBTQ+ Deaf culture"+nd+"  Queer community"+nd+"  Transgender community"+nd+"  Two-Spirit community"
 
 dim Homosociality$
-Homosociality$=" "+nd+ "Homosociality"+nd+"Boys' friendships"+nd+"Girls' friendships"+nd+"Men's friendships"+nd+"Women's friendships"
+Homosociality$=" "+nd+ "Homosociality"+nd+"  Boys' friendships"+nd+"  Girls' friendships"+nd+"  Men's friendships"+nd+"  Women's friendships"
 
 dim Living_arrangements$
-Living_arrangements$=" "+nd+ "Living arrangements"+nd+"Civil unions"+nd+"  Civil union certificates"+nd+"  Civil union documents"+nd+"Domestic partnerships" _
-+nd+"Marriage"+nd+"  Common law marriage"+nd+"  Heterosexual marriage"+nd+"  LGBTQ+ divorce"+nd+"    Same-sex divorce" _
-+nd+"  LGBTQ+ separation"+nd+"    LGBTQ+ divorce"+nd+"  Marital status"+nd+"    Divorced people"+nd+"    Married people" _
-+nd+"    Single people"+nd+"      LGBTQ+ single parents"+nd+"        LGBTQ+ single fathers"+nd+"        LGBTQ+ single mothers"+nd+"    Widowed people" _
-+nd+"  Marriage certificates"+nd+"  Marriage licenses"+nd+"  Mixed-orientation marriage"+nd+"  Same-sex marriage"+nd+"  Women's marriages"
+Living_arrangements$=" "+nd+ "Living arrangements"+nd+"  Civil unions"+nd+"    Civil union certificates"+nd+"    Civil union documents"+nd+"  Domestic partnerships" _
++nd+"  Marriage"+nd+"    Common law marriage"+nd+"    Heterosexual marriage"+nd+"    LGBTQ+ divorce"+nd+"      Same-sex divorce" _
++nd+"    LGBTQ+ separation"+nd+"      LGBTQ+ divorce"+nd+"    Marital status"+nd+"      Divorced people"+nd+"      Married people" _
++nd+"      Single people"+nd+"        LGBTQ+ single parents"+nd+"          LGBTQ+ single fathers"+nd+"          LGBTQ+ single mothers"+nd+"      Widowed people" _
++nd+"    Marriage certificates"+nd+"    Marriage licenses"+nd+"    Mixed-orientation marriage"+nd+"    Same-sex marriage"+nd+"    Women's marriages"
 
 dim LGBTQplus_love$
 LGBTQplus_love$=" "+nd+ "LGBTQ+ love"+nd+"  LGBTQ+ platonic love"+nd+"  LGBTQ+ unrequited love"
 
 dim Romantic_orientation$
-Romantic_orientation$=" "+nd+ "Romantic orientation"+nd+"Biromanticism"+nd+"Heteroromanticism"+nd+"Homoromanticism"+nd+"Panromanticism" _
-+nd+"Alloromanticism"+nd+"Aromanticism"+nd+"Demiromanticism"+nd+"Greyromanticism"
+Romantic_orientation$=" "+nd+ "Romantic orientation"+nd+"  Biromanticism"+nd+"  Heteroromanticism"+nd+"  Homoromanticism"+nd+"  Panromanticism" _
++nd+"  Alloromanticism"+nd+"  Aromanticism"+nd+"  Demiromanticism"+nd+"  Greyromanticism"
 
 dim Miscellanious_relat$
 Miscellanious_relat$=" "+nd+ "Compulsory monogamy"+nd+"LGBTQ+ intimacy"+nd+"Male bonding"+nd+"Motherhood"+nd+"NRE (New Relationship Energy)" _
@@ -163,7 +163,8 @@ Text 200,197,170,135, "Relationship terms that are not in a hierarchy"
       
 Button 120,300,40,20, "I'm done",    .fin
 CancelButton 170,300,40,20
-
+Text  14, 325, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 335, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
