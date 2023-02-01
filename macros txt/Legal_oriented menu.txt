@@ -33,18 +33,18 @@ ca$ = " "
 '****************************************************************************************
 
 dim Law$
-Law$=" "+nd+ "Law"+nd+"Anti-discrimination law"+nd+"Court orders"+nd+"Criminal law"+nd+"  Criminalisation" _
-+nd+"  Decriminalisation"+nd+"  Sexual offenses laws"+nd+"    Sodomy laws"+nd+"LGBTQ+ personal and family law"+nd+"  Legal name" _
-+nd+"  Legal name change"+nd+"  Marriage law"+nd+"    Common law marriage"+nd+"LGBTQ+ victims' rights"+nd+"  Bisexual victims' rights" _
-+nd+"  Gay victims' rights"+nd+"  Lesbian victims' rights"+nd+"  Queer victims' rights"+nd+"  Transgender victims' rights"+nd+"Public bathroom bills" _
+Law$=" "+nd+ "Law"+nd+"  Anti-discrimination law"+nd+"  Court orders"+nd+"  Criminal law"+nd+"    Criminalization" _
++nd+"    Decriminalization"+nd+"    Sexual offenses laws"+nd+"      Sodomy laws"+nd+"  LGBTQ+ personal and family law"+nd+"    Legal name" _
++nd+"    Legal name change"+nd+"    Marriage law"+nd+"      Common law marriage"+nd+"  LGBTQ+ victims' rights"+nd+"    Bisexual victims' rights" _
++nd+"    Gay victims' rights"+nd+"    Lesbian victims' rights"+nd+"    Queer victims' rights"+nd+"    Transgender victims' rights"+nd+"  Public bathroom bills" _
 
 dim Legal_status$
-Legal_status$=" "+nd+ "Legal status"+nd+"LGBTQ+ immigration rights"+nd+"LGBTQ+ people in the military"+nd+"  Bisexual people in the military"+nd+"  Gay men in the military" _
-+nd+"  Lesbians in the military"+nd+"  Queer people in the military"+nd+"  Transgender people in the military"+nd+"Official documentation"+nd+"  Birth certificates" _
-+nd+"    Birth certificate amendments"+nd+"    Gender markers"+nd+"  Civil union certificates"+nd+"  Civil union documents"+nd+"  Court orders" _
-+nd+"  Domestic partnership contracts"+nd+"  Driver's licenses"+nd+"    Gender markers"+nd+"  Legal name change"+nd+"  Marriage certificates" _
-+nd+"  Marriage licenses"+nd+"  Medical practitioners' statements"+nd+"  Passports"+nd+"    Gender markers"+nd+"  Social security cards" _
-+nd+"Parental rights"+nd+"Partner rights"
+Legal_status$=" "+nd+ "Legal status"+nd+"  LGBTQ+ immigration rights"+nd+"  LGBTQ+ people in the military"+nd+"    Bisexual people in the military"+nd+"    Gay men in the military" _
++nd+"    Lesbians in the military"+nd+"    Queer people in the military"+nd+"    Transgender people in the military"+nd+"  Official documentation"+nd+"    Birth certificates" _
++nd+"      Birth certificate amendments"+nd+"      Gender markers"+nd+"    Civil union certificates"+nd+"    Civil union documents"+nd+"    Court orders" _
++nd+"    Domestic partnership contracts"+nd+"    Driver's licenses"+nd+"      Gender markers"+nd+"    Legal name change"+nd+"    Marriage certificates" _
++nd+"    Marriage licenses"+nd+"    Medical practitioners' statements"+nd+"    Passports"+nd+"      Gender markers"+nd+"    Social security cards" _
++nd+"  Parental rights"+nd+"  Partner rights"
 
 dim Miscellanious_legal$
 Miscellanious_legal$=" "+nd+ "Police"
@@ -82,8 +82,8 @@ If quick.Lawsub=1 Then aa$ = "Law" & " " & sd & "2 homoit" & " " & sd & "0 https
 If quick.Lawsub=2 Then aa$ = "Anti-discrimination law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000053"
 If quick.Lawsub=3 Then aa$ = "Court orders" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000311"
 If quick.Lawsub=4 Then aa$ = "Criminal law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000313"
-If quick.Lawsub=5 Then aa$ = "Criminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000314"
-If quick.Lawsub=6 Then aa$ = "Decriminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000339"
+If quick.Lawsub=5 Then aa$ = "Criminalization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000314"
+If quick.Lawsub=6 Then aa$ = "Decriminalization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000339"
 If quick.Lawsub=7 Then aa$ = "Sexual offenses laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001289"
 If quick.Lawsub=8 Then aa$ = "Sodomy laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001326"
 If quick.Lawsub=9 Then aa$ = "LGBTQ+ personal and family law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000918"
