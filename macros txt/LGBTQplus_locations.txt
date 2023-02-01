@@ -2,7 +2,7 @@
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'September, 2022
 'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
-'Menu layout and terms satisfactory for ver.1, Oct. 2022/wi
+''Created 09/2022, Rev. 01/2023'
 
 Sub Main
    
@@ -50,54 +50,55 @@ la$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_bookshops$
-LGBTQplus_bookshops$=" "+nd+ "Bisexual bookshops"+nd+"Gay bookshops"+nd+"Lesbian bookshops"+nd+"LGBTQ+ bookshops"+nd+"Queer bookshops" _
-+nd+"Transgender bookshops"+nd+"Women's bookshops"
+LGBTQplus_bookshops$=" "+nd+ "LGBTQ+ bookshops"+nd+"  Bisexual bookshops"+nd+"  Gay bookshops"+nd+"  Lesbian bookshops"+nd+"  Queer bookshops" _
++nd+"  Transgender bookshops"
+
 
 dim LGBTQplus_centers$
-LGBTQplus_centers$=" "+nd+ "LGBTQ+ centers"+nd+"LGBTQ+ community centers"+nd+"  Bisexual community centers"+nd+"  Gay community centers"+nd+"  Lesbian community centers" _
-+nd+"  Queer community centers"+nd+"  Transgender community centers"+nd+"  Women's community centers"+nd+"LGBTQ+ health care centers"+nd+"LGBTQ+ information centers" _
-+nd+"  AIDS information centers"+nd+"  Bisexual information centers"+nd+"  Gay information centers"+nd+"  Lesbian information centers"+nd+"  Queer information centers" _
-+nd+"  Transgender information centers"+nd+"  LGBTQ+ youth centers"
+LGBTQplus_centers$=" "+nd+ "LGBTQ+ centers"+nd+"  LGBTQ+ community centers"+nd+"    Bisexual community centers"+nd+"    Gay community centers"+nd+"    Lesbian community centers" _
++nd+"    Queer community centers"+nd+"    Transgender community centers"+nd+"    Women's community centers"+nd+"  LGBTQ+ health care centers"+nd+"  LGBTQ+ information centers" _
++nd+"    AIDS information centers"+nd+"    Bisexual information centers"+nd+"    Gay information centers"+nd+"    Lesbian information centers"+nd+"    Queer information centers" _
++nd+"    Transgender information centers"+nd+"  LGBTQ+ youth centers"
 
 dim LGBTQplus_hotels$
-LGBTQplus_hotels$=" "+nd+ "LGBTQ+ hotels"+nd+"LGBTQ+ resorts"
+LGBTQplus_hotels$=" "+nd+ "LGBTQ+ hotels"+nd+"  LGBTQ+ resorts"
 
 dim LGBTQplus_meeting_places$
-LGBTQplus_meeting_places$=" "+nd+ "LGBTQ+ meeting places"+nd+"  LGBTQ+ bars"+nd+"  Bisexual bars"+nd+"  Drag bars"+nd+"  Gay bars" _
-+nd+"  Leather bars"+nd+"  Lesbian bars"+nd+"  Queer bars"+nd+"  Transgender bars"+nd+"LGBTQ+ beaches" _
-+nd+"  Bisexual beaches"+nd+"  Gay beaches"+nd+"  Lesbian beaches"+nd+"  Nude beaches"+nd+"  Queer beaches" _
-+nd+"  Transgender beaches"+nd+"LGBTQ+ community centers"+nd+"  Bisexual community centers"+nd+"  Gay community centers"+nd+"  Lesbian community centers" _
-+nd+"  Queer community centers"+nd+"  Transgender community centers"+nd+"  Women's community centers"
+LGBTQplus_meeting_places$=" "+nd+ "LGBTQ+ meeting places"+nd+"  LGBTQ+ bars"+nd+"    Bisexual bars"+nd+"    Drag bars"+nd+"    Gay bars" _
++nd+"    Leather bars"+nd+"    Lesbian bars"+nd+"    Queer bars"+nd+"    Transgender bars"+nd+"  LGBTQ+ beaches" _
++nd+"    Bisexual beaches"+nd+"    Gay beaches"+nd+"    Lesbian beaches"+nd+"    Nude beaches"+nd+"    Queer beaches" _
++nd+"    Transgender beaches"+nd+"  LGBTQ+ community centers"+nd+"    Bisexual community centers"+nd+"    Gay community centers"+nd+"    Lesbian community centers" _
++nd+"    Queer community centers"+nd+"    Transgender community centers"+nd+"    Women's community centers"
 
 dim LGBTQplus_theater$
-LGBTQplus_theater$=" "+nd+ "LGBTQ+ theater"+nd+"Bisexual theater"+nd+"Female impersonators"+nd+"Gay theater"+nd+"Kabuki" _
-+nd+"Lesbian theater"+nd+"Male impersonators"+nd+"Performance art"+nd+"Queer theater"+nd+"Striptease"+nd+"Transgender theater"
+LGBTQplus_theater$=" "+nd+ "LGBTQ+ theater"+nd+"  Bisexual theater"+nd+"  Female impersonators"+nd+"  Gay theater"+nd+"  Kabuki" _
++nd+"  Lesbian theater"+nd+"  Male impersonators"+nd+"  Performance art"+nd+"  Queer theater"+nd+"  Striptease"+nd+"  Transgender theater"
 
 dim LGBTQplus_tourism$
-LGBTQplus_tourism$=" "+nd+ "LGBTQ+ tourism"+nd+"LGBTQ+ cruises"+nd+"Sex tourism"
+LGBTQplus_tourism$=" "+nd+ "LGBTQ+ tourism"+nd+"  LGBTQ+ cruises"+nd+"  Sex tourism"
 
 dim LGBTQ_focused_businesses$
-LGBTQ_focused_businesses$=" "+nd+ "LGBTQ+-focused businesses"+nd+"Bisexual-focused businesses"+nd+"Gay-focused businesses"+nd+"Lesbian-focused businesses"+nd+"Queer-focused businesses" _
-+nd+"Transgender-focused businesses"
+LGBTQ_focused_businesses$=" "+nd+ "LGBTQ+-focused businesses"+nd+"  Bisexual-focused businesses"+nd+"  Gay-focused businesses"+nd+"  Lesbian-focused businesses"+nd+"  Queer-focused businesses" _
++nd+"  Transgender-focused businesses"
 
 dim LGBTQ_owned_businesses$
-LGBTQ_owned_businesses$=" "+nd+ "LGBTQ+-owned businesses"+nd+"Bisexual-owned businesses"+nd+"Gay-owned businesses"+nd+"Lesbian-owned businesses"+nd+"Queer-owned businesses" _
-+nd+"Transgender-owned businesses"
+LGBTQ_owned_businesses$=" "+nd+ "LGBTQ+-owned businesses"+nd+"  Bisexual-owned businesses"+nd+"  Gay-owned businesses"+nd+"  Lesbian-owned businesses"+nd+"  Queer-owned businesses" _
++nd+"  Transgender-owned businesses"
 
 dim Public_facilities$
-Public_facilities$=" "+nd+ "Public facilities"+nd+"Changing rooms"+nd+"Locker rooms"+nd+"Public bathrooms"+nd+"  Glory holes" _
-+nd+"Public showers"
+Public_facilities$=" "+nd+ "Public facilities"+nd+"  Changing rooms"+nd+"  Locker rooms"+nd+"  Public bathrooms"+nd+"    Glory holes" _
++nd+"  Public showers"
 
 dim Sex_locations$
-Sex_locations$=" "+nd+ "Sex locations"+nd+"Cottages (Gay culture)"+nd+"Dark rooms"+nd+"Gay saunas"+nd+"Sex parties" _
-+nd+"  Safer sex parties"+nd+"Tearooms (Gay culture)"+nd+"  Glory holes"
+Sex_locations$=" "+nd+ "Sex locations"+nd+"  Cottages (Gay culture)"+nd+"  Dark rooms"+nd+"  Gay saunas"+nd+"  Sex parties" _
++nd+"    Safer sex parties"+nd+"  Tearooms (Gay culture)"+nd+"    Glory holes"
 
 dim LGBTQ_cultural_heritage$
-LGBTQ_cultural_heritage$=" "+nd+ "LGBTQ+ cultural heritage institutions"+nd+"LGBTQ+ archives"+nd+"  Bisexual archives"+nd+"  Gay archives"+nd+"  Lesbian archives" _
-+nd+"  Queer archives"+nd+"  Transgender archives"+nd+"LGBTQ+ libraries"+nd+"  Bisexual libraries"+nd+"  Gay libraries" _
-+nd+"  Lesbian libraries"+nd+"  Queer libraries"+nd+"  Transgender libraries"+nd+"  Women's libraries"+nd+"    Lesbian libraries" _
-+nd+"LGBTQ+ museums"+nd+"  Bisexual museums"+nd+"  Gay museums"+nd+"  Lesbian museums"+nd+"  Queer museums" _
-+nd+"  Transgender museums"+nd+"LGBTQ+ special collections"
+LGBTQ_cultural_heritage$=" "+nd+ "LGBTQ+ cultural heritage institutions"+nd+"  LGBTQ+ archives"+nd+"    Bisexual archives"+nd+"    Gay archives"+nd+"    Lesbian archives" _
++nd+"    Queer archives"+nd+"    Transgender archives"+nd+"  LGBTQ+ libraries"+nd+"    Bisexual libraries"+nd+"    Gay libraries" _
++nd+"    Lesbian libraries"+nd+"    Queer libraries"+nd+"    Transgender libraries"+nd+"    Women's libraries"+nd+"      Lesbian libraries" _
++nd+"  LGBTQ+ museums"+nd+"    Bisexual museums"+nd+"    Gay museums"+nd+"    Lesbian museums"+nd+"    Queer museums" _
++nd+"    Transgender museums"+nd+"  LGBTQ+ special collections"
 
 dim Miscellanious_location$
 Miscellanious_location$=" "+nd+ "LGBTQ+ literary salons"+nd+"LGBTQ+ neighbourhoods"+nd+"LGBTQ+ pubs"+nd+"LGBTQ+ restaurants"+nd+"LGBTQ+ retirement homes" _
@@ -107,7 +108,7 @@ Miscellanious_location$=" "+nd+ "LGBTQ+ literary salons"+nd+"LGBTQ+ neighbourhoo
 ' Menu layout and Titles
 '****************************************************************************************
 
-Begin Dialog MFHL 350, 400, "Choose the Homosaurus term you want to use..."
+Begin Dialog MFHL 350, 335, "Choose the Homosaurus term you want to use..."
 
 Text 14,7,100,14, "LGBTQ+ bookshops"
    DropListBox 14, 20, 130, 135, LGBTQplus_bookshops$, .LGBTQplus_bookshopssub
@@ -121,7 +122,7 @@ Text 200,45,80,14, "LGBTQ+ hotels"
 
 Text 14,83,200,12, "LGBTQ+ meeting places"
    DropListBox 14, 96, 130, 275, LGBTQplus_meeting_places$, .LGBTQplus_meeting_placessub
-Text 200,83,90,14, "LGBTQ+ theatre"
+Text 200,83,90,14, "LGBTQ+ theater"
    DropListBox 200, 96, 130, 135, LGBTQplus_theater$, .LGBTQplus_theatersub
 
 Text 14,121,150,14, "LGBTQ+ tourism"
@@ -139,9 +140,10 @@ Text 14,197,130,135, "Sex locations"
 Text 200,197,130,135, "Terms that are not in a hierarchy:"
    DropListBox 200,210,130,130, Miscellanious_location$, .Miscellanious_locationsub
 
-Button 104,330,40,20, "I'm done",    .fin
-CancelButton 170,330,40,20
-
+Button 104,270,40,20, "I'm done",    .fin
+CancelButton 170,270,40,20
+Text  14, 300, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 310, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -155,16 +157,13 @@ dialog quick
 '****************************************************************************************
 
 If quick.LGBTQplus_bookshopssub=0 Then aa$ = " "
-If quick.LGBTQplus_bookshopssub=1 Then aa$ = "Bisexual bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000136"
-If quick.LGBTQplus_bookshopssub=2 Then aa$ = "Gay bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000478"
-If quick.LGBTQplus_bookshopssub=3 Then aa$ = "Lesbian bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000727"
-If quick.LGBTQplus_bookshopssub=4 Then aa$ = "LGBTQ+ bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000216"
+If quick.LGBTQplus_bookshopssub=1 Then aa$ = "LGBTQ+ bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000216"
+If quick.LGBTQplus_bookshopssub=2 Then aa$ = "Bisexual bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000136"
+If quick.LGBTQplus_bookshopssub=3 Then aa$ = "Gay bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000478"
+If quick.LGBTQplus_bookshopssub=4 Then aa$ = "Lesbian bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000727"
 If quick.LGBTQplus_bookshopssub=5 Then aa$ = "Queer bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001164"
 If quick.LGBTQplus_bookshopssub=6 Then aa$ = "Transgender bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001397"
 If quick.LGBTQplus_bookshopssub=7 Then aa$ = "Women's bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001511"
-
-
-
 If aa$ = " " then 
 else
 CS.AddField 1, "650 7" & aa$ 
