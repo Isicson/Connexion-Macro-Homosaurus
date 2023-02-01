@@ -47,28 +47,28 @@ Sex_Act$=" "+nd+ "Sex (Act)"+nd+"  Anal sex"+nd+"    NT > Anal sex"+nd+"  Autoer
 +nd+"  Vaginal sex"+nd+"    NT > Vaginal sex"+nd+"  Voyeurism"+nd+"  Water sports (Sex)"
 
 dim Sex_accessories$
-Sex_accessories$=" "+nd+ "Sex accessories"+nd+"Anal beads"+nd+"Ballgags"+nd+"Blindfolds"+nd+"Buttplugs" _
-+nd+"Clit rings"+nd+"Cock rings"+nd+"Collars"+nd+"Condoms"+nd+"Corsets" _
-+nd+"Dental dams"+nd+"Dildos"+nd+"Floggers"+nd+"Handcuffs"+nd+"Harnesses" _
-+nd+"  Chest harnesses"+nd+"  Dildo harnesses"+nd+"  Thigh harnesses"+nd+"Latex gloves"+nd+"Leashes" _
-+nd+"Lingerie"+nd+"Lubricants"+nd+"Nipple clamps"+nd+"Restraints"+nd+"Rope play" _
-+nd+"Sex dolls"+nd+"Spanking paddles"+nd+"Spreader bars"+nd+"Vibrators"+nd+"Whips"
+Sex_accessories$=" "+nd+ "Sex accessories"+nd+"  Anal beads"+nd+"  Ballgags"+nd+"  Blindfolds"+nd+"  Buttplugs" _
++nd+"  Clit rings"+nd+"  Cock rings"+nd+"  Collars"+nd+"  Condoms"+nd+"  Corsets" _
++nd+"  Dental dams"+nd+"  Dildos"+nd+"  Floggers"+nd+"  Handcuffs"+nd+"  Harnesses" _
++nd+"    Chest harnesses"+nd+"    Dildo harnesses"+nd+"    Thigh harnesses"+nd+"  Latex gloves"+nd+"  Leashes" _
++nd+"  Lingerie"+nd+"  Lubricants"+nd+"  Nipple clamps"+nd+"  Restraints"+nd+"  Rope play" _
++nd+"  Sex dolls"+nd+"  Spanking paddles"+nd+"  Spreader bars"+nd+"  Vibrators"+nd+"  Whips"
 
 dim Sexual_practices$
-Sexual_practices$=" "+nd+ "Sexual practices"+nd+"Anal sex"+nd+"Anonymous sex"+nd+"Autoerotic asphyxiation"+nd+"BDSM" _
-+nd+"Biting"+nd+"Bondage"+nd+"Casual sex"+nd+"Clitoral sex"+nd+"Cottaging (Gay culture)" _
-+nd+"Cruising (LGBTQ+ culture)"+nd+"Cunnilingus"+nd+"Erotic massage"+nd+"Exhibitionism"+nd+"Fellatio" _
-+nd+"Frottage"+nd+"Getting laid"+nd+"Group sex"+nd+"Hard swap"+nd+"Kissing" _
-+nd+"Manual sex"+nd+"Masturbation"+nd+"Mud sex"+nd+"Mutual masturbation"+nd+"Nipple play" _
-+nd+"Oral sex"+nd+"Phallic sex"+nd+"Phone sex"+nd+"Pinching"+nd+"Pornography" _
-+nd+"Prostitution"+nd+"  Female prostitution"+nd+"  Gay for pay"+nd+"  Lesbian prostitution"+nd+"  Male prostitution" _
-+nd+"  Transgender prostitution"+nd+"Public sex"+nd+"Ritual homosexuality"+nd+"Rubber sex"+nd+"Safer sex" _
-+nd+"Sexual intercourse"+nd+"Soft swap"+nd+"Spanking"+nd+"Striptease"+nd+"Tantric sex" _
-+nd+"Tearoom sex"+nd+"Vaginal sex"+nd+"Vampirism (Sex)"+nd+"Voyeurism"+nd+"Water sports (Sex)"
+Sexual_practices$=" "+nd+ "Sexual practices"+nd+"  Anal sex"+nd+"  Anonymous sex"+nd+"  Autoerotic asphyxiation"+nd+"  BDSM" _
++nd+"  Biting"+nd+"  Bondage"+nd+"  Casual sex"+nd+"  Clitoral sex"+nd+"  Cottaging (Gay culture)" _
++nd+"  Cruising (LGBTQ+ culture)"+nd+"  Cunnilingus"+nd+"  Erotic massage"+nd+"  Exhibitionism"+nd+"  Fellatio" _
++nd+"  Frottage"+nd+"  Getting laid"+nd+"  Group sex"+nd+"  Hard swap"+nd+"  Kissing" _
++nd+"  Manual sex"+nd+"  Masturbation"+nd+"  Mud sex"+nd+"  Mutual masturbation"+nd+"  Nipple play" _
++nd+"  Oral sex"+nd+"  Phallic sex"+nd+"  Phone sex"+nd+"  Pinching"+nd+"  Pornography" _
++nd+"  Prostitution"+nd+"    Female prostitution"+nd+"    Gay for pay"+nd+"    Lesbian prostitution"+nd+"    Male prostitution" _
++nd+"    Transgender prostitution"+nd+"  Public sex"+nd+"  Ritual homosexuality"+nd+"  Rubber sex"+nd+"  Safer sex" _
++nd+"  Sexual intercourse"+nd+"  Soft swap"+nd+"  Spanking"+nd+"  Striptease"+nd+"  Tantric sex" _
++nd+"  Tearoom sex"+nd+"  Vaginal sex"+nd+"  Vampirism (Sex)"+nd+"  Voyeurism"+nd+"  Water sports (Sex)"
 
 dim Sex_work$
-Sex_work$=" "+nd+ "Sex work"+nd+"Escort services"+nd+"Prostitution"+nd+"  Female prostitution"+nd+"  Gay for pay" _
-+nd+"  Lesbian prostitution"+nd+"  Male prostitution"+nd+"  Transgender prostitution"
+Sex_work$=" "+nd+ "Sex work"+nd+"  Escort services"+nd+"  Prostitution"+nd+"    Female prostitution"+nd+"    Gay for pay" _
++nd+"    Lesbian prostitution"+nd+"    Male prostitution"+nd+"    Transgender prostitution"
 
 dim Miscellanious_sex$
 Miscellanious_sex$=" "+nd+ "Assplay"+nd+"Autoeroticism"+nd+"Celibacy"+nd+"Cissexuality"+nd+"Cybersex" _
@@ -97,6 +97,8 @@ Text 14,83,120,14, "Terms that are not in a hierarchy:"
 Button 104,300,40,20, "I'm done",    .fin
 CancelButton 170,300,40,20
 
+Text  14, 330, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 340, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
