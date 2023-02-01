@@ -57,9 +57,9 @@ ra$ = " "
 '****************************************************************************************
 
 dim LGBTQplus_employment$
-LGBTQplus_employment$=" "+nd+ "LGBTQ+ employment"+nd+"Bisexual employment"+nd+"Gay employment"+nd+"Lesbian employment"+nd+"LGBTQ+ people in the workplace" _
-+nd+"  Asexual people in the workplace"+nd+"  Bisexual people in the workplace"+nd+"  Gay men in the workplace"+nd+"  Intersex people in the workplace"+nd+"  Lesbians in the workplace" _
-+nd+"  Queer people in the workplace"+nd+"  Transgender people in the workplace"+nd+"  Two-Spirit people in the workplace"+nd+"Queer employment"+nd+"Transgender employment" _
+LGBTQplus_employment$=" "+nd+ "LGBTQ+ employment"+nd+"  Bisexual employment"+nd+"  Gay employment"+nd+"  Lesbian employment"+nd+"  LGBTQ+ people in the workplace" _
++nd+"    Asexual people in the workplace"+nd+"    Bisexual people in the workplace"+nd+"    Gay men in the workplace"+nd+"    Intersex people in the workplace"+nd+"    Lesbians in the workplace" _
++nd+"    Queer people in the workplace"+nd+"    Transgender people in the workplace"+nd+"    Two-Spirit people in the workplace"+nd+"  Queer employment"+nd+"  Transgender employment" _
 
 dim Miscellanious_business$
 Miscellanious_business$=" "+nd+ "LGBTQ+ marketing"+nd+"Pinkwashing"+nd+"Queerbaiting"
@@ -70,26 +70,26 @@ Feminism$=" "+nd+ "Feminism"+nd+"  Black feminism"+nd+"  Ecofeminism"+nd+"  Firs
 +nd+"  White feminism"
 
 dim Feminists$
-Feminists$=" "+nd+ "Feminists"+nd+"Suffragettes"
+Feminists$=" "+nd+ "Feminists"+nd+"  Suffragettes"
 
 dim LGBTQ_social_processes$
-LGBTQ_social_processes$=" "+nd+ "LGBTQ+ social processes"+nd+"Gay liberation"+nd+"Gay-straight alliances"+nd+"Gender relations"+nd+"  Lesbian-gay relations" _
-+nd+"Lesbian liberation"+nd+"LGBTQ+ emancipation"+nd+"LGBTQ+ visibility"
+LGBTQ_social_processes$=" "+nd+ "LGBTQ+ social processes"+nd+"  Gay liberation"+nd+"  Gay-straight alliances"+nd+"  Gender relations"+nd+"    Lesbian-gay relations" _
++nd+"  Lesbian liberation"+nd+"  LGBTQ+ emancipation"+nd+"  LGBTQ+ visibility"
 
 dim Social_norms$
-Social_norms$=" "+nd+ "Social norms"+nd+"Amatonormativity"+nd+"Compulsory sexuality"+nd+"Heteronormativity"+nd+"Homonormativity" _
-+nd+"Mononormativity"
+Social_norms$=" "+nd+ "Social norms"+nd+"  Amatonormativity"+nd+"  Compulsory sexuality"+nd+"  Heteronormativity"+nd+"  Homonormativity" _
++nd+"  Mononormativity"
 
 dim Theories$
-Theories$=" "+nd+ "Theories"+nd+"Critical race theory"+nd+"Essentialism"+nd+"Etiology"+nd+"Feminist theory" _
-+nd+"  Female gaze"+nd+"  Male gaze"+nd+"Queer theory"+nd+"  Queer gaze"+nd+"Social constructionism" _ 
-+nd+"Womanism"
+Theories$=" "+nd+ "Theories"+nd+"  Critical race theory"+nd+"  Essentialism"+nd+"  Etiology"+nd+"  Feminist theory" _
++nd+"    Female gaze"+nd+"    Male gaze"+nd+"  Queer theory"+nd+"    Queer gaze"+nd+"  Social constructionism" _ 
++nd+"  Womanism"
 
 dim Miscellanious_theory$
 Miscellanious_theory$=" "+nd+ "Anti-feminism"+nd+"Gender binaries"+nd+"Intersectionality"+nd+"Queer studies"+nd+"Transmisogynoir"
 
 dim Misc_society$
-Misc_society$=" "+nd+ "Gender segregation"+nd+"LGBTQ+ friendliness"+nd+"LGBTQ+-affirming religious groups"+nd+"Normalisation"+nd+"Queer theology"
+Misc_society$=" "+nd+ "Gender segregation"+nd+"LGBTQ+ friendliness"+nd+"LGBTQ+-affirming religious groups"+nd+"Normalization"+nd+"Queer theology"
 
 dim Queer_Verb$
 Queer_Verb$=" "+nd+ "Queer (Verb)"+nd+"  LGBTQ+ headcanons"
@@ -131,6 +131,9 @@ Text 14,273,300,135, "General Social Terms that are not in a hierarchy"
 
 Button 200,350,40,20, "I'm done",    .fin
 CancelButton 270,350,40,20
+
+Text  14, 380, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 390, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -261,7 +264,7 @@ If quick.Misc_societysub=0 Then qa$ = " "
 If quick.Misc_societysub=1 Then qa$ = "Gender segregation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000578"
 If quick.Misc_societysub=2 Then qa$ = "LGBTQ+ friendliness" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000873"
 If quick.Misc_societysub=3 Then qa$ = "LGBTQ+-affirming religious groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000530"
-If quick.Misc_societysub=4 Then qa$ = "Normalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000080"
+If quick.Misc_societysub=4 Then qa$ = "Normalization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000080"
 If quick.Misc_societysub=5 Then qa$ = "Queer theology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001218"
 
 If qa$ = " " then 
