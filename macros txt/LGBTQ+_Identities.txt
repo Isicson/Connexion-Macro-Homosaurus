@@ -1,7 +1,8 @@
 'MacroName:LGBTQ+_Identities
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
 'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
-'Menu layout satisfactory for ver.1, Oct. 2022/wi
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, Rev. 02/2023'
 
 Sub Main
    
@@ -63,12 +64,11 @@ LGBTQ_people$=" "+nd+ "LGBTQ+ people"+nd+"Adopted LGBTQ+ people"+nd+"Bi+ people"
 
 
 dim Miscellanious_identity$
-Miscellanious_identity$=" "+nd+ "Allosexual people"+nd+"Beards (Gay culture)"+nd+"BIPOC"+nd+"Chosen name"+nd+"Cissexual people" _
-+nd+"Coming out"+nd+"Denial of sexual orientation"+nd+"Drag kings"+nd+"Drag performers"+nd+"Endosex people" _
-+nd+"Given name"+nd+"Intersex identity"+nd+"LGBTQ+ people of the African diaspora"+nd+"LGBTQ+ spiritual people"+nd+"Monogamous people" _
-+nd+"Monosexual people"+nd+"Partners of crossdressers"+nd+"Passing (Gender)"+nd+"Passing (Sexuality)"+nd+"QTPOC" _
-+nd+"Situational sexual behaviour"+nd+"Stealth"+nd+"Tom"+nd+"Trans"+nd+"Wimmin" _
-+nd+"Womyn"+nd+"Xenogender people"
+Miscellanious_identity$=" "+nd+ "Allosexual people"+nd+"BIPOC"+nd+"Chosen name"+nd+"Cissexual people"+nd+"Coming out" _
++nd+"Denial of sexual orientation"+nd+"Drag kings"+nd+"Drag performers"+nd+"Endosex people"+nd+"Given name" _
++nd+"Intersex identity"+nd+"LGBTQ+ people of the African diaspora"+nd+"LGBTQ+ spiritual people"+nd+"Monogamous people"+nd+"Monosexual people" _
++nd+"Passing (Gender)"+nd+"Passing (Sexuality)"+nd+"QTPOC"+nd+"Situational sexual behaviour"+nd+"Stealth" _
++nd+"Trans"+nd+"Wimmin"+nd+"Womyn"+nd+"Xenogender people"
 
 dim Gender$
 Gender$=" "+nd+ "Gender"+nd+"  Assigned gender"+nd+"    Assigned female at birth"+nd+"    Assigned male at birth"+nd+"    Assigned X at birth" _
@@ -90,25 +90,22 @@ Sexual_minorities$=" "+nd+ "Sexual minorities"+nd+"  Asexual people"+nd+"    Ase
 +nd+"  Lesbians"+nd+"    NT > Lesbians"+nd+"  Megasexual people"+nd+"  MLM (Men Loving Men)"+nd+"  Sapphics" _
 +nd+"  Takatapui (Maori people, self-identified only)"+nd+"  Tongzhi (China and Taiwan)"+nd+"  Two-Spirit people"+nd+"    Closeted Two-Spirit people"+nd+"  WLW (Women Loving Women)" _
 
+
 dim Gender_minorities$
-Gender_minorities$=" "+nd+"Agender people"+nd+"Androgynous people"+nd+"Crossdressers"+nd+"Demigender people"+nd+"Gender minorities" _
-+nd+"Gender non-conforming people"+nd+"Genderfluid people"+nd+"Genderqueer people"+nd+"Pangender people"+nd+"Transgender people"+nd+"  NT > Transgender people" _
-+nd+"Transgenderqueer people"+nd+"Trigender people"
+Gender_minorities$=" "+nd+ "Gender minorities"+nd+"  Agender people"+nd+"  Androgynous people"+nd+"  Crossdressers"+nd+"  Demigender people" _
++nd+"    Demiboys"+nd+"    Demigirls"+nd+"  Gender non-conforming people"+nd+"  Genderfluid people"+nd+"  Genderqueer people" _
++nd+"    Transgenderqueer people"+nd+"  Pangender people"+nd+"  Transgender people"+nd+"    NT > Transgender people"+nd+"  Transgenderqueer people" _
++nd+"  Trigender people"
+
 
 dim Romantic_minorities$
-Romantic_minorities$=" "+nd+"Aromantic people"+nd+"Biromantic people"+nd+"Demiromantic people"+nd+"Greyromantic people"+nd+"Homoromantic people" _
-+nd+"Panromantic people"+nd+"Romantic minorities"
+Romantic_minorities$=" "+nd+"Romantic minorities"+nd+"  Aromantic people"+nd+"  Biromantic people"+nd+"  Demiromantic people"+nd+"  Greyromantic people" _
++nd+"  Homoromantic people"+nd+"  Panromantic people"
 
 dim Relationship_minorities$
 Relationship_minorities$=" "+nd+ "Relationship minorities"+nd+"  Non-monogamous people"+nd+"    Anchor partners"+nd+"    Metamours"+nd+"    Nesting partners" _
 +nd+"    Paramours"+nd+"    Polyamorous people"+nd+"    Relationship anarchists"+nd+"  Polyamorous people"+nd+"  Polygamous people" _
 +nd+"  Relationship anarchists"
-
-'dim Females$
-'Females$=" "+nd+"Cissexual people"+nd+"Females"+nd+"Trans women"
-
-'dim Males$
-'Males$=" "+nd+"Cissexual people"+nd+"Males"+nd+"Trans men"
 
 dim Youth$
 Youth$=" "+nd+ "Youth"+nd+"  Cisgender youth"+nd+"    Cisgender children"+nd+"      Cisgender boys"+nd+"      Cisgender girls" _
@@ -129,10 +126,10 @@ Begin Dialog MFHL 425, 300, "Choose the Homosaurus term you want to use..."
 Text 14,7,150,14, "LGBTQ+ people"
    DropListBox 14, 20, 170, 280, LGBTQ_people$, .LGBTQ_peoplesub
 Text 250,7,135,14, "Terms that are not in a hierarchy"
-   DropListBox 250, 20, 165, 135, Miscellanious_identity$, .Miscellanious_identitysub
+   DropListBox 250, 20, 165, 280, Miscellanious_identity$, .Miscellanious_identitysub
 
 Text 14,45,95,135, "Gender"
-   DropListBox 14,58,200,135, Gender$, .Gendersub
+   DropListBox 14,58,200,180, Gender$, .Gendersub
 Text 250,45,95,135, "Sexual minorities"
    DropListBox 250, 58, 165, 135, Sexual_minorities$, .Sexual_minoritiessub
 
@@ -147,12 +144,15 @@ Text 250,121,80,14, "Youth"
    DropListBox 250, 135, 130, 135, Youth$, .Youthsub
 
 OptionGroup .OptionGroup1
-      OptionButton  14, 197, 250, 10, " Stay on this page", .OptionButton1
-      OptionButton  14, 210, 250, 10, "See LGBTQ+ identity groups, page 2", .OptionButton2
-      OptionButton  14, 223, 250, 10, "See LGBTQ+ identity groups, page 3", .OptionButton3
+      OptionButton  14, 190, 250, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 200, 250, 10, "See LGBTQ+ identity groups, page 2", .OptionButton2
+      OptionButton  14, 210, 250, 10, "See LGBTQ+ identity groups, page 3", .OptionButton3
    
-Button 100,275,40,20, "I'm done",    .fin
-CancelButton 250,275,40,20
+Button 150,240,40,20, "I'm done",    .fin
+CancelButton 210,240,40,20
+
+Text  14, 275, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 285, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
@@ -254,33 +254,29 @@ end if
 
 If quick.Miscellanious_identitysub=0 Then pa$ = " "
 If quick.Miscellanious_identitysub=1 Then pa$ = "Allosexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001917"
-If quick.Miscellanious_identitysub=2 Then pa$ = "Beards (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001788"
-If quick.Miscellanious_identitysub=3 Then pa$ = "BIPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001928"
-If quick.Miscellanious_identitysub=4 Then pa$ = "Chosen name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000264"
-If quick.Miscellanious_identitysub=5 Then pa$ = "Cissexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000273"
-If quick.Miscellanious_identitysub=6 Then pa$ = "Coming out" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000295"
-If quick.Miscellanious_identitysub=7 Then pa$ = "Denial of sexual orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000345"
-If quick.Miscellanious_identitysub=8 Then pa$ = "Drag kings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000373"
-If quick.Miscellanious_identitysub=9 Then pa$ = "Drag performers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001906"
-If quick.Miscellanious_identitysub=10 Then pa$ = "Endosex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001897"
-If quick.Miscellanious_identitysub=11 Then pa$ = "Given name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000592"
-If quick.Miscellanious_identitysub=12 Then pa$ = "Intersex identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000671"
-If quick.Miscellanious_identitysub=13 Then pa$ = "LGBTQ+ people of the African diaspora" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002333"
-If quick.Miscellanious_identitysub=14 Then pa$ = "LGBTQ+ spiritual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000948"
-If quick.Miscellanious_identitysub=15 Then pa$ = "Monogamous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001916"
-If quick.Miscellanious_identitysub=16 Then pa$ = "Monosexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001915"
-If quick.Miscellanious_identitysub=17 Then pa$ = "Partners of crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001085"
-If quick.Miscellanious_identitysub=18 Then pa$ = "Passing (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001090"
-If quick.Miscellanious_identitysub=19 Then pa$ = "Passing (Sexuality)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001901"
-If quick.Miscellanious_identitysub=20 Then pa$ = "QTPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002273"
-If quick.Miscellanious_identitysub=21 Then pa$ = "Situational sexual behaviour" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001315"
-If quick.Miscellanious_identitysub=22 Then pa$ = "Stealth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000288"
-If quick.Miscellanious_identitysub=23 Then pa$ = "Tom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001373"
-If quick.Miscellanious_identitysub=24 Then pa$ = "Trans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001563"
-If quick.Miscellanious_identitysub=25 Then pa$ = "Wimmin" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001505"
-If quick.Miscellanious_identitysub=26 Then pa$ = "Womyn" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001516"
-If quick.Miscellanious_identitysub=27 Then pa$ = "Xenogender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001671"
-
+If quick.Miscellanious_identitysub=2 Then pa$ = "BIPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001928"
+If quick.Miscellanious_identitysub=3 Then pa$ = "Chosen name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000264"
+If quick.Miscellanious_identitysub=4 Then pa$ = "Cissexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000273"
+If quick.Miscellanious_identitysub=5 Then pa$ = "Coming out" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000295"
+If quick.Miscellanious_identitysub=6 Then pa$ = "Denial of sexual orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000345"
+If quick.Miscellanious_identitysub=7 Then pa$ = "Drag kings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000373"
+If quick.Miscellanious_identitysub=8 Then pa$ = "Drag performers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001906"
+If quick.Miscellanious_identitysub=9 Then pa$ = "Endosex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001897"
+If quick.Miscellanious_identitysub=10 Then pa$ = "Given name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000592"
+If quick.Miscellanious_identitysub=11 Then pa$ = "Intersex identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000671"
+If quick.Miscellanious_identitysub=12 Then pa$ = "LGBTQ+ people of the African diaspora" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002333"
+If quick.Miscellanious_identitysub=13 Then pa$ = "LGBTQ+ spiritual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000948"
+If quick.Miscellanious_identitysub=14 Then pa$ = "Monogamous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001916"
+If quick.Miscellanious_identitysub=15 Then pa$ = "Monosexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001915"
+If quick.Miscellanious_identitysub=16 Then pa$ = "Passing (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001090"
+If quick.Miscellanious_identitysub=17 Then pa$ = "Passing (Sexuality)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001901"
+If quick.Miscellanious_identitysub=18 Then pa$ = "QTPOC" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002273"
+If quick.Miscellanious_identitysub=19 Then pa$ = "Situational sexual behaviour" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001315"
+If quick.Miscellanious_identitysub=20 Then pa$ = "Stealth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000288"
+If quick.Miscellanious_identitysub=21 Then pa$ = "Trans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001563"
+If quick.Miscellanious_identitysub=22 Then pa$ = "Wimmin" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001505"
+If quick.Miscellanious_identitysub=23 Then pa$ = "Womyn" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001516"
+If quick.Miscellanious_identitysub=24 Then pa$ = "Xenogender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001671"
 If pa$ = " " then
 else 
 CS.AddField 1, "650 7" & pa$
@@ -337,18 +333,17 @@ If quick.Gendersub=46 Then en$ = "Gender non-conforming identity" & " " & sd & "
 If quick.Gendersub=47 Then en$ = "Genderfluid identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000569"
 If quick.Gendersub=48 Then en$ = "Genderqueer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001921"
 If quick.Gendersub=49 Then en$ = "Men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001008"
-If quick.Gendersub=50 Then en$ = "NT > Men" & " " & sd & "2 homoit" & " " & sd & "0 MACRO"
+If quick.Gendersub=50 Then CS.RunMacro "Homosaurus_subjects.mbk!Men"
 If quick.Gendersub=51 Then en$ = "Non-binary identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001920"
 If quick.Gendersub=52 Then en$ = "Non-Euro-American gender and sexual identities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000322"
-If quick.Gendersub=53 Then en$ = "NT > Non-Euro-American gender and sexual identities" & " " & sd & "2 homoit" & " " & sd & "0 MACRO"
+If quick.Gendersub=53 Then CS.RunMacro "Homosaurus_subjects.mbk!Non-Euro-American_gender"
 If quick.Gendersub=54 Then en$ = "Pangender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001071"
 If quick.Gendersub=55 Then en$ = "Transgender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001415"
 If quick.Gendersub=56 Then en$ = "Transgenderqueer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001918"
 If quick.Gendersub=57 Then en$ = "Trigender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001473"
 If quick.Gendersub=58 Then en$ = "Women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001509"
-If quick.Gendersub=59 Then en$ = "NT > Women" & " " & sd & "2 homoit" & " " & sd & "0 MACRO"
+If quick.Gendersub=59 Then CS.RunMacro "Homosaurus_subjects.mbk!Women"
 If quick.Gendersub=60 Then en$ = "Xenogender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001670"
-If quick.Gendersub=61 Then en$ = "0" & " " & sd & "2 homoit" & " " & sd & "0 0"
 
 
 If en$ = " " then
@@ -384,35 +379,36 @@ end if
 
 '****************************************************************************************
 
-If quick.gender_minoritiessub=0 Then bn$ = " "
-If quick.gender_minoritiessub=1 Then bn$ = "Agender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000021"
-If quick.gender_minoritiessub=2 Then bn$ = "Androgynous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000045"
-If quick.gender_minoritiessub=3 Then bn$ = "Crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000316"
-If quick.gender_minoritiessub=4 Then bn$ = "Demigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000342"
-If quick.gender_minoritiessub=5 Then bn$ = "Gender minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001817"
-If quick.gender_minoritiessub=6 Then bn$ = "Gender non-conforming people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000574"
-If quick.gender_minoritiessub=7 Then bn$ = "Genderfluid people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000570"
-If quick.gender_minoritiessub=8 Then bn$ = "Genderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000582"
-If quick.gender_minoritiessub=9 Then bn$ = "Pangender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001072"
-If quick.gender_minoritiessub=10 Then bn$ = "Transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001378"
-If quick.gender_minoritiessub=11 then CS.RunMacro "Homosaurus_subjects.mbk!Transgender_people"
-If quick.gender_minoritiessub=12 Then bn$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
-If quick.gender_minoritiessub=13 Then bn$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
-
+If quick.Gender_minoritiessub=0 Then bn$ = " "
+If quick.Gender_minoritiessub=1 Then bn$ = "Gender minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001817"
+If quick.Gender_minoritiessub=2 Then bn$ = "Agender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000021"
+If quick.Gender_minoritiessub=3 Then bn$ = "Androgynous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000045"
+If quick.Gender_minoritiessub=4 Then bn$ = "Crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000316"
+If quick.Gender_minoritiessub=5 Then bn$ = "Demigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000342"
+If quick.Gender_minoritiessub=6 Then bn$ = "Demiboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001653"
+If quick.Gender_minoritiessub=7 Then bn$ = "Demigirls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001652"
+If quick.Gender_minoritiessub=8 Then bn$ = "Gender non-conforming people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000574"
+If quick.Gender_minoritiessub=9 Then bn$ = "Genderfluid people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000570"
+If quick.Gender_minoritiessub=10 Then bn$ = "Genderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000582"
+If quick.Gender_minoritiessub=11 Then bn$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
+If quick.Gender_minoritiessub=12 Then bn$ = "Pangender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001072"
+If quick.Gender_minoritiessub=13 Then bn$ = "Transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001378"
+If quick.Gender_minoritiessub=14 then CS.RunMacro "Homosaurus_subjects.mbk!Transgender_people"
+If quick.Gender_minoritiessub=15 Then bn$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
+If quick.Gender_minoritiessub=16 Then bn$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
 If bn$ = " " then
 else
 CS.AddField 1, "650 7" & bn$
 end if
 
 If quick.Romantic_minoritiessub=0 Then cn$ = " "
-If quick.Romantic_minoritiessub=1 Then cn$ = "Aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000067"
-If quick.Romantic_minoritiessub=2 Then cn$ = "Biromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001824"
-If quick.Romantic_minoritiessub=3 Then cn$ = "Demiromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001985"
-If quick.Romantic_minoritiessub=4 Then cn$ = "Greyromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001987"
-If quick.Romantic_minoritiessub=5 Then cn$ = "Homoromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001825"
-If quick.Romantic_minoritiessub=6 Then cn$ = "Panromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001827"
-If quick.Romantic_minoritiessub=7 Then cn$ = "Romantic minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001829"
-
+If quick.Romantic_minoritiessub=1 Then cn$ = "Romantic minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001829"
+If quick.Romantic_minoritiessub=2 Then cn$ = "Aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000067"
+If quick.Romantic_minoritiessub=3 Then cn$ = "Biromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001824"
+If quick.Romantic_minoritiessub=4 Then cn$ = "Demiromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001985"
+If quick.Romantic_minoritiessub=5 Then cn$ = "Greyromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001987"
+If quick.Romantic_minoritiessub=6 Then cn$ = "Homoromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001825"
+If quick.Romantic_minoritiessub=7 Then cn$ = "Panromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001827"
 If cn$ = " " then
 else
 CS.AddField 1, "650 7" & cn$ 
@@ -478,4 +474,3 @@ If quick.OptionGroup1 = 2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Ident
 
 Cancelled:   
 End Sub
-
