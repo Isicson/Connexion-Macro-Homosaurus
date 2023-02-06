@@ -60,58 +60,58 @@ gg$ = " "
 '****************************************************************************************
 
 dim Bullying$
-Bullying$=" "+nd+ "Bullying"+nd+"Cyberbullying"
+Bullying$=" "+nd+ "Bullying"+nd+"  Cyberbullying"
 
 dim Censorship$
-Censorship$=" "+nd+ "Censorship"+nd+"LGBTQ+ censorship"+nd+"  LGBTQ+ art censorship"+nd+"  LGBTQ+ book censorship"+nd+"  LGBTQ+ film censorship" 
+Censorship$=" "+nd+ "Censorship"+nd+"  LGBTQ+ censorship"+nd+"    LGBTQ+ art censorship"+nd+"    LGBTQ+ book censorship"+nd+"    LGBTQ+ film censorship" 
 
 dim Harassment$
-Harassment$=" "+nd+ "Harassment"+nd+"Police harassment"+nd+"  Police entrapment"+nd+"  Police raids"+nd+"Sexual harrassement" 
+Harassment$=" "+nd+ "Harassment"+nd+"  Police harassment"+nd+"    Police entrapment"+nd+"    Police raids"+nd+"  Sexual harrassement" 
 
 dim Human_rights$
 Human_rights$=" "+nd+ "Human rights"+nd+"  Gender equality"+nd+"  Intersex rights"+nd+"  LGBTQ+ civil rights"+nd+"    Bisexual rights" _
 +nd+"    Gay rights"+nd+"    Lesbian rights"+nd+"    Queer rights"+nd+"    Transgender rights"
 
 dim Lesbian_separatism$
-Lesbian_separatism$=" "+nd+ "Lesbian separatism"+nd+"Lesbian land"+nd+"Lesbian nation"
+Lesbian_separatism$=" "+nd+ "Lesbian separatism"+nd+"  Lesbian land"+nd+"  Lesbian nation"
 
 dim LGBTQplus_activism$
-LGBTQplus_activism$=" "+nd+ "LGBTQ+ activism"+nd+"Bisexual activism"+nd+"Gay activism"+nd+"Lesbian activism"+nd+"LGBTQ+ direct action" _
-+nd+"  LGBTQ+ action campaigns"+nd+"  LGBTQ+ civil disobedience"+nd+"  LGBTQ+ conscientious objection"+nd+"  LGBTQ+ demonstrations"+nd+"    Zaps" _
-+nd+"  LGBTQ+ lobbying"+nd+"  LGBTQ+ nonviolent resistance"+nd+"  LGBTQ+ petitions"+nd+"  LGBTQ+ self-defence"+nd+"  Outing (LGBTQ+ culture)" _
-+nd+"Queer activism"+nd+"Transgender activism"
+LGBTQplus_activism$=" "+nd+ "LGBTQ+ activism"+nd+"  Bisexual activism"+nd+"  Gay activism"+nd+"  Lesbian activism"+nd+"  LGBTQ+ direct action" _
++nd+"    LGBTQ+ action campaigns"+nd+"    LGBTQ+ civil disobedience"+nd+"    LGBTQ+ conscientious objection"+nd+"    LGBTQ+ demonstrations"+nd+"      Zaps" _
++nd+"    LGBTQ+ lobbying"+nd+"    LGBTQ+ nonviolent resistance"+nd+"    LGBTQ+ petitions"+nd+"    LGBTQ+ self-defence"+nd+"    Outing (LGBTQ+ culture)" _
++nd+"  Queer activism"+nd+"  Transgender activism"
 
 dim Inclusivity$
 Inclusivity$=" "+nd+ "Inclusivity"+nd+"  Trans exclusivity"+nd+"  Trans inclusivity"
 
 dim LGBTQplus_discrimination$
-LGBTQplus_discrimination$=" "+nd+ "LGBTQ+ discrimination"+nd+"Anti-bisexual discrimination"+nd+"Anti-gay discrimination"+nd+"Anti-intersex discrimination"+nd+"Anti-lesbian discrimination" _
-+nd+"Anti-queer discrimination"+nd+"Anti-transgender discrimination"+nd+"  Deadnaming"+nd+"  Trans exclusivity"+nd+"Anti-Two-Spirit discrimination" _
+LGBTQplus_discrimination$=" "+nd+ "LGBTQ+ discrimination"+nd+"  Anti-bisexual discrimination"+nd+"  Anti-gay discrimination"+nd+"  Anti-intersex discrimination"+nd+"  Anti-lesbian discrimination" _
++nd+"  Anti-queer discrimination"+nd+"  Anti-transgender discrimination"+nd+"    Deadnaming"+nd+"    Trans exclusivity"+nd+"  Anti-Two-Spirit discrimination" _
 
 dim LGBTQplus_persecutions$
-LGBTQplus_persecutions$=" "+nd+ "LGBTQ+ persecutions"+nd+"LGBTQ+ defamation campaigns"+nd+"Persecution of bisexual people"+nd+"Persecution of gay men"+nd+"Persecution of lesbians" _
-+nd+"Persecution of queer people"+nd+"Persecution of transgender people"+nd+"Police raids"
+LGBTQplus_persecutions$=" "+nd+ "LGBTQ+ persecutions"+nd+"  LGBTQ+ defamation campaigns"+nd+"  Persecution of bisexual people"+nd+"  Persecution of gay men"+nd+"  Persecution of lesbians" _
++nd+"  Persecution of queer people"+nd+"  Persecution of transgender people"+nd+"  Police raids"
 
 dim LGBTQplus_phobia$
-LGBTQplus_phobia$=" "+nd+ "LGBTQ+ phobia"+nd+"  Biphobia"+nd+"  Genderism"+nd+"  Homophobia"+nd+"    Homophobia in fandom" _
-+nd+"    Internalised homophobia"+nd+"  Lesbophobia"+nd+"  Queerphobia"+nd+"  Transphobia"+nd+"    Transphobia in fandom" 
+LGBTQplus_phobia$=" "+nd+ "LGBTQ+ phobia"+nd+"    Biphobia"+nd+"    Genderism"+nd+"    Homophobia"+nd+"      Homophobia in fandom" _
++nd+"      Internalised homophobia"+nd+"    Lesbophobia"+nd+"    Queerphobia"+nd+"    Transphobia"+nd+"      Transphobia in fandom" 
 
 dim Sexual_violence$
-Sexual_violence$=" "+nd+ "Sexual violence"+nd+"Corrective rape"+nd+"LGBTQ+ domestic violence"+nd+"  Intimate partner violence"+nd+"LGBTQ+ sexual abuse" _
-+nd+"LGBTQ+ victims of rape"+nd+"  Bisexual victims of rape"+nd+"  Gay victims of rape"+nd+"  Lesbian victims of rape"+nd+"  LGBTQ+ survivors of rape" _
-+nd+"    Bisexual survivors of rape"+nd+"    Gay survivors of rape"+nd+"    Lesbian survivors of rape"+nd+"    Queer survivors of rape"+nd+"    Transgender survivors of rape" _
-+nd+"  Queer victims of rape"+nd+"  Transgender victims of rape"+nd+"Sexual assault"
+Sexual_violence$=" "+nd+ "Sexual violence"+nd+"  Corrective rape"+nd+"  LGBTQ+ domestic violence"+nd+"    Intimate partner violence"+nd+"  LGBTQ+ sexual abuse" _
++nd+"  LGBTQ+ victims of rape"+nd+"    Bisexual victims of rape"+nd+"    Gay victims of rape"+nd+"    Lesbian victims of rape"+nd+"    LGBTQ+ survivors of rape" _
++nd+"      Bisexual survivors of rape"+nd+"      Gay survivors of rape"+nd+"      Lesbian survivors of rape"+nd+"      Queer survivors of rape"+nd+"      Transgender survivors of rape" _
++nd+"    Queer victims of rape"+nd+"    Transgender victims of rape"+nd+"  Sexual assault"
 
 dim Social_movements$
-Social_movements$=" "+nd+ "Social movements"+nd+"Ex-gay movement"+nd+"LGBTQ+ movement"+nd+"  Bisexual movement"+nd+"  Gay movement" _
-+nd+"    Gay political groups"+nd+"    Gay trade union groups"+nd+"  Intersex movement"+nd+"  Lesbian movement"+nd+"    Lesbian political groups" _
-+nd+"    Lesbian trade union groups"+nd+"  Queer movement"+nd+"  Transgender movement"+nd+"Men's movement"+nd+"SM movement" _
-+nd+"Women's movement"
+Social_movements$=" "+nd+ "Social movements"+nd+"  Ex-gay movement"+nd+"  LGBTQ+ movement"+nd+"    Bisexual movement"+nd+"    Gay movement" _
++nd+"      Gay political groups"+nd+"      Gay trade union groups"+nd+"    Intersex movement"+nd+"    Lesbian movement"+nd+"      Lesbian political groups" _
++nd+"      Lesbian trade union groups"+nd+"    Queer movement"+nd+"    Transgender movement"+nd+"  Men's movement"+nd+"  SM movement" _
++nd+"  Women's movement"
 
 dim AntiLGBTQ_violence$
-AntiLGBTQ_violence$=" "+nd+ "Anti-LGBTQ+ violence"+nd+"Anti-bisexual violence"+nd+"Anti-gay violence"+nd+"  Forced castration"+nd+"Anti-intersex violence" _
-+nd+"Anti-lesbian violence"+nd+"Anti-queer violence"+nd+"Anti-transgender violence"+nd+"Anti-Two-Spirit violence"+nd+"Murders of LGBTQ+ people" _
-+nd+"LGBTQ+ domestic violence"+nd+"  Intimate partner violence"
+AntiLGBTQ_violence$=" "+nd+ "Anti-LGBTQ+ violence"+nd+"  Anti-bisexual violence"+nd+"  Anti-gay violence"+nd+"    Forced castration"+nd+"  Anti-intersex violence" _
++nd+"  Anti-lesbian violence"+nd+"  Anti-queer violence"+nd+"  Anti-transgender violence"+nd+"  Anti-Two-Spirit violence"+nd+"  Murders of LGBTQ+ people" _
++nd+"  LGBTQ+ domestic violence"+nd+"    Intimate partner violence"
 
 dim Miscellanious_civil$
 Miscellanious_civil$=" "+nd+ "Anti-racism"+nd+"Gay shame"+nd+"Gender-neutral language"+nd+"Goddess movement"+nd+"Homonationalism" _
@@ -184,7 +184,8 @@ OptionGroup .OptionGroup1
 Button 200,390,40,20, "I'm done",    .fin
 CancelButton 270,390,40,20
 
-
+Text  370, 430, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 430, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
