@@ -32,7 +32,7 @@ Transgender_people$=" "+nd+ "Transgender people"+nd+"  Agender people"+nd+"  And
 +nd+"  MtXs"+nd+"  Non-binary people"+nd+"    Non-binary youth"+nd+"      Non-binary children"+nd+"  Older transgender people" _
 +nd+"  Pangender people"+nd+"  Third gender people"+nd+"  Trans men"+nd+"  Trans women"+nd+"  Transfeminine people" _
 +nd+"  Transgender children"+nd+"  Transgender mothers"+nd+"  Transgender parents"+nd+"  Transgender youth"+nd+"  Transgenderqueer people" _
-+nd+"  Transmasculine people"+nd+"  Transsexual people"+nd+"    FtMs"+nd+"    MtFs"+nd+"  Trigender people"
++nd+"  Transmasculine people"+nd+"  Transsexual people (self-identify only)"+nd+"    FtMs"+nd+"    MtFs"+nd+"  Trigender people"
 
 '****************************************************************************************
 ' Menu layout and Titles
@@ -41,7 +41,7 @@ Transgender_people$=" "+nd+ "Transgender people"+nd+"  Agender people"+nd+"  And
 Begin Dialog MFHL 230, 200, "Transgender people and Narrower Terms"
 
 Text 14,7,100,14, "Transgender people"
-   DropListBox 14, 20, 130, 135, Transgender_people$, .Transgender_peoplesub
+   DropListBox 14, 20, 150, 135, Transgender_people$, .Transgender_peoplesub
   
 Button 25,150,40,20, "I'm done",    .fin
 CancelButton 75,150,40,20
