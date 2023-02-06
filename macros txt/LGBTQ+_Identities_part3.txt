@@ -1,6 +1,6 @@
 'MacroName:LGBTQ+_Identities_part3
 'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
-'September, 2022
+'September, 2022, rev. 02/2023
 
 Sub Main
    
@@ -40,40 +40,40 @@ rn$ = " "
 ' Drop-down menu selections/lists
 '****************************************************************************************
 dim Pronouns$
-Pronouns$=" "+nd+"Ae/Aer/Aerself (Pronouns)"+nd+"Co/Co/Coself (Pronouns)"+nd+"Cy/Cyb/Cyberself (Pronouns)"+nd+"E/Em/Emself (Pronouns)"+nd+"Ey/Em/Eirself (Pronouns)" _
-+nd+"Fae/Faer/Faerself (Pronouns)"+nd+"Fe/Fem/Femself (Pronouns)"+nd+"Fey/Fem/Femself (Pronouns)"+nd+"He/Him/Himself (Pronouns)"+nd+"Hu/Hum/Humself (Pronouns)" _
-+nd+"It/It/Itself (Pronouns)"+nd+"Jee/Jem/Jemself (Pronouns)"+nd+"Kit/Kit/Kitself (Pronouns)"+nd+"Ne/Nem/Nis (Pronouns)"+nd+"Ne/Nir/Nemself (Pronouns)" _
-+nd+"Peh/Pehm/Pehself (Pronouns)"+nd+"Per/Per/Perself (Pronouns)"+nd+"Pronouns"+nd+"Se/Ser/Serself (Pronouns)"+nd+"She/Her/Herself (Pronouns)" _
-+nd+"Shi/Hir/Hirself (Pronouns)"+nd+"Si/Hyr/Hyrself (Pronouns)"+nd+"Sie/Hir/Hirself (Pronouns)"+nd+"They/Them/Themself (Pronouns)"+nd+"They/Them/Themselves (Pronouns)" _
-+nd+"Thon/Thon/Thonself (Pronouns)"+nd+"Ve/Vem/Verself (Pronouns)"+nd+"Ve/Ver/Verself (Pronouns)"+nd+"Vi/Ver/Virself (Pronouns)"+nd+"Vi/Vim/Virself (Pronouns)" _
-+nd+"Voi/Void/Voidself (Pronouns)"+nd+"Xe/Xyr/Xemself (Pronouns)"+nd+"Xey/Xem/Xeir (Pronouns)"+nd+"Xey/Xem/Xyr (Pronouns)"+nd+"Xie/Xer/Xerself (Pronouns)" _
-+nd+"Yo/Yo/Yosself (Pronouns)"+nd+"Ze/Hir/Hirself (Pronouns)"+nd+"Ze/Mer/Zemself (Pronouns)"+nd+"Ze/Zem/Zirself (Pronouns)"+nd+"Ze/Zir/Zirself (Pronouns)" _
-+nd+"Zee/Zed/Zedself (Pronouns)"+nd+"Zie/Hir/Hirself (Pronouns)"+nd+"Zie/Zem/Zirself (Pronouns)"+nd+"Zie/Zir/Zirself (Pronouns)"+nd+"Zme/Zmyr/Zmyrself (Pronouns)"
+Pronouns$=" "+nd+ "Pronouns"+nd+"  Ae/Aer/Aerself (Pronouns)"+nd+"  Co/Co/Coself (Pronouns)"+nd+"  Cy/Cyb/Cyberself (Pronouns)"+nd+"  E/Em/Emself (Pronouns)" _
++nd+"  Ey/Em/Eirself (Pronouns)"+nd+"  Fae/Faer/Faerself (Pronouns)"+nd+"  Fe/Fem/Femself (Pronouns)"+nd+"  Fey/Fem/Femself (Pronouns)"+nd+"  He/Him/Himself (Pronouns)" _
++nd+"  Hu/Hum/Humself (Pronouns)"+nd+"  It/It/Itself (Pronouns)"+nd+"  Jee/Jem/Jemself (Pronouns)"+nd+"  Kit/Kit/Kitself (Pronouns)"+nd+"  Ne/Nem/Nis (Pronouns)" _
++nd+"  Ne/Nir/Nemself (Pronouns)"+nd+"  Peh/Pehm/Pehself (Pronouns)"+nd+"  Per/Per/Perself (Pronouns)"+nd+"  Se/Ser/Serself (Pronouns)"+nd+"  She/Her/Herself (Pronouns)" _
++nd+"  Shi/Hir/Hirself (Pronouns)"+nd+"  Si/Hyr/Hyrself (Pronouns)"+nd+"  Sie/Hir/Hirself (Pronouns)"+nd+"  They/Them/Themself (Pronouns)"+nd+"  They/Them/Themselves (Pronouns)" _
++nd+"  Thon/Thon/Thonself (Pronouns)"+nd+"  Ve/Vem/Verself (Pronouns)"+nd+"  Ve/Ver/Verself (Pronouns)"+nd+"  Vi/Ver/Virself (Pronouns)"+nd+"  Vi/Vim/Virself (Pronouns)" _
++nd+"  Voi/Void/Voidself (Pronouns)"+nd+"  Xe/Xyr/Xemself (Pronouns)"+nd+"  Xey/Xem/Xeir (Pronouns)"+nd+"  Xey/Xem/Xyr (Pronouns)"+nd+"  Xie/Xer/Xerself (Pronouns)" _
++nd+"  Yo/Yo/Yosself (Pronouns)"+nd+"  Ze/Hir/Hirself (Pronouns)"+nd+"  Ze/Mer/Zemself (Pronouns)"+nd+"  Ze/Zem/Zirself (Pronouns)"+nd+"  Ze/Zir/Zirself (Pronouns)" _
++nd+"  Zee/Zed/Zedself (Pronouns)"+nd+"  Zie/Hir/Hirself (Pronouns)"+nd+"  Zie/Zem/Zirself (Pronouns)"+nd+"  Zie/Zir/Zirself (Pronouns)"+nd+"  Zme/Zmyr/Zmyrself (Pronouns)"
 
 dim TwoSLGBTQplus$
-TwoSLGBTQplus$=" "+nd+ "2SLGBTQ+"+nd+"LGBTQ+"+nd+"  LGB"+nd+"    LGBTI"+nd+"      LGBT" _
-+nd+"        LBT"+nd+"  LGBTQ"+nd+"    LGBT"+nd+"    LGB"
+TwoSLGBTQplus$=" "+nd+ "2SLGBTQ+"+nd+"  LGBTQ+"+nd+"    LGB"+nd+"      LGBTI"+nd+"        LGBT" _
++nd+"          LBT"+nd+"    LGBTQ"+nd+"      LGBT"+nd+"      LGB"
 
 dim LGBTQIAplus$
-LGBTQIAplus$=" "+nd+"LGB"+nd+"LGBTQ"+nd+"LGBTQIA+"
+LGBTQIAplus$=" "+nd+"LGBTQIA+"+nd+"  LGB"+nd+"  LGBTQ"
 
 dim Heterosexuals$
-Heterosexuals$=" "+nd+ "Heterosexuals"+nd+"Allies"+nd+"Heterosexual men"+nd+"  Dutch boys (slang)"+nd+"  Fag stags (slang)" _
-+nd+"Heterosexual women"+nd+"  Fag hags (slang)"+nd+"  Goldilocks (Gay culture) (slang)"+nd+"Heterosexual youth"+nd+"  Heterosexual boys" _
-+nd+"  Heterosexual children"+nd+"  Heterosexual girls"
+Heterosexuals$=" "+nd+ "Heterosexuals"+nd+"  Allies"+nd+"  Heterosexual men"+nd+"    Dutch boys (slang)"+nd+"    Fag stags (slang)" _
++nd+"  Heterosexual women"+nd+"    Fag hags (slang)"+nd+"    Goldilocks (Gay culture) (slang)"+nd+"  Heterosexual youth"+nd+"    Heterosexual boys" _
++nd+"    Heterosexual children"+nd+"    Heterosexual girls"
 
 dim Cisgender_people$
 Cisgender_people$=" "+nd+ "Cisgender people"+nd+"  Cisgender children"+nd+"    Cisgender boys"+nd+"    Cisgender girls"+nd+"  Cisgender men" _
 +nd+"  Cisgender women"+nd+"  Cisgender youth"+nd+"    Cisgender boys"+nd+"    Cisgender children"+nd+"    Cisgender girls"
 
 dim HIV_positive_people$
-    HIV_positive_people$=" "+nd+"HIV-positive people"+nd+"HIV-undetectable people"
+    HIV_positive_people$=" "+nd+"HIV-positive people"+nd+"  HIV-undetectable people"
 
 dim Intersex_people$
-Intersex_people$=" "+nd+"Closeted intersex people"+nd+"Intersex children"+nd+"Intersex people"+nd+"Intersex youth"
+Intersex_people$=" "+nd+"Intersex people"+nd+"  Closeted intersex people"+nd+"  Intersex children"+nd+"  Intersex youth"
 
 dim Alloromantic_people$
-Alloromantic_people$=" "+nd+"Alloromantic people"+nd+"Biromantic people"+nd+"Heteroromantic people"+nd+"Homoromantic people"+nd+"Panromantic people"
+Alloromantic_people$=" "+nd+"Alloromantic people"+nd+"  Biromantic people"+nd+"  Heteroromantic people"+nd+"  Homoromantic people"+nd+"  Panromantic people"
 
 '****************************************************************************************
 ' Menu layout and Titles
@@ -102,12 +102,14 @@ Text 200,121,80,14, "Alloromantic people"
    DropListBox 200, 135, 130, 135, Alloromantic_people$, .Alloromantic_peoplesub
 
 OptionGroup .OptionGroup1
-      OptionButton  14, 275, 200, 10, "Stay on this page", .OptionButton1
-      OptionButton  14, 290, 200, 10, "See LGBTQ+ identity groups, page 1", .OptionButton2
-      OptionButton  14, 305, 200, 10, "See LGBTQ+ identity groups, page 2", .OptionButton3
+      OptionButton  14, 235, 200, 10, "Stay on this page", .OptionButton1
+      OptionButton  14, 245, 200, 10, "See LGBTQ+ identity groups, page 1", .OptionButton2
+      OptionButton  14, 255, 200, 10, "See LGBTQ+ identity groups, page 2", .OptionButton3
 
-Button 100,250,40,20, "I'm done",    .fin
-CancelButton 200,250,40,20
+Button 115,270,40,20, "I'm done",    .fin
+CancelButton 185,270,40,20
+Text  14, 295, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 305, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 
 End Dialog
@@ -120,24 +122,24 @@ dialog quick
 '****************************************************************************************
 
 If quick.Pronounssub=0 Then an$ = " "
-If quick.Pronounssub=1 Then an$ = "Ae/Aer/Aerself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001673"
-If quick.Pronounssub=2 Then an$ = "Co/Co/Coself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001674"
-If quick.Pronounssub=3 Then an$ = "Cy/Cyb/Cyberself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001675"
-If quick.Pronounssub=4 Then an$ = "E/Em/Emself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001676"
-If quick.Pronounssub=5 Then an$ = "Ey/Em/Eirself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001677"
-If quick.Pronounssub=6 Then an$ = "Fae/Faer/Faerself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001679"
-If quick.Pronounssub=7 Then an$ = "Fe/Fem/Femself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001678"
-If quick.Pronounssub=8 Then an$ = "Fey/Fem/Femself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001680"
-If quick.Pronounssub=9 Then an$ = "He/Him/Himself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001681"
-If quick.Pronounssub=10 Then an$ = "Hu/Hum/Humself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001682"
-If quick.Pronounssub=11 Then an$ = "It/It/Itself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001683"
-If quick.Pronounssub=12 Then an$ = "Jee/Jem/Jemself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001684"
-If quick.Pronounssub=13 Then an$ = "Kit/Kit/Kitself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001685"
-If quick.Pronounssub=14 Then an$ = "Ne/Nem/Nis (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001687"
-If quick.Pronounssub=15 Then an$ = "Ne/Nir/Nemself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001686"
-If quick.Pronounssub=16 Then an$ = "Peh/Pehm/Pehself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001688"
-If quick.Pronounssub=17 Then an$ = "Per/Per/Perself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001689"
-If quick.Pronounssub=18 Then an$ = "Pronouns" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001135"
+If quick.Pronounssub=1 Then an$ = "Pronouns" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001135"
+If quick.Pronounssub=2 Then an$ = "Ae/Aer/Aerself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001673"
+If quick.Pronounssub=3 Then an$ = "Co/Co/Coself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001674"
+If quick.Pronounssub=4 Then an$ = "Cy/Cyb/Cyberself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001675"
+If quick.Pronounssub=5 Then an$ = "E/Em/Emself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001676"
+If quick.Pronounssub=6 Then an$ = "Ey/Em/Eirself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001677"
+If quick.Pronounssub=7 Then an$ = "Fae/Faer/Faerself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001679"
+If quick.Pronounssub=8 Then an$ = "Fe/Fem/Femself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001678"
+If quick.Pronounssub=9 Then an$ = "Fey/Fem/Femself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001680"
+If quick.Pronounssub=10 Then an$ = "He/Him/Himself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001681"
+If quick.Pronounssub=11 Then an$ = "Hu/Hum/Humself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001682"
+If quick.Pronounssub=12 Then an$ = "It/It/Itself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001683"
+If quick.Pronounssub=13 Then an$ = "Jee/Jem/Jemself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001684"
+If quick.Pronounssub=14 Then an$ = "Kit/Kit/Kitself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001685"
+If quick.Pronounssub=15 Then an$ = "Ne/Nem/Nis (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001687"
+If quick.Pronounssub=16 Then an$ = "Ne/Nir/Nemself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001686"
+If quick.Pronounssub=17 Then an$ = "Peh/Pehm/Pehself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001688"
+If quick.Pronounssub=18 Then an$ = "Per/Per/Perself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001689"
 If quick.Pronounssub=19 Then an$ = "Se/Ser/Serself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001691"
 If quick.Pronounssub=20 Then an$ = "She/Her/Herself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001692"
 If quick.Pronounssub=21 Then an$ = "Shi/Hir/Hirself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001693"
@@ -165,7 +167,6 @@ If quick.Pronounssub=42 Then an$ = "Zie/Hir/Hirself (Pronouns)" & " " & sd & "2 
 If quick.Pronounssub=43 Then an$ = "Zie/Zem/Zirself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001714"
 If quick.Pronounssub=44 Then an$ = "Zie/Zir/Zirself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001713"
 If quick.Pronounssub=45 Then an$ = "Zme/Zmyr/Zmyrself (Pronouns)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001716"
-
 If an$ = " " then
 else
 CS.AddField 1, "650 7" & an$
@@ -188,10 +189,9 @@ CS.AddField 1, "650 7" & am$
 end if
 
 If quick.LGBTQIAplussub=0 Then wn$ = " "
-If quick.LGBTQIAplussub=1 Then wn$ = "LGB" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000804"
-If quick.LGBTQIAplussub=2 Then wn$ = "LGBTQ" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000806"
-If quick.LGBTQIAplussub=3 Then wn$ = "LGBTQIA+" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000882"
-
+If quick.LGBTQIAplussub=1 Then wn$ = "LGBTQIA+" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000882"
+If quick.LGBTQIAplussub=2 Then wn$ = "LGB" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000804"
+If quick.LGBTQIAplussub=3 Then wn$ = "LGBTQ" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000806"
 If wn$ = " " then
 else 
 CS.AddField 1, "650 7" & wn$ 
@@ -243,11 +243,10 @@ CS.AddField 1, "650 7" & zn$
 end if
 
 If quick.Intersex_peoplesub=0 Then jn$ = " "
-If quick.Intersex_peoplesub=1 Then jn$ = "Closeted intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001786"
-If quick.Intersex_peoplesub=2 Then jn$ = "Intersex children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000668"
-If quick.Intersex_peoplesub=3 Then jn$ = "Intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000618"
+If quick.Intersex_peoplesub=1 Then jn$ = "Intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000618"
+If quick.Intersex_peoplesub=2 Then jn$ = "Closeted intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001786"
+If quick.Intersex_peoplesub=3 Then jn$ = "Intersex children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000668"
 If quick.Intersex_peoplesub=4 Then jn$ = "Intersex youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000674"
-
 If jn$ = " " then
 else 
 CS.AddField 1, "650 7" & jn$ 
