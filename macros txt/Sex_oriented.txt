@@ -47,42 +47,42 @@ ma$ = " "
 '****************************************************************************************
 
 dim Consent$
-Consent$=" "+nd+ "Consent"+nd+"Age of consent"
+Consent$=" "+nd+ "Consent"+nd+"  Age of consent"
 
 dim Erogenous_body_parts$
-Erogenous_body_parts$=" "+nd+ "Erogenous body parts"+nd+"Breast"+nd+"Butt"+nd+"Clitoris"+nd+"  G-spot" _
-+nd+"Nipple"+nd+"Penis"+nd+"  Neophallus"+nd+"Testicle"+nd+"Vagina" _
-+nd+"  G-spot"+nd+"  Neovagina"
+Erogenous_body_parts$=" "+nd+ "Erogenous body parts"+nd+"  Breast"+nd+"  Butt"+nd+"  Clitoris"+nd+"    G-spot" _
++nd+"  Nipple"+nd+"  Penis"+nd+"    Neophallus"+nd+"  Testicle"+nd+"  Vagina" _
++nd+"    G-spot"+nd+"    Neovagina"
 
 dim Eroticism$
-Eroticism$=" "+nd+ "Eroticism"+nd+"Homoeroticism"
+Eroticism$=" "+nd+ "Eroticism"+nd+"  Homoeroticism"
 
 dim Massage$
-Massage$=" "+nd+ "Massage"+nd+"Erotic massage"
+Massage$=" "+nd+ "Massage"+nd+"  Erotic massage"
 
 dim Physical_affection$
-Physical_affection$=" "+nd+ "Physical affection"+nd+"Kissing"
+Physical_affection$=" "+nd+ "Physical affection"+nd+"  Kissing"
 
 dim Sex_Body$
-Sex_Body$=" "+nd+ "Sex (Body)"+nd+"Assigned sex"+nd+"  Sex assigned at birth"+nd+"Chromosomes"+nd+"Endosex" _
-+nd+"Genitals"+nd+"  Clitoris"+nd+"    G-spot"+nd+"  Penis"+nd+"    Neophallus" _
-+nd+"  Testicle"+nd+"  Vagina"+nd+"    G-spot"+nd+"    Neovagina"+nd+"  Vulva" _
-+nd+"Gonads"+nd+"  Testicle"+nd+"Hormones"+nd+"  Estrogen"+nd+"  Testosterone" _
-+nd+"Intersex"+nd+"  Intersex conditions"+nd+"    5-alpha reductase deficiency"+nd+"    Androgen insensitivity syndrome"+nd+"    Aphallia" _
-+nd+"  Clitoromegaly"+nd+"    Congenital adrenal hyperplasia"+nd+"    Gonadal dysgenesis"+nd+"    Hypospadias"+nd+"    Klinefelter syndrome" _
-+nd+"  Micropenis"+nd+"    Mosaicism involving sex chromosomes"+nd+"    Ovo-testes"+nd+"    Partial androgen insensitivity syndrome"+nd+"    Progestin induced virilization" _
-+nd+"  Swyer syndrome"+nd+"    Turner syndrome"+nd+"Secondary sex characteristics"+nd+"  Breast"+nd+"  Fat distribution" _
-+nd+"  Hair"+nd+"    Mustaches"+nd+"      Cookie dusters (slang)"+nd+"  Stature"+nd+"  Voice"
+Sex_Body$=" "+nd+ "Sex (Body)"+nd+"  Assigned sex"+nd+"    Sex assigned at birth"+nd+"  Chromosomes"+nd+"  Endosex" _
++nd+"  Genitals"+nd+"    Clitoris"+nd+"      G-spot"+nd+"    Penis"+nd+"      Neophallus" _
++nd+"    Testicle"+nd+"   Vagina"+nd+"      G-spot"+nd+"      Neovagina"+nd+"    Vulva" _
++nd+"  Gonads"+nd+"    Testicle"+nd+"  Hormones"+nd+"    Estrogen"+nd+"    Testosterone" _
++nd+"  Intersex"+nd+"    Intersex conditions"+nd+"      5-alpha reductase deficiency"+nd+"      Androgen insensitivity syndrome"+nd+"      Aphallia" _
++nd+"    Clitoromegaly"+nd+"      Congenital adrenal hyperplasia"+nd+"      Gonadal dysgenesis"+nd+"      Hypospadias"+nd+"     Klinefelter syndrome" _
++nd+"    Micropenis"+nd+"      Mosaicism involving sex chromosomes"+nd+"      Ovo-testes"+nd+"      Partial androgen insensitivity syndrome"+nd+"      Progestin induced virilization" _
++nd+"    Swyer syndrome"+nd+"      Turner syndrome"+nd+"  Secondary sex characteristics"+nd+"    Breast"+nd+"    Fat distribution" _
++nd+"    Hair"+nd+"      Mustaches"+nd+"        Cookie dusters (slang)"+nd+"    Stature"+nd+"    Voice"
 
 dim Sex_industry$
-Sex_industry$=" "+nd+ "Sex industry"+nd+"Brothels"+nd+"Porn industry"+nd+"Sex cinemas"+nd+"Sex clubs" _
-+nd+"Sex shops"+nd+"Sex tourism"
+Sex_industry$=" "+nd+ "Sex industry"+nd+"  Brothels"+nd+"  Porn industry"+nd+"  Sex cinemas"+nd+"  Sex clubs" _
++nd+"  Sex shops"+nd+"  Sex tourism"
 
 dim Sexual_orientation$
-Sexual_orientation$=" "+nd+ "Sexual orientation"+nd+"Allosexuality"+nd+"Asexuality"+nd+"Bisexuality"+nd+"Demisexuality" _
-+nd+"Greysexuality"+nd+"Heterosexuality"+nd+"Homosexuality"+nd+"  Ritual homosexuality"+nd+"Lesbianism" _
-+nd+"Megasexuality"+nd+"Monosexuality"+nd+"  Heterosexuality"+nd+"  Homosexuality"+nd+"Pansexuality" _
-+nd+"Polysexuality"+nd+"  Bisexuality"+nd+"  Pansexuality"+nd+"Sexual function"
+Sexual_orientation$=" "+nd+ "Sexual orientation"+nd+"  Allosexuality"+nd+"  Asexuality"+nd+"  Bisexuality"+nd+"  Demisexuality" _
++nd+"  Greysexuality"+nd+"  Heterosexuality"+nd+"  Homosexuality"+nd+"    Ritual homosexuality"+nd+"  Lesbianism" _
++nd+"  Megasexuality"+nd+"  Monosexuality"+nd+"    Heterosexuality"+nd+"    Homosexuality"+nd+"  Pansexuality" _
++nd+"  Polysexuality"+nd+"    Bisexuality"+nd+"    Pansexuality"+nd+"  Sexual function"
 
 
 dim Sexual_preference$
@@ -100,7 +100,7 @@ Sexual_preference$=" "+nd+ "Sexual preference"+nd+"  Chasers"+nd+"  Demisexual p
 
 
 dim Sexuality$
-Sexuality$=" "+nd+ "Sexuality"+nd+"Children's sexuality"+nd+"Organisations for sexual research and sexual reform"
+Sexuality$=" "+nd+ "Sexuality"+nd+"  Children's sexuality"+nd+"  Organisations for sexual research and sexual reform"
 
 '****************************************************************************************
 ' Menu layout and Titles
@@ -132,7 +132,7 @@ Text 200,121,130,135, "Sexual orientation"
 Text 14,159,130,130, "Consent"
    DropListBox 14,172,130,250, Consent$, .Consentsub    
 Text 200,159,95,135, "Sexuality"
-   DropListBox 200,172,175,130, Sexuality$, .Sexualityssub
+   DropListBox 200,172,180,130, Sexuality$, .Sexualityssub
 
 
 OptionGroup .OptionGroup1
@@ -141,7 +141,8 @@ OptionGroup .OptionGroup1
 
 Button 104,240,40,20, "I'm done",    .fin
 CancelButton 170,240,40,20
-
+Text  14, 270, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 280, 210, 8, "Always click through URIs to read scope notes and confirm URI"
 
 End Dialog
 dim quick as MFHL
