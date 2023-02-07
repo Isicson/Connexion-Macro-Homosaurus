@@ -8,7 +8,7 @@ The macrobook file is: Homosaurus_subjects.mbk. For installation help read the d
 
 Optional stand alone macrobook file: LGBTQ_genre_lit.mbk. For installation help read the docx file. This macrobook codes the MARC for literature terms as 655_7s.  It only includes the literature terms and can be bound as seperate new keybind/button.
 
-Read a .txt file to see the macro code.  This is many smallermacros bundled together due to limitations for the size and complexity of Connexion macros.
+Read a .txt file to see the macro code.  This is many smaller macros bundled together due to limitations for the size and complexity of Connexion macros.
 
 -----------------------------------------------------
 
