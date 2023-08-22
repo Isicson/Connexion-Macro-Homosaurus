@@ -14,7 +14,7 @@ Read a .txt file to see the macro code.  This is many smaller macros bundled tog
 Known issues:  Diacritics have been a challenge to include and have them properly print to Connexion.  I was able to get most diacritics printing correctly, but any word that uses a long dash over the letter "a" will not have a diacritic applied.  For example, the word Māori.
 
 -----------------------------------------------------
-
+Revised for Homosaurus version 3.4 -- 08/2023
 Revised for Homosaurus version 3.3 -- 02/2023
 
 Based on Homosaurus version 3.2. https://homosaurus.org/ -- Created 11/2022
