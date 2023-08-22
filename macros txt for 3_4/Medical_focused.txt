@@ -1,0 +1,589 @@
+'MacroName:Medical_focused
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022, Rev. 01/2023
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Menu updated for 3.3
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim ka$
+ka$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+dim na$
+na$ = " "
+dim oa$
+oa$ = " "
+dim pa$
+pa$ = " "
+dim qa$
+qa$ = " "
+dim ra$
+ra$ = " "
+dim sa$
+sa$ = " "
+dim ta$
+ta$ = " "
+dim ua$
+ua$ = " "
+dim va$
+va$ = " "
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Breast_size$
+Breast_size$=" "+nd+ "Breast size"+nd+"Large breasts"+nd+"Small breasts"
+
+dim Castration$
+Castration$=" "+nd+ "Castration"+nd+"Forced castration"+nd+"Orchiectomy"+nd+"Penectomy"
+
+dim Donors$
+Donors$=" "+nd+ "Donors"+nd+"  Anonymous donors (Reproduction)"+nd+"  Egg donors"+nd+"  Known donors (Reproduction)"+nd+"  LGBTQ+ blood donors" _
++nd+"  Open identity donors (Reproduction)"+nd+"  Sperm donors"
+
+dim Female_genitalmutilation$
+Female_genitalmutilation$=" "+nd+ "Female genital mutilation"+nd+"Clitoridectomy"
+
+dim Health_care_LGBTQ_people$
+Health_care_LGBTQ_people$=" "+nd+ "Health care for LGBTQ+ people"+nd+"  Buddy care for LGBTQ+ people"+nd+"  Mental health care for LGBTQ+ people"+nd+"    LGBTQ+ support groups"+nd+"    LGBTQ+-affirming recovery groups" _
++nd+"  Physical health care for LGBTQ+ people"+nd+"  Terminal care (AIDS)"
+
+dim Hypersexuality$
+Hypersexuality$=" "+nd+ "Hypersexuality"+nd+"  Sexual excitement"+nd+"    Orgasm"
+
+dim Intersex_genitalmutilat$
+Intersex_genitalmutilat$=" "+nd+ "Intersex genital mutilation"+nd+"  Clitoridectomy"+nd+"  Intersex surgery"
+
+dim Medical_care$
+Medical_care$=" "+nd+ "Medical care"+nd+"  AIDS memorials"+nd+"    AIDS memorial quilts"+nd+"  Gender affirming surgery"+nd+"    Bottom surgery" _
++nd+"      NT > Bottom surgery"+nd+"    Facial gender affirming surgery"+nd+"      NT > Facial gender affirming surgery"+nd+"    Feminizing vocal surgery"+nd+"    Masculinizing vocal surgery" _
++nd+"    Neophallus"+nd+"    Neovagina"+nd+"    Top surgery"+nd+"      NT > Top surgery"+nd+"  Medicalization" _
++nd+"    Eonism"+nd+"    Gender identity disorder"+nd+"    Intersex variations"+nd+"      NT > Intersex variations"+nd+"    Sexual inversion" _
++nd+"    Transgenderism"+nd+"    Transsexualism"+nd+"    Transvestism"+nd+"  Therapies"+nd+"    Behavioural therapy" _
++nd+"      Aversion therapy"+nd+"    Electroshock therapy"+nd+"    Herbal treatments"+nd+"    Hormone therapy (Gender)"+nd+"      NT > Hormone therapy (Gender)" _
++nd+"    Medication"+nd+"      NT > Medication"+nd+"    Sex therapy"+nd+"    Sexual reorientation"+nd+"    Voice therapy (Gender)"
+
+
+dim Mental_disorders$
+Mental_disorders$=" "+nd+ "Mental disorders"+nd+"Ego-dystonic sexual orientation"
+
+dim Risk_behaviors$
+Risk_behaviors$=" "+nd+ "Risk behaviors"+nd+"Barebacking"
+
+dim Substance_usein_communit$
+Substance_usein_communit$=" "+nd+ "Substance use in LGBTQ+ communities"+nd+"  LGBTQ+ people with addictions"+nd+"    NT > LGBTQ+ people with addictions"
+
+
+dim Sexual_dysfunction$
+Sexual_dysfunction$=" "+nd+ "Sexual dysfunction"+nd+"Erectile dysfunction"+nd+"Vaginismus"
+
+dim STDs$
+STDs$=" "+nd+ "STDs"+nd+"HIV/AIDS"+nd+"  ARC (AIDS-Related Complex)"+nd+"  GRID (Gay-Related Immune Deficiency)"
+
+dim Transitioning_Gender$
+Transitioning_Gender$=" "+nd+ "Transitioning (Gender)"+nd+"Desistance (Gender)"+nd+"Detransitioning"+nd+"Retransitioning"+nd+"Transitioning status" _
++nd+"  No hormone identity"+nd+"  Non-operative"+nd+"  Post-operative"+nd+"  Pre-operative"
+
+dim Miscellanious_Medical$
+Miscellanious_Medical$=" "+nd+ "AIDS awareness"+nd+"AIDS death and dying"+nd+"AIDS organisations"+nd+"AIDS phobia"+nd+"Breast reduction" _
++nd+"Circumcision"+nd+"Cum"+nd+"Cut men"+nd+"DSM (Diagnostic and Statistical Manual of Mental Disorders)"+nd+"Enemas" _
++nd+"Erections"+nd+"Erotomania"+nd+"Foreskin restoration"+nd+"HIV tests"+nd+"HIV-negative people" _
++nd+"Kaposi's sarcoma"+nd+"Partner notification"+nd+"Penile plethysmography"+nd+"Seroconversion"+nd+"Serodiscordant couples" _
++nd+"Serostatus"+nd+"Sexologists"+nd+"Sexology"+nd+"Sexual sterilisation"+nd+"Steroidogenic factor 1 protein" _
++nd+"Uncut men"+nd+"Vaginal dilation"
+
+dim LGBTQplus_love$
+LGBTQplus_love$=" "+nd+ "LGBTQ+ love"+nd+"  LGBTQ+ platonic love"+nd+"  LGBTQ+ unrequited love"
+
+'dim Substance_abuse$
+'Substance_abuse$=" "+nd+ "Substance abuse"+nd+"Drug abuse"+nd+"  Cocaine addiction"+nd+"  Crystal meth addiction"
+
+dim Miscellanious_behavior$
+Miscellanious_behavior$=" "+nd+ "Compersion"+nd+"Gender euphoria"+nd+"Honeymooning"+nd+"Latent homosexuality"+nd+"LGBTQ+ intimacy" _
++nd+"LGBTQ+ self-repression"+nd+"Secrecy"+nd+"Situational sexual behaviour"
+
+dim LGBTQplus_death_dying$
+LGBTQplus_death_dying$=" "+nd+ "LGBTQ+ death and dying"+nd+"LGBTQ+ suicide"
+
+dim Gender_dysphoria$
+Gender_dysphoria$=" "+nd+ "Gender dysphoria"+nd+"  Gender dysphoria in children"+nd+"  Gender dysphoria in youth"
+
+dim Internalized_oppression$
+Internalized_oppression$=" "+nd+ "Internalized oppression"+nd+"  Internalized biphobia"+nd+"  Internalized homophobia"+nd+"  Internalized intersexphobia"+nd+"  Internalized lesbophobia" _
++nd+"  Internalized queerphobia"+nd+"  Internalized transphobia"
+
+dim Assistedreproductivetech$
+Assistedreproductivetech$=" "+nd+ "Assisted reproductive technology"+nd+"  Assisted reproduction"+nd+"    Artificial insemination"+nd+"    Donor insemination"+nd+"      Sperm donors" _
++nd+"    Egg donation"+nd+"    In vitro fertilization"+nd+"      Reciprocal in vitro fertilization"+nd+"    Self-insemination"+nd+"    Sperm donation  " _
++nd+"    Surrogacy"+nd+"      Gestational surrogacy"
+
+dim Sex_Body$
+Sex_Body$=" "+nd+ "Sex (Body)"+nd+"      Assigned sex"+nd+"      Sex assigned at birth"+nd+"        Assigned female at birth"+nd+"        Assigned male at birth" _
++nd+"        Assigned X at birth"+nd+"  Chromosomes"+nd+"      Endosex"+nd+"      Genitals"+nd+"      Clitoris" _
++nd+"      G-spot"+nd+"      Penis"+nd+"      Neophallus"+nd+"      Testicle"+nd+"    Vagina" _
++nd+"      G-spot"+nd+"      Neovagina"+nd+"    Vulva"+nd+"    Gonads"+nd+"      Streak gonads   " _
++nd+"      Testicle"+nd+"  Hormones"+nd+"    Androgens"+nd+"    Estrogen"+nd+"    Testosterone" _
++nd+"  Intersex"+nd+"    Disorders of sexual development"+nd+"    Early genital surgery model"+nd+"    Hopkins model "+nd+"    Intersex variations    " _
++nd+"      NT > Intersex variations"+nd+"  Secondary sex characteristics"+nd+"    Breast"+nd+"    Fat distribution"+nd+"    Hair" _
++nd+"      Mustaches"+nd+"        Cookie dusters [slang]"+nd+"    Stature"+nd+"    Voice"
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 600, 500, "Choose the Homosaurus term you want to use..."
+
+Text 14,20,200,14, "Medical and Health related topics"
+
+Text 14,45,120,14, "*Medical care"
+   DropListBox 14, 58, 130, 350, Medical_care$, .Medical_caresub
+Text 200,45,200,14, "Health care for LGBTQ+ people"
+   DropListBox 200, 58, 135, 135, Health_care_LGBTQ_people$, .Health_care_LGBTQ_peoplesub
+Text 400,45,95,135, "Transitioning (Gender)"
+   DropListBox 400, 58, 130, 135, Transitioning_Gender$, .Transitioning_Gendersub
+
+Text 14,83,80,14, "*Donors"
+   DropListBox 14, 96, 130, 135, Donors$, .Donorssub
+Text 200,83,95,135, "Sexual dysfunction"
+   DropListBox 200, 96, 130, 135, Sexual_dysfunction$, .Sexual_dysfunctionsub 
+Text 400,83,80,14, "STDs"
+   DropListBox 400, 96, 135, 135, STDs$, .STDssub
+
+Text 14,121,200,12, "Castration"
+   DropListBox 14, 135, 130, 135, Castration$, .Castrationsub
+Text 200,121,80,14, "Female genital mutilation"
+   DropListBox 200, 135, 130, 135, Female_genitalmutilation$, .Female_genitalmutilationsub
+Text 400,121,90,14, "*Intersex genital mutilation"
+   DropListBox 400, 135, 130, 135, Intersex_genitalmutilat$, .Intersex_genitalmutilatsub
+
+Text 14,159,80,14, "Breast size"
+   DropListBox 14, 172, 130, 135, Breast_size$, .Breast_sizesub
+Text 200,159,120,14, "Hypersexuality"
+   DropListBox 200, 172,130, 135, Hypersexuality$, .Hypersexualitysub
+Text 400,159,120,14, "LGBTQ+ death and dying"
+   DropListBox 400, 172,130, 250, LGBTQplus_death_dying$, .LGBTQplus_death_dyingsub
+
+Text 14,197,120,14, "Assisted reproductive technology"
+   DropListBox 14, 210,130, 250, Assistedreproductivetech$, .Assistedreproductivetechsub
+Text 200,197,120,14, "*Sex (Body)"
+   DropListBox 200, 210,130, 250, Sex_Body$, .Sex_Bodysub
+Text 400,197,120,14, "*Terms that are not in a hierarchy:"
+   DropListBox 400, 210,130, 250, Miscellanious_Medical$, .Miscellanious_Medicalsub
+
+Text 14,250,200,14, "Behavior related topics"
+
+Text 14,273,130,135, "Mental disorders"
+   DropListBox 14,286,130,130, Mental_disorders$, .Mental_disorderssub 
+Text 200,273,130,135, "Risk behaviors"
+   DropListBox 200,286,130,130, Risk_behaviors$, .Risk_behaviorsssub
+Text 400,273,140,130, "Substance use in LGBTQ+ communities"
+   DropListBox 400,286,140,130, Substance_usein_communit$, .Substance_usein_communitsub
+
+Text 14,311,130,135, "LGBTQ+ love"
+   DropListBox 14,324,130,130, LGBTQplus_love$, .LGBTQplus_lovesub 
+Text 200,311,130,130, "Terms that are not in a hierarchy:"
+   DropListBox 200,324,130,130, Miscellanious_behavior$, .Miscellanious_behaviorsub
+Text 400,311,140,130, "*Gender dysphoria"
+   DropListBox 400,324,140,130, Gender_dysphoria$, .Gender_dysphoriasub
+
+Text 14,349,130,135, "Internalized oppression"
+   DropListBox 14,362,130,80, Internalized_oppression$, .Internalized_oppressionsub 
+   
+Button 200,410,40,20, "I'm done",    .fin
+CancelButton 270,410,40,20
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Breast_sizesub=0 Then aa$ = " "
+If quick.Breast_sizesub=1 Then aa$ = "Breast size" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001623"
+If quick.Breast_sizesub=2 Then aa$ = "Large breasts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001630"
+If quick.Breast_sizesub=3 Then aa$ = "Small breasts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001639"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+If quick.Castrationsub=0 Then ba$ = " "
+If quick.Castrationsub=1 Then ba$ = "Castration" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000241"
+If quick.Castrationsub=2 Then ba$ = "Forced castration" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000449"
+If quick.Castrationsub=3 Then ba$ = "Orchiectomy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001060"
+If quick.Castrationsub=4 Then ba$ = "Penectomy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001097"
+
+If ba$ = " " then
+else
+CS.AddField 1, "650 7" & ba$
+end if
+
+If quick.Donorssub=0 Then ca$ = " "
+If quick.Donorssub=1 Then ca$ = "Donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000364"
+If quick.Donorssub=2 Then ca$ = "Anonymous donors (Reproduction)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002616"
+If quick.Donorssub=3 Then ca$ = "Egg donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000390"
+If quick.Donorssub=4 Then ca$ = "Known donors (Reproduction)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002624"
+If quick.Donorssub=5 Then ca$ = "LGBTQ+ blood donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000824"
+If quick.Donorssub=6 Then ca$ = "Open identity donors (Reproduction)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002625"
+If quick.Donorssub=7 Then ca$ = "Sperm donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001336"
+
+If ca$ = " " then
+else
+CS.AddField 1, "650 7" & ca$ 
+end if
+
+If quick.Female_genitalmutilationsub=0 Then da$ = " "
+If quick.Female_genitalmutilationsub=1 Then da$ = "Female genital mutilation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000430"
+If quick.Female_genitalmutilationsub=2 Then da$ = "Clitoridectomy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000281"
+
+If da$ = " " then
+else
+CS.AddField 1, "650 7" & da$
+end if
+
+If quick.Health_care_LGBTQ_peoplesub=0 Then ea$ = " "
+If quick.Health_care_LGBTQ_peoplesub=1 Then ea$ = "Health care for LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000614"
+If quick.Health_care_LGBTQ_peoplesub=2 Then ea$ = "Buddy care for LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000226"
+If quick.Health_care_LGBTQ_peoplesub=3 Then ea$ = "Mental health care for LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001012"
+If quick.Health_care_LGBTQ_peoplesub=4 Then ea$ = "LGBTQ+ support groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001012"
+If quick.Health_care_LGBTQ_peoplesub=5 Then ea$ = "LGBTQ+-affirming recovery groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001551"
+If quick.Health_care_LGBTQ_peoplesub=6 Then ea$ = "Physical health care for LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001113"
+If quick.Health_care_LGBTQ_peoplesub=7 Then ea$ = "Terminal care (AIDS)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001360"
+
+If ea$ = " " then
+else
+CS.AddField 1, "650 7" & ea$
+end if
+
+If quick.Hypersexualitysub=0 Then fa$ = " "
+If quick.Hypersexualitysub=1 Then fa$ = "Hypersexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000656"
+If quick.Hypersexualitysub=2 Then fa$ = "Sexual excitement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001284"
+If quick.Hypersexualitysub=3 Then fa$ = "Orgasm" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001062"
+
+
+If fa$ = " " then
+else
+CS.AddField 1, "650 7" & fa$
+end if
+
+If quick.Intersex_genitalmutilatsub=0 Then ga$ = " "
+If quick.Intersex_genitalmutilatsub=1 Then ga$ = "Intersex genital mutilation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000670"
+If quick.Intersex_genitalmutilatsub=2 Then ga$ = "Clitoridectomy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000281"
+If quick.Intersex_genitalmutilatsub=3 Then ga$ = "Intersex surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002847"
+
+If ga$ = " " then
+else
+CS.AddField 1, "650 7" & ga$
+end if
+
+If quick.Medical_caresub=0 Then ha$ = " "
+If quick.Medical_caresub=1 Then ha$ = "Medical care" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001004"
+If quick.Medical_caresub=2 Then ha$ = "AIDS memorials" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000029"
+If quick.Medical_caresub=3 Then ha$ = "AIDS memorial quilts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000028"
+If quick.Medical_caresub=4 Then ha$ = "Gender affirming surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000561"
+If quick.Medical_caresub=5 Then ha$ = "Bottom surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000584"
+If quick.Medical_caresub=6 Then CS.RunMacro "Homosaurus_subjects.mbk!Bottom_surgery"
+If quick.Medical_caresub=7 Then ha$ = "Facial gender affirming surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001837"
+If quick.Medical_caresub=8 Then CS.RunMacro "Homosaurus_subjects.mbk!Facial_gender_surgery"
+If quick.Medical_caresub=9 Then ha$ = "Feminizing vocal surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001842"
+If quick.Medical_caresub=10 Then ha$ = "Masculinizing vocal surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001843"
+If quick.Medical_caresub=11 Then ha$ = "Neophallus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001894"
+If quick.Medical_caresub=12 Then ha$ = "Neovagina" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001040"
+If quick.Medical_caresub=13 Then ha$ = "Top surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001840"
+If quick.Medical_caresub=14 Then CS.RunMacro "Homosaurus_subjects.mbk!Top_surgery"
+If quick.Medical_caresub=15 Then ha$ = "Medicalization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001006"
+If quick.Medical_caresub=16 Then ha$ = "Eonism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000395"
+If quick.Medical_caresub=17 Then ha$ = "Gender identity disorder" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000572"
+If quick.Medical_caresub=18 Then ha$ = "Intersex variations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000669"
+If quick.Medical_caresub=19 Then CS.RunMacro "Homosaurus_subjects.mbk!Intersex_variations"
+If quick.Medical_caresub=20 Then ha$ = "Sexual inversion" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001296"
+If quick.Medical_caresub=21 Then ha$ = "Transgenderism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001463"
+If quick.Medical_caresub=22 Then ha$ = "Transsexualism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001468"
+If quick.Medical_caresub=23 Then ha$ = "Transvestism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001469"
+If quick.Medical_caresub=24 Then ha$ = "Therapies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001366"
+If quick.Medical_caresub=25 Then ha$ = "Behavioural therapy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000106"
+If quick.Medical_caresub=26 Then ha$ = "Aversion therapy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000084"
+If quick.Medical_caresub=27 Then ha$ = "Electroshock therapy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000394"
+If quick.Medical_caresub=28 Then ha$ = "Herbal treatments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000617"
+If quick.Medical_caresub=29 Then ha$ = "Hormone therapy (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000317"
+If quick.Medical_caresub=30 Then CS.RunMacro "Homosaurus_subjects.mbk!Hormone_therapy"
+If quick.Medical_caresub=31 Then ha$ = "Medication" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001007"
+If quick.Medical_caresub=32 Then CS.RunMacro "Homosaurus_subjects.mbk!Medication"
+If quick.Medical_caresub=33 Then ha$ = "Sex therapy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001274"
+If quick.Medical_caresub=34 Then ha$ = "Sexual reorientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000303"
+If quick.Medical_caresub=35 Then ha$ = "Voice therapy (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001496"
+
+If ha$ = " " then
+else
+CS.AddField 1, "650 7" & ha$
+end if
+
+If quick.Mental_disorderssub=0 Then ia$ = " "
+If quick.Mental_disorderssub=1 Then ia$ = "Mental disorders" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001011"
+If quick.Mental_disorderssub=2 Then ia$ = "Ego-dystonic sexual orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000392"
+
+If ia$ = " " then
+else
+CS.AddField 1, "650 7" & ia$ 
+end if
+
+If quick.Risk_behaviorsssub=0 Then ja$ = " "
+If quick.Risk_behaviorsssub=1 Then ja$ = "Risk behaviors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001239"
+If quick.Risk_behaviorsssub=2 Then ja$ = "Barebacking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000099"
+
+If ja$ = " " then
+else
+CS.AddField 1, "650 7" & ja$
+end if
+
+If quick.Substance_usein_communitsub=0 Then ka$ = " "
+If quick.Substance_usein_communitsub=1 Then ka$ = "Substance use in LGBTQ+ communities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000380"
+If quick.Substance_usein_communitsub=2 Then ka$ = "LGBTQ+ people with addictions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001550"
+If quick.Substance_usein_communitsub=3 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_with_addictions"
+
+'If ka$ = " " then
+'else
+'CS.AddField 1, "650 7" & ka$
+'end if
+
+If quick.Sexual_dysfunctionsub=0 Then la$ = " "
+If quick.Sexual_dysfunctionsub=1 Then la$ = "Sexual dysfunction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001291"
+If quick.Sexual_dysfunctionsub=2 Then la$ = "Erectile dysfunction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000398"
+If quick.Sexual_dysfunctionsub=3 Then la$ = "Vaginismus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001489"
+
+If la$ = " " then
+else
+CS.AddField 1, "650 7" & la$
+end if
+
+
+If quick.STDssub=0 Then ma$ = " "
+If quick.STDssub=1 Then ma$ = "STDs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001308"
+If quick.STDssub=2 Then ma$ = "HIV/AIDS" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000005"
+If quick.STDssub=3 Then ma$ = "ARC (AIDS-Related Complex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000033"
+If quick.STDssub=4 Then ma$ = "GRID (Gay-Related Immune Deficiency)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001980"
+
+If ma$ = " " then
+else
+CS.AddField 1, "650 7" & ma$
+end if
+
+
+If quick.Transitioning_Gendersub=0 Then oa$ = " "
+If quick.Transitioning_Gendersub=1 Then oa$ = "Transitioning (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001465"
+If quick.Transitioning_Gendersub=2 Then oa$ = "Desistance (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001836"
+If quick.Transitioning_Gendersub=3 Then oa$ = "Detransitioning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001834"
+If quick.Transitioning_Gendersub=4 Then oa$ = "Retransitioning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001835"
+If quick.Transitioning_Gendersub=5 Then oa$ = "Transitioning status" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001464"
+If quick.Transitioning_Gendersub=6 Then oa$ = "No hormone identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001047"
+If quick.Transitioning_Gendersub=7 Then oa$ = "Non-operative" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001049"
+If quick.Transitioning_Gendersub=8 Then oa$ = "Post-operative" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001129"
+If quick.Transitioning_Gendersub=9 Then oa$ = "Pre-operative" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001131"
+
+If oa$ = " " then
+else
+CS.AddField 1, "650 7" & oa$
+end if
+
+If quick.Miscellanious_Medicalsub=0 Then pa$ = " "
+If quick.Miscellanious_Medicalsub=1 Then pa$ = "AIDS awareness" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000025"
+If quick.Miscellanious_Medicalsub=2 Then pa$ = "AIDS death and dying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002258"
+If quick.Miscellanious_Medicalsub=3 Then pa$ = "AIDS organisations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000030"
+If quick.Miscellanious_Medicalsub=4 Then pa$ = "AIDS phobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000032"
+If quick.Miscellanious_Medicalsub=5 Then pa$ = "Breast reduction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001622"
+If quick.Miscellanious_Medicalsub=6 Then pa$ = "Circumcision" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000269"
+If quick.Miscellanious_Medicalsub=7 Then pa$ = "Cum" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000323"
+If quick.Miscellanious_Medicalsub=8 Then pa$ = "Cut men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000268"
+If quick.Miscellanious_Medicalsub=9 Then pa$ = "DSM (Diagnostic and Statistical Manual of Mental Disorders)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000351"
+If quick.Miscellanious_Medicalsub=10 Then pa$ = "Enemas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000293"
+If quick.Miscellanious_Medicalsub=11 Then pa$ = "Erections" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000400"
+If quick.Miscellanious_Medicalsub=12 Then pa$ = "Erotomania" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001538"
+If quick.Miscellanious_Medicalsub=13 Then pa$ = "Foreskin restoration" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000450"
+If quick.Miscellanious_Medicalsub=14 Then pa$ = "HIV tests" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000634"
+If quick.Miscellanious_Medicalsub=15 Then pa$ = "HIV-negative people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000635"
+If quick.Miscellanious_Medicalsub=16 Then pa$ = "Kaposi's sarcoma" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000686"
+If quick.Miscellanious_Medicalsub=17 Then pa$ = "Partner notification" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001080"
+If quick.Miscellanious_Medicalsub=18 Then pa$ = "Penile plethysmography" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001098"
+If quick.Miscellanious_Medicalsub=19 Then pa$ = "Seroconversion" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000637"
+If quick.Miscellanious_Medicalsub=20 Then pa$ = "Serodiscordant couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000638"
+If quick.Miscellanious_Medicalsub=21 Then pa$ = "Serostatus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000639"
+If quick.Miscellanious_Medicalsub=22 Then pa$ = "Sexologists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001279"
+If quick.Miscellanious_Medicalsub=23 Then pa$ = "Sexology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001280"
+If quick.Miscellanious_Medicalsub=24 Then pa$ = "Sexual sterilisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000653"
+If quick.Miscellanious_Medicalsub=25 Then pa$ = "Steroidogenic factor 1 protein" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002876"
+If quick.Miscellanious_Medicalsub=26 Then pa$ = "Uncut men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001481"
+If quick.Miscellanious_Medicalsub=27 Then pa$ = "Vaginal dilation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001485"
+
+If pa$ = " " then
+else
+CS.AddField 1, "650 7" & pa$
+end if
+
+If quick.LGBTQplus_lovesub=0 Then qa$ = " "
+If quick.LGBTQplus_lovesub=1 Then qa$ = "LGBTQ+ love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000894"
+If quick.LGBTQplus_lovesub=2 Then qa$ = "LGBTQ+ platonic love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000921"
+If quick.LGBTQplus_lovesub=3 Then qa$ = "LGBTQ+ unrequited love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000957"
+
+
+If qa$ = " " then
+else
+CS.AddField 1, "650 7" & qa$
+end if
+
+If quick.Miscellanious_behaviorsub=0 Then ra$ = " "
+If quick.Miscellanious_behaviorsub=1 Then ra$ = "Compersion" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001649"
+If quick.Miscellanious_behaviorsub=2 Then ra$ = "Gender euphoria" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002256"
+If quick.Miscellanious_behaviorsub=3 Then ra$ = "Honeymooning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001655"
+If quick.Miscellanious_behaviorsub=4 Then ra$ = "Latent homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000699"
+If quick.Miscellanious_behaviorsub=5 Then ra$ = "LGBTQ+ intimacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000889"
+If quick.Miscellanious_behaviorsub=6 Then ra$ = "LGBTQ+ self-repression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000936"
+If quick.Miscellanious_behaviorsub=7 Then ra$ = "Secrecy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001261"
+If quick.Miscellanious_behaviorsub=8 Then ra$ = "Situational sexual behaviour" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001315"
+If ra$ = " " then
+else
+CS.AddField 1, "650 7" & ra$
+end if
+
+If quick.LGBTQplus_death_dyingsub=0 Then fa$ = " "
+If quick.LGBTQplus_death_dyingsub=1 Then fa$ = "LGBTQ+ death and dying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000848"
+If quick.LGBTQplus_death_dyingsub=2 Then fa$ = "LGBTQ+ suicide" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000952"
+If fa$ = " " then
+else
+CS.AfaField 1, "650 7" & fa$
+end if
+
+
+If quick.Gender_dysphoriasub=0 Then sa$ = " "
+If quick.Gender_dysphoriasub=1 Then sa$ = "Gender dysphoria" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000567"
+If quick.Gender_dysphoriasub=2 Then sa$ = "Gender dysphoria in children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002699"
+If quick.Gender_dysphoriasub=3 Then sa$ = "Gender dysphoria in youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002700"
+If sa$ = " " then
+else
+CS.AfaField 1, "650 7" & sa$
+end if
+
+If quick.Internalized_oppressionsub=0 Then ta$ = " "
+If quick.Internalized_oppressionsub=1 Then ta$ = "Internalized oppression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002590"
+If quick.Internalized_oppressionsub=2 Then ta$ = "Internalized biphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002592"
+If quick.Internalized_oppressionsub=3 Then ta$ = "Internalized homophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000391"
+If quick.Internalized_oppressionsub=4 Then ta$ = "Internalized intersexphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002595"
+If quick.Internalized_oppressionsub=5 Then ta$ = "Internalized lesbophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002591"
+If quick.Internalized_oppressionsub=6 Then ta$ = "Internalized queerphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002594"
+If quick.Internalized_oppressionsub=7 Then ta$ = "Internalized transphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002593"
+
+If ta$ = " " then
+else
+CS.AfaField 1, "650 7" & ta$
+end if
+
+If quick.Assistedreproductivetechsub=0 Then ua$ = " "
+If quick.Assistedreproductivetechsub=1 Then ua$ = "Assisted reproductive technology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002619"
+If quick.Assistedreproductivetechsub=2 Then ua$ = "Assisted reproduction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002618"
+If quick.Assistedreproductivetechsub=3 Then ua$ = "Artificial insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002617"
+If quick.Assistedreproductivetechsub=4 Then ua$ = "Donor insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002620"
+If quick.Assistedreproductivetechsub=5 Then ua$ = "Sperm donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001336"
+If quick.Assistedreproductivetechsub=6 Then ua$ = "Egg donation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002622"
+If quick.Assistedreproductivetechsub=7 Then ua$ = "In vitro fertilization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000659"
+If quick.Assistedreproductivetechsub=8 Then ua$ = "Reciprocal in vitro fertilization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001234"
+If quick.Assistedreproductivetechsub=9 Then ua$ = "Self-insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001265"
+If quick.Assistedreproductivetechsub=10 Then ua$ = "Sperm donation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002626"
+If quick.Assistedreproductivetechsub=11 Then ua$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
+If quick.Assistedreproductivetechsub=12 Then ua$ = "Gestational surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002627"
+
+If ua$ = " " then
+else
+CS.AfaField 1, "650 7" & ua$
+end if
+
+If quick.Sex_Bodysub=0 Then va$ = " "
+If quick.Sex_Bodysub=1 Then va$ = "Sex (Body)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001269"
+If quick.Sex_Bodysub=2 Then va$ = "Assigned sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001648"
+If quick.Sex_Bodysub=3 Then va$ = "Sex assigned at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001268"
+If quick.Sex_Bodysub=4 Then va$ = "Assigned female at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000077"
+If quick.Sex_Bodysub=5 Then va$ = "Assigned male at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000079"
+If quick.Sex_Bodysub=6 Then va$ = "Assigned X at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001646"
+If quick.Sex_Bodysub=7 Then va$ = "Chromosomes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000266"
+If quick.Sex_Bodysub=8 Then va$ = "Endosex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001896"
+If quick.Sex_Bodysub=9 Then va$ = "Genitals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000585"
+If quick.Sex_Bodysub=10 Then va$ = "Clitoris" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000282"
+If quick.Sex_Bodysub=11 Then va$ = "G-spot" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000460"
+If quick.Sex_Bodysub=12 Then va$ = "Penis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001099"
+If quick.Sex_Bodysub=13 Then va$ = "Neophallus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001894"
+If quick.Sex_Bodysub=14 Then va$ = "Testicle" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001361"
+If quick.Sex_Bodysub=15 Then va$ = "Vagina" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001488"
+If quick.Sex_Bodysub=16 Then va$ = "G-spot" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000460"
+If quick.Sex_Bodysub=17 Then va$ = "Neovagina" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001040"
+If quick.Sex_Bodysub=18 Then va$ = "Vulva" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001497"
+If quick.Sex_Bodysub=19 Then va$ = "Gonads" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000600"
+If quick.Sex_Bodysub=20 Then va$ = "Streak gonads   " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002877"
+If quick.Sex_Bodysub=21 Then va$ = "Testicle" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001361"
+If quick.Sex_Bodysub=22 Then va$ = "Hormones" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000651"
+If quick.Sex_Bodysub=23 Then va$ = "Androgens" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002820"
+If quick.Sex_Bodysub=24 Then va$ = "Estrogen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000407"
+If quick.Sex_Bodysub=25 Then va$ = "Testosterone" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001362"
+If quick.Sex_Bodysub=26 Then va$ = "Intersex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000352"
+If quick.Sex_Bodysub=27 Then va$ = "Disorders of sexual development" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000357"
+If quick.Sex_Bodysub=28 Then va$ = "Early genital surgery model" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002835"
+If quick.Sex_Bodysub=29 Then va$ = "Hopkins model " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002841"
+If quick.Sex_Bodysub=30 Then va$ = "Intersex variations    " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000669"
+If quick.Sex_Bodysub=31 Then CS.RunMacro "Homosaurus_subjects.mbk!Intersex_variations"
+If quick.Sex_Bodysub=32 Then va$ = "Secondary sex characteristics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001259"
+If quick.Sex_Bodysub=33 Then va$ = "Breast" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000222"
+If quick.Sex_Bodysub=34 Then va$ = "Fat distribution" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000422"
+If quick.Sex_Bodysub=35 Then va$ = "Hair" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000605"
+If quick.Sex_Bodysub=36 Then va$ = "Mustaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002287"
+If quick.Sex_Bodysub=37 Then va$ = "Cookie dusters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002288"
+If quick.Sex_Bodysub=38 Then va$ = "Stature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001339"
+If quick.Sex_Bodysub=39 Then va$ = "Voice" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001495"
+
+If va$ = " " then
+else
+CS.AddField 1, "650 7" & va$
+end if
+
+Cancelled:   
+End Sub
+

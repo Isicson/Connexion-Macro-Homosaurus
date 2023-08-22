@@ -1,0 +1,183 @@
+umlate/double dots: [ü] è
+c with hook/cedilla: [ç] ð
+long dash/macron: [ā] å 
+accute/forward tic: [é] is â
+circumflex, closed/caret: [î] ã
+ 
+
+
+new notes for every drop down
+
+general size small box:
+Begin Dialog MFHL 230, 180, "LGBTQ children and Narrower Terms"
+
+Button 25,135,40,20, "I'm done",    .fin
+CancelButton 75,135,40,20
+
+Text  14, 135, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 135, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+release update notes:
+
+macros updated:
+-x Black_LGBTQplus_people (release updates, resized menu window, menu window text added)
+-x Boys
+-x Children_of_LGBTQ
+-Facial_gender_surgery (release updates)
+Gay_men
+Girls
+Leather_community
+LGBTQ_children
+LGBTQ_daughters
+LGBTQ_partners
+LGBTQ_sons
+-Non-Euro-American_gender (release updates, diacritics added, context notes added, menu window text added)
+
+key:
+x = uploaded & final review done
+- = uploaded to Github only
+
+NEW:
+xanal_sex 
+xBDSM
+xClitoral_sex
+
+-Lesbian_culture
+-Gay_culture
+-LGBTQ_cinema
+-Manual_sex
+-Masterbation
+-Oral_sex
+-Parents
+-Phallic_sex
+-Partners (new)
+-Content_warnings (new)
+-Daughters_LGBTQ_people (new)
+-Family Family_Relations_focused TOPICS MENU
+-Fandom (new)
+-Fanfiction (new)
+-Fathers_of_LGBTQ_people (new)
+-History_topics TOPICS MENU
+-Intersex_people (new)
+-LGBTQ_people_in_fandom (new)
+-LGBTQ_with_addictions (new)
+-LGBTQ+_ethnic_groups_2_rev
+-LGBTQ+_ethnic_groups_pt2_rev
+-LGBTQ_who_use_substances (new)
+-LGBTQplus_fathers (new)
+-Men (new)
+-Mothers (new)
+-Roleplay
+-Slash_fanworks (new)
+-Slash_fiction (new)
+-Sons_of_LGBTQ_people (new)
+-Vaginal_sex
+-Women (new)
+-Yaoi_fandom (new)
+
+
+sub-sections of multi topic macros
+Community_focused / LGBTQplus_relationships subsection (release updates)
+Community_focused / Subcultures 
+Community_focused / Family_members 
+
+-Legal_oriented / Lawsub (release updates & menu text added)
+
+-LGBTQ+_Identities (updated)
+-LGBTQ+_Identities / Miscellanious_identity
+-LGBTQ+_Identities / Gender
+-LGBTQ+_Identities / LGBTQ_people
+-LGBTQ+_Identities / Youth
+-LGBTQ+_Identities / Sexual_minorities
+-LGBTQ+_Identities / Relationship minorities
+
+-LGBTQ+_Identities_part2 / Sexual_identity
+
+-LGBTQ+_Identities_part3 / Heterosexuals
+-LGBTQ+_Identities_part3 / Cisgender_people
+
+-Medical_focused / Miscellanious_Medical
+-Medical_focused / Medical_care (release update)
+-Medical_focused / Health_care_LGBTQ_people
+-Medical_focused / Miscellanious_behavior
+-Medical_focused / LGBTQplus_love (new) - also obsoleted LGBTQplus_emotions
+
+
+-Sex_oriented / Sexual_preference
+-Sex_oriented / Sex_Body
+
+-sex_oriented_pt2 / Sex_Act
+
+-Society_oriented / LGBTQplus_discrimination
+-Society_oriented / Miscellanious_civil
+-Society_oriented / Human_rights
+-Society_oriented / LGBTQplus_phobia
+-Society_oriented / Miscellanious_business
+-Misc_Discrimination
+
+
+-Society_oriented_part2 / Misc_society (release update LGBTQ+ people who use substances recreationally)
+-Society_oriented_part2 / LGBTQplus_events
+-Society_oriented_part2 / LGBTQplus_love (new) - also obsoleted LGBTQplus_emotions
+-Society_oriented_part2 / Miscellanious_relat
+-Society_oriented_part2 / Miscellanious_relat
+-Society_oriented_part2 / LGBTQplus_symbols
+-Society_oriented_part2 / Miscellanious_culture
+-Society_oriented_part2 / Feminism
+-Society_oriented_part2 / Theories
+
+-LGBTQplus_media / Miscellanious_media (new)
+
+
+
+various updates/work not tracked elsewhere:
+
+
+new menu work
+
+
+
+5. Indigenous LGBTQ+ people needs diacritics & maybe remove a term.
+6. LGBTQ+ people in fandom in LGBTQ+ people lacks it's NT.  
+11. sex_oriented_pt2 / Sexual_practices needs full review.  I added several sub macros that can probably be added in. (from sex acts)
+13. LGBTQ_literature needs a full review & lists need to be sorted alphabetically :/
+15. optional: give Indigenous LGBTQ+ people a drop down at the ethnic groups level?  buried under poc 
+
+DONE:
+
+x 1. 
+-xNew TOP catagory: History_topics
+-x Add new BT LGBTQ+ history in ALLNOTES
+xpull from community menu:
+xLGBTQ+ Riots 
+xLGBTQ+ memorials
+
+x 2. rebrand Community as family & relationships
+x move relationship segment from society 2 
+x (add homosociality to this subset)
+x Add new Partners topic into this
+x update Community_focused / Family_members in Connexion.  
+x update Community_focused / subcultures in Connexion.  
+x review subcultures, add fandom.  Fandom macro in Connexion, not linked to subcultre menu.
+
+x 3. rehome: from community
+xcomm/misc/LGBTQ+ film festivals
+xmove from community to Society_oriented_part2 / culture topics
+xhttps://homosaurus.org/v3/homoit0000818	LGBTQ+ awards
+xhttps://homosaurus.org/v3/homoit0000836	LGBTQ+ clubs
+xhttps://homosaurus.org/v3/homoit0000909	LGBTQ+ night life
+xMiscellanious_culture: needs rehoming of 3 terms.
+xrehome subcultures
+x 4. 
+xAdd to society/activism topics
+xInclusivity
+
+7. xLGBTQ_parents needs full review.  Fathers removed
+8. xLGBTQ_parents hyperlinks don't match terms.
+9. xreview parents (changes probably occurred in NT)
+x 10. BT (Racism) needs to be moved from Misc_Discrimination and added as a new drop down to Society_oriented/Discrimination topics. Probably need to shift parts to next macro.
+then add NT: https://homosaurus.org/v3/homoit0002257	Anti-Blackness
+x 10b Misogyny needs to be removed from Misc_Discrimination too & get https://homosaurus.org/v3/homoit0002183	Misogyny in fandom added as a NT.
+x 12. LGBTQplus_films remove from LGBTQplus_media (?).  Now under LGBTQ+ cinema in subcultures / LGBTQ+ arts.  Possibly dup this table in both spots. media still has porn films where arent all in cinema.
+x 14. Society_oriented_part2 / Miscellanious_theory - remove queer verb to the larger theory menu & add NT LGBTQ+ headcanons / https://homosaurus.org/v3/homoit0002180
+x 16. https://homosaurus.org/v3/homoit0000848	LGBTQ+ death and dying tree -- move to Medical_focused

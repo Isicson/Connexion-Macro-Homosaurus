@@ -1,0 +1,199 @@
+'MacroName:Legal_oriented
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Menu layout and terms satisfactory for ver.1, Oct. 2022/wi
+'updated 1/23 for v.3.3
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Law$
+Law$=" "+nd+ "Law"+nd+"  Anti-discrimination law"+nd+"  Court orders"+nd+"  Criminal law"+nd+"    Criminalisation" _
++nd+"      Criminalization of gender non-conformity"+nd+"        Criminalization of cross-dressing"+nd+"      LGBTQ+ criminalization"+nd+"        Criminalization of homosexuality"+nd+"    Decriminalisation" _
++nd+"    Sexual offenses laws"+nd+"      Sodomy laws"+nd+"  LGBTQ+ personal and family law"+nd+"    Legal name"+nd+"    Legal name change" _
++nd+"    Marriage law"+nd+"      Common law marriage"+nd+"  LGBTQ+ victims' rights"+nd+"    Asexual victims' rights"+nd+"    Bisexual victims' rights" _
++nd+"    Gay victims' rights"+nd+"    Lesbian victims' rights"+nd+"    Queer victims' rights"+nd+"    Transgender victims' rights"+nd+"  Public bathroom bills"
+
+dim Legal_status$
+Legal_status$=" "+nd+ "Legal status"+nd+"  LGBTQ+ immigration rights"+nd+"  LGBTQ+ people in the military"+nd+"    Asexual people in the military"+nd+"    Bisexual people in the military" _
++nd+"    Gay men in the military"+nd+"    Intersex people in the military"+nd+"    Lesbians in the military"+nd+"    Queer people in the military"+nd+"    Transgender people in the military" _
++nd+"  Official documentation"+nd+"    Birth certificates"+nd+"      Birth certificate amendments"+nd+"      Gender markers"+nd+"        X gender markers" _
++nd+"    Civil union certificates"+nd+"    Civil union documents"+nd+"    Court orders"+nd+"    Domestic partnership contracts"+nd+"    Driver's licenses" _
++nd+"      Gender markers"+nd+"        X gender markers"+nd+"    Legal name change"+nd+"    Marriage certificates"+nd+"    Marriage licenses" _
++nd+"    Medical practitioners' statements"+nd+"    Passports"+nd+"      Gender markers"+nd+"        X gender markers"+nd+"    Social security cards" _
++nd+"  Parental rights"+nd+"  Partner rights"
+
+dim Police_interactions$
+Police_interactions$=" "+nd+ "Police interactions with LGBTQ+ people"+nd+"  Arrests of LGBTQ+ people"+nd+"  Attitudes of LGBTQ+ people toward police"+nd+"  Identification of LGBTQ+ people by police"+nd+"    Digital identification of LGBTQ+ people by police" _
++nd+"  Performative LGBTQ+ activism by police"+nd+"  Police entrapment of LGBTQ+ people"+nd+"  Police harassment of LGBTQ+ people"+nd+"    Police harassment of Black LGBTQ+ people"+nd+"    Police harassment of Indigenous LGBTQ+ people" _
++nd+"  Police violence toward LGBTQ+ people"+nd+"    Police raids on LGBTQ+-related establishments"+nd+"      Police raids on LGBTQ+ bathhouses"+nd+"      Police raids on LGBTQ+ meeting places"+nd+"        Police raids on LGBTQ+ bars" _
++nd+"      Police raids on LGBTQ+ nightclubs"+nd+"    Shootings of LGBTQ+ people by police"
+
+
+dim Miscellanious_legal$
+Miscellanious_legal$=" "+nd+ "No Police at Pride"+nd+"Police"+nd+"Two-Spirit people in the military"+nd+"Two-Spirit victims' rights"+nd+"White supremacy in policing"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 320, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,100,14, "Law"
+   DropListBox 14, 20, 150, 250, Law$, .Lawsub
+Text 200,7,60,14, "Legal status"
+   DropListBox 200, 20, 130, 250, Legal_status$, .Legal_statussub
+Text 14,45,175,14, "Police interactions with LGBTQ+ people:"
+   DropListBox 14, 58, 180, 185, Police_interactions$, .Police_interactionssub
+Text 200,45,175,14, "*Terms that are not in a hierarchy:"
+   DropListBox 200, 58, 130, 180, Miscellanious_legal$, .Miscellanious_legalsub
+
+Button 104,260,40,20, "I'm done",    .fin
+CancelButton 170,260,40,20
+
+Text  14, 295, 200, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 305, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Lawsub=0 Then aa$ = " "
+If quick.Lawsub=1 Then aa$ = "Law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000702"
+If quick.Lawsub=2 Then aa$ = "Anti-discrimination law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000053"
+If quick.Lawsub=3 Then aa$ = "Court orders" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000311"
+If quick.Lawsub=4 Then aa$ = "Criminal law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000313"
+If quick.Lawsub=5 Then aa$ = "Criminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000314"
+If quick.Lawsub=6 Then aa$ = "Criminalization of gender non-conformity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002388"
+If quick.Lawsub=7 Then aa$ = "Criminalization of cross-dressing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002389"
+If quick.Lawsub=8 Then aa$ = "LGBTQ+ criminalization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002379"
+If quick.Lawsub=9 Then aa$ = "Criminalization of homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002380"
+If quick.Lawsub=10 Then aa$ = "Decriminalisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000339"
+If quick.Lawsub=11 Then aa$ = "Sexual offenses laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001289"
+If quick.Lawsub=12 Then aa$ = "Sodomy laws" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001326"
+If quick.Lawsub=13 Then aa$ = "LGBTQ+ personal and family law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000918"
+If quick.Lawsub=14 Then aa$ = "Legal name" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000711"
+If quick.Lawsub=15 Then aa$ = "Legal name change" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000247"
+If quick.Lawsub=16 Then aa$ = "Marriage law" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000992"
+If quick.Lawsub=17 Then aa$ = "Common law marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000296"
+If quick.Lawsub=18 Then aa$ = "LGBTQ+ victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001492"
+If quick.Lawsub=19 Then aa$ = "Asexual victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002858"
+If quick.Lawsub=20 Then aa$ = "Bisexual victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000200"
+If quick.Lawsub=21 Then aa$ = "Gay victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000554"
+If quick.Lawsub=22 Then aa$ = "Lesbian victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000796"
+If quick.Lawsub=23 Then aa$ = "Queer victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001225"
+If quick.Lawsub=24 Then aa$ = "Transgender victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001460"
+If quick.Lawsub=25 Then aa$ = "Public bathroom bills" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001139"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+If quick.Legal_statussub=0 Then ba$ = " "
+If quick.Legal_statussub=1 Then ba$ = "Legal status" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000712"
+If quick.Legal_statussub=2 Then ba$ = "LGBTQ+ immigration rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000883"
+If quick.Legal_statussub=3 Then ba$ = "LGBTQ+ people in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001100"
+If quick.Legal_statussub=4 Then ba$ = "Bisexual people in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000171"
+If quick.Legal_statussub=5 Then ba$ = "Gay men in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000507"
+If quick.Legal_statussub=6 Then ba$ = "Lesbians in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000800"
+If quick.Legal_statussub=7 Then ba$ = "Queer people in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001196"
+If quick.Legal_statussub=8 Then ba$ = "Transgender people in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001431"
+If quick.Legal_statussub=9 Then ba$ = "Official documentation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001053"
+If quick.Legal_statussub=10 Then ba$ = "Birth certificates" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000119"
+If quick.Legal_statussub=11 Then ba$ = "Birth certificate amendments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000118"
+If quick.Legal_statussub=12 Then ba$ = "Gender markers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000573"
+If quick.Legal_statussub=13 Then ba$ = "Civil union certificates" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000277"
+If quick.Legal_statussub=14 Then ba$ = "Civil union documents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000275"
+If quick.Legal_statussub=15 Then ba$ = "Court orders" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000311"
+If quick.Legal_statussub=16 Then ba$ = "Domestic partnership contracts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000360"
+If quick.Legal_statussub=17 Then ba$ = "Driver's licenses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000377"
+If quick.Legal_statussub=18 Then ba$ = "Gender markers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000573"
+If quick.Legal_statussub=19 Then ba$ = "Legal name change" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000247"
+If quick.Legal_statussub=20 Then ba$ = "Marriage certificates" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000991"
+If quick.Legal_statussub=21 Then ba$ = "Marriage licenses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000993"
+If quick.Legal_statussub=22 Then ba$ = "Medical practitioners' statements" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001005"
+If quick.Legal_statussub=23 Then ba$ = "Passports" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001092"
+If quick.Legal_statussub=24 Then ba$ = "Gender markers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000573"
+If quick.Legal_statussub=25 Then ba$ = "Social security cards" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001324"
+If quick.Legal_statussub=26 Then ba$ = "Parental rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001074"
+If quick.Legal_statussub=27 Then ba$ = "Partner rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001082"
+
+If ba$ = " " then
+else
+CS.AddField 1, "650 7" & ba$
+end if
+
+
+If quick.Miscellanious_legalsub=0 Then ca$ = " "
+If quick.Miscellanious_legalsub=1 Then ca$ = "No Police at Pride" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002386"
+If quick.Miscellanious_legalsub=2 Then ca$ = "Police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001119"
+If quick.Miscellanious_legalsub=3 Then ca$ = "Two-Spirit people in the military" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002718"
+If quick.Miscellanious_legalsub=4 Then ca$ = "Two-Spirit victims' rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002736"
+If quick.Miscellanious_legalsub=5 Then ca$ = "White supremacy in policing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002397"
+
+If ca$ = " " then
+else
+CS.AddField 1, "650 7" & ca$
+end if
+
+If quick.Police_interactionssub=0 Then da$ = " "
+If quick.Police_interactionssub=1 Then da$ = "Police interactions with LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002373"
+If quick.Police_interactionssub=2 Then da$ = "Arrests of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000068"
+If quick.Police_interactionssub=3 Then da$ = "Attitudes of LGBTQ+ people toward police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002394"
+If quick.Police_interactionssub=4 Then da$ = "Identification of LGBTQ+ people by police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002392"
+If quick.Police_interactionssub=5 Then da$ = "Digital identification of LGBTQ+ people by police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002393"
+If quick.Police_interactionssub=6 Then da$ = "Performative LGBTQ+ activism by police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002396"
+If quick.Police_interactionssub=7 Then da$ = "Police entrapment of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002374"
+If quick.Police_interactionssub=8 Then da$ = "Police harassment of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002375"
+If quick.Police_interactionssub=9 Then da$ = "Police harassment of Black LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002376"
+If quick.Police_interactionssub=10 Then da$ = "Police harassment of Indigenous LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002377"
+If quick.Police_interactionssub=11 Then da$ = "Police violence toward LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002378"
+If quick.Police_interactionssub=12 Then da$ = "Police raids on LGBTQ+-related establishments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002381"
+If quick.Police_interactionssub=13 Then da$ = "Police raids on LGBTQ+ bathhouses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002382"
+If quick.Police_interactionssub=14 Then da$ = "Police raids on LGBTQ+ meeting places" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002383"
+If quick.Police_interactionssub=15 Then da$ = "Police raids on LGBTQ+ bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002384"
+If quick.Police_interactionssub=16 Then da$ = "Police raids on LGBTQ+ nightclubs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002385"
+If quick.Police_interactionssub=17 Then da$ = "Shootings of LGBTQ+ people by police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002395"
+
+If da$ = " " then 
+else
+CS.AddField 1, "650 7" & da$ 
+end if
+
+Cancelled:   
+End Sub
+

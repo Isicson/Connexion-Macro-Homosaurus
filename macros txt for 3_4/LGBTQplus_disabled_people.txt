@@ -1,0 +1,145 @@
+'MacroName:LGBTQplus_disabled_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+''Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, updated 08/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_disabled_people$
+LGBTQplus_disabled_people$=" "+nd+ "LGBTQ+ disabled people"+nd+"  Asexual disabled people"+nd+"  Bisexual disabled people"+nd+"  Gay disabled people"+nd+"  Intersex disabled people" _
++nd+"  Lesbian disabled people"+nd+"  LGBTQ+ blind people"+nd+"    Asexual blind people"+nd+"    Bisexual blind people"+nd+"    Gay blind people" _
++nd+"    Intersex blind people"+nd+"    Lesbian blind people"+nd+"    Queer blind people"+nd+"    Transgender blind people"+nd+"  LGBTQ+ Deaf people" _
++nd+"    Asexual Deaf people"+nd+"    Bisexual Deaf people"+nd+"    Gay Deaf people"+nd+"    Intersex Deaf people"+nd+"    Lesbian Deaf people" _
++nd+"    Queer Deaf people"+nd+"    Transgender Deaf people"+nd+"  LGBTQ+ hard of hearing people"+nd+"    Asexual hard of hearing people"+nd+"    Bisexual hard of hearing people" _
++nd+"    Gay hard of hearing people"+nd+"    Lesbian hard of hearing people"+nd+"    Queer hard of hearing people"+nd+"    Transgender hard of hearing people"+nd+"  LGBTQ+ neurodivergent people" _
++nd+"    Asexual neurodivergent people"+nd+"    Bisexual neurodivergent people"+nd+"    Gay neurodivergent people"+nd+"    Intersex neurodivergent people"+nd+"    Lesbian neurodivergent people" _
++nd+"    LGBTQ+ autistic people"+nd+"        Asexual autistic people"+nd+"        Bisexual autistic people"+nd+"        Gay autistic people"+nd+"        Intersex autistic people" _
++nd+"        Lesbian autistic people"+nd+"        Non-binary autistic people"+nd+"        Queer autistic people"+nd+"        Transgender autistic people "+nd+"    Queer neurodivergent people" _
++nd+"    Transgender neurodivergent people"+nd+"    Two-Spirit neurodivergent people"+nd+"  LGBTQ+ wheelchair users"+nd+"    Asexual wheelchair users"+nd+"    Bisexual wheelchair users" _
++nd+"    Gay wheelchair users"+nd+"    Lesbian wheelchair users"+nd+"    Queer wheelchair users"+nd+"    Transgender wheelchair users"+nd+"  Non-binary disabled people" _
++nd+"  Queer disabled people"+nd+"  Transgender disabled people"+nd+"  Two-Spirit disabled people"+nd+"    Two-Spirit autistic people"+nd+"    Two-Spirit blind people" _
++nd+"    Two-Spirit Deaf people"+nd+"    Two-Spirit hard of hearing people"+nd+"    Two-Spirit people with chronic illnesses"+nd+"    Two-Spirit wheelchair users"
+
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ disabled people and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ disabled people"
+   DropListBox 14, 20, 150, 135, LGBTQplus_disabled_people$, .LGBTQplus_disabled_peoplesub
+  
+  
+Button 25,155,40,20, "I'm done",    .fin
+CancelButton 75,155,40,20
+Text  14, 180, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.4"
+Text  14, 190, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_disabled_peoplesub=0 Then aa$ = " "
+If quick.LGBTQplus_disabled_peoplesub=1 Then aa$ = "LGBTQ+ disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001854"
+If quick.LGBTQplus_disabled_peoplesub=2 Then aa$ = "Asexual disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002782"
+If quick.LGBTQplus_disabled_peoplesub=3 Then aa$ = "Bisexual disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001857"
+If quick.LGBTQplus_disabled_peoplesub=4 Then aa$ = "Gay disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001856"
+If quick.LGBTQplus_disabled_peoplesub=5 Then aa$ = "Intersex disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002929"
+If quick.LGBTQplus_disabled_peoplesub=6 Then aa$ = "Lesbian disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001855"
+If quick.LGBTQplus_disabled_peoplesub=7 Then aa$ = "LGBTQ+ blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000822"
+If quick.LGBTQplus_disabled_peoplesub=8 Then aa$ = "Asexual blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002783"
+If quick.LGBTQplus_disabled_peoplesub=9 Then aa$ = "Bisexual blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001874"
+If quick.LGBTQplus_disabled_peoplesub=10 Then aa$ = "Gay blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001873"
+If quick.LGBTQplus_disabled_peoplesub=11 Then aa$ = "Intersex blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002932"
+If quick.LGBTQplus_disabled_peoplesub=12 Then aa$ = "Lesbian blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001872"
+If quick.LGBTQplus_disabled_peoplesub=13 Then aa$ = "Queer blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001876"
+If quick.LGBTQplus_disabled_peoplesub=14 Then aa$ = "Transgender blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001875"
+If quick.LGBTQplus_disabled_peoplesub=15 Then aa$ = "LGBTQ+ Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001866"
+If quick.LGBTQplus_disabled_peoplesub=16 Then aa$ = "Asexual Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002784"
+If quick.LGBTQplus_disabled_peoplesub=17 Then aa$ = "Bisexual Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001869"
+If quick.LGBTQplus_disabled_peoplesub=18 Then aa$ = "Gay Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001868"
+If quick.LGBTQplus_disabled_peoplesub=19 Then aa$ = "Intersex Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002930"
+If quick.LGBTQplus_disabled_peoplesub=20 Then aa$ = "Lesbian Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001867"
+If quick.LGBTQplus_disabled_peoplesub=21 Then aa$ = "Queer Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001871"
+If quick.LGBTQplus_disabled_peoplesub=22 Then aa$ = "Transgender Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001870"
+If quick.LGBTQplus_disabled_peoplesub=23 Then aa$ = "LGBTQ+ hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001860"
+If quick.LGBTQplus_disabled_peoplesub=24 Then aa$ = "Asexual hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002785"
+If quick.LGBTQplus_disabled_peoplesub=25 Then aa$ = "Bisexual hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001863"
+If quick.LGBTQplus_disabled_peoplesub=26 Then aa$ = "Gay hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001862"
+If quick.LGBTQplus_disabled_peoplesub=27 Then aa$ = "Lesbian hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001861"
+If quick.LGBTQplus_disabled_peoplesub=28 Then aa$ = "Queer hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001865"
+If quick.LGBTQplus_disabled_peoplesub=29 Then aa$ = "Transgender hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001864"
+If quick.LGBTQplus_disabled_peoplesub=30 Then aa$ = "LGBTQ+ neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002658"
+If quick.LGBTQplus_disabled_peoplesub=31 Then aa$ = "Asexual neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002664"
+If quick.LGBTQplus_disabled_peoplesub=32 Then aa$ = "Bisexual neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002661"
+If quick.LGBTQplus_disabled_peoplesub=33 Then aa$ = "Gay neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002659"
+If quick.LGBTQplus_disabled_peoplesub=34 Then aa$ = "Intersex neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002665"
+If quick.LGBTQplus_disabled_peoplesub=35 Then aa$ = "Lesbian neurodivergent people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002660"
+If quick.LGBTQplus_disabled_peoplesub=36 Then aa$ = "LGBTQ+ autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002667"
+If quick.LGBTQplus_disabled_peoplesub=37 Then aa$ = "Asexual autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002675"
+If quick.LGBTQplus_disabled_peoplesub=38 Then aa$ = "Bisexual autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002670"
+If quick.LGBTQplus_disabled_peoplesub=39 Then aa$ = "Gay autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002669"
+If quick.LGBTQplus_disabled_peoplesub=40 Then aa$ = "Intersex autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002674"
+If quick.LGBTQplus_disabled_peoplesub=41 Then aa$ = "Lesbian autistic people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002668"
+If quick.LGBTQplus_disabled_peoplesub=42 Then aa$ = "Non-binary autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002673"
+If quick.LGBTQplus_disabled_peoplesub=43 Then aa$ = "Queer autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002672"
+If quick.LGBTQplus_disabled_peoplesub=44 Then aa$ = "Transgender autistic people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002671"
+If quick.LGBTQplus_disabled_peoplesub=45 Then aa$ = "Queer neurodivergent people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002663"
+If quick.LGBTQplus_disabled_peoplesub=46 Then aa$ = "Transgender neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002662"
+If quick.LGBTQplus_disabled_peoplesub=47 Then aa$ = "Two-Spirit neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002666"
+If quick.LGBTQplus_disabled_peoplesub=48 Then aa$ = "LGBTQ+ wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001877"
+If quick.LGBTQplus_disabled_peoplesub=49 Then aa$ = "Asexual wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002787"
+If quick.LGBTQplus_disabled_peoplesub=50 Then aa$ = "Bisexual wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001888"
+If quick.LGBTQplus_disabled_peoplesub=51 Then aa$ = "Gay wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001887"
+If quick.LGBTQplus_disabled_peoplesub=52 Then aa$ = "Lesbian wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001886"
+If quick.LGBTQplus_disabled_peoplesub=53 Then aa$ = "Queer wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001890"
+If quick.LGBTQplus_disabled_peoplesub=54 Then aa$ = "Transgender wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001889"
+If quick.LGBTQplus_disabled_peoplesub=55 Then aa$ = "Non-binary disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002652"
+If quick.LGBTQplus_disabled_peoplesub=56 Then aa$ = "Queer disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001859"
+If quick.LGBTQplus_disabled_peoplesub=57 Then aa$ = "Transgender disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001858"
+If quick.LGBTQplus_disabled_peoplesub=58 Then aa$ = "Two-Spirit disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002682"
+If quick.LGBTQplus_disabled_peoplesub=59 Then aa$ = "Two-Spirit autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002676"
+If quick.LGBTQplus_disabled_peoplesub=60 Then aa$ = "Two-Spirit blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002683"
+If quick.LGBTQplus_disabled_peoplesub=61 Then aa$ = "Two-Spirit Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002684"
+If quick.LGBTQplus_disabled_peoplesub=62 Then aa$ = "Two-Spirit hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002693"
+If quick.LGBTQplus_disabled_peoplesub=63 Then aa$ = "Two-Spirit people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002694"
+If quick.LGBTQplus_disabled_peoplesub=64 Then aa$ = "Two-Spirit wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002695"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

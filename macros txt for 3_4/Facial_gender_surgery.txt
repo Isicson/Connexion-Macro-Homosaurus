@@ -1,0 +1,68 @@
+'MacroName:Facial_gender_surgery
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Facial_gender_surgery$
+Facial_gender_surgery$=" "+nd+ "Facial gender affirming surgery"+nd+"Facial feminization surgery"+nd+"  Tracheal shave"+nd+"Facial masculinization surgery"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 250, 130, "Facial gender affirming surgery and Narrower Terms"
+
+Text 14,7,100,14, "Facial gender affirming surgery"
+   DropListBox 14, 20, 175, 135, Facial_gender_surgery$, .Facial_gender_surgerysub
+  
+Button 25,78,40,20, "I'm done",    .fin
+CancelButton 75,78,40,20
+
+Text  14, 105, 210, 8, "Based on Homosaurus v. 3.3 (Rev. 1/23)"
+Text  14, 113, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Facial_gender_surgerysub=0 Then aa$ = " "
+If quick.Facial_gender_surgerysub=1 Then aa$ = "Facial gender affirming surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001837"
+If quick.Facial_gender_surgerysub=2 Then aa$ = "Facial feminization surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001839"
+If quick.Facial_gender_surgerysub=3 Then aa$ = "Tracheal shave" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001849"
+If quick.Facial_gender_surgerysub=4 Then aa$ = "Facial masculinization surgery" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001838"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

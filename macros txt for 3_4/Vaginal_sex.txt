@@ -1,0 +1,72 @@
+'MacroName:Vaginal_sex
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Vaginal_sex$
+Vaginal_sex$=" "+nd+ "Vaginal sex"+nd+"  Fingering"+nd+"  Fisting"+nd+"    Vaginal fisting"+nd+"  Fucking" _
++nd+"  Vaginal fisting"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "Vaginal sex and Narrower Terms"
+
+Text 14,7,100,14, "Vaginal sex"
+   DropListBox 14, 20, 130, 135, Vaginal_sex$, .Vaginal_sexsub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Vaginal_sexsub=0 Then aa$ = " "
+If quick.Vaginal_sexsub=1 Then aa$ = "Vaginal sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001487"
+If quick.Vaginal_sexsub=2 Then aa$ = "Fingering" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000446"
+If quick.Vaginal_sexsub=3 Then aa$ = "Fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000445"
+If quick.Vaginal_sexsub=4 Then aa$ = "Vaginal fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001486"
+If quick.Vaginal_sexsub=5 Then aa$ = "Fucking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000459"
+If quick.Vaginal_sexsub=6 Then aa$ = "Vaginal fisting" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001486"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

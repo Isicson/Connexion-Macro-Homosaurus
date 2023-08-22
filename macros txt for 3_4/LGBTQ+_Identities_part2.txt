@@ -1,0 +1,495 @@
+'MacroName:LGBTQ+_Identities_part2
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+dim la$
+la$ = " "
+dim yn$
+yn$ = " "
+dim xn$
+xn$ = " "
+dim un$
+un$ = " "
+dim mn$
+mn$ = " " 
+dim sn$
+sn$ = " "
+dim dn$
+dn$ = " "
+dim ln$
+ln$ = " "
+dim hn$
+hn$ = " "
+dim vn$
+vn$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+
+
+dim Sexual_identity$
+Sexual_identity$=" "+nd+ "Sexual identity"+nd+"  Bears (Gay culture) [Slang]"+nd+"      Cubs (Gay culture) [Slang]"+nd+"  Bisexual identity"+nd+"  Bottoms (Sex) [Slang]" _
++nd+"  Butches"+nd+"  Chubs (Gay culture) [Slang]"+nd+"  Demisexual people"+nd+"  Femmes"+nd+"  Gay identity" _
++nd+"  Heterosexual identity"+nd+"  Lesbian identity"+nd+"  LGBTQ+ dominatrices"+nd+"    Bisexual dominatrices"+nd+"      Lesbian dominatrices" _
++nd+"      Queer dominatrices"+nd+"      Transgender dominatrices"+nd+"    LGBTQ+ masters (BDSM culture)"+nd+"    Bisexual masters"+nd+"      Gay masters" _
++nd+"      Queer masters"+nd+"      Transgender masters"+nd+"    LGBTQ+ mistresses (BDSM culture)"+nd+"    Bisexual mistresses"+nd+"      Lesbian mistresses" _
++nd+"      Queer mistresses"+nd+"      Transgender mistresses"+nd+"    Megasexuality"+nd+"  Otters (Gay culture) [Slang]"+nd+"  Pansexuality" _
++nd+"  Polysexuality"+nd+"    Bisexuality"+nd+"      Pansexuality"+nd+"    Pups (Roleplay)"+nd+"  Queer identity" _
++nd+"  Same-gender-loving"+nd+"  Sapphic identity [Self-identify only]"+nd+"  Slaves (BDSM culture)"+nd+"  Soft butches"+nd+"  Stone butches" _
++nd+"  Studs"+nd+"  Switches (Sex) [Slang]"+nd+"  Tops (Sex) [Slang]"+nd+"    LGBTQ+ dominatrices"+nd+"      LGBTQ+ masters (BDSM culture)" _
++nd+"      LGBTQ+ mistresses (BDSM culture)"+nd+"    Twinks (Gay culture) [Slang]"+nd+"  Vers (Sex) [Slang]"+nd+"  Wolves (Gay culture) [Slang]"+nd+"    Cubs (Gay culture) [Slang]" _
++nd+"      Pups (Roleplay)"
+
+dim Relationship_orientation$
+Relationship_orientation$=" "+nd+ "Relationship orientation"+nd+"  Monogamy"+nd+"  Non-monogamy"+nd+"    Consensual non-monogamy"+nd+"      DADT relationships" _
++nd+"      Polyamory"+nd+"        Hierarchical non-monogamy"+nd+"        Metamours"+nd+"        Paramours"+nd+"      Relationship anarchists" _
++nd+"      Relationship anarchy"+nd+"      Swinging"+nd+"    Hierarchical non-monogamy"+nd+"      Monogamish"+nd+"      Swinging" _
++nd+"    Non-consensual non-monogamy"
+
+dim Diversity$
+Diversity$=" "+nd+ "Diversity"+nd+"  Gender diversity"+nd+"  Sexual diversity"+nd+"    Polysexuality"+nd+"      Bisexuality" _
++nd+"      Pansexuality"
+
+dim Role_behaviour$
+Role_behaviour$=" "+nd+ "Role behaviour"+nd+"  Gender roles"+nd+"    Bears (Gay culture) [slang]"+nd+"      Cubs (Gay culture) [slang]"+nd+"    Butches" _
++nd+"    Dandies"+nd+"    Femmes"+nd+"    Gender role stereotypes"+nd+"    Machismo"+nd+"    Otters (Gay culture) [slang]" _
++nd+"    Studs"+nd+"    Tomboys"+nd+"    Twinks (Gay culture) [slang]"+nd+"    Wolves (Gay culture) [slang]"+nd+"      Cubs (Gay culture) [slang]" _
++nd+"      Pups (Roleplay)"+nd+"  Sexual roles"+nd+"    Bottoms (Sex) [slang]"+nd+"    Butches"+nd+"    Femmes" _
++nd+"    Leather daddies"+nd+"    Leather mommies"+nd+"    LGBTQ+ dominatrices"+nd+"      Bisexual dominatrices"+nd+"      Lesbian dominatrices" _
++nd+"      Queer dominatrices"+nd+"      Transgender dominatrices"+nd+"    LGBTQ+ masters (BDSM culture)"+nd+"      Bisexual masters"+nd+"      Gay masters" _
++nd+"      Queer masters"+nd+"      Transgender masters"+nd+"    LGBTQ+ mistresses (BDSM culture)"+nd+"      Bisexual mistresses"+nd+"      Lesbian mistresses" _
++nd+"      Queer mistresses"+nd+"      Transgender mistresses"+nd+"    Rubbermen"+nd+"    Rubberwomen"+nd+"    Slaves (BDSM culture)" _
++nd+"    Studs"+nd+"    Switches (Sex) [slang]"+nd+"    Tops (Sex) [slang]"+nd+"      LGBTQ+ dominatrices"+nd+"      LGBTQ+ masters (BDSM culture)" _
++nd+"      LGBTQ+ mistresses (BDSM culture)"+nd+"    Vers (Sex) [slang]"
+
+
+dim LGBTQ_authors$
+LGBTQ_authors$=" "+nd+ "LGBTQ+ authors"+nd+"  Aromantic authors"+nd+"  Asexual authors"+nd+"  Bisexual authors"+nd+"  Demisexual authors" _
++nd+"  Gay authors"+nd+"  Greyromantic authors"+nd+"  Intersex authors"+nd+"  Lesbian authors"+nd+"  Megasexual authors" _
++nd+"  Queer authors"+nd+"  Transgender authors"+nd+"  Two-Spirit authors"
+
+dim LGBTQ_parenthood$
+LGBTQ_parenthood$=" "+nd+ "LGBTQ+ parenthood"+nd+"  Adoptive parenthood"+nd+"  Biological parenthood"+nd+"    Genetic parenthood"+nd+"    Gestational parenthood" _
++nd+"      Birth parents"+nd+"        LGBTQ+ birth parents"+nd+"      Surrogacy"+nd+"        Gestational surrogacy"+nd+"  LGBTQ+ adoptive parenthood" _
++nd+"  LGBTQ+ adoptive parents"+nd+"  LGBTQ+ co-parenthood"+nd+"  LGBTQ+ fatherhood"+nd+"  LGBTQ+ foster parenthood"+nd+"  LGBTQ+ motherhood" _
++nd+"  LGBTQ+ social parenthood"
+
+dim LGBTQ_sex_workers$
+LGBTQ_sex_workers$=" "+nd+ "LGBTQ+ sex workers"+nd+"  Bisexual prostitutes"+nd+"  Escorts"+nd+"  Female prostitutes"+nd+"  Gay prostitutes" _
++nd+"  Lesbian prostitutes"+nd+"  Male prostitutes"+nd+"  Phone sex workers"+nd+"  Porn stars"+nd+"  Queer prostitutes" _
++nd+"  Strippers"+nd+"  Transgender prostitutes"
+
+dim LGBTQ_religious_people$
+LGBTQ_religious_people$=" "+nd+ "LGBTQ+ religious people"+nd+"  Jewish LGBTQ+ people"+nd+"    Jewish asexual people"+nd+"    Jewish bisexual people"+nd+"    Jewish gay men" _
++nd+"    Jewish intersex people"+nd+"    Jewish lesbians"+nd+"    Jewish queer people"+nd+"    Jewish transgender people"+nd+"  LGBTQ+ Buddhists" _
++nd+"    Bisexual Buddhists"+nd+"    Gay Buddhists"+nd+"    Lesbian Buddhists"+nd+"    Queer Buddhists"+nd+"    Transgender Buddhists" _
++nd+"  LGBTQ+ Christians"+nd+"    Bisexual Christians"+nd+"    Gay Christians"+nd+"    Lesbian Christians"+nd+"    LGBTQ+ Eastern Orthodox Christians" _
++nd+"    LGBTQ+ Jehovah's Witnesses"+nd+"    LGBTQ+ Mormons"+nd+"    LGBTQ+ Old Catholics"+nd+"    LGBTQ+ Protestants"+nd+"      Bisexual Protestants" _
++nd+"      Gay Protestants"+nd+"      Lesbian Protestants"+nd+"      LGBTQ+ Anglicans"+nd+"      LGBTQ+ Baptists"+nd+"      LGBTQ+ Calvinists" _
++nd+"      LGBTQ+ Quakers"+nd+"      Queer Protestants"+nd+"      Transgender Protestants"+nd+"    LGBTQ+ Roman Catholics"+nd+"      Bisexual Roman Catholics" _
++nd+"      Gay Roman Catholics"+nd+"      Lesbian Roman Catholics"+nd+"      Queer Roman Catholics"+nd+"      Transgender Roman Catholics"+nd+"    Queer Christians" _
++nd+"    Transgender Christians"+nd+"  LGBTQ+ Confucianists"+nd+"  LGBTQ+ Hindus"+nd+"  LGBTQ+ Muslims"+nd+"    Bisexual Muslims" _
++nd+"    Gay Muslims"+nd+"    Lesbian Muslims"+nd+"    Queer Muslims"+nd+"    Transgender Muslims"+nd+"  LGBTQ+ Pagans" _
++nd+"    Bisexual Pagans"+nd+"    Gay Pagans"+nd+"    Lesbian Pagans"+nd+"    LGBTQ+ witches"+nd+"      Bisexual witches" _
++nd+"      Gay witches"+nd+"      Intersex witches"+nd+"      Lesbian witches"+nd+"      Queer witches"+nd+"      Transgender witches" _
++nd+"    Queer Pagans"+nd+"    Transgender Pagans"+nd+"  LGBTQ+ shamans"+nd+"  LGBTQ+ Shintoists"+nd+"  LGBTQ+ Taoists"
+
+
+dim LGBTQ_clergy$
+LGBTQ_clergy$=" "+nd+ "LGBTQ+ clergy"+nd+"  Bisexual clergy"+nd+"  Gay clergy"+nd+"    Gay priests"+nd+"  Lesbian clergy" _
++nd+"  Queer clergy"+nd+"  Transgender clergy"
+
+dim LGBTQ_choruses$
+LGBTQ_choruses$=" "+nd+ "LGBTQ+ choruses"+nd+"  Gay choruses"+nd+"  Lesbian choruses"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 300, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,120,14, "Sexual identity"
+   DropListBox 14, 20, 130, 200, Sexual_identity$, .Sexual_identitysub
+Text 200,7,200,14, "Relationship orientation"
+   DropListBox 200, 20, 130, 135, Relationship_orientation$, .Relationship_orientationsub
+
+Text 14,45,200,12, "Diversity"
+   DropListBox 14, 58, 130, 135, Diversity$, .Diversitysub
+Text 200,45,80,14, "*Role behaviour"
+   DropListBox 200, 58, 150, 135, Role_behaviour$, .Role_behavioursub
+
+Text 14,83,90,14, "*LGBTQ+ authors"
+   DropListBox 14, 96, 130, 135, LGBTQ_authors$, .LGBTQ_authorssub
+Text 200,83,80,14, "LGBTQ+ parenthood"
+   DropListBox 200, 96, 130, 135, LGBTQ_parenthood$, .LGBTQ_parenthoodsub
+
+Text 14,121,95,130, "LGBTQ+ sex workers"
+   DropListBox 14,135,130,130, LGBTQ_sex_workers$, .LGBTQ_sex_workerssub
+Text 200,121,90,14, "*LGBTQ+ religious people"
+   DropListBox 200, 135, 150, 135, LGBTQ_religious_people$, .LGBTQ_religious_peoplesub
+
+Text 14,159,95,130, "LGBTQ+ clergy"
+   DropListBox 14,172,130,130, LGBTQ_clergy$, .LGBTQ_clergysub
+Text 200,159,80,14, "LGBTQ+ choruses"
+   DropListBox 200, 172, 130, 135, LGBTQ_choruses$, .LGBTQ_chorusessub
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 197, 200, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 210, 200, 10, "See LGBTQ+ identity groups, page 1", .OptionButton2
+      OptionButton  14, 223, 200, 10, "See LGBTQ+ identity groups, page 3", .OptionButton3
+   
+Button 120,250,40,20, "I'm done",    .fin
+CancelButton 180,250,40,20
+
+Text  14, 280, 200, 8, "Based on Homosaurus v. 3.2 (Revised for v.3.3 -- 1/23)"
+Text  14, 290, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+
+If quick.Sexual_identitysub=0 Then la$ = " "
+If quick.Sexual_identitysub=1 Then la$ = "Sexual identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001295"
+If quick.Sexual_identitysub=2 Then la$ = "Bears (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000105"
+If quick.Sexual_identitysub=3 Then la$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Sexual_identitysub=4 Then la$ = "Bisexual identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000153"
+If quick.Sexual_identitysub=5 Then la$ = "Bottoms (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000219"
+If quick.Sexual_identitysub=6 Then la$ = "Butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000231"
+If quick.Sexual_identitysub=7 Then la$ = "Chubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000267"
+If quick.Sexual_identitysub=8 Then la$ = "Demisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000344"
+If quick.Sexual_identitysub=9 Then la$ = "Femmes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000440"
+If quick.Sexual_identitysub=10 Then la$ = "Gay identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000496"
+If quick.Sexual_identitysub=11 Then la$ = "Heterosexual identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000624"
+If quick.Sexual_identitysub=12 Then la$ = "Lesbian identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000744"
+If quick.Sexual_identitysub=13 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Sexual_identitysub=14 Then la$ = "Bisexual dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000148"
+If quick.Sexual_identitysub=15 Then la$ = "Lesbian dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000738"
+If quick.Sexual_identitysub=16 Then la$ = "Queer dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001175"
+If quick.Sexual_identitysub=17 Then la$ = "Transgender dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001410"
+If quick.Sexual_identitysub=18 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Sexual_identitysub=19 Then la$ = "Bisexual masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000159"
+If quick.Sexual_identitysub=20 Then la$ = "Gay masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000505"
+If quick.Sexual_identitysub=21 Then la$ = "Queer masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001184"
+If quick.Sexual_identitysub=22 Then la$ = "Transgender masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001420"
+If quick.Sexual_identitysub=23 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Sexual_identitysub=24 Then la$ = "Bisexual mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000161"
+If quick.Sexual_identitysub=25 Then la$ = "Lesbian mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000751"
+If quick.Sexual_identitysub=26 Then la$ = "Queer mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001186"
+If quick.Sexual_identitysub=27 Then la$ = "Transgender mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001421"
+If quick.Sexual_identitysub=28 Then la$ = "Megasexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001632"
+If quick.Sexual_identitysub=29 Then la$ = "Otters (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001063"
+If quick.Sexual_identitysub=30 Then la$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+If quick.Sexual_identitysub=31 Then la$ = "Polysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001558"
+If quick.Sexual_identitysub=32 Then la$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
+If quick.Sexual_identitysub=33 Then la$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+If quick.Sexual_identitysub=34 Then la$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Sexual_identitysub=35 Then la$ = "Queer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001178"
+If quick.Sexual_identitysub=36 Then la$ = "Same-gender-loving" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001254"
+If quick.Sexual_identitysub=37 Then la$ = "Sapphic identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002276"
+If quick.Sexual_identitysub=38 Then la$ = "Slaves (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
+If quick.Sexual_identitysub=39 Then la$ = "Soft butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001327"
+If quick.Sexual_identitysub=40 Then la$ = "Stone butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001340"
+If quick.Sexual_identitysub=41 Then la$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
+If quick.Sexual_identitysub=42 Then la$ = "Switches (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001353"
+If quick.Sexual_identitysub=43 Then la$ = "Tops (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001376"
+If quick.Sexual_identitysub=44 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Sexual_identitysub=45 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Sexual_identitysub=46 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Sexual_identitysub=47 Then la$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
+If quick.Sexual_identitysub=48 Then la$ = "Vers (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001779"
+If quick.Sexual_identitysub=49 Then la$ = "Wolves (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001508"
+If quick.Sexual_identitysub=50 Then la$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Sexual_identitysub=51 Then la$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+
+If la$ = " " then
+else 
+CS.AddField 1, "650 7" & la$
+end if
+
+If quick.Relationship_orientationsub=0 Then yn$ = " "
+If quick.Relationship_orientationsub=1 Then yn$ = "Relationship orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001636"
+If quick.Relationship_orientationsub=2 Then yn$ = "Monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001019"
+If quick.Relationship_orientationsub=3 Then yn$ = "Non-monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001659"
+If quick.Relationship_orientationsub=4 Then yn$ = "Consensual non-monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001651"
+If quick.Relationship_orientationsub=5 Then yn$ = "DADT relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001625"
+If quick.Relationship_orientationsub=6 Then yn$ = "Polyamory" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001123"
+If quick.Relationship_orientationsub=7 Then yn$ = "Hierarchical non-monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001629"
+If quick.Relationship_orientationsub=8 Then yn$ = "Metamours" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001554"
+If quick.Relationship_orientationsub=9 Then yn$ = "Paramours" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001662"
+If quick.Relationship_orientationsub=10 Then yn$ = "Relationship anarchists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001665"
+If quick.Relationship_orientationsub=11 Then yn$ = "Relationship anarchy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001666"
+If quick.Relationship_orientationsub=12 Then yn$ = "Swinging" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001641"
+If quick.Relationship_orientationsub=13 Then yn$ = "Hierarchical non-monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001629"
+If quick.Relationship_orientationsub=14 Then yn$ = "Monogamish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001656"
+If quick.Relationship_orientationsub=15 Then yn$ = "Swinging" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001641"
+If quick.Relationship_orientationsub=16 Then yn$ = "Non-consensual non-monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001658"
+
+If yn$ = " " then
+else 
+CS.AddField 1, "650 7" & yn$ 
+end if
+
+
+'****************************************************************************************
+
+If quick.Diversitysub=0 Then xn$ = " "
+If quick.Diversitysub=1 Then xn$ = "Diversity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000358"
+If quick.Diversitysub=2 Then xn$ = "Gender diversity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000566"
+If quick.Diversitysub=3 Then xn$ = "Sexual diversity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001290"
+If quick.Diversitysub=4 Then xn$ = "Polysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001558"
+If quick.Diversitysub=5 Then xn$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
+If quick.Diversitysub=6 Then xn$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+
+
+If xn$ = " " then
+else 
+CS.AddField 1, "650 7" & xn$ 
+end if
+
+If quick.Role_behavioursub=0 Then un$ = " "
+If quick.Role_behavioursub=1 Then qn$ = "Role behaviour" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001241"
+If quick.Role_behavioursub=2 Then qn$ = "Gender roles" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000577"
+If quick.Role_behavioursub=3 Then qn$ = "Bears (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000105"
+If quick.Role_behavioursub=4 Then qn$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Role_behavioursub=5 Then qn$ = "Butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000231"
+If quick.Role_behavioursub=6 Then qn$ = "Dandies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000326"
+If quick.Role_behavioursub=7 Then qn$ = "Femmes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000440"
+If quick.Role_behavioursub=8 Then qn$ = "Gender role stereotypes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002589"
+If quick.Role_behavioursub=9 Then qn$ = "Machismo" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000655"
+If quick.Role_behavioursub=10 Then qn$ = "Otters (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001063"
+If quick.Role_behavioursub=11 Then qn$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
+If quick.Role_behavioursub=12 Then qn$ = "Tomboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001374"
+If quick.Role_behavioursub=13 Then qn$ = "Twinks (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001479"
+If quick.Role_behavioursub=14 Then qn$ = "Wolves (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001508"
+If quick.Role_behavioursub=15 Then qn$ = "Cubs (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000321"
+If quick.Role_behavioursub=16 Then qn$ = "Pups (Roleplay)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001145"
+If quick.Role_behavioursub=17 Then qn$ = "Sexual roles" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001304"
+If quick.Role_behavioursub=18 Then qn$ = "Bottoms (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000219"
+If quick.Role_behavioursub=19 Then qn$ = "Butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000231"
+If quick.Role_behavioursub=20 Then qn$ = "Femmes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000440"
+If quick.Role_behavioursub=21 Then qn$ = "Leather daddies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000706"
+If quick.Role_behavioursub=22 Then qn$ = "Leather mommies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000708"
+If quick.Role_behavioursub=23 Then qn$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Role_behavioursub=24 Then qn$ = "Bisexual dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000148"
+If quick.Role_behavioursub=25 Then qn$ = "Lesbian dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000738"
+If quick.Role_behavioursub=26 Then qn$ = "Queer dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001175"
+If quick.Role_behavioursub=27 Then qn$ = "Transgender dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001410"
+If quick.Role_behavioursub=28 Then qn$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Role_behavioursub=29 Then qn$ = "Bisexual masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000159"
+If quick.Role_behavioursub=30 Then qn$ = "Gay masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000505"
+If quick.Role_behavioursub=31 Then qn$ = "Queer masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001184"
+If quick.Role_behavioursub=32 Then qn$ = "Transgender masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001420"
+If quick.Role_behavioursub=33 Then qn$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Role_behavioursub=34 Then qn$ = "Bisexual mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000161"
+If quick.Role_behavioursub=35 Then qn$ = "Lesbian mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000751"
+If quick.Role_behavioursub=36 Then qn$ = "Queer mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001186"
+If quick.Role_behavioursub=37 Then qn$ = "Transgender mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001421"
+If quick.Role_behavioursub=38 Then qn$ = "Rubbermen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001248"
+If quick.Role_behavioursub=39 Then qn$ = "Rubberwomen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001249"
+If quick.Role_behavioursub=40 Then qn$ = "Slaves (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
+If quick.Role_behavioursub=41 Then qn$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
+If quick.Role_behavioursub=42 Then qn$ = "Switches (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001353"
+If quick.Role_behavioursub=43 Then qn$ = "Tops (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001376"
+If quick.Role_behavioursub=44 Then qn$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Role_behavioursub=45 Then qn$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Role_behavioursub=46 Then qn$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Role_behavioursub=47 Then qn$ = "Vers (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001779" 
+
+If un$ = " " then
+else 
+CS.AddField 1, "650 7" & un$ 
+end if
+
+'****************************************************************************************
+
+If quick.LGBTQ_authorssub=0 Then mn$ = " "
+If quick.LGBTQ_authorssub=1 Then mn$ = "LGBTQ+ authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001723"
+If quick.LGBTQ_authorssub=2 Then mn$ = "Aromantic authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001748"
+If quick.LGBTQ_authorssub=3 Then mn$ = "Asexual authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001747"
+If quick.LGBTQ_authorssub=4 Then mn$ = "Bisexual authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001726"
+If quick.LGBTQ_authorssub=5 Then mn$ = "Demisexual authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002487"
+If quick.LGBTQ_authorssub=6 Then mn$ = "Gay authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001725"
+If quick.LGBTQ_authorssub=7 Then mn$ = "Greyromantic authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002534"
+If quick.LGBTQ_authorssub=8 Then mn$ = "Intersex authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001749"
+If quick.LGBTQ_authorssub=9 Then mn$ = "Lesbian authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001724"
+If quick.LGBTQ_authorssub=10 Then mn$ = "Megasexual authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002505"
+If quick.LGBTQ_authorssub=11 Then mn$ = "Queer authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001728"
+If quick.LGBTQ_authorssub=12 Then mn$ = "Transgender authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001727"
+If quick.LGBTQ_authorssub=13 Then mn$ = "Two-Spirit authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001750"
+
+If mn$ = " " then
+else
+CS.AddField 1, "650 7" & mn$
+end if
+
+If quick.LGBTQ_parenthoodsub=0 Then sn$ = " "
+If quick.LGBTQ_parenthoodsub=1 Then sn$ = "LGBTQ+ parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000914"
+If quick.LGBTQ_parenthoodsub=2 Then sn$ = "Adoptive parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000009"
+If quick.LGBTQ_parenthoodsub=3 Then sn$ = "Biological parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000116"
+If quick.LGBTQ_parenthoodsub=4 Then sn$ = "Genetic parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000583"
+If quick.LGBTQ_parenthoodsub=5 Then sn$ = "Gestational parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000587"
+If quick.LGBTQ_parenthoodsub=6 Then sn$ = "Birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000121"
+If quick.LGBTQ_parenthoodsub=7 Then sn$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.LGBTQ_parenthoodsub=8 Then sn$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
+If quick.LGBTQ_parenthoodsub=9 Then sn$ = "Gestational surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002627"
+If quick.LGBTQ_parenthoodsub=10 Then sn$ = "LGBTQ+ adoptive parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000811"
+If quick.LGBTQ_parenthoodsub=11 Then sn$ = "LGBTQ+ adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000812"
+If quick.LGBTQ_parenthoodsub=12 Then sn$ = "LGBTQ+ co-parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000839"
+If quick.LGBTQ_parenthoodsub=13 Then sn$ = "LGBTQ+ fatherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000866"
+If quick.LGBTQ_parenthoodsub=14 Then sn$ = "LGBTQ+ foster parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000871"
+If quick.LGBTQ_parenthoodsub=15 Then sn$ = "LGBTQ+ motherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000905"
+If quick.LGBTQ_parenthoodsub=16 Then sn$ = "LGBTQ+ social parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000945"
+
+If sn$ = " " then
+else
+CS.AddField 1, "650 7" & sn$
+end if
+
+'****************************************************************************************
+
+If quick.LGBTQ_sex_workerssub=0 Then dn$ = " "
+If quick.LGBTQ_sex_workerssub=1 Then dn$ = "LGBTQ+ sex workers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001277"
+If quick.LGBTQ_sex_workerssub=2 Then dn$ = "Bisexual prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000178"
+If quick.LGBTQ_sex_workerssub=3 Then dn$ = "Escorts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000406"
+If quick.LGBTQ_sex_workerssub=4 Then dn$ = "Female prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000433"
+If quick.LGBTQ_sex_workerssub=5 Then dn$ = "Gay prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000525"
+If quick.LGBTQ_sex_workerssub=6 Then dn$ = "Lesbian prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000768"
+If quick.LGBTQ_sex_workerssub=7 Then dn$ = "Male prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000236"
+If quick.LGBTQ_sex_workerssub=8 Then dn$ = "Phone sex workers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001111"
+If quick.LGBTQ_sex_workerssub=9 Then dn$ = "Porn stars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001127"
+If quick.LGBTQ_sex_workerssub=10 Then dn$ = "Queer prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001201"
+If quick.LGBTQ_sex_workerssub=11 Then dn$ = "Strippers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001343"
+If quick.LGBTQ_sex_workerssub=12 Then dn$ = "Transgender prostitutes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001437"
+If dn$ = " " then
+else
+CS.AddField 1, "650 7" & dn$
+end if
+
+If quick.LGBTQ_religious_peoplesub=0 Then ln$ = " "
+If quick.LGBTQ_religious_peoplesub=1 Then ln$ = "LGBTQ+ religious people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000928"
+If quick.LGBTQ_religious_peoplesub=2 Then ln$ = "Jewish LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000682"
+If quick.LGBTQ_religious_peoplesub=3 Then ln$ = "Jewish asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002908"
+If quick.LGBTQ_religious_peoplesub=4 Then ln$ = "Jewish bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000154"
+If quick.LGBTQ_religious_peoplesub=5 Then ln$ = "Jewish gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000497"
+If quick.LGBTQ_religious_peoplesub=6 Then ln$ = "Jewish intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002767"
+If quick.LGBTQ_religious_peoplesub=7 Then ln$ = "Jewish lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000745"
+If quick.LGBTQ_religious_peoplesub=8 Then ln$ = "Jewish queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001180"
+If quick.LGBTQ_religious_peoplesub=9 Then ln$ = "Jewish transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001416"
+If quick.LGBTQ_religious_peoplesub=10 Then ln$ = "LGBTQ+ Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000225"
+If quick.LGBTQ_religious_peoplesub=11 Then ln$ = "Bisexual Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000138"
+If quick.LGBTQ_religious_peoplesub=12 Then ln$ = "Gay Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000480"
+If quick.LGBTQ_religious_peoplesub=13 Then ln$ = "Lesbian Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000728"
+If quick.LGBTQ_religious_peoplesub=14 Then ln$ = "Queer Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001165"
+If quick.LGBTQ_religious_peoplesub=15 Then ln$ = "Transgender Buddhists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001398"
+If quick.LGBTQ_religious_peoplesub=16 Then ln$ = "LGBTQ+ Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000265"
+If quick.LGBTQ_religious_peoplesub=17 Then ln$ = "Bisexual Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000141"
+If quick.LGBTQ_religious_peoplesub=18 Then ln$ = "Gay Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000483"
+If quick.LGBTQ_religious_peoplesub=19 Then ln$ = "Lesbian Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000731"
+If quick.LGBTQ_religious_peoplesub=20 Then ln$ = "LGBTQ+ Eastern Orthodox Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000386"
+If quick.LGBTQ_religious_peoplesub=21 Then ln$ = "LGBTQ+ Jehovah's Witnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000680"
+If quick.LGBTQ_religious_peoplesub=22 Then ln$ = "LGBTQ+ Mormons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000904"
+If quick.LGBTQ_religious_peoplesub=23 Then ln$ = "LGBTQ+ Old Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000912"
+If quick.LGBTQ_religious_peoplesub=24 Then ln$ = "LGBTQ+ Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001137"
+If quick.LGBTQ_religious_peoplesub=25 Then ln$ = "Bisexual Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000179"
+If quick.LGBTQ_religious_peoplesub=26 Then ln$ = "Gay Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000526"
+If quick.LGBTQ_religious_peoplesub=27 Then ln$ = "Lesbian Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000770"
+If quick.LGBTQ_religious_peoplesub=28 Then ln$ = "LGBTQ+ Anglicans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000048"
+If quick.LGBTQ_religious_peoplesub=29 Then ln$ = "LGBTQ+ Baptists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000097"
+If quick.LGBTQ_religious_peoplesub=30 Then ln$ = "LGBTQ+ Calvinists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000237"
+If quick.LGBTQ_religious_peoplesub=31 Then ln$ = "LGBTQ+ Quakers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000926"
+If quick.LGBTQ_religious_peoplesub=32 Then ln$ = "Queer Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001202"
+If quick.LGBTQ_religious_peoplesub=33 Then ln$ = "Transgender Protestants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001439"
+If quick.LGBTQ_religious_peoplesub=34 Then ln$ = "LGBTQ+ Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001244"
+If quick.LGBTQ_religious_peoplesub=35 Then ln$ = "Bisexual Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000184"
+If quick.LGBTQ_religious_peoplesub=36 Then ln$ = "Gay Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000532"
+If quick.LGBTQ_religious_peoplesub=37 Then ln$ = "Lesbian Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000776"
+If quick.LGBTQ_religious_peoplesub=38 Then ln$ = "Queer Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001207"
+If quick.LGBTQ_religious_peoplesub=39 Then ln$ = "Transgender Roman Catholics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001444"
+If quick.LGBTQ_religious_peoplesub=40 Then ln$ = "Queer Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001168"
+If quick.LGBTQ_religious_peoplesub=41 Then ln$ = "Transgender Christians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001401"
+If quick.LGBTQ_religious_peoplesub=42 Then ln$ = "LGBTQ+ Confucianists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000300"
+If quick.LGBTQ_religious_peoplesub=43 Then ln$ = "LGBTQ+ Hindus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000633"
+If quick.LGBTQ_religious_peoplesub=44 Then ln$ = "LGBTQ+ Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001032"
+If quick.LGBTQ_religious_peoplesub=45 Then ln$ = "Bisexual Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000164"
+If quick.LGBTQ_religious_peoplesub=46 Then ln$ = "Gay Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000512"
+If quick.LGBTQ_religious_peoplesub=47 Then ln$ = "Lesbian Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000756"
+If quick.LGBTQ_religious_peoplesub=48 Then ln$ = "Queer Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001189"
+If quick.LGBTQ_religious_peoplesub=49 Then ln$ = "Transgender Muslims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001425"
+If quick.LGBTQ_religious_peoplesub=50 Then ln$ = "LGBTQ+ Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001069"
+If quick.LGBTQ_religious_peoplesub=51 Then ln$ = "Bisexual Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000168"
+If quick.LGBTQ_religious_peoplesub=52 Then ln$ = "Gay Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000516"
+If quick.LGBTQ_religious_peoplesub=53 Then ln$ = "Lesbian Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000761"
+If quick.LGBTQ_religious_peoplesub=54 Then ln$ = "LGBTQ+ witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001907"
+If quick.LGBTQ_religious_peoplesub=55 Then ln$ = "Bisexual witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001910"
+If quick.LGBTQ_religious_peoplesub=56 Then ln$ = "Gay witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001909"
+If quick.LGBTQ_religious_peoplesub=57 Then ln$ = "Intersex witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001913"
+If quick.LGBTQ_religious_peoplesub=58 Then ln$ = "Lesbian witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001908"
+If quick.LGBTQ_religious_peoplesub=59 Then ln$ = "Queer witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001912"
+If quick.LGBTQ_religious_peoplesub=60 Then ln$ = "Transgender witches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001911"
+If quick.LGBTQ_religious_peoplesub=61 Then ln$ = "Queer Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001193"
+If quick.LGBTQ_religious_peoplesub=62 Then ln$ = "Transgender Pagans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001429"
+If quick.LGBTQ_religious_peoplesub=63 Then ln$ = "LGBTQ+ shamans" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000939"
+If quick.LGBTQ_religious_peoplesub=64 Then ln$ = "LGBTQ+ Shintoists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000940"
+If quick.LGBTQ_religious_peoplesub=65 Then ln$ = "LGBTQ+ Taoists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000955"
+
+If ln$ = " " then
+else
+CS.AddField 1, "650 7" & ln$
+end if
+
+'****************************************************************************************
+
+If quick.LGBTQ_clergysub=0 Then hn$ = " "
+If quick.LGBTQ_clergysub=1 Then hn$ = "LGBTQ+ clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001624"
+If quick.LGBTQ_clergysub=2 Then hn$ = "Bisexual clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000142"
+If quick.LGBTQ_clergysub=3 Then hn$ = "Gay clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000484"
+If quick.LGBTQ_clergysub=4 Then hn$ = "Gay priests" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000524"
+If quick.LGBTQ_clergysub=5 Then hn$ = "Lesbian clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000732"
+If quick.LGBTQ_clergysub=6 Then hn$ = "Queer clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001169"
+If quick.LGBTQ_clergysub=7 Then hn$ = "Transgender clergy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001402"
+
+If hn$ = " " then
+else
+CS.AddField 1, "650 7" & hn$
+end if
+
+
+If quick.LGBTQ_chorusessub=0 Then vn$ = " "
+If quick.LGBTQ_chorusessub=1 Then vn$ = "LGBTQ+ choruses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000833"
+If quick.LGBTQ_chorusessub=2 Then vn$ = "Gay choruses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000482"
+If quick.LGBTQ_chorusessub=3 Then vn$ = "Lesbian choruses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000730"
+If vn$ = " " then
+else 
+CS.AddField 1, "650 7" & vn$ 
+end if
+
+If quick.OptionGroup1 = 0 then OKbutton
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities"
+If quick.OptionGroup1 = 2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part3"
+
+Cancelled:   
+End Sub

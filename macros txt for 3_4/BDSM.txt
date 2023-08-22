@@ -1,0 +1,76 @@
+'MacroName:BDSM
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'January, 2023
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim BDSM$
+BDSM$=" "+nd+ "BDSM"+nd+"  Bondage"+nd+"    Rope play"+nd+"  Masochism"+nd+"  SM" _
++nd+"    Flagellation"+nd+"    Masochism"+nd+"    Sadism"+nd+"    Spanking"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "BDSM and Narrower Terms"
+
+Text 14,7,100,14, "BDSM"
+   DropListBox 14, 20, 130, 135, BDSM$, .BDSMsub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.BDSMsub=0 Then aa$ = " "
+If quick.BDSMsub=1 Then aa$ = "BDSM" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000102"
+If quick.BDSMsub=2 Then aa$ = "Bondage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000086"
+If quick.BDSMsub=3 Then aa$ = "Rope play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001243"
+If quick.BDSMsub=4 Then aa$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
+If quick.BDSMsub=5 Then aa$ = "SM" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000036"
+If quick.BDSMsub=6 Then aa$ = "Flagellation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000447"
+If quick.BDSMsub=7 Then aa$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
+If quick.BDSMsub=8 Then aa$ = "Sadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001250"
+If quick.BDSMsub=9 Then aa$ = "Spanking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001335"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,319 @@
+'MacroName:Sex_oriented
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022, Rev. 01/2023 for v.3.3, Rev. 07/2023 for v.3.4
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+'dim ga$
+'ga$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Consent$
+Consent$=" "+nd+ "Consent"+nd+"  Age of consent"+nd+"  Informed consent"
+
+dim Erogenous_body_parts$
+Erogenous_body_parts$=" "+nd+ "Erogenous body parts"+nd+"  Breast"+nd+"  Butt"+nd+"  Clitoris"+nd+"    G-spot" _
++nd+"  Nipple"+nd+"  Penis"+nd+"    Neophallus"+nd+"  Testicle"+nd+"  Vagina" _
++nd+"    G-spot"+nd+"    Neovagina"
+
+dim Eroticism$
+Eroticism$=" "+nd+ "Eroticism"+nd+"  Homoeroticism"
+
+dim Massage$
+Massage$=" "+nd+ "Massage"+nd+"  Erotic massage"
+
+dim Physical_affection$
+Physical_affection$=" "+nd+ "Physical affection"+nd+"  Kissing"
+
+
+dim Sex_industry$
+Sex_industry$=" "+nd+ "Sex industry"+nd+"  Brothels"+nd+"  Porn industry"+nd+"  Sex cinemas"+nd+"  Sex clubs" _
++nd+"  Sex shops"+nd+"  Sex tourism"
+
+dim Sexual_orientation$
+Sexual_orientation$=" "+nd+ "Sexual orientation"+nd+"  Allosexuality"+nd+"  Asexuality"+nd+"  Bisexuality"+nd+"  Demisexuality" _
++nd+"  Greysexuality"+nd+"  Heterosexuality"+nd+"  Homosexuality"+nd+"    Ritual homosexuality"+nd+"  Lesbianism" _
++nd+"  Megasexuality"+nd+"  Monosexuality"+nd+"    Heterosexuality"+nd+"    Homosexuality"+nd+"  Pansexuality" _
++nd+"  Polysexuality"+nd+"    Bisexuality"+nd+"    Pansexuality"+nd+"  Sexual function"
+
+
+dim Sexual_preference$
+Sexual_preference$=" "+nd+ "Sexual preference"+nd+"  Chasers"+nd+"  Demisexual people"+nd+"  Fetishism"+nd+"    Chasers" _
++nd+"    Exhibitionism"+nd+"    Masochism"+nd+"    Partialism"+nd+"      Breast fetishism"+nd+"    Sadism" _
++nd+"    Vampirism (Sex)"+nd+"    Voyeurism"+nd+"  Masochism"+nd+"  Partner preference"+nd+"    Monogamy" _
++nd+"    Polygamy"+nd+"  Polysexuality"+nd+"    Bisexuality"+nd+"    Pansexuality"+nd+"  Sadism" _
++nd+"  Sexual roles"+nd+"    Bottoms (Sex) [Slang]"+nd+"    Butches"+nd+"    Femmes"+nd+"    Leather daddies" _
++nd+"    Leather mommies"+nd+"    LGBTQ+ dominatrices"+nd+"      Bisexual dominatrices"+nd+"      Lesbian dominatrices"+nd+"      Queer dominatrices" _
++nd+"      Transgender dominatrices"+nd+"    LGBTQ+ masters (BDSM culture)"+nd+"      Bisexual masters"+nd+"      Gay masters"+nd+"      Queer masters" _
++nd+"      Transgender masters"+nd+"    LGBTQ+ mistresses (BDSM culture)"+nd+"      Bisexual mistresses"+nd+"      Lesbian mistresses"+nd+"      Queer mistresses" _
++nd+"      Transgender mistresses"+nd+"    Rubbermen"+nd+"    Rubberwomen"+nd+"    Slaves (BDSM culture)"+nd+"    Studs" _
++nd+"    Switches (Sex) [Slang]"+nd+"    Tops (Sex) [Slang]"+nd+"      LGBTQ+ dominatrices"+nd+"      LGBTQ+ masters (BDSM culture)"+nd+"      LGBTQ+ mistresses (BDSM culture)" _
++nd+"    Vers (Sex) [Slang]"+nd+"  Voyeurism"
+
+
+dim Sexuality$
+Sexuality$=" "+nd+ "Sexuality"+nd+"  Children's sexuality"+nd+"  Organisations for sexual research and sexual reform"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 300, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,100,14, "Sexual preference"
+   DropListBox 14, 20, 150, 350, Sexual_preference$, .Sexual_preferencesub
+'Text 200,7,100,14, "Sex (Body)"
+'   DropListBox 200, 20, 150, 350, Sex_Body$, .Sex_Bodysub
+
+Text 14,45,80,14, "Eroticism"
+   DropListBox 14, 58, 130, 135, Eroticism$, .Eroticismsub
+Text 200,45,80,14, "Massage"
+   DropListBox 200, 58, 130, 135, Massage$, .Massagesub
+
+Text 14,83,200,12, "Physical affection"
+   DropListBox 14, 96, 130, 135, Physical_affection$, .Physical_affectionsub
+Text 200,83,90,14, "Erogenous body parts"
+   DropListBox 200, 96, 130, 300, Erogenous_body_parts$, .Erogenous_body_partssub
+
+
+Text 14,121,130,135, "Sex industry"
+   DropListBox 14,135,130,130, Sex_industry$, .Sex_industrysub 
+Text 200,121,130,135, "Sexual orientation"
+   DropListBox 200,135,130,200, Sexual_orientation$, .Sexual_orientationsub
+
+Text 14,159,130,130, "Consent"
+   DropListBox 14,172,130,250, Consent$, .Consentsub    
+Text 200,159,95,135, "Sexuality"
+   DropListBox 200,172,180,130, Sexuality$, .Sexualityssub
+
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 197, 200, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 210, 200, 10, "See more Sex focused topics", .OptionButton2
+
+Button 104,240,40,20, "I'm done",    .fin
+CancelButton 170,240,40,20
+Text  14, 270, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.4"
+Text  14, 280, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Consentsub=0 Then aa$ = " "
+If quick.Consentsub=1 Then aa$ = "Consent" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000302"
+If quick.Consentsub=2 Then aa$ = "Age of consent" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000020"
+If quick.Consentsub=3 Then aa$ = "Informed consent" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002844"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+If quick.Erogenous_body_partssub=0 Then ba$ = " "
+If quick.Erogenous_body_partssub=1 Then ba$ = "Erogenous body parts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000401"
+If quick.Erogenous_body_partssub=2 Then ba$ = "Breast" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000222"
+If quick.Erogenous_body_partssub=3 Then ba$ = "Butt" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000232"
+If quick.Erogenous_body_partssub=4 Then ba$ = "Clitoris" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000282"
+If quick.Erogenous_body_partssub=5 Then ba$ = "G-spot" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000460"
+If quick.Erogenous_body_partssub=6 Then ba$ = "Nipple" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001984"
+If quick.Erogenous_body_partssub=7 Then ba$ = "Penis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001099"
+If quick.Erogenous_body_partssub=8 Then ba$ = "Neophallus" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001894"
+If quick.Erogenous_body_partssub=9 Then ba$ = "Testicle" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001361"
+If quick.Erogenous_body_partssub=10 Then ba$ = "Vagina" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001488"
+If quick.Erogenous_body_partssub=11 Then ba$ = "G-spot" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000460"
+If quick.Erogenous_body_partssub=12 Then ba$ = "Neovagina" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001040"
+
+If ba$ = " " then
+else
+CS.AddField 1, "650 7" & ba$
+end if
+
+If quick.Eroticismsub=0 Then ca$ = " "
+If quick.Eroticismsub=1 Then ca$ = "Eroticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000404"
+If quick.Eroticismsub=2 Then ca$ = "Homoeroticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001806"
+
+If ca$ = " " then
+else
+CS.AddField 1, "650 7" & ca$ 
+end if
+
+If quick.Massagesub=0 Then da$ = " "
+If quick.Massagesub=1 Then da$ = "Massage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000998"
+If quick.Massagesub=2 Then da$ = "Erotic massage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000402"
+
+If da$ = " " then
+else
+CS.AddField 1, "650 7" & da$
+end if
+
+If quick.Physical_affectionsub=0 Then ea$ = " "
+If quick.Physical_affectionsub=1 Then ea$ = "Physical affection" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001112"
+If quick.Physical_affectionsub=2 Then ea$ = "Kissing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000691"
+
+If ea$ = " " then
+else
+CS.AddField 1, "650 7" & ea$
+end if
+
+
+If quick.Sex_industrysub=0 Then ia$ = " "
+If quick.Sex_industrysub=1 Then ia$ = "Sex industry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000011"
+If quick.Sex_industrysub=2 Then ia$ = "Brothels" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000223"
+If quick.Sex_industrysub=3 Then ia$ = "Porn industry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001126"
+If quick.Sex_industrysub=4 Then ia$ = "Sex cinemas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000014"
+If quick.Sex_industrysub=5 Then ia$ = "Sex clubs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001270"
+If quick.Sex_industrysub=6 Then ia$ = "Sex shops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000012"
+If quick.Sex_industrysub=7 Then ia$ = "Sex tourism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001275"
+
+If ia$ = " " then
+else
+CS.AddField 1, "650 7" & ia$ 
+end if
+
+If quick.Sexual_orientationsub=0 Then ja$ = " "
+If quick.Sexual_orientationsub=1 Then ja$ = "Sexual orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001298"
+If quick.Sexual_orientationsub=2 Then ja$ = "Allosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001531"
+If quick.Sexual_orientationsub=3 Then ja$ = "Asexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000004"
+If quick.Sexual_orientationsub=4 Then ja$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
+If quick.Sexual_orientationsub=5 Then ja$ = "Demisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000343"
+If quick.Sexual_orientationsub=6 Then ja$ = "Greysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001626"
+If quick.Sexual_orientationsub=7 Then ja$ = "Heterosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000631"
+If quick.Sexual_orientationsub=8 Then ja$ = "Homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000647"
+If quick.Sexual_orientationsub=9 Then ja$ = "Ritual homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001240"
+If quick.Sexual_orientationsub=10 Then ja$ = "Lesbianism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000799"
+If quick.Sexual_orientationsub=11 Then ja$ = "Megasexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001632"
+If quick.Sexual_orientationsub=12 Then ja$ = "Monosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001556"
+If quick.Sexual_orientationsub=13 Then ja$ = "Heterosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000631"
+If quick.Sexual_orientationsub=14 Then ja$ = "Homosexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000647"
+If quick.Sexual_orientationsub=15 Then ja$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+If quick.Sexual_orientationsub=16 Then ja$ = "Polysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001558"
+If quick.Sexual_orientationsub=17 Then ja$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
+If quick.Sexual_orientationsub=18 Then ja$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+If quick.Sexual_orientationsub=19 Then ja$ = "Sexual function" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001292"
+
+If ja$ = " " then
+else
+CS.AddField 1, "650 7" & ja$
+end if
+
+
+If quick.Sexual_preferencesub=0 Then la$ = " "
+If quick.Sexual_preferencesub=1 Then la$ = "Sexual preference" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001300"
+If quick.Sexual_preferencesub=2 Then la$ = "Chasers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001814"
+If quick.Sexual_preferencesub=3 Then la$ = "Demisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000344"
+If quick.Sexual_preferencesub=4 Then la$ = "Fetishism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000442"
+If quick.Sexual_preferencesub=5 Then la$ = "Chasers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001814"
+If quick.Sexual_preferencesub=6 Then la$ = "Exhibitionism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000412"
+If quick.Sexual_preferencesub=7 Then la$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
+If quick.Sexual_preferencesub=8 Then la$ = "Partialism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001634"
+If quick.Sexual_preferencesub=9 Then la$ = "Breast fetishism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001621"
+If quick.Sexual_preferencesub=10 Then la$ = "Sadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001250"
+If quick.Sexual_preferencesub=11 Then la$ = "Vampirism (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000211"
+If quick.Sexual_preferencesub=12 Then la$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001257"
+If quick.Sexual_preferencesub=13 Then la$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
+If quick.Sexual_preferencesub=14 Then la$ = "Partner preference" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001081"
+If quick.Sexual_preferencesub=15 Then la$ = "Monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001019"
+If quick.Sexual_preferencesub=16 Then la$ = "Polygamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001124"
+If quick.Sexual_preferencesub=17 Then la$ = "Polysexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001558"
+If quick.Sexual_preferencesub=18 Then la$ = "Bisexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000204"
+If quick.Sexual_preferencesub=19 Then la$ = "Pansexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001926"
+If quick.Sexual_preferencesub=20 Then la$ = "Sadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001250"
+If quick.Sexual_preferencesub=21 Then la$ = "Sexual roles" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001304"
+If quick.Sexual_preferencesub=22 Then la$ = "Bottoms (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000219"
+If quick.Sexual_preferencesub=23 Then la$ = "Butches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000231"
+If quick.Sexual_preferencesub=24 Then la$ = "Femmes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000440"
+If quick.Sexual_preferencesub=25 Then la$ = "Leather daddies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000706"
+If quick.Sexual_preferencesub=26 Then la$ = "Leather mommies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000708"
+If quick.Sexual_preferencesub=27 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Sexual_preferencesub=28 Then la$ = "Bisexual dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000148"
+If quick.Sexual_preferencesub=29 Then la$ = "Lesbian dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000738"
+If quick.Sexual_preferencesub=30 Then la$ = "Queer dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001175"
+If quick.Sexual_preferencesub=31 Then la$ = "Transgender dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001410"
+If quick.Sexual_preferencesub=32 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Sexual_preferencesub=33 Then la$ = "Bisexual masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000159"
+If quick.Sexual_preferencesub=34 Then la$ = "Gay masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000505"
+If quick.Sexual_preferencesub=35 Then la$ = "Queer masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001184"
+If quick.Sexual_preferencesub=36 Then la$ = "Transgender masters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001420"
+If quick.Sexual_preferencesub=37 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Sexual_preferencesub=38 Then la$ = "Bisexual mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000161"
+If quick.Sexual_preferencesub=39 Then la$ = "Lesbian mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000751"
+If quick.Sexual_preferencesub=40 Then la$ = "Queer mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001186"
+If quick.Sexual_preferencesub=41 Then la$ = "Transgender mistresses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001421"
+If quick.Sexual_preferencesub=42 Then la$ = "Rubbermen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001248"
+If quick.Sexual_preferencesub=43 Then la$ = "Rubberwomen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001249"
+If quick.Sexual_preferencesub=44 Then la$ = "Slaves (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
+If quick.Sexual_preferencesub=45 Then la$ = "Studs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001898"
+If quick.Sexual_preferencesub=46 Then la$ = "Switches (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001353"
+If quick.Sexual_preferencesub=47 Then la$ = "Tops (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001376"
+If quick.Sexual_preferencesub=48 Then la$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Sexual_preferencesub=49 Then la$ = "LGBTQ+ masters (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Sexual_preferencesub=50 Then la$ = "LGBTQ+ mistresses (BDSM culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001018"
+If quick.Sexual_preferencesub=51 Then la$ = "Vers (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001779"
+If quick.Sexual_preferencesub=52 Then la$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001257"
+
+If la$ = " " then
+else
+CS.AddField 1, "650 7" & la$
+end if
+
+If quick.Sexualityssub=0 Then ma$ = " "
+If quick.Sexualityssub=1 Then ma$ = "Sexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001306"
+If quick.Sexualityssub=2 Then ma$ = "Children's sexuality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000263"
+If quick.Sexualityssub=3 Then ma$ = "Organisations for sexual research and sexual reform" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001061"
+
+If ma$ = " " then
+else
+CS.AddField 1, "650 7" & ma$
+end if
+
+If quick.OptionGroup1 = 0 then OKbutton
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!Sex_oriented_pt2"
+
+Cancelled:   
+End Sub
+

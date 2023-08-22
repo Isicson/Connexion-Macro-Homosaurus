@@ -1,0 +1,103 @@
+'MacroName:LGBTQ_cinema
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 01/2023, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_cinema$
+LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Gay cinema"+nd+"    Gay films"+nd+"      Gay porn films"+nd+"  Lesbian cinema" _
++nd+"    Lesbian films"+nd+"      Lesbian porn films"+nd+"  LGBTQ+ films"+nd+"    Aromantic films"+nd+"    Asexual films" _
++nd+"    Bisexual films"+nd+"    Demisexual films"+nd+"    Gay films"+nd+"    Intersex films"+nd+"    Lesbian films" _
++nd+"    LGBTQ+ erotic films"+nd+"      Aromantic erotic films"+nd+"      Asexual erotic films"+nd+"      Bisexual erotic films"+nd+"      Demisexual erotic films" _
++nd+"      Gay erotic films"+nd+"      Intersex erotic films"+nd+"      Lesbian erotic films"+nd+"      Queer erotic films"+nd+"      Transgender erotic films" _
++nd+"      Two-Spirit erotic films"+nd+"      Two-Spirit porn films"+nd+"    LGBTQ+ home movies"+nd+"      LGBTQ+ vlogs"+nd+"    Queer films" _
++nd+"    Transgender films"+nd+"    Two-Spirit films"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ cinema and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ cinema"
+   DropListBox 14, 20, 130, 135, LGBTQ_cinema$, .LGBTQ_cinemasub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v.3.3, Updated for v.3.4"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_cinemasub=0 Then aa$ = " "
+If quick.LGBTQ_cinemasub=1 Then ha$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQ_cinemasub=2 Then ha$ = "Gay cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002330"
+If quick.LGBTQ_cinemasub=3 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=4 Then ha$ = "Gay porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000520"
+If quick.LGBTQ_cinemasub=5 Then ha$ = "Lesbian cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002328"
+If quick.LGBTQ_cinemasub=6 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=7 Then ha$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000765"
+If quick.LGBTQ_cinemasub=8 Then ha$ = "LGBTQ+ films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000869"
+If quick.LGBTQ_cinemasub=9 Then ha$ = "Aromantic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002562"
+If quick.LGBTQ_cinemasub=10 Then ha$ = "Asexual films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002563"
+If quick.LGBTQ_cinemasub=11 Then ha$ = "Bisexual films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002447"
+If quick.LGBTQ_cinemasub=12 Then ha$ = "Demisexual films   " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002564"
+If quick.LGBTQ_cinemasub=13 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=14 Then ha$ = "Intersex films        " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002561"
+If quick.LGBTQ_cinemasub=15 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=16 Then ha$ = "LGBTQ+ erotic films " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002544"
+If quick.LGBTQ_cinemasub=17 Then ha$ = "Aromantic erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002552"
+If quick.LGBTQ_cinemasub=18 Then ha$ = "Asexual erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002553"
+If quick.LGBTQ_cinemasub=19 Then ha$ = "Bisexual erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002548"
+If quick.LGBTQ_cinemasub=20 Then ha$ = "Demisexual erotic films " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002554"
+If quick.LGBTQ_cinemasub=21 Then ha$ = "Gay erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002547"
+If quick.LGBTQ_cinemasub=22 Then ha$ = "Intersex erotic films  " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002551"
+If quick.LGBTQ_cinemasub=23 Then ha$ = "Lesbian erotic films    " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002546"
+If quick.LGBTQ_cinemasub=24 Then ha$ = "Queer erotic films  " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002550"
+If quick.LGBTQ_cinemasub=25 Then ha$ = "Transgender erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002549"
+If quick.LGBTQ_cinemasub=26 Then ha$ = "Two-Spirit erotic films     " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002545"
+If quick.LGBTQ_cinemasub=27 Then ha$ = "Two-Spirit porn films   " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002555"
+If quick.LGBTQ_cinemasub=28 Then ha$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
+If quick.LGBTQ_cinemasub=29 Then ha$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+If quick.LGBTQ_cinemasub=30 Then ha$ = "Queer films " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002446"
+If quick.LGBTQ_cinemasub=31 Then ha$ = "Transgender films   " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002445"
+If quick.LGBTQ_cinemasub=32 Then ha$ = "Two-Spirit films    " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002560"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
