@@ -15,6 +15,7 @@ Known issues:  Diacritics have been a challenge to include and have them properl
 
 -----------------------------------------------------
 Revised for Homosaurus version 3.4 -- 08/2023
+
 Revised for Homosaurus version 3.3 -- 02/2023
 
 Based on Homosaurus version 3.2. https://homosaurus.org/ -- Created 11/2022
