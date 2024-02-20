@@ -1,0 +1,129 @@
+'MacroName:LGBTQplus_victims_crime
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 09/2022, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_victims_crime$
+LGBTQplus_victims_crime$=" "+nd+ "LGBTQ+ victims of crime"+nd+"  LGBTQ+ victims of hate crimes"+nd+"    Asexual victims of hate crimes"+nd+"    Bisexual victims of hate crimes"+nd+"    Gay victims of hate crimes" _
++nd+"    Intersex victims of hate crimes"+nd+"    Lesbian victims of hate crimes"+nd+"    LGBTQ+ survivors of hate crimes"+nd+"      Asexual survivors of hate crimes"+nd+"      Bisexual survivors of hate crimes" _
++nd+"      Gay survivors of hate crimes"+nd+"      Intersex survivors of hate crimes"+nd+"      Lesbian survivors of hate crimes"+nd+"      Queer survivors of hate crimes"+nd+"      Transgender survivors of hate crimes" _
++nd+"    Queer victims of hate crimes"+nd+"    Transgender victims of hate crimes"+nd+"  LGBTQ+ victims of rape"+nd+"    Asexual victims of rape"+nd+"    Bisexual victims of rape" _
++nd+"    Gay victims of rape"+nd+"    Lesbian victims of rape"+nd+"    LGBTQ+ survivors of rape"+nd+"      Asexual survivors of rape"+nd+"      Bisexual survivors of rape" _
++nd+"      Gay survivors of rape"+nd+"      Intersex survivors of rape"+nd+"      Lesbian survivors of rape"+nd+"      Queer survivors of rape"+nd+"      Transgender survivors of rape" _
++nd+"    Queer victims of rape"+nd+"    Transgender victims of rape"+nd+"  LGBTQ+ victims of sexual abuse"+nd+"    Asexual victims of sexual abuse"+nd+"    Bisexual victims of sexual abuse" _
++nd+"    Gay victims of sexual abuse"+nd+"    Intersex victims of sexual abuse"+nd+"    Lesbian victims of sexual abuse"+nd+"    LGBTQ+ incest victims"+nd+"      LGBTQ+ incest survivors" _
++nd+"    LGBTQ+ survivors of sexual abuse"+nd+"      Asexual survivors of sexual abuse"+nd+"      Bisexual survivors of sexual abuse"+nd+"      Gay survivors of sexual abuse"+nd+"      Intersex survivors of sexual abuse" _
++nd+"      Lesbian survivors of sexual abuse"+nd+"      Queer survivors of sexual abuse"+nd+"      Transgender survivors of sexual abuse"+nd+"    Queer victims of sexual abuse"+nd+"    Sexually abused LGBTQ+ children" _
++nd+"    Transgender victims of sexual abuse"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ victims of crime and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ victims of crime"
+   DropListBox 14, 20, 200, 135, LGBTQplus_victims_crime$, .LGBTQplus_victims_crimesub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.5"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_victims_crimesub=0 Then aa$ = " "
+If quick.LGBTQplus_victims_crimesub=1 Then aa$ = "LGBTQ+ victims of crime" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000312"
+If quick.LGBTQplus_victims_crimesub=2 Then aa$ = "LGBTQ+ victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000613"
+If quick.LGBTQplus_victims_crimesub=3 Then aa$ = "Asexual victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002895"
+If quick.LGBTQplus_victims_crimesub=4 Then aa$ = "Bisexual victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000196"
+If quick.LGBTQplus_victims_crimesub=5 Then aa$ = "Gay victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000551"
+If quick.LGBTQplus_victims_crimesub=6 Then aa$ = "Intersex victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002948"
+If quick.LGBTQplus_victims_crimesub=7 Then aa$ = "Lesbian victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000792"
+If quick.LGBTQplus_victims_crimesub=8 Then aa$ = "LGBTQ+ survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001349"
+If quick.LGBTQplus_victims_crimesub=9 Then aa$ = "Asexual survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002850"
+If quick.LGBTQplus_victims_crimesub=10 Then aa$ = "Bisexual survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000188"
+If quick.LGBTQplus_victims_crimesub=11 Then aa$ = "Gay survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000540"
+If quick.LGBTQplus_victims_crimesub=12 Then aa$ = "Intersex survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002942"
+If quick.LGBTQplus_victims_crimesub=13 Then aa$ = "Lesbian survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000782"
+If quick.LGBTQplus_victims_crimesub=14 Then aa$ = "Queer survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001211"
+If quick.LGBTQplus_victims_crimesub=15 Then aa$ = "Transgender survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001448"
+If quick.LGBTQplus_victims_crimesub=16 Then aa$ = "Queer victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001221"
+If quick.LGBTQplus_victims_crimesub=17 Then aa$ = "Transgender victims of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001456"
+If quick.LGBTQplus_victims_crimesub=18 Then aa$ = "LGBTQ+ victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000958"
+If quick.LGBTQplus_victims_crimesub=19 Then aa$ = "Asexual victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002855"
+If quick.LGBTQplus_victims_crimesub=20 Then aa$ = "Bisexual victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000197"
+If quick.LGBTQplus_victims_crimesub=21 Then aa$ = "Gay victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000552"
+If quick.LGBTQplus_victims_crimesub=22 Then aa$ = "Lesbian victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000793"
+If quick.LGBTQplus_victims_crimesub=23 Then aa$ = "LGBTQ+ survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001350"
+If quick.LGBTQplus_victims_crimesub=24 Then aa$ = "Asexual survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002851"
+If quick.LGBTQplus_victims_crimesub=25 Then aa$ = "Bisexual survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000189"
+If quick.LGBTQplus_victims_crimesub=26 Then aa$ = "Gay survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000541"
+If quick.LGBTQplus_victims_crimesub=27 Then aa$ = "Intersex survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002943"
+If quick.LGBTQplus_victims_crimesub=28 Then aa$ = "Lesbian survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000783"
+If quick.LGBTQplus_victims_crimesub=29 Then aa$ = "Queer survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001212"
+If quick.LGBTQplus_victims_crimesub=30 Then aa$ = "Transgender survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001449"
+If quick.LGBTQplus_victims_crimesub=31 Then aa$ = "Queer victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001222"
+If quick.LGBTQplus_victims_crimesub=32 Then aa$ = "Transgender victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001457"
+If quick.LGBTQplus_victims_crimesub=33 Then aa$ = "LGBTQ+ victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000959"
+If quick.LGBTQplus_victims_crimesub=34 Then aa$ = "Asexual victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002856"
+If quick.LGBTQplus_victims_crimesub=35 Then aa$ = "Bisexual victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000198"
+If quick.LGBTQplus_victims_crimesub=36 Then aa$ = "Gay victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000550"
+If quick.LGBTQplus_victims_crimesub=37 Then aa$ = "Intersex victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002949"
+If quick.LGBTQplus_victims_crimesub=38 Then aa$ = "Lesbian victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000794"
+If quick.LGBTQplus_victims_crimesub=39 Then aa$ = "LGBTQ+ incest victims" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000885"
+If quick.LGBTQplus_victims_crimesub=40 Then aa$ = "LGBTQ+ incest survivors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002062"
+If quick.LGBTQplus_victims_crimesub=41 Then aa$ = "LGBTQ+ survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001351"
+If quick.LGBTQplus_victims_crimesub=42 Then aa$ = "Asexual survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002852"
+If quick.LGBTQplus_victims_crimesub=43 Then aa$ = "Bisexual survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000190"
+If quick.LGBTQplus_victims_crimesub=44 Then aa$ = "Gay survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000542"
+If quick.LGBTQplus_victims_crimesub=45 Then aa$ = "Intersex survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002944"
+If quick.LGBTQplus_victims_crimesub=46 Then aa$ = "Lesbian survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000784"
+If quick.LGBTQplus_victims_crimesub=47 Then aa$ = "Queer survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001213"
+If quick.LGBTQplus_victims_crimesub=48 Then aa$ = "Transgender survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001450"
+If quick.LGBTQplus_victims_crimesub=49 Then aa$ = "Queer victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001223"
+If quick.LGBTQplus_victims_crimesub=50 Then aa$ = "Sexually abused LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001307"
+If quick.LGBTQplus_victims_crimesub=51 Then aa$ = "Transgender victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001458"
+
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

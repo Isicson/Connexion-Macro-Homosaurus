@@ -1,0 +1,160 @@
+'MacroName:Kinks_and_fetishes
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'January, 2024, replaces BDSM
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Kinks_and_fetishes$
+Kinks_and_fetishes$=" "+nd+ "Kinks and fetishes"+nd+"  Abduction play"+nd+"  Balloon kink"+nd+"  Blood play"+nd+"  Body part fetishes" _
++nd+"    Boot fetish"+nd+"    Breast fetish"+nd+"    Muscle worship"+nd+"  Bondage"+nd+"    Hogtie" _
++nd+"    Mummification (Erotic)"+nd+"    Rope bondage"+nd+"  Chasers"+nd+"  Chastity play"+nd+"  Consent play" _
++nd+"  Discipline"+nd+"  Douching"+nd+"  Edge play"+nd+"  Electrical play"+nd+"  Enemas" _
++nd+"  Exhibitionism"+nd+"  Foot fetish"+nd+"  Impact play"+nd+"    Caning"+nd+"    Flagellation" _
++nd+"    Flogging"+nd+"    Paddling"+nd+"    Spanking"+nd+"    Whipping"+nd+"      Flagellation" _
++nd+"  Inflation (Erotic)"+nd+"  Kink accessories"+nd+"    Blindfolds"+nd+"    Body bags (Erotic)"+nd+"    Chastity devices" _
++nd+"    Corsets"+nd+"    Diapers (Erotic)"+nd+"    Enemas"+nd+"    Gags"+nd+"    Harnesses" _
++nd+"      Chest harnesses"+nd+"      Dildo harnesses"+nd+"      Thigh harnesses"+nd+"    Spreader bar"+nd+"    Uniform fetish" _
++nd+"    Vacuum pumps"+nd+"  Knife play"+nd+"  Leather fetish"+nd+"  Medical play"+nd+"  Mind play" _
++nd+"    Erotic hypnosis"+nd+"    Humiliation"+nd+"    Roleplay"+nd+"      NT > Roleplay"+nd+"  Muscle worship" _
++nd+"  Orgasm control"+nd+"  Piercing play"+nd+"  Rubber and latex fetish"+nd+"  Sadomasochism"+nd+"    Breast torture" _
++nd+"    Genital torture"+nd+"    Masochism"+nd+"    Sadism"+nd+"  Scat play"+nd+"  Shoe fetish" _
++nd+"    Boot fetish"+nd+"    High heel fetish"+nd+"  Sounding (Sex)"+nd+"  Temperature play"+nd+"    Cigar play" _
++nd+"      Ashing"+nd+"    Fire play"+nd+"    Ice play"+nd+"    Wax play"+nd+"  Tickling" _
++nd+"  Urine play"+nd+"  Vampirism (Sex)"+nd+"  Voyeurism"+nd+"  Wrestling"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "Kinks_and_fetishes and Narrower Terms"
+
+Text 14,7,100,14, "Kinks_and_fetishes"
+   DropListBox 14, 20, 130, 135, Kinks_and_fetishes$, .Kinks_and_fetishessub
+  
+Button 25,150,40,20, "I'm done",    .fin
+CancelButton 75,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.5"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Kinks_and_fetishessub=0 Then aa$ = " "
+If quick.Kinks_and_fetishessub=1 Then aa$ = "Kinks and fetishes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000442"
+If quick.Kinks_and_fetishessub=2 Then aa$ = "Abduction play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003138"
+If quick.Kinks_and_fetishessub=3 Then aa$ = "Balloon kink" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003098"
+If quick.Kinks_and_fetishessub=4 Then aa$ = "Blood play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003078"
+If quick.Kinks_and_fetishessub=5 Then aa$ = "Body part fetishes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001634"
+If quick.Kinks_and_fetishessub=6 Then aa$ = "Boot fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003064"
+If quick.Kinks_and_fetishessub=7 Then aa$ = "Breast fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001621"
+If quick.Kinks_and_fetishessub=8 Then aa$ = "Muscle worship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003051"
+If quick.Kinks_and_fetishessub=9 Then aa$ = "Bondage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000086"
+If quick.Kinks_and_fetishessub=10 Then aa$ = "Hogtie" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003145"
+If quick.Kinks_and_fetishessub=11 Then aa$ = "Mummification (Erotic)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003071"
+If quick.Kinks_and_fetishessub=12 Then aa$ = "Rope bondage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003089"
+If quick.Kinks_and_fetishessub=13 Then aa$ = "Chasers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001814"
+If quick.Kinks_and_fetishessub=14 Then aa$ = "Chastity play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003074"
+If quick.Kinks_and_fetishessub=15 Then aa$ = "Consent play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003139"
+If quick.Kinks_and_fetishessub=16 Then aa$ = "Discipline" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003147"
+If quick.Kinks_and_fetishessub=17 Then aa$ = "Douching" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003124"
+If quick.Kinks_and_fetishessub=18 Then aa$ = "Edge play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003125"
+If quick.Kinks_and_fetishessub=19 Then aa$ = "Electrical play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003057"
+If quick.Kinks_and_fetishessub=20 Then aa$ = "Enemas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000293"
+If quick.Kinks_and_fetishessub=21 Then aa$ = "Exhibitionism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000412"
+If quick.Kinks_and_fetishessub=22 Then aa$ = "Foot fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003122"
+If quick.Kinks_and_fetishessub=23 Then aa$ = "Impact play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003053"
+If quick.Kinks_and_fetishessub=24 Then aa$ = "Caning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003119"
+If quick.Kinks_and_fetishessub=25 Then aa$ = "Flagellation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000447"
+If quick.Kinks_and_fetishessub=26 Then aa$ = "Flogging" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003120"
+If quick.Kinks_and_fetishessub=27 Then aa$ = "Paddling" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003075"
+If quick.Kinks_and_fetishessub=28 Then aa$ = "Spanking" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001335"
+If quick.Kinks_and_fetishessub=29 Then aa$ = "Whipping" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003048"
+If quick.Kinks_and_fetishessub=30 Then aa$ = "Flagellation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000447"
+If quick.Kinks_and_fetishessub=31 Then aa$ = "Inflation (Erotic)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003099"
+If quick.Kinks_and_fetishessub=32 Then aa$ = "Kink accessories" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003059"
+If quick.Kinks_and_fetishessub=33 Then aa$ = "Blindfolds" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000209"
+If quick.Kinks_and_fetishessub=34 Then aa$ = "Body bags (Erotic)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003134"
+If quick.Kinks_and_fetishessub=35 Then aa$ = "Chastity devices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003142"
+If quick.Kinks_and_fetishessub=36 Then aa$ = "Corsets" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000307"
+If quick.Kinks_and_fetishessub=37 Then aa$ = "Diapers (Erotic)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003062"
+If quick.Kinks_and_fetishessub=38 Then aa$ = "Enemas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000293"
+If quick.Kinks_and_fetishessub=39 Then aa$ = "Gags" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003090"
+If quick.Kinks_and_fetishessub=40 Then aa$ = "Harnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000612"
+If quick.Kinks_and_fetishessub=41 Then aa$ = "Chest harnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000252"
+If quick.Kinks_and_fetishessub=42 Then aa$ = "Dildo harnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000354"
+If quick.Kinks_and_fetishessub=43 Then aa$ = "Thigh harnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001367"
+If quick.Kinks_and_fetishessub=44 Then aa$ = "Spreader bar" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001337"
+If quick.Kinks_and_fetishessub=45 Then aa$ = "Uniform fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003063"
+If quick.Kinks_and_fetishessub=46 Then aa$ = "Vacuum pumps" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003058"
+If quick.Kinks_and_fetishessub=47 Then aa$ = "Knife play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003085"
+If quick.Kinks_and_fetishessub=48 Then aa$ = "Leather fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003065"
+If quick.Kinks_and_fetishessub=49 Then aa$ = "Medical play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003067"
+If quick.Kinks_and_fetishessub=50 Then aa$ = "Mind play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003068"
+If quick.Kinks_and_fetishessub=51 Then aa$ = "Erotic hypnosis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003070"
+If quick.Kinks_and_fetishessub=52 Then aa$ = "Humiliation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003069"
+If quick.Kinks_and_fetishessub=53 Then aa$ = "Roleplay" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001242"
+If quick.Kinks_and_fetishessub=54 Then CS.RunMacro "Homosaurus_subjects.mbk!Roleplay"
+If quick.Kinks_and_fetishessub=55 Then aa$ = "Muscle worship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003051"
+If quick.Kinks_and_fetishessub=56 Then aa$ = "Orgasm control" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003073"
+If quick.Kinks_and_fetishessub=57 Then aa$ = "Piercing play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003077"
+If quick.Kinks_and_fetishessub=58 Then aa$ = "Rubber and latex fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001246"
+If quick.Kinks_and_fetishessub=59 Then aa$ = "Sadomasochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000036"
+If quick.Kinks_and_fetishessub=60 Then aa$ = "Breast torture" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003130"
+If quick.Kinks_and_fetishessub=61 Then aa$ = "Genital torture" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003110"
+If quick.Kinks_and_fetishessub=62 Then aa$ = "Masochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000997"
+If quick.Kinks_and_fetishessub=63 Then aa$ = "Sadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001250"
+If quick.Kinks_and_fetishessub=64 Then aa$ = "Scat play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000305"
+If quick.Kinks_and_fetishessub=65 Then aa$ = "Shoe fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003102"
+If quick.Kinks_and_fetishessub=66 Then aa$ = "Boot fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003064"
+If quick.Kinks_and_fetishessub=67 Then aa$ = "High heel fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003103"
+If quick.Kinks_and_fetishessub=68 Then aa$ = "Sounding (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003109"
+If quick.Kinks_and_fetishessub=69 Then aa$ = "Temperature play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003054"
+If quick.Kinks_and_fetishessub=70 Then aa$ = "Cigar play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003136"
+If quick.Kinks_and_fetishessub=71 Then aa$ = "Ashing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003135"
+If quick.Kinks_and_fetishessub=72 Then aa$ = "Fire play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003055"
+If quick.Kinks_and_fetishessub=73 Then aa$ = "Ice play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003056"
+If quick.Kinks_and_fetishessub=74 Then aa$ = "Wax play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003049"
+If quick.Kinks_and_fetishessub=75 Then aa$ = "Tickling" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003116"
+If quick.Kinks_and_fetishessub=76 Then aa$ = "Urine play" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000597"
+If quick.Kinks_and_fetishessub=77 Then aa$ = "Vampirism (Sex)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000211"
+If quick.Kinks_and_fetishessub=78 Then aa$ = "Voyeurism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001257"
+If quick.Kinks_and_fetishessub=79 Then aa$ = "Wrestling" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003047"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

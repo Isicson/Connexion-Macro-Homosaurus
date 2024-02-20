@@ -1,0 +1,424 @@
+'MacroName:LGBTQplus_locations
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim ka$
+ka$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_bookshops$
+LGBTQplus_bookshops$=" "+nd+ "LGBTQ+ bookshops"+nd+"  Asexual bookshops"+nd+"  Bisexual bookshops"+nd+"  Gay bookshops"+nd+"  Intersex bookshops" _
++nd+"  Lesbian bookshops"+nd+"  Queer bookshops"+nd+"  Transgender bookshops"+nd+"  Women's bookshops"
+
+dim LGBTQplus_centers$
+LGBTQplus_centers$=" "+nd+ "LGBTQ+ centers"+nd+"  LGBTQ+ community centers"+nd+"    Asexual community centers"+nd+"    Bisexual community centers"+nd+"    Gay community centers" _
++nd+"    Intersex community centers"+nd+"    Lesbian community centers"+nd+"    Queer community centers"+nd+"    Transgender community centers"+nd+"    Women's community centers" _
++nd+"  LGBTQ+ health care centers"+nd+"  LGBTQ+ information centers"+nd+"    AIDS information centers"+nd+"    Asexual information centers"+nd+"    Bisexual information centers" _
++nd+"    Gay information centers"+nd+"    Intersex information centers"+nd+"    Lesbian information centers"+nd+"    Queer information centers"+nd+"    Transgender information centers" _
++nd+"  LGBTQ+ youth centers"
+
+dim LGBTQplus_hotels$
+LGBTQplus_hotels$=" "+nd+ "LGBTQ+ hotels"+nd+"  LGBTQ+ resorts"
+
+dim LGBTQplus_meeting_places$
+LGBTQplus_meeting_places$=" "+nd+ "LGBTQ+ meeting places"+nd+"  LGBTQ+ bars"+nd+"    Bisexual bars"+nd+"    Drag bars"+nd+"    Gay bars" _
++nd+"    Leather bars"+nd+"    Lesbian bars"+nd+"    Queer bars"+nd+"    Transgender bars"+nd+"  LGBTQ+ beaches" _
++nd+"    Bisexual beaches"+nd+"    Gay beaches"+nd+"    Lesbian beaches"+nd+"    Nude beaches"+nd+"    Queer beaches" _
++nd+"    Transgender beaches"+nd+"  LGBTQ+ community centers"+nd+"    Asexual community centers"+nd+"    Bisexual community centers"+nd+"    Gay community centers" _
++nd+"    Intersex community centers"+nd+"    Lesbian community centers"+nd+"    Queer community centers"+nd+"    Transgender community centers"+nd+"    Women's community centers" _ 
+
+dim LGBTQplus_theater$
+LGBTQplus_theater$=" "+nd+ "LGBTQ+ theater"+nd+"  Aromantic theater"+nd+"  Asexual theater"+nd+"  Bisexual theater"+nd+"  Demisexual theater" _
++nd+"  Female impersonators"+nd+"  Gay theater"+nd+"  Greyromantic theater"+nd+"  Intersex theater"+nd+"  Kabuki" _
++nd+"  Lesbian theater"+nd+"  Male impersonators"+nd+"  Megasexual theater"+nd+"  Performance art"+nd+"  Queer theater" _
++nd+"  Striptease"+nd+"  Transgender theater"
+
+dim LGBTQplus_tourism$
+LGBTQplus_tourism$=" "+nd+ "LGBTQ+ tourism"+nd+"  LGBTQ+ cruises"+nd+"  Sex tourism"
+
+dim LGBTQ_focused_businesses$
+LGBTQ_focused_businesses$=" "+nd+ "LGBTQ+-focused businesses"+nd+"  Asexual-focused businesses"+nd+"  Bisexual-focused businesses"+nd+"  Gay-focused businesses"+nd+"  Intersex-focused businesses" _
++nd+"  Lesbian-focused businesses"+nd+"  Queer-focused businesses"+nd+"  Transgender-focused businesses"
+
+dim LGBTQ_owned_businesses$
+LGBTQ_owned_businesses$=" "+nd+ "LGBTQ+-owned businesses"+nd+"  Asexual-owned businesses"+nd+"  Bisexual-owned businesses"+nd+"  Gay-owned businesses"+nd+"  Intersex-owned businesses" _
++nd+"  Lesbian-owned businesses"+nd+"  Queer-owned businesses"+nd+"  Transgender-owned businesses"
+
+dim Public_facilities$
+Public_facilities$=" "+nd+ "Public facilities"+nd+"  Changing rooms"+nd+"  Locker rooms"+nd+"  Public bathrooms"+nd+"    Glory holes" _
++nd+"  Public showers"
+
+dim Sex_locations$
+Sex_locations$=" "+nd+ "Sex locations"+nd+"  Cottages (Gay culture) [slang, UK]"+nd+"    Glory holes"+nd+"  Dark rooms"+nd+"  Gay saunas" _
++nd+"    Glory holes"+nd+"  Play spaces"+nd+"  Sex parties"+nd+"    Safer sex parties"+nd+"  Tearooms (Gay culture) [slang, USA]" _
++nd+"    Glory holes"
+
+dim LGBTQ_cultural_heritage$
+LGBTQ_cultural_heritage$=" "+nd+ "LGBTQ+ cultural heritage institutions"+nd+"    LGBTQ+ archives"+nd+"    Asexual archives"+nd+"    Bisexual archives"+nd+"    Gay archives" _
++nd+"    Intersex archives"+nd+"    Lesbian archives"+nd+"    Queer archives"+nd+"    Transgender archives"+nd+"    Two-Spirit archives " _
++nd+"  LGBTQ+ libraries"+nd+"    Asexual libraries"+nd+"    Bisexual libraries"+nd+"    Gay libraries"+nd+"    Intersex libraries" _
++nd+"    Lesbian libraries"+nd+"    Queer libraries"+nd+"    Transgender libraries"+nd+"    Women's libraries"+nd+"      Lesbian libraries" _
++nd+"  LGBTQ+ museums"+nd+"    Asexual museums"+nd+"    Bisexual museums"+nd+"    Gay museums"+nd+"    Intersex museums" _
++nd+"    Lesbian museums"+nd+"    Queer museums"+nd+"    Transgender museums"+nd+"    Two-Spirit museums"+nd+"  LGBTQ+ special collections" _
+
+dim Miscellanious_location$
+Miscellanious_location$=" "+nd+ "LGBTQ+ literary salons"+nd+"LGBTQ+ neighbourhoods"+nd+"LGBTQ+ pubs"+nd+"LGBTQ+ restaurants"+nd+"LGBTQ+ retirement homes" _
++nd+"Peep shows"+nd+"Schools for LGBTQ+ youth"
+
+dim Two_Spirit_Misc_location$
+Two_Spirit_Misc_location$=" "+nd+ "Two-Spirit bookshops"+nd+"Two-Spirit community centers"+nd+"Two-Spirit information centers"+nd+"Two-Spirit libraries"+nd+"Two-Spirit theater" _
++nd+"Two-Spirit-focused businesses"+nd+"Two-Spirit-owned businesses"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 400, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,100,14, "LGBTQ+ bookshops"
+   DropListBox 14, 20, 130, 135, LGBTQplus_bookshops$, .LGBTQplus_bookshopssub
+Text 200,7,60,14, "LGBTQ+ centers"
+   DropListBox 200, 20, 130, 200, LGBTQplus_centers$, .LGBTQplus_centerssub
+
+Text 14,45,150,14, "LGBTQ+ cultural heritage institutions"
+    DropListBox 14, 58, 140, 300, LGBTQ_cultural_heritage$, .LGBTQ_cultural_heritagesub
+Text 200,45,80,14, "LGBTQ+ hotels"
+   DropListBox 200, 58, 130, 135, LGBTQplus_hotels$, .LGBTQplus_hotelssub
+
+Text 14,83,200,12, "LGBTQ+ meeting places"
+   DropListBox 14, 96, 130, 275, LGBTQplus_meeting_places$, .LGBTQplus_meeting_placessub
+Text 200,83,90,14, "LGBTQ+ theater"
+   DropListBox 200, 96, 130, 200, LGBTQplus_theater$, .LGBTQplus_theatersub
+
+Text 14,121,150,14, "LGBTQ+ tourism"
+   DropListBox 14, 135, 130, 135, LGBTQplus_tourism$, .LGBTQplus_tourismsub
+Text 200,121,150,14, "LGBTQ+-focused businesses"
+   DropListBox 200, 135, 170, 135, LGBTQ_focused_businesses$, .LGBTQ_focused_businessessub
+
+Text 14,159,130,135, "LGBTQ+-owned businesses"
+   DropListBox 14,172,130,130, LGBTQ_owned_businesses$, .LGBTQ_owned_businessessub
+Text 200,159,130,135, "Public facilities"
+   DropListBox 200,172,130,130, Public_facilities$, .Public_facilitiessub 
+
+Text 14,197,130,135, "Sex locations"
+   DropListBox 14,210,130,130, Sex_locations$, .Sex_locationssub
+Text 200,197,130,135, "Terms that are not in a hierarchy:"
+   DropListBox 200,210,130,130, Miscellanious_location$, .Miscellanious_locationsub
+
+Text 14,235,140,135, "Two-Spirit focused locations"
+   DropListBox 14,248,130,130, Two_Spirit_Misc_location$, .Two_Spirit_Misc_locationsub
+
+Button 104,340,40,20, "I'm done",    .fin
+CancelButton 170,340,40,20
+Text  14, 370, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.5"
+Text  14, 380, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.LGBTQplus_bookshopssub=0 Then aa$ = " "
+If quick.LGBTQplus_bookshopssub=1 Then aa$ = "LGBTQ+ bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000216"
+If quick.LGBTQplus_bookshopssub=2 Then aa$ = "Asexual bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002763"
+If quick.LGBTQplus_bookshopssub=3 Then aa$ = "Bisexual bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000136"
+If quick.LGBTQplus_bookshopssub=4 Then aa$ = "Gay bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000478"
+If quick.LGBTQplus_bookshopssub=5 Then aa$ = "Intersex bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002966"
+If quick.LGBTQplus_bookshopssub=6 Then aa$ = "Lesbian bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000727"
+If quick.LGBTQplus_bookshopssub=7 Then aa$ = "Queer bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001164"
+If quick.LGBTQplus_bookshopssub=8 Then aa$ = "Transgender bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001397"
+If quick.LGBTQplus_bookshopssub=9 Then aa$ = "Women's bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001511"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+If quick.LGBTQplus_centerssub=0 Then ba$ = " "
+If quick.LGBTQplus_centerssub=1 Then ba$ = "LGBTQ+ centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000830"
+If quick.LGBTQplus_centerssub=2 Then ba$ = "LGBTQ+ community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000298"
+If quick.LGBTQplus_centerssub=3 Then ba$ = "Asexual community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002775"
+If quick.LGBTQplus_centerssub=4 Then ba$ = "Bisexual community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000144"
+If quick.LGBTQplus_centerssub=5 Then ba$ = "Gay community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000486"
+If quick.LGBTQplus_centerssub=6 Then ba$ = "Intersex community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002968"
+If quick.LGBTQplus_centerssub=7 Then ba$ = "Lesbian community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000734"
+If quick.LGBTQplus_centerssub=8 Then ba$ = "Queer community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001171"
+If quick.LGBTQplus_centerssub=9 Then ba$ = "Transgender community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001404"
+If quick.LGBTQplus_centerssub=10 Then ba$ = "Women's community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001512"
+If quick.LGBTQplus_centerssub=11 Then ba$ = "LGBTQ+ health care centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000876"
+If quick.LGBTQplus_centerssub=12 Then ba$ = "LGBTQ+ information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000660"
+If quick.LGBTQplus_centerssub=13 Then ba$ = "AIDS information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000026"
+If quick.LGBTQplus_centerssub=14 Then ba$ = "Asexual information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002793"
+If quick.LGBTQplus_centerssub=15 Then ba$ = "Bisexual information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000147"
+If quick.LGBTQplus_centerssub=16 Then ba$ = "Gay information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000490"
+If quick.LGBTQplus_centerssub=17 Then ba$ = "Intersex information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002747"
+If quick.LGBTQplus_centerssub=18 Then ba$ = "Lesbian information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000737"
+If quick.LGBTQplus_centerssub=19 Then ba$ = "Queer information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001179"
+If quick.LGBTQplus_centerssub=20 Then ba$ = "Transgender information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001409"
+If quick.LGBTQplus_centerssub=21 Then ba$ = "LGBTQ+ youth centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000964"
+
+
+If ba$ = " " then
+else
+CS.AddField 1, "650 7" & ba$
+end if
+
+If quick.LGBTQplus_hotelssub=0 Then ca$ = " "
+If quick.LGBTQplus_hotelssub=1 Then aa$ = "LGBTQ+ hotels" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000881"
+If quick.LGBTQplus_hotelssub=2 Then aa$ = "LGBTQ+ resorts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000929"
+
+If ca$ = " " then
+else
+CS.AddField 1, "650 7" & ca$ 
+end if
+
+If quick.LGBTQplus_meeting_placessub=0 Then da$ = " "
+If quick.LGBTQplus_meeting_placessub=1 Then da$ = "LGBTQ+ meeting places" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000900"
+If quick.LGBTQplus_meeting_placessub=2 Then da$ = "LGBTQ+ bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000100"
+If quick.LGBTQplus_meeting_placessub=3 Then da$ = "Bisexual bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000133"
+If quick.LGBTQplus_meeting_placessub=4 Then da$ = "Drag bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000369"
+If quick.LGBTQplus_meeting_placessub=5 Then da$ = "Gay bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000474"
+If quick.LGBTQplus_meeting_placessub=6 Then da$ = "Leather bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001553"
+If quick.LGBTQplus_meeting_placessub=7 Then da$ = "Lesbian bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000724"
+If quick.LGBTQplus_meeting_placessub=8 Then da$ = "Queer bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001161"
+If quick.LGBTQplus_meeting_placessub=9 Then da$ = "Transgender bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001394"
+If quick.LGBTQplus_meeting_placessub=10 Then da$ = "LGBTQ+ beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000104"
+If quick.LGBTQplus_meeting_placessub=11 Then da$ = "Bisexual beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000134"
+If quick.LGBTQplus_meeting_placessub=12 Then da$ = "Gay beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000476"
+If quick.LGBTQplus_meeting_placessub=13 Then da$ = "Lesbian beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000725"
+If quick.LGBTQplus_meeting_placessub=14 Then da$ = "Nude beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001050"
+If quick.LGBTQplus_meeting_placessub=15 Then da$ = "Queer beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001162"
+If quick.LGBTQplus_meeting_placessub=16 Then da$ = "Transgender beaches" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001395"
+If quick.LGBTQplus_meeting_placessub=17 Then da$ = "LGBTQ+ community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000298"
+If quick.LGBTQplus_meeting_placessub=18 Then da$ = "Asexual community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002775"
+If quick.LGBTQplus_meeting_placessub=19 Then da$ = "Bisexual community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000144"
+If quick.LGBTQplus_meeting_placessub=20 Then da$ = "Gay community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000486"
+If quick.LGBTQplus_meeting_placessub=21 Then da$ = "Intersex community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002968"
+If quick.LGBTQplus_meeting_placessub=22 Then da$ = "Lesbian community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000734"
+If quick.LGBTQplus_meeting_placessub=23 Then da$ = "Queer community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001171"
+If quick.LGBTQplus_meeting_placessub=24 Then da$ = "Transgender community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001404"
+If quick.LGBTQplus_meeting_placessub=25 Then da$ = "Women's community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001512"
+
+If da$ = " " then
+else
+CS.AddField 1, "650 7" & da$
+end if
+
+If quick.LGBTQplus_theatersub=0 Then ea$ = " "
+If quick.LGBTQplus_theatersub=1 Then ea$ = "LGBTQ+ theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001363"
+If quick.LGBTQplus_theatersub=2 Then ea$ = "Aromantic theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002453"
+If quick.LGBTQplus_theatersub=3 Then ea$ = "Asexual theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002469"
+If quick.LGBTQplus_theatersub=4 Then ea$ = "Bisexual theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000194"
+If quick.LGBTQplus_theatersub=5 Then ea$ = "Demisexual theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002486"
+If quick.LGBTQplus_theatersub=6 Then ea$ = "Female impersonators" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000431"
+If quick.LGBTQplus_theatersub=7 Then ea$ = "Gay theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000546"
+If quick.LGBTQplus_theatersub=8 Then ea$ = "Greyromantic theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002523"
+If quick.LGBTQplus_theatersub=9 Then ea$ = "Intersex theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002947"
+If quick.LGBTQplus_theatersub=10 Then ea$ = "Kabuki" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000685"
+If quick.LGBTQplus_theatersub=11 Then ea$ = "Lesbian theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000788"
+If quick.LGBTQplus_theatersub=12 Then ea$ = "Male impersonators" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000983"
+If quick.LGBTQplus_theatersub=13 Then ea$ = "Megasexual theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002502"
+If quick.LGBTQplus_theatersub=14 Then ea$ = "Performance art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001102"
+If quick.LGBTQplus_theatersub=15 Then ea$ = "Queer theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001217"
+If quick.LGBTQplus_theatersub=16 Then ea$ = "Striptease" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001344"
+If quick.LGBTQplus_theatersub=17 Then ea$ = "Transgender theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001454"
+
+If ea$ = " " then
+else
+CS.AddField 1, "650 7" & ea$
+end if
+
+If quick.LGBTQplus_tourismsub=0 Then fa$ = " "
+If quick.LGBTQplus_tourismsub=1 Then fa$ = "LGBTQ+ tourism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000956"
+If quick.LGBTQplus_tourismsub=2 Then fa$ = "LGBTQ+ cruises" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000845"
+If quick.LGBTQplus_tourismsub=3 Then fa$ = "Sex tourism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001275"
+
+
+If fa$ = " " then
+else
+CS.AddField 1, "650 7" & fa$
+end if
+
+If quick.LGBTQ_focused_businessessub=0 Then ga$ = " "
+If quick.LGBTQ_focused_businessessub=1 Then ga$ = "LGBTQ+-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001741"
+If quick.LGBTQ_focused_businessessub=2 Then ga$ = "Asexual-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002859"
+If quick.LGBTQ_focused_businessessub=3 Then ga$ = "Bisexual-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001744"
+If quick.LGBTQ_focused_businessessub=4 Then ga$ = "Gay-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001743"
+If quick.LGBTQ_focused_businessessub=5 Then ga$ = "Intersex-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002954"
+If quick.LGBTQ_focused_businessessub=6 Then ga$ = "Lesbian-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001742"
+If quick.LGBTQ_focused_businessessub=7 Then ga$ = "Queer-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001746"
+If quick.LGBTQ_focused_businessessub=8 Then ga$ = "Transgender-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001745"
+
+If ga$ = " " then
+else
+CS.AddField 1, "650 7" & ga$
+end if
+
+If quick.LGBTQ_owned_businessessub=0 Then ha$ = " "
+If quick.LGBTQ_owned_businessessub=1 Then ha$ = "LGBTQ+-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001735"
+If quick.LGBTQ_owned_businessessub=2 Then ha$ = "Asexual-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002860"
+If quick.LGBTQ_owned_businessessub=3 Then ha$ = "Bisexual-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001738"
+If quick.LGBTQ_owned_businessessub=4 Then ha$ = "Gay-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001737"
+If quick.LGBTQ_owned_businessessub=5 Then ha$ = "Intersex-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002955"
+If quick.LGBTQ_owned_businessessub=6 Then ha$ = "Lesbian-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001736"
+If quick.LGBTQ_owned_businessessub=7 Then ha$ = "Queer-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001740"
+If quick.LGBTQ_owned_businessessub=8 Then ha$ = "Transgender-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001739"
+
+
+If ha$ = " " then
+else
+CS.AddField 1, "650 7" & ha$
+end if
+
+If quick.Public_facilitiessub=0 Then ia$ = " "
+If quick.Public_facilitiessub=1 Then ia$ = "Public facilities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001141"
+If quick.Public_facilitiessub=2 Then ia$ = "Changing rooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000248"
+If quick.Public_facilitiessub=3 Then ia$ = "Locker rooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000975"
+If quick.Public_facilitiessub=4 Then ia$ = "Public bathrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001140"
+If quick.Public_facilitiessub=5 Then ia$ = "Glory holes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000595"
+If quick.Public_facilitiessub=6 Then ia$ = "Public showers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001143"
+
+If ia$ = " " then
+else
+CS.AddField 1, "650 7" & ia$ 
+end if
+
+If quick.Sex_locationssub=0 Then ja$ = " "
+If quick.Sex_locationssub=1 Then ja$ = "Sex locations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000974"
+If quick.Sex_locationssub=2 Then ja$ = "Cottages (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000308"
+If quick.Sex_locationssub=3 Then ja$ = "Glory holes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000595"
+If quick.Sex_locationssub=4 Then ja$ = "Dark rooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000087"
+If quick.Sex_locationssub=5 Then ja$ = "Gay saunas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000475"
+If quick.Sex_locationssub=6 Then ja$ = "Glory holes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000595"
+If quick.Sex_locationssub=7 Then ja$ = "Play spaces" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003079"
+If quick.Sex_locationssub=8 Then ja$ = "Sex parties" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001272"
+If quick.Sex_locationssub=9 Then ja$ = "Safer sex parties" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001252"
+If quick.Sex_locationssub=10 Then ja$ = "Tearooms (Gay culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001358"
+If quick.Sex_locationssub=11 Then ja$ = "Glory holes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000595"
+
+If ja$ = " " then
+else
+CS.AddField 1, "650 7" & ja$
+end if
+
+
+If quick.LGBTQ_cultural_heritagesub=0 Then ka$ = " "
+If quick.LGBTQ_cultural_heritagesub=1 Then ka$ = "LGBTQ+ cultural heritage institutions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001755"
+If quick.LGBTQ_cultural_heritagesub=2 Then ka$ = "LGBTQ+ archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000066"
+If quick.LGBTQ_cultural_heritagesub=3 Then ka$ = "Asexual archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002759"
+If quick.LGBTQ_cultural_heritagesub=4 Then ka$ = "Bisexual archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000128"
+If quick.LGBTQ_cultural_heritagesub=5 Then ka$ = "Gay archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000469"
+If quick.LGBTQ_cultural_heritagesub=6 Then ka$ = "Intersex archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002776"
+If quick.LGBTQ_cultural_heritagesub=7 Then ka$ = "Lesbian archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000719"
+If quick.LGBTQ_cultural_heritagesub=8 Then ka$ = "Queer archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001156"
+If quick.LGBTQ_cultural_heritagesub=9 Then ka$ = "Transgender archives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001389"
+If quick.LGBTQ_cultural_heritagesub=10 Then ka$ = "Two-Spirit archives " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002677"
+If quick.LGBTQ_cultural_heritagesub=11 Then ka$ = "LGBTQ+ libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000968"
+If quick.LGBTQ_cultural_heritagesub=12 Then ka$ = "Asexual libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002794"
+If quick.LGBTQ_cultural_heritagesub=13 Then ka$ = "Bisexual libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000156"
+If quick.LGBTQ_cultural_heritagesub=14 Then ka$ = "Gay libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000501"
+If quick.LGBTQ_cultural_heritagesub=15 Then ka$ = "Intersex libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002748"
+If quick.LGBTQ_cultural_heritagesub=16 Then ka$ = "Lesbian libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000749"
+If quick.LGBTQ_cultural_heritagesub=17 Then ka$ = "Queer libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001182"
+If quick.LGBTQ_cultural_heritagesub=18 Then ka$ = "Transgender libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001418"
+If quick.LGBTQ_cultural_heritagesub=19 Then ka$ = "Women's libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001513"
+If quick.LGBTQ_cultural_heritagesub=20 Then ka$ = "Lesbian libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000749"
+If quick.LGBTQ_cultural_heritagesub=21 Then ka$ = "LGBTQ+ museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001030"
+If quick.LGBTQ_cultural_heritagesub=22 Then ka$ = "Asexual museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002799"
+If quick.LGBTQ_cultural_heritagesub=23 Then ka$ = "Bisexual museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000163"
+If quick.LGBTQ_cultural_heritagesub=24 Then ka$ = "Gay museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000511"
+If quick.LGBTQ_cultural_heritagesub=25 Then ka$ = "Intersex museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002917"
+If quick.LGBTQ_cultural_heritagesub=26 Then ka$ = "Lesbian museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000754"
+If quick.LGBTQ_cultural_heritagesub=27 Then ka$ = "Queer museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001188"
+If quick.LGBTQ_cultural_heritagesub=28 Then ka$ = "Transgender museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001424"
+If quick.LGBTQ_cultural_heritagesub=29 Then ka$ = "Two-Spirit museums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002716"
+If quick.LGBTQ_cultural_heritagesub=30 Then ka$ = "LGBTQ+ special collections" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001813"
+
+If ka$ = " " then
+else
+CS.AddField 1, "650 7" & ka$
+end if
+
+If quick.Miscellanious_locationsub=0 Then la$ = " "
+If quick.Miscellanious_locationsub=1 Then la$ = "LGBTQ+ literary salons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000892"
+If quick.Miscellanious_locationsub=2 Then la$ = "LGBTQ+ neighbourhoods" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000558"
+If quick.Miscellanious_locationsub=3 Then la$ = "LGBTQ+ pubs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000925"
+If quick.Miscellanious_locationsub=4 Then la$ = "LGBTQ+ restaurants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000930"
+If quick.Miscellanious_locationsub=5 Then la$ = "LGBTQ+ retirement homes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000931"
+If quick.Miscellanious_locationsub=6 Then la$ = "Peep shows" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001096"
+If quick.Miscellanious_locationsub=7 Then la$ = "Schools for LGBTQ+ youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000933"
+
+If la$ = " " then
+else
+CS.AddField 1, "650 7" & la$ 
+end if
+
+If quick.Two_Spirit_Misc_locationsub=0 Then ma$ = " "
+If quick.Two_Spirit_Misc_locationsub=1 Then ma$ = "Two-Spirit bookshops" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002681"
+If quick.Two_Spirit_Misc_locationsub=2 Then ma$ = "Two-Spirit community centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002689"
+If quick.Two_Spirit_Misc_locationsub=3 Then ma$ = "Two-Spirit information centers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002696"
+If quick.Two_Spirit_Misc_locationsub=4 Then ma$ = "Two-Spirit libraries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002697"
+If quick.Two_Spirit_Misc_locationsub=5 Then ma$ = "Two-Spirit theater" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002731"
+If quick.Two_Spirit_Misc_locationsub=6 Then ma$ = "Two-Spirit-focused businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002737"
+If quick.Two_Spirit_Misc_locationsub=7 Then ma$ = "Two-Spirit-owned businesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002738"
+
+If ma$ = " " then
+else
+CS.AddField 1, "650 7" & ma$ 
+end if
+
+Cancelled:   
+End Sub
+

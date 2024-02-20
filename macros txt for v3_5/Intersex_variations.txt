@@ -1,0 +1,139 @@
+'MacroName:Intersex_variations
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Menu layout satisfactory for ver.1, Oct. 2022/wi, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Intersex_variations$
+Intersex_variations$=" "+nd+ "Intersex variations"+nd+"  17-beta hydroxysteroid dehydrogenase 3 deficiency"+nd+"  5-alpha reductase deficiency"+nd+"  Ambiguous genitalia"+nd+"  Androgen insensitivity syndrome" _
++nd+"    Complete gonadal dysgenesis"+nd+"    Mild androgen insensitivity syndrome"+nd+"    Partial androgen insensitivity syndrome"+nd+"  Anorchia"+nd+"  Aphallia" _
++nd+"  Aromatase deficiency"+nd+"  Aromatase excess syndrome"+nd+"  Bladder exstrophy"+nd+"  Chimerism"+nd+"  Clitoromegaly" _
++nd+"  Cloacal exstrophy"+nd+"  Complete androgen insensitivity syndrome"+nd+"  Congenital adrenal hyperplasia"+nd+"    Classical congenital adrenal hyperplasia"+nd+"      Salt-wasting congenital adrenal hyperplasia" _
++nd+"    Non-classical congenital adrenal hyperplasia"+nd+"  Congenital chordee"+nd+"  Cryptorchidism"+nd+"  De la Chapelle syndrome"+nd+"  Epispadias" _
++nd+"  Estrogen insensitivity syndrome"+nd+"  Follicle-stimulating hormone insensitivity"+nd+"  Fraser syndrome"+nd+"  Gonadal dysgenesis"+nd+"    Mixed gonadal dysgenesis" _
++nd+"  Hyperandrogenism"+nd+"  Hypogonadism"+nd+"  Hypospadias"+nd+"  Isolated 17,20-lyase deficiency "+nd+"  Jacobs syndrome" _
++nd+"  Kallmann syndrome"+nd+"  Klinefelter syndrome"+nd+"  Leydig cell hypoplasia"+nd+"    Type 1 Leydig cell hypoplasia"+nd+"    Type 2 Leydig cell hypoplasia" _
++nd+"  Luteinizing hormone insensitivity"+nd+"  Mayer-Rokitansky-Küster-Hauser syndrome "+nd+"    Type 1 Mayer-Rokitansky-Küster-Hauser syndrome"+nd+"    Type 2 Mayer-Rokitansky-Küster-Hauser syndrome"+nd+"  Micropenis" _
++nd+"  Mosaicism involving ""sex"" chromosomes"+nd+"  Ovo-testes"+nd+"  Partial androgen insensitivity syndrome"+nd+"  Penoscrotal transposition"+nd+"  Persistent Müllerian duct syndrome" _
++nd+"  Polycystic ovary syndrome"+nd+"  Progestin induced virilization"+nd+"  Pseudohermaphroditism"+nd+"  Sex reversal syndrome"+nd+"  Swyer syndrome" _
++nd+"  Trisomy X"+nd+"  Turner syndrome"+nd+"  Vaginal atresia "+nd+"  XXYY syndrome"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 260, 250, "Intersex variations and Narrower Terms"
+
+Text 14,7,150,14, "Intersex variations"
+   DropListBox 14, 20, 200, 180, Intersex_variations$, .Intersex_variationssub
+  
+Button 25,200,40,20, "I'm done",    .fin
+CancelButton 75,200,40,20
+
+Text  14, 225, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.4"
+Text  14, 235, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+
+If quick.Intersex_variationssub=0 Then aa$ = " "
+If quick.Intersex_variationssub=1 Then aa$ = "Intersex variations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000669"
+If quick.Intersex_variationssub=2 Then aa$ = "17-beta hydroxysteroid dehydrogenase 3 deficiency" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002818"
+If quick.Intersex_variationssub=3 Then aa$ = "5-alpha reductase deficiency" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000001"
+If quick.Intersex_variationssub=4 Then aa$ = "Ambiguous genitalia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002819"
+If quick.Intersex_variationssub=5 Then aa$ = "Androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000044"
+If quick.Intersex_variationssub=6 Then aa$ = "Complete gonadal dysgenesis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002830"
+If quick.Intersex_variationssub=7 Then aa$ = "Mild androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002866"
+If quick.Intersex_variationssub=8 Then aa$ = "Partial androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001079"
+If quick.Intersex_variationssub=9 Then aa$ = "Anorchia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002821"
+If quick.Intersex_variationssub=10 Then aa$ = "Aphallia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000064"
+If quick.Intersex_variationssub=11 Then aa$ = "Aromatase deficiency" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002822"
+If quick.Intersex_variationssub=12 Then aa$ = "Aromatase excess syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002823"
+If quick.Intersex_variationssub=13 Then aa$ = "Bladder exstrophy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002824"
+If quick.Intersex_variationssub=14 Then aa$ = "Chimerism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002826"
+If quick.Intersex_variationssub=15 Then aa$ = "Clitoromegaly" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000283"
+If quick.Intersex_variationssub=16 Then aa$ = "Cloacal exstrophy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002828"
+If quick.Intersex_variationssub=17 Then aa$ = "Complete androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002829"
+If quick.Intersex_variationssub=18 Then aa$ = "Congenital adrenal hyperplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000301"
+If quick.Intersex_variationssub=19 Then aa$ = "Classical congenital adrenal hyperplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002827"
+If quick.Intersex_variationssub=20 Then aa$ = "Salt-wasting congenital adrenal hyperplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002874"
+If quick.Intersex_variationssub=21 Then aa$ = "Non-classical congenital adrenal hyperplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002869"
+If quick.Intersex_variationssub=22 Then aa$ = "Congenital chordee" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002831"
+If quick.Intersex_variationssub=23 Then aa$ = "Cryptorchidism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002832"
+If quick.Intersex_variationssub=24 Then aa$ = "De la Chapelle syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002833"
+If quick.Intersex_variationssub=25 Then aa$ = "Epispadias" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002836"
+If quick.Intersex_variationssub=26 Then aa$ = "Estrogen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002837"
+If quick.Intersex_variationssub=27 Then aa$ = "Follicle-stimulating hormone insensitivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002838"
+If quick.Intersex_variationssub=28 Then aa$ = "Fraser syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002839"
+If quick.Intersex_variationssub=29 Then aa$ = "Gonadal dysgenesis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000599"
+If quick.Intersex_variationssub=30 Then aa$ = "Mixed gonadal dysgenesis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002867"
+If quick.Intersex_variationssub=31 Then aa$ = "Hyperandrogenism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002842"
+If quick.Intersex_variationssub=32 Then aa$ = "Hypogonadism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002843"
+If quick.Intersex_variationssub=33 Then aa$ = "Hypospadias" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000657"
+If quick.Intersex_variationssub=34 Then aa$ = "Isolated 17,20-lyase deficiency " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002848"
+If quick.Intersex_variationssub=35 Then aa$ = "Jacobs syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002861"
+If quick.Intersex_variationssub=36 Then aa$ = "Kallmann syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002862"
+If quick.Intersex_variationssub=37 Then aa$ = "Klinefelter syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000692"
+If quick.Intersex_variationssub=38 Then aa$ = "Leydig cell hypoplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002863"
+If quick.Intersex_variationssub=39 Then aa$ = "Type 1 Leydig cell hypoplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002879"
+If quick.Intersex_variationssub=40 Then aa$ = "Type 2 Leydig cell hypoplasia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002881"
+If quick.Intersex_variationssub=41 Then aa$ = "Luteinizing hormone insensitivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002864"
+If quick.Intersex_variationssub=42 Then aa$ = "Mayer-Rokitansky-Kuèster-Hauser syndrome " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002865"
+If quick.Intersex_variationssub=43 Then aa$ = "Type 1 Mayer-Rokitansky-Kuèster-Hauser syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002880"
+If quick.Intersex_variationssub=44 Then aa$ = "Type 2 Mayer-Rokitansky-Kuèster-Hauser syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002882"
+If quick.Intersex_variationssub=45 Then aa$ = "Micropenis" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001014"
+If quick.Intersex_variationssub=46 Then aa$ = "Mosaicism involving ""sex"" chromosomes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001020"
+If quick.Intersex_variationssub=47 Then aa$ = "Ovo-testes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001066"
+If quick.Intersex_variationssub=48 Then aa$ = "Partial androgen insensitivity syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001079"
+If quick.Intersex_variationssub=49 Then aa$ = "Penoscrotal transposition" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002870"
+If quick.Intersex_variationssub=50 Then aa$ = "Persistent Muèllerian duct syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002871"
+If quick.Intersex_variationssub=51 Then aa$ = "Polycystic ovary syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002872"
+If quick.Intersex_variationssub=52 Then aa$ = "Progestin induced virilization" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001134"
+If quick.Intersex_variationssub=53 Then aa$ = "Pseudohermaphroditism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002873"
+If quick.Intersex_variationssub=54 Then aa$ = "Sex reversal syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002875"
+If quick.Intersex_variationssub=55 Then aa$ = "Swyer syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001354"
+If quick.Intersex_variationssub=56 Then aa$ = "Trisomy X" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002878"
+If quick.Intersex_variationssub=57 Then aa$ = "Turner syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001478"
+If quick.Intersex_variationssub=58 Then aa$ = "Vaginal atresia " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002883"
+If quick.Intersex_variationssub=59 Then aa$ = "XXYY syndrome" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002885"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

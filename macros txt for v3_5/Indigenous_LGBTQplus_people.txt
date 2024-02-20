@@ -1,0 +1,127 @@
+'MacroName:Indigenous_LGBTQplus_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, updated 08/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Indigenous_LGBTQplus_people$
+Indigenous_LGBTQplus_people$=" "+nd+ "Indigenous LGBTQ+ people"+nd+"  Aboriginal Australian LGBTQ+ people"+nd+"    Aboriginal Australian asexual people"+nd+"    Aboriginal Australian bisexual people"+nd+"    Aboriginal Australian gay men" _
++nd+"    Aboriginal Australian intersex people"+nd+"    Aboriginal Australian lesbians"+nd+"    Aboriginal Australian queer people"+nd+"    Aboriginal Australian transgender people"+nd+"  Indigenous asexual people" _
++nd+"  Indigenous bisexual people"+nd+"  Indigenous gay men"+nd+"  Indigenous intersex people"+nd+"  Indigenous lesbians"+nd+"  Indigenous queer people" _
++nd+"  Indigenous transgender people"+nd+"  Indigiqueer people"+nd+"  Inuit LGBTQ+ people [self-identify only]"+nd+"    Inuit asexual people"+nd+"    Inuit bisexual people" _
++nd+"    Inuit gay men"+nd+"    Inuit intersex people"+nd+"    Inuit lesbians"+nd+"    Inuit queer people"+nd+"    Inuit transgender people" _
++nd+"  Kanaka Maoli LGBTQ+ people"+nd+"    Kanaka Maoli asexual people "+nd+"    Kanaka Maoli bisexual people"+nd+"    Kanaka Maoli gay men"+nd+"    Kānaka Maoli intersex people" _
++nd+"    Kānaka Maoli lesbians"+nd+"    Kānaka Maoli queer people"+nd+"    Kānaka Maoli transgender people"+nd+"  Native American LGBTQ+ people"+nd+"    Native American asexual people" _
++nd+"    Native American bisexual people"+nd+"    Native American gay men"+nd+"    Native American intersex people"+nd+"    Native American lesbians"+nd+"    Native American queer people" _
++nd+"    Native American transgender people"+nd+"  Papuan LGBTQ+ people"+nd+"    Papuan asexual people"+nd+"    Papuan bisexual people"+nd+"    Papuan gay men" _
++nd+"    Papuan intersex people"+nd+"    Papuan lesbians"+nd+"    Papuan queer people"+nd+"    Papuan transgender people"+nd+"  Takatāpui [self-identify only]" _
+
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "Indigenous LGBTQ+ people and Narrower Terms"
+
+Text 14,7,100,14, "Indigenous LGBTQ+ people"
+   DropListBox 14, 20, 150, 125, Indigenous_LGBTQplus_people$, .Indigenous_LGBTQplus_peoplesub
+  
+Button 25,145,40,20, "I'm done",    .fin
+CancelButton 75,145,40,20
+Text  14, 170, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.4"
+Text  14, 180, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Indigenous_LGBTQplus_peoplesub=0 Then aa$ = " "
+If quick.Indigenous_LGBTQplus_peoplesub=1 Then aa$ = "Indigenous LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000886"
+If quick.Indigenous_LGBTQplus_peoplesub=2 Then aa$ = "Aboriginal Australian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000002"
+If quick.Indigenous_LGBTQplus_peoplesub=3 Then aa$ = "Aboriginal Australian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002892"
+If quick.Indigenous_LGBTQplus_peoplesub=4 Then aa$ = "Aboriginal Australian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001976"
+If quick.Indigenous_LGBTQplus_peoplesub=5 Then aa$ = "Aboriginal Australian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001975"
+If quick.Indigenous_LGBTQplus_peoplesub=6 Then aa$ = "Aboriginal Australian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001979"
+If quick.Indigenous_LGBTQplus_peoplesub=7 Then aa$ = "Aboriginal Australian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001974"
+If quick.Indigenous_LGBTQplus_peoplesub=8 Then aa$ = "Aboriginal Australian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001978"
+If quick.Indigenous_LGBTQplus_peoplesub=9 Then aa$ = "Aboriginal Australian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001977"
+If quick.Indigenous_LGBTQplus_peoplesub=10 Then aa$ = "Indigenous asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002922"
+If quick.Indigenous_LGBTQplus_peoplesub=11 Then aa$ = "Indigenous bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001970"
+If quick.Indigenous_LGBTQplus_peoplesub=12 Then aa$ = "Indigenous gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001969"
+If quick.Indigenous_LGBTQplus_peoplesub=13 Then aa$ = "Indigenous intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001973"
+If quick.Indigenous_LGBTQplus_peoplesub=14 Then aa$ = "Indigenous lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001968"
+If quick.Indigenous_LGBTQplus_peoplesub=15 Then aa$ = "Indigenous queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001972"
+If quick.Indigenous_LGBTQplus_peoplesub=16 Then aa$ = "Indigenous transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001971"
+If quick.Indigenous_LGBTQplus_peoplesub=17 Then aa$ = "Indigiqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001809"
+If quick.Indigenous_LGBTQplus_peoplesub=18 Then aa$ = "Inuit LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000676"
+If quick.Indigenous_LGBTQplus_peoplesub=19 Then aa$ = "Inuit asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002923"
+If quick.Indigenous_LGBTQplus_peoplesub=20 Then aa$ = "Inuit bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001964"
+If quick.Indigenous_LGBTQplus_peoplesub=21 Then aa$ = "Inuit gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001963"
+If quick.Indigenous_LGBTQplus_peoplesub=22 Then aa$ = "Inuit intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001967"
+If quick.Indigenous_LGBTQplus_peoplesub=23 Then aa$ = "Inuit lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001962"
+If quick.Indigenous_LGBTQplus_peoplesub=24 Then aa$ = "Inuit queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001966"
+If quick.Indigenous_LGBTQplus_peoplesub=25 Then aa$ = "Inuit transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001965"
+If quick.Indigenous_LGBTQplus_peoplesub=26 Then aa$ = "Kaånaka Maoli LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001955"
+If quick.Indigenous_LGBTQplus_peoplesub=27 Then aa$ = "Kaånaka Maoli asexual people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002924"
+If quick.Indigenous_LGBTQplus_peoplesub=28 Then aa$ = "Kaånaka Maoli bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001958"
+If quick.Indigenous_LGBTQplus_peoplesub=29 Then aa$ = "Kaånaka Maoli gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001957"
+If quick.Indigenous_LGBTQplus_peoplesub=30 Then aa$ = "Kaånaka Maoli intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001961"
+If quick.Indigenous_LGBTQplus_peoplesub=31 Then aa$ = "Kaånaka Maoli lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001956"
+If quick.Indigenous_LGBTQplus_peoplesub=32 Then aa$ = "Kaånaka Maoli queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001960"
+If quick.Indigenous_LGBTQplus_peoplesub=33 Then aa$ = "Kaånaka Maoli transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001959"
+If quick.Indigenous_LGBTQplus_peoplesub=34 Then aa$ = "Native American LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001037"
+If quick.Indigenous_LGBTQplus_peoplesub=35 Then aa$ = "Native American asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002925"
+If quick.Indigenous_LGBTQplus_peoplesub=36 Then aa$ = "Native American bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000165"
+If quick.Indigenous_LGBTQplus_peoplesub=37 Then aa$ = "Native American gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000513"
+If quick.Indigenous_LGBTQplus_peoplesub=38 Then aa$ = "Native American intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002964"
+If quick.Indigenous_LGBTQplus_peoplesub=39 Then aa$ = "Native American lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000758"
+If quick.Indigenous_LGBTQplus_peoplesub=40 Then aa$ = "Native American queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001190"
+If quick.Indigenous_LGBTQplus_peoplesub=41 Then aa$ = "Native American transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001426"
+If quick.Indigenous_LGBTQplus_peoplesub=42 Then aa$ = "Papuan LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000913"
+If quick.Indigenous_LGBTQplus_peoplesub=43 Then aa$ = "Papuan asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002927"
+If quick.Indigenous_LGBTQplus_peoplesub=44 Then aa$ = "Papuan bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001945"
+If quick.Indigenous_LGBTQplus_peoplesub=45 Then aa$ = "Papuan gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001944"
+If quick.Indigenous_LGBTQplus_peoplesub=46 Then aa$ = "Papuan intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001948"
+If quick.Indigenous_LGBTQplus_peoplesub=47 Then aa$ = "Papuan lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001943"
+If quick.Indigenous_LGBTQplus_peoplesub=48 Then aa$ = "Papuan queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001947"
+If quick.Indigenous_LGBTQplus_peoplesub=49 Then aa$ = "Papuan transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001946"
+If quick.Indigenous_LGBTQplus_peoplesub=50 Then aa$ = "Takataåpui" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000898"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

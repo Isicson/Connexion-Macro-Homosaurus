@@ -1,0 +1,472 @@
+'MacroName:LGBTQplus_media
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+'Reviewed for 3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim ka$
+ka$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Erotica$
+Erotica$=" "+nd+ "Erotica"+nd+"  LGBTQ+ erotic literature"+nd+"    Aromantic erotic literature"+nd+"    Asexual erotic literature"+nd+"    Bisexual erotic literature" _
++nd+"    Demisexual erotic literature"+nd+"    Gay erotic literature"+nd+"    Greyromantic erotic literature"+nd+"    Intersex erotic literature"+nd+"    Lesbian erotic literature" _
++nd+"    Megasexual erotic literature"+nd+"    Non-binary erotic literature"+nd+"    Queer erotic literature"+nd+"    Transgender erotic literature"
+
+dim Gender_studies$
+Gender_studies$=" "+nd+ "Gender studies"+nd+"  Bisexual studies"+nd+"  Gay studies"+nd+"  Lesbian studies"+nd+"  Transgender studies"
+
+dim Information_provision$
+Information_provision$=" "+nd+ "Information provision"+nd+"  AIDS education"+nd+"  LGBTQ+ health education"+nd+"  Sex education"
+
+dim LGBTQplus_autobiography$
+LGBTQplus_autobiography$=" "+nd+ "LGBTQ+ autobiographies"+nd+"  Aromantic autobiographies"+nd+"  Asexual autobiographies"+nd+"  Bisexual autobiographies"+nd+"  Demisexual autobiographies" _
++nd+"  Gay autobiographies"+nd+"  Greyromantic autobiographies"+nd+"  Intersex autobiographies"+nd+"  Lesbian autobiographies"+nd+"  Megasexual autobiographies" _
++nd+"  Queer autobiographies"+nd+"  Transgender autobiographies"
+
+dim LGBTQplus_biographies$
+LGBTQplus_biographies$=" "+nd+ "LGBTQ+ biographies"+nd+"  Aromantic biographies"+nd+"  Asexual biographies"+nd+"  Bisexual biographies"+nd+"  Demisexual biographies" _
++nd+"  Gay biographies"+nd+"  Greyromantic biographies"+nd+"  Intersex biographies"+nd+"  Lesbian biographies"+nd+"  Megasexual biographies" _
++nd+"  Queer biographies"+nd+"  Transgender biographies"
+
+dim LGBTQplus_books$
+LGBTQplus_books$=" "+nd+ "LGBTQ+ books"+nd+"  LGBTQ+ challenged books"
+
+dim LGBTQplus_characters$
+LGBTQplus_characters$=" "+nd+ "LGBTQ+ characters"+nd+"  Asexual characters"+nd+"  Bisexual characters"+nd+"  Gay characters"+nd+"  Intersex characters" _
++nd+"  Lesbian characters"+nd+"  Queer characters"+nd+"  Transgender characters"
+
+dim LGBTQ_cinema$
+LGBTQ_cinema$=" "+nd+ "LGBTQ+ cinema"+nd+"  Drag in film"+nd+"  Gay cinema"+nd+"    Gay films"+nd+"      Gay porn films" _
++nd+"  Lesbian cinema"+nd+"    Lesbian films"+nd+"      Lesbian porn films"+nd+"  LGBTQ+ films"+nd+"    Aromantic films" _
++nd+"    Asexual films"+nd+"    Bisexual films"+nd+"    Demisexual films"+nd+"    Gay films"+nd+"    Intersex films" _
++nd+"    Lesbian films"+nd+"    LGBTQ+ erotic films "+nd+"      Aromantic erotic films"+nd+"      Asexual erotic films"+nd+"      Bisexual erotic films" _
++nd+"      Demisexual erotic films"+nd+"      Gay erotic films"+nd+"      Intersex erotic films"+nd+"      Lesbian erotic films"+nd+"      Queer erotic films" _
++nd+"      Transgender erotic films"+nd+"      Two-Spirit erotic films"+nd+"      Two-Spirit porn films"+nd+"    LGBTQ+ home movies"+nd+"      LGBTQ+ vlogs" _
++nd+"    Queer films "+nd+"    Transgender films"+nd+"    Two-Spirit films"
+
+dim LGBTQplus_lit_crit$
+LGBTQplus_lit_crit$=" "+nd+ "LGBTQ+ literary criticism"+nd+"  Aromantic literary criticism"+nd+"  Asexual literary criticism"+nd+"  Bisexual literary criticism"+nd+"  Demisexual literary criticism " _
++nd+"  Gay literary criticism"+nd+"  Greyromantic literary criticism"+nd+"  Intersex literary criticism"+nd+"  Lesbian literary criticism"+nd+"  Megasexual literary criticism" _
++nd+"  Queer literary criticism"+nd+"  Transgender literary criticism"
+
+dim LGBTQplus_periodicals$
+LGBTQplus_periodicals$=" "+nd+ "LGBTQ+ periodicals"+nd+"  AIDS periodicals"+nd+"  LGBTQ+ magazines"+nd+"  LGBTQ+ newsletters"+nd+"    Asexual newsletters" _
++nd+"    Bisexual newsletters"+nd+"    Gay newsletters"+nd+"    Intersex newsletters"+nd+"    Lesbian newsletters"+nd+"    Queer newsletters" _
++nd+"    Transgender newsletters"+nd+"    Two-Spirit newsletters"+nd+"  LGBTQ+ newspapers"+nd+"    Asexual newspapers"+nd+"    Bisexual newspapers" _
++nd+"    Gay newspapers"+nd+"    Intersex newspapers"+nd+"    Lesbian newspapers"+nd+"    LGBTQ+ obituaries"+nd+"    Queer newspapers" _
++nd+"    Transgender newspapers"+nd+"    Two-Spirit newspapers"
+
+dim LGBTQplus_arts$
+LGBTQplus_arts$=" "+nd+ "LGBTQ+ arts"+nd+"  Aromantic art"+nd+"  Asexual art"+nd+"  Bisexual art"+nd+"  Demisexual art" _
++nd+"  Gay art"+nd+"  Intersex art"+nd+"  Lesbian art"+nd+"  LGBTQ+ cinema"+nd+"    NT > LGBTQ+ cinema" _
++nd+"  LGBTQ+ country music"+nd+"  LGBTQ+ erotic art"+nd+"    NT > LGBTQ+ erotic art"+nd+"  LGBTQ+ musicals"+nd+"    NT > LGBTQ+ musicals" _
++nd+"  LGBTQ+ operas"+nd+"    NT > LGBTQ+ operas"+nd+"  Queer art"+nd+"  Transgender art"+nd+"  Two-Spirit art"
+
+dim LGBTQplus_press$
+LGBTQplus_press$=" "+nd+ "LGBTQ+ press"+nd+"  Asexual press"+nd+"  Bisexual press"+nd+"  Gay press"+nd+"  Intersex press" _
++nd+"  Lesbian press"+nd+"  LGBTQ+ magazines"+nd+"  LGBTQ+ newsletters"+nd+"    Asexual newsletters"+nd+"    Bisexual newsletters" _
++nd+"    Gay newsletters"+nd+"    Intersex newsletters"+nd+"    Lesbian newsletters"+nd+"    Queer newsletters"+nd+"    Transgender newsletters" _
++nd+"    Two-Spirit newsletters"+nd+"  LGBTQ+ newspapers"+nd+"    Asexual newspapers"+nd+"    Bisexual newspapers"+nd+"    Gay newspapers" _
++nd+"    Intersex newspapers"+nd+"    Lesbian newspapers"+nd+"    LGBTQ+ obituaries"+nd+"    Queer newspapers"+nd+"    Transgender newspapers" _
++nd+"    Two-Spirit newspapers"+nd+"  LGBTQ+ porn magazines"+nd+"  LGBTQ+ zines"+nd+"    Aromantic zines"+nd+"    Asexual zines" _
++nd+"    Gay zines"+nd+"    Intersex zines"+nd+"    Lesbian zines"+nd+"    Non-binary zines"+nd+"    Queer zines" _
++nd+"    Transgender zines"+nd+"  Queer press"+nd+"  Transgender press"
+
+dim LGBTQplus_publishers$
+LGBTQplus_publishers$=" "+nd+ "LGBTQ+ publishers"+nd+"  Asexual publishers"+nd+"  Bisexual publishers"+nd+"  Gay publishers"+nd+"  Intersex publishers" _
++nd+"  Lesbian publishers"+nd+"  Queer publishers"+nd+"  Transgender publishers"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 450, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,100,14, "Erotica"
+   DropListBox 14, 20, 130, 150, Erotica$, .Eroticasub
+Text 200,7,60,14, "Gender studies"
+   DropListBox 200, 20, 130, 135, Gender_studies$, .Gender_studiessub
+Text 14,45,80,14, "Information provision"
+   DropListBox 14, 58, 150, 135, Information_provision$, .Information_provisionsub
+Text 200,45,90,14, "LGBTQ+ autobiographies"
+   DropListBox 200, 58, 130, 135, LGBTQplus_autobiography$, .LGBTQplus_autobiographysub
+Text 14,83,200,12, "LGBTQ+ biographies"
+   DropListBox 14, 96, 130, 135, LGBTQplus_biographies$, .LGBTQplus_biographiessub
+Text 200,83,90,14, "LGBTQ+ books"
+   DropListBox 200, 96, 130, 135, LGBTQplus_books$, .LGBTQplus_bookssub
+Text 14,121,90,14, "LGBTQ+ characters"
+   DropListBox 14, 135, 130, 135, LGBTQplus_characters$, .LGBTQplus_characterssub
+Text 200,121,120,14, "LGBTQ+ cinema"
+   DropListBox 200, 135,130, 300, LGBTQ_cinema$, .LGBTQ_cinemasub
+Text 14,159,140,135, "LGBTQ+ literary criticism"
+   DropListBox 14,172,130,130, LGBTQplus_lit_crit$, .LGBTQplus_lit_critsub 
+Text 200,159,130,135, "LGBTQ+ periodicals"
+   DropListBox 200,172,130,200, LGBTQplus_periodicals$, .LGBTQplus_periodicalssub
+Text 14,197,130,130, "LGBTQ+ arts"
+   DropListBox 14,210,130,200, LGBTQplus_arts$, .LGBTQplus_artssub
+Text 200,197,95,135, "LGBTQ+ press"
+   DropListBox 200,210,130,200, LGBTQplus_press$, .LGBTQplus_presssub    
+Text 14,235,95,135, "LGBTQ+ publishers"
+   DropListBox 14,248,130,135, LGBTQplus_publishers$, .LGBTQplus_publisherssub
+
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 300, 200, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 314, 200, 10, " Go to Media topics page 2", .OptionButton2
+      OptionButton  14, 348, 200, 10, " LGBTQ+ Literature (655_7)", .OptionButton3
+      OptionButton  14, 372, 200, 10, " LGBTQ+ Literature (650_7)", .OptionButton4
+      Text 35,328,300,20, "Includes: LGBTQ+ radio -- LGBTQ+ television -- Social media -- LGBTQ+ Social media -- Two-Spirit Miscellanious media -- Terms not in a hierarchy."
+      Text 35,360,300,14, "MARC coded as Genre headings."
+      Text 35,386,300,14, "MARC coded as subject headings."
+      
+Button 120,400,40,20, "I'm done",    .fin
+CancelButton 190,400,40,20
+
+Text  14, 425, 200, 8, "Based on Homosaurus v. 3.2. Updated for v.3.5."
+Text  14, 435, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Eroticasub=0 Then aa$ = " "
+If quick.Eroticasub=1 Then aa$ = "Erotica" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000403"
+If quick.Eroticasub=2 Then aa$ = "LGBTQ+ erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000859"
+If quick.Eroticasub=3 Then aa$ = "Aromantic erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002451"
+If quick.Eroticasub=4 Then aa$ = "Asexual erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002413"
+If quick.Eroticasub=5 Then aa$ = "Bisexual erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001599"
+If quick.Eroticasub=6 Then aa$ = "Demisexual erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002416"
+If quick.Eroticasub=7 Then aa$ = "Gay erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001598"
+If quick.Eroticasub=8 Then aa$ = "Greyromantic erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002515"
+If quick.Eroticasub=9 Then aa$ = "Intersex erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002415"
+If quick.Eroticasub=10 Then aa$ = "Lesbian erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001597"
+If quick.Eroticasub=11 Then aa$ = "Megasexual erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002494"
+If quick.Eroticasub=12 Then aa$ = "Non-binary erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002572"
+If quick.Eroticasub=13 Then aa$ = "Queer erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001601"
+If quick.Eroticasub=14 Then aa$ = "Transgender erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001600"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+If quick.Gender_studiessub=0 Then ba$ = " "
+If quick.Gender_studiessub=1 Then ba$ = "Gender studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000579"
+If quick.Gender_studiessub=2 Then ba$ = "Bisexual studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000187"
+If quick.Gender_studiessub=3 Then ba$ = "Gay studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000539"
+If quick.Gender_studiessub=4 Then ba$ = "Lesbian studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000781"
+If quick.Gender_studiessub=5 Then ba$ = "Transgender studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001447"
+
+If ba$ = " " then
+else
+CS.AddField 1, "650 7" & ba$
+end if
+
+If quick.Information_provisionsub=0 Then ca$ = " "
+If quick.Information_provisionsub=1 Then ca$ = "Information provision" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000661"
+If quick.Information_provisionsub=2 Then ca$ = "AIDS education" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000027"
+If quick.Information_provisionsub=3 Then ca$ = "LGBTQ+ health education" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000877"
+If quick.Information_provisionsub=4 Then ca$ = "Sex education" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001271"
+
+If ca$ = " " then
+else
+CS.AddField 1, "650 7" & ca$ 
+end if
+
+If quick.LGBTQplus_autobiographysub=0 Then da$ = " "
+If quick.LGBTQplus_autobiographysub=1 Then da$ = "LGBTQ+ autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001729"
+If quick.LGBTQplus_autobiographysub=2 Then da$ = "Aromantic autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002463"
+If quick.LGBTQplus_autobiographysub=3 Then da$ = "Asexual autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002480"
+If quick.LGBTQplus_autobiographysub=4 Then da$ = "Bisexual autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001732"
+If quick.LGBTQplus_autobiographysub=5 Then da$ = "Demisexual autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002491"
+If quick.LGBTQplus_autobiographysub=6 Then da$ = "Gay autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001731"
+If quick.LGBTQplus_autobiographysub=7 Then da$ = "Greyromantic autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002540"
+If quick.LGBTQplus_autobiographysub=8 Then da$ = "Intersex autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002778"
+If quick.LGBTQplus_autobiographysub=9 Then da$ = "Lesbian autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001730"
+If quick.LGBTQplus_autobiographysub=10 Then da$ = "Megasexual autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002511"
+If quick.LGBTQplus_autobiographysub=11 Then da$ = "Queer autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001734"
+If quick.LGBTQplus_autobiographysub=12 Then da$ = "Transgender autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001733"
+
+If da$ = " " then
+else
+CS.AddField 1, "650 7" & da$
+end if
+
+If quick.LGBTQplus_biographiessub=0 Then ea$ = " "
+If quick.LGBTQplus_biographiessub=1 Then ea$ = "LGBTQ+ biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001614"
+If quick.LGBTQplus_biographiessub=2 Then ea$ = "Aromantic biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002464"
+If quick.LGBTQplus_biographiessub=3 Then ea$ = "Asexual biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002481"
+If quick.LGBTQplus_biographiessub=4 Then ea$ = "Bisexual biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001617"
+If quick.LGBTQplus_biographiessub=5 Then ea$ = "Demisexual biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002492"
+If quick.LGBTQplus_biographiessub=6 Then ea$ = "Gay biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001616"
+If quick.LGBTQplus_biographiessub=7 Then ea$ = "Greyromantic biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002541"
+If quick.LGBTQplus_biographiessub=8 Then ea$ = "Intersex biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002779"
+If quick.LGBTQplus_biographiessub=9 Then ea$ = "Lesbian biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001615"
+If quick.LGBTQplus_biographiessub=10 Then ea$ = "Megasexual biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002512"
+If quick.LGBTQplus_biographiessub=11 Then ea$ = "Queer biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001619"
+If quick.LGBTQplus_biographiessub=12 Then ea$ = "Transgender biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001618"
+
+If ea$ = " " then
+else
+CS.AddField 1, "650 7" & ea$
+end if
+
+If quick.LGBTQplus_bookssub=0 Then fa$ = " "
+If quick.LGBTQplus_bookssub=1 Then fa$ = "LGBTQ+ books" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000827"
+If quick.LGBTQplus_bookssub=2 Then fa$ = "LGBTQ+ challenged books" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000831"
+
+If fa$ = " " then
+else
+CS.AddField 1, "650 7" & fa$
+end if
+
+If quick.LGBTQplus_characterssub=0 Then ga$ = " "
+If quick.LGBTQplus_characterssub=1 Then ga$ = "LGBTQ+ characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000249"
+If quick.LGBTQplus_characterssub=2 Then ga$ = "Asexual characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002770"
+If quick.LGBTQplus_characterssub=3 Then ga$ = "Bisexual characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000139"
+If quick.LGBTQplus_characterssub=4 Then ga$ = "Gay characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000481"
+If quick.LGBTQplus_characterssub=5 Then ga$ = "Intersex characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002967"
+If quick.LGBTQplus_characterssub=6 Then ga$ = "Lesbian characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000729"
+If quick.LGBTQplus_characterssub=7 Then ga$ = "Queer characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001166"
+If quick.LGBTQplus_characterssub=8 Then ga$ = "Transgender characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001399"
+
+If ga$ = " " then
+else
+CS.AddField 1, "650 7" & ga$
+end if
+
+If quick.LGBTQ_cinemasub=0 Then ha$ = " "
+If quick.LGBTQ_cinemasub=1 Then ha$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQ_cinemasub=2 Then ha$ = "Drag in film" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003160"
+If quick.LGBTQ_cinemasub=3 Then ha$ = "Gay cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002330"
+If quick.LGBTQ_cinemasub=4 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=5 Then ha$ = "Gay porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000520"
+If quick.LGBTQ_cinemasub=6 Then ha$ = "Lesbian cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002328"
+If quick.LGBTQ_cinemasub=7 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=8 Then ha$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000013"
+If quick.LGBTQ_cinemasub=9 Then ha$ = "LGBTQ+ films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000869"
+If quick.LGBTQ_cinemasub=10 Then ha$ = "Aromantic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002562"
+If quick.LGBTQ_cinemasub=11 Then ha$ = "Asexual films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002563"
+If quick.LGBTQ_cinemasub=12 Then ha$ = "Bisexual films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002447"
+If quick.LGBTQ_cinemasub=13 Then ha$ = "Demisexual films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002564"
+If quick.LGBTQ_cinemasub=14 Then ha$ = "Gay films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002331"
+If quick.LGBTQ_cinemasub=15 Then ha$ = "Intersex films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002561"
+If quick.LGBTQ_cinemasub=16 Then ha$ = "Lesbian films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002329"
+If quick.LGBTQ_cinemasub=17 Then ha$ = "LGBTQ+ erotic films " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002544"
+If quick.LGBTQ_cinemasub=18 Then ha$ = "Aromantic erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002552"
+If quick.LGBTQ_cinemasub=19 Then ha$ = "Asexual erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002553"
+If quick.LGBTQ_cinemasub=20 Then ha$ = "Bisexual erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002548"
+If quick.LGBTQ_cinemasub=21 Then ha$ = "Demisexual erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002554"
+If quick.LGBTQ_cinemasub=22 Then ha$ = "Gay erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002547"
+If quick.LGBTQ_cinemasub=23 Then ha$ = "Intersex erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002551"
+If quick.LGBTQ_cinemasub=24 Then ha$ = "Lesbian erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002546"
+If quick.LGBTQ_cinemasub=25 Then ha$ = "Queer erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002550"
+If quick.LGBTQ_cinemasub=26 Then ha$ = "Transgender erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002549"
+If quick.LGBTQ_cinemasub=27 Then ha$ = "Two-Spirit erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002545"
+If quick.LGBTQ_cinemasub=28 Then ha$ = "Two-Spirit porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002555"
+If quick.LGBTQ_cinemasub=29 Then ha$ = "LGBTQ+ home movies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001982"
+If quick.LGBTQ_cinemasub=30 Then ha$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+If quick.LGBTQ_cinemasub=31 Then ha$ = "Queer films " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002446"
+If quick.LGBTQ_cinemasub=32 Then ha$ = "Transgender films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002445"
+If quick.LGBTQ_cinemasub=33 Then ha$ = "Two-Spirit films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002560"
+
+If ha$ = " " then
+else
+CS.AddField 1, "650 7" & ha$
+end if
+
+If quick.LGBTQplus_lit_critsub=0 Then ia$ = " "
+If quick.LGBTQplus_lit_critsub=1 Then ia$ = "LGBTQ+ literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001602"
+If quick.LGBTQplus_lit_critsub=2 Then ia$ = "Aromantic literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002466"
+If quick.LGBTQplus_lit_critsub=3 Then ia$ = "Asexual literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002483"
+If quick.LGBTQplus_lit_critsub=4 Then ia$ = "Bisexual literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001605"
+If quick.LGBTQplus_lit_critsub=5 Then ia$ = "Demisexual literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002493"
+If quick.LGBTQplus_lit_critsub=6 Then ia$ = "Gay literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001604"
+If quick.LGBTQplus_lit_critsub=7 Then ia$ = "Greyromantic literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002542"
+If quick.LGBTQplus_lit_critsub=8 Then ia$ = "Intersex literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002749"
+If quick.LGBTQplus_lit_critsub=9 Then ia$ = "Lesbian literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001603"
+If quick.LGBTQplus_lit_critsub=10 Then ia$ = "Megasexual literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002513"
+If quick.LGBTQplus_lit_critsub=11 Then ia$ = "Queer literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001607"
+If quick.LGBTQplus_lit_critsub=12 Then ia$ = "Transgender literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001606"
+
+If ia$ = " " then
+else
+CS.AddField 1, "650 7" & ia$ 
+end if
+
+If quick.LGBTQplus_periodicalssub=0 Then ja$ = " "
+If quick.LGBTQplus_periodicalssub=1 Then ja$ = "LGBTQ+ periodicals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001830"
+If quick.LGBTQplus_periodicalssub=2 Then ja$ = "AIDS periodicals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000031"
+If quick.LGBTQplus_periodicalssub=3 Then ja$ = "LGBTQ+ magazines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000896"
+If quick.LGBTQplus_periodicalssub=4 Then ja$ = "LGBTQ+ newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001041"
+If quick.LGBTQplus_periodicalssub=5 Then ja$ = "Asexual newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002797"
+If quick.LGBTQplus_periodicalssub=6 Then ja$ = "Bisexual newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000166"
+If quick.LGBTQplus_periodicalssub=7 Then ja$ = "Gay newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000514"
+If quick.LGBTQplus_periodicalssub=8 Then ja$ = "Intersex newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002918"
+If quick.LGBTQplus_periodicalssub=9 Then ja$ = "Lesbian newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000759"
+If quick.LGBTQplus_periodicalssub=10 Then ja$ = "Queer newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001191"
+If quick.LGBTQplus_periodicalssub=11 Then ja$ = "Transgender newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001427"
+If quick.LGBTQplus_periodicalssub=12 Then ja$ = "Two-Spirit newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002714"
+If quick.LGBTQplus_periodicalssub=13 Then ja$ = "LGBTQ+ newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001042"
+If quick.LGBTQplus_periodicalssub=14 Then ja$ = "Asexual newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002798"
+If quick.LGBTQplus_periodicalssub=15 Then ja$ = "Bisexual newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000167"
+If quick.LGBTQplus_periodicalssub=16 Then ja$ = "Gay newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000515"
+If quick.LGBTQplus_periodicalssub=17 Then ja$ = "Intersex newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002919"
+If quick.LGBTQplus_periodicalssub=18 Then ja$ = "Lesbian newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000760"
+If quick.LGBTQplus_periodicalssub=19 Then ja$ = "LGBTQ+ obituaries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000911"
+If quick.LGBTQplus_periodicalssub=20 Then ja$ = "Queer newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001192"
+If quick.LGBTQplus_periodicalssub=21 Then ja$ = "Transgender newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001428"
+If quick.LGBTQplus_periodicalssub=22 Then ja$ = "Two-Spirit newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002715"
+
+If ja$ = " " then
+else
+CS.AddField 1, "650 7" & ja$
+end if
+
+If quick.LGBTQplus_artssub=0 Then ka$ = " "
+If quick.LGBTQplus_artssub=1 Then ka$ = "LGBTQ+ arts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000816"
+If quick.LGBTQplus_artssub=2 Then ka$ = "Aromantic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002603"
+If quick.LGBTQplus_artssub=3 Then ka$ = "Asexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002604"
+If quick.LGBTQplus_artssub=4 Then ka$ = "Bisexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002600"
+If quick.LGBTQplus_artssub=5 Then ka$ = "Demisexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002605"
+If quick.LGBTQplus_artssub=6 Then ka$ = "Gay art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002598"
+If quick.LGBTQplus_artssub=7 Then ka$ = "Intersex art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002602"
+If quick.LGBTQplus_artssub=8 Then ka$ = "Lesbian art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002599"
+If quick.LGBTQplus_artssub=9 Then ka$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQplus_artssub=10 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_cinema"
+If quick.LGBTQplus_artssub=11 Then ka$ = "LGBTQ+ country music" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003159"
+If quick.LGBTQplus_artssub=12 Then ka$ = "LGBTQ+ erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002579"
+If quick.LGBTQplus_artssub=13 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_erotic_art"
+If quick.LGBTQplus_artssub=14 Then ka$ = "LGBTQ+ musicals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001031"
+If quick.LGBTQplus_artssub=15 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_musicals"
+If quick.LGBTQplus_artssub=16 Then ka$ = "LGBTQ+ operas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002886"
+If quick.LGBTQplus_artssub=17 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_operas"
+If quick.LGBTQplus_artssub=18 Then ka$ = "Queer art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002601"
+If quick.LGBTQplus_artssub=19 Then ka$ = "Transgender art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002596"
+If quick.LGBTQplus_artssub=20 Then ka$ = "Two-Spirit art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002597"
+
+If ka$ = " " then
+else
+CS.AddField 1, "650 7" & ka$
+end if
+
+If quick.LGBTQplus_presssub=0 Then la$ = " "
+If quick.LGBTQplus_presssub=1 Then la$ = "LGBTQ+ press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001132"
+If quick.LGBTQplus_presssub=2 Then la$ = "Asexual press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002804"
+If quick.LGBTQplus_presssub=3 Then la$ = "Bisexual press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000177"
+If quick.LGBTQplus_presssub=4 Then la$ = "Gay press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000521"
+If quick.LGBTQplus_presssub=5 Then la$ = "Intersex press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002936"
+If quick.LGBTQplus_presssub=6 Then la$ = "Lesbian press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000766"
+If quick.LGBTQplus_presssub=7 Then la$ = "LGBTQ+ magazines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000896"
+If quick.LGBTQplus_presssub=8 Then la$ = "LGBTQ+ newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001041"
+If quick.LGBTQplus_presssub=9 Then la$ = "Asexual newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002797"
+If quick.LGBTQplus_presssub=10 Then la$ = "Bisexual newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000166"
+If quick.LGBTQplus_presssub=11 Then la$ = "Gay newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000514"
+If quick.LGBTQplus_presssub=12 Then la$ = "Intersex newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002918"
+If quick.LGBTQplus_presssub=13 Then la$ = "Lesbian newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000759"
+If quick.LGBTQplus_presssub=14 Then la$ = "Queer newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001191"
+If quick.LGBTQplus_presssub=15 Then la$ = "Transgender newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001427"
+If quick.LGBTQplus_presssub=16 Then la$ = "Two-Spirit newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002714"
+If quick.LGBTQplus_presssub=17 Then la$ = "LGBTQ+ newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001042"
+If quick.LGBTQplus_presssub=18 Then la$ = "Asexual newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002798"
+If quick.LGBTQplus_presssub=19 Then la$ = "Bisexual newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000167"
+If quick.LGBTQplus_presssub=20 Then la$ = "Gay newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000515"
+If quick.LGBTQplus_presssub=21 Then la$ = "Intersex newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002919"
+If quick.LGBTQplus_presssub=22 Then la$ = "Lesbian newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000760"
+If quick.LGBTQplus_presssub=23 Then la$ = "LGBTQ+ obituaries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000911"
+If quick.LGBTQplus_presssub=24 Then la$ = "Queer newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001192"
+If quick.LGBTQplus_presssub=25 Then la$ = "Transgender newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001428"
+If quick.LGBTQplus_presssub=26 Then la$ = "Two-Spirit newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002715"
+If quick.LGBTQplus_presssub=27 Then la$ = "LGBTQ+ porn magazines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000923"
+If quick.LGBTQplus_presssub=28 Then la$ = "LGBTQ+ zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000965"
+If quick.LGBTQplus_presssub=29 Then la$ = "Aromantic zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003150"
+If quick.LGBTQplus_presssub=30 Then la$ = "Asexual zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003151"
+If quick.LGBTQplus_presssub=31 Then la$ = "Gay zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003156"
+If quick.LGBTQplus_presssub=32 Then la$ = "Intersex zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003148"
+If quick.LGBTQplus_presssub=33 Then la$ = "Lesbian zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003155"
+If quick.LGBTQplus_presssub=34 Then la$ = "Non-binary zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003152"
+If quick.LGBTQplus_presssub=35 Then la$ = "Queer zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003154"
+If quick.LGBTQplus_presssub=36 Then la$ = "Transgender zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003149"
+If quick.LGBTQplus_presssub=37 Then la$ = "Queer press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001200"
+If quick.LGBTQplus_presssub=38 Then la$ = "Transgender press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001436"
+
+If la$ = " " then
+else
+CS.AddField 1, "650 7" & la$
+end if
+
+
+If quick.LGBTQplus_publisherssub=0 Then ma$ = " "
+If quick.LGBTQplus_publisherssub=1 Then ma$ = "LGBTQ+ publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001144"
+If quick.LGBTQplus_publisherssub=2 Then ma$ = "Asexual publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002805"
+If quick.LGBTQplus_publisherssub=3 Then ma$ = "Bisexual publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000180"
+If quick.LGBTQplus_publisherssub=4 Then ma$ = "Gay publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000527"
+If quick.LGBTQplus_publisherssub=5 Then ma$ = "Intersex publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002937"
+If quick.LGBTQplus_publisherssub=6 Then ma$ = "Lesbian publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000771"
+If quick.LGBTQplus_publisherssub=7 Then ma$ = "Queer publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001203"
+If quick.LGBTQplus_publisherssub=8 Then ma$ = "Transgender publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001440"
+
+If ma$ = " " then
+else
+CS.AddField 1, "650 7" & ma$
+end if
+
+If quick.OptionGroup1=0 then OKbutton
+If quick.OptionGroup1=1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media_2"
+If quick.OptionGroup1=2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature_655"
+If quick.OptionGroup1=3 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+
+Cancelled:   
+End Sub
+

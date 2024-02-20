@@ -1,0 +1,78 @@
+'MacroName:LGBTQ_partners
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Menu layout satisfactory for ver.1, Oct. 2022/wi, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_partners$
+LGBTQ_partners$=" "+nd+ "LGBTQ+ partners"+nd+"  Asexual partners"+nd+"  Bisexual partners"+nd+"  Gay partners"+nd+"  Intersex partners" _
++nd+"  Lesbian partners"+nd+"  LGBTQ+ ex-partners"+nd+"  Queer partners"+nd+"  Transgender partners"+nd+"  Two-Spirit partners"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 195, "LGBTQ+ partners and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ partners"
+   DropListBox 14, 20, 130, 135, LGBTQ_partners$, .LGBTQ_partnerssub
+  
+Button 25,140,40,20, "I'm done",    .fin
+CancelButton 75,140,40,20
+
+Text  14, 170, 200, 8, "Based on Homosaurus v.3.3, Updated for v.3.4"
+Text  14, 180, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_partnerssub=0 Then aa$ = " "
+If quick.LGBTQ_partnerssub=1 Then aa$ = "LGBTQ+ partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001083"
+If quick.LGBTQ_partnerssub=2 Then aa$ = "Asexual partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002800"
+If quick.LGBTQ_partnerssub=3 Then aa$ = "Bisexual partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002369"
+If quick.LGBTQ_partnerssub=4 Then aa$ = "Gay partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002368"
+If quick.LGBTQ_partnerssub=5 Then aa$ = "Intersex partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002920"
+If quick.LGBTQ_partnerssub=6 Then aa$ = "Lesbian partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002367"
+If quick.LGBTQ_partnerssub=7 Then aa$ = "LGBTQ+ ex-partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000863"
+If quick.LGBTQ_partnerssub=8 Then aa$ = "Queer partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002371"
+If quick.LGBTQ_partnerssub=9 Then aa$ = "Transgender partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002370"
+If quick.LGBTQ_partnerssub=10 Then aa$ = "Two-Spirit partners " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002717"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

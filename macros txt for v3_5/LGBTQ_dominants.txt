@@ -1,0 +1,73 @@
+'MacroName:LGBTQ_dominants
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 01/2023, updated 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_dominants$
+LGBTQ_dominants$=" "+nd+ "LGBTQ+ dominants"+nd+"  Asexual dominants"+nd+"  Bisexual dominants"+nd+"  Gay dominants"+nd+"  Lesbian dominants" _
++nd+"  Queer dominants"+nd+"  Transgender dominants"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "LGBTQ+ dominants and Narrower Terms"
+
+Text 14,7,100,14, "LGBTQ+ dominants"
+   DropListBox 14, 20, 130, 135, LGBTQ_dominants$, .LGBTQ_dominantssub
+  
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v.3.5"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_dominantssub=0 Then aa$ = " "
+If quick.LGBTQ_dominantssub=1 Then aa$ = "LGBTQ+ dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.LGBTQ_dominantssub=2 Then aa$ = "Asexual dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002991"
+If quick.LGBTQ_dominantssub=3 Then aa$ = "Bisexual dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000159"
+If quick.LGBTQ_dominantssub=4 Then aa$ = "Gay dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000505"
+If quick.LGBTQ_dominantssub=5 Then aa$ = "Lesbian dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003194"
+If quick.LGBTQ_dominantssub=6 Then aa$ = "Queer dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001184"
+If quick.LGBTQ_dominantssub=7 Then aa$ = "Transgender dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001420"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

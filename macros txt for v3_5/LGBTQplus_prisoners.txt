@@ -1,0 +1,69 @@
+'MacroName:LGBTQplus_prisoners
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 11/2022, Rev. 01/2023'
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_prisoners$
+LGBTQplus_prisoners$=" "+nd+ "LGBTQ+ prisoners"+nd+"  LGBTQ+ prisoners of conscience"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 250, 110, "LGBTQ+ prisoners and Narrower Terms"
+
+Text 14,7,200,14, "LGBTQ+ prisoners"
+   DropListBox 14, 20, 200, 135, LGBTQplus_prisoners$, .LGBTQplus_prisonerssub
+  
+Button 25,65,40,20, "I'm done",    .fin
+CancelButton 75,65,40,20
+
+Text  14, 90, 200, 8, "Based on Homosaurus v. 3.2 (Reviewed 1/23)"
+Text  14, 100, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_prisonerssub=0 Then aa$ = " "
+If quick.LGBTQplus_prisonerssub=1 Then aa$ = "LGBTQ+ prisoners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000887"
+If quick.LGBTQplus_prisonerssub=2 Then aa$ = "LGBTQ+ prisoners of conscience" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000924"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
