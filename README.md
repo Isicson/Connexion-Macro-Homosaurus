@@ -2,18 +2,22 @@
 
 Macro for the OCLC Connexion client written by Wendy Isicson, University of North Carolina at Chapel Hill for adding MARC formatted 650_7 Homosaurus terms to bibliographic records.  It also includes the option to add 655_7 Genre term formatting for literature terms.
 
-These macros were written and tested using Connexion client version 3.1.8196.28365 on a PC running Windows 10.  Other configurations have not been tested for compatibility. 
+These macros were written and tested using Connexion client version 3.1.8196.28365 on a PC running Windows 10 and Windows 11.  Other configurations have not been tested for compatibility. 
 
-The macrobook file is: Homosaurus_subjects.mbk. For installation help read the docx file.
+The macro book file is: Homosaurus_subjects.mbk. For installation help read the docx file.
 
-Optional stand alone macrobook file: LGBTQ_genre_lit.mbk. For installation help read the docx file. This macrobook codes the MARC for literature terms as 655_7s.  It only includes the literature terms and can be bound as seperate new keybind/button.
+Optional standalone macro book file: LGBTQ_genre_lit.mbk. For installation help read the docx file. This macro book codes the MARC for literature terms as 655_7s.  It only includes the literature terms and can be bound as separate new keybind/button.
 
 Read a .txt file to see the macro code.  This is many smaller macros bundled together due to limitations for the size and complexity of Connexion macros.
 
+Known issues:  Diacritics have been a challenge to include and have them properly print to Connexion.  I was able to get most diacritics printing correctly to the bibliographic records, but any word that uses a long dash over the letter "a" will display a diacritic in the dropdown menus.  For example, the word Māori.
 
-Known issues:  Diacritics have been a challenge to include and have them properly print to Connexion.  I was able to get most diacritics printing correctly to the bibliographic records, but any word that uses a long dash over the letter "a" will display a diacrtic in the dropdown menus.  For example, the word Māori.
+This macro is based on the [Homosaurus vocabulary](https://homosaurus.org/) which is under [CC BY-NC-ND 4.0 ](https://creativecommons.org/licenses/by-nc-nd/4.0/) and has minor modifications to improve menu readability for terms duplicated within the same hierarchy.
 
 -----------------------------------------------------
+
+Revised for Homosaurus version 3.6 -- 10/2024
+
 Revised for Homosaurus version 3.5 -- 02/2024
 
 Revised for Homosaurus version 3.4 -- 08/2023
