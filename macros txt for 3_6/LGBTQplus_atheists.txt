@@ -1,0 +1,77 @@
+'MacroName:LGBTQplus_atheists
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'September, 2022, Rev. 01/2023, Rev. 02/2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_atheists$
+LGBTQplus_atheists$=" "+nd+ "LGBTQ+ atheists"+nd+"  Asexual atheists"+nd+"  Bisexual atheists"+nd+"  Gay atheists"+nd+"  Intersex atheists" _
++nd+"  Lesbian atheists"+nd+"  Queer atheists"+nd+"  Transgender atheists"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "LGBTQ+ atheists and Narrower Terms"
+
+
+ListBox 14, 7, 130, 100, LGBTQplus_atheists$, .LGBTQplus_atheistssub
+  
+Button 25,110,40,20, "I'm done",    .fin
+CancelButton 75,110,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.2. Updated for v.3.5"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_atheistssub=0 Then aa$ = " "
+If quick.LGBTQplus_atheistssub=1 Then aa$ = "LGBTQ+ atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000082"
+If quick.LGBTQplus_atheistssub=2 Then aa$ = "Asexual atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002979"
+If quick.LGBTQplus_atheistssub=3 Then aa$ = "Bisexual atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000132"
+If quick.LGBTQplus_atheistssub=4 Then aa$ = "Gay atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000473"
+If quick.LGBTQplus_atheistssub=5 Then aa$ = "Intersex atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002973"
+If quick.LGBTQplus_atheistssub=6 Then aa$ = "Lesbian atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000723"
+If quick.LGBTQplus_atheistssub=7 Then aa$ = "Queer atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001160"
+If quick.LGBTQplus_atheistssub=8 Then aa$ = "Transgender atheists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001393"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

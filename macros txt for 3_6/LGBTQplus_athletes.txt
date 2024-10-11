@@ -1,0 +1,77 @@
+'MacroName:LGBTQplus_athletes
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 09/2022, updated 08/2023 for v.3.4, 08/2024 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_athletes$
+LGBTQplus_athletes$=" "+nd+ "LGBTQ+ athletes"+nd+"  Asexual athletes"+nd+"  Bisexual athletes"+nd+"  Gay athletes"+nd+"  Intersex athletes" _
++nd+"  Lesbian athletes"+nd+"  Non-binary athletes"+nd+"  Queer athletes"+nd+"  Transgender athletes"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "LGBTQ+ athletes and Narrower Terms"
+
+ListBox 14, 7, 130, 110, LGBTQplus_athletes$, .LGBTQplus_athletessub
+  
+Button 25,120,40,20, "I'm done",    .fin
+CancelButton 75,120,40,20
+
+Text  14, 143, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.6"
+Text  14, 153, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_athletessub=0 Then aa$ = " "
+If quick.LGBTQplus_athletessub=1 Then aa$ = "LGBTQ+ athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001929"
+If quick.LGBTQplus_athletessub=2 Then aa$ = "Asexual athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002761"
+If quick.LGBTQplus_athletessub=3 Then aa$ = "Bisexual athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001932"
+If quick.LGBTQplus_athletessub=4 Then aa$ = "Gay athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001931"
+If quick.LGBTQplus_athletessub=5 Then aa$ = "Intersex athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001935"
+If quick.LGBTQplus_athletessub=6 Then aa$ = "Lesbian athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001930"
+If quick.LGBTQplus_athletessub=7 Then aa$ = "Non-binary athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003443"
+If quick.LGBTQplus_athletessub=8 Then aa$ = "Queer athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001934"
+If quick.LGBTQplus_athletessub=9 Then aa$ = "Transgender athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001933"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

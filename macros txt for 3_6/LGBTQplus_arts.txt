@@ -1,0 +1,85 @@
+'MacroName:LGBTQplus_arts
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim ka$
+ka$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_arts$
+LGBTQplus_arts$=" "+nd+ "LGBTQ+ arts"+nd+"  Aromantic art"+nd+"  Asexual art"+nd+"  Bisexual art"+nd+"  Demisexual art" _
++nd+"  Gay art"+nd+"  Intersex art"+nd+"  Lesbian art"+nd+"  LGBTQ+ cinema"+nd+"    NT > LGBTQ+ cinema" _
++nd+"  LGBTQ+ country music"+nd+"  LGBTQ+ erotic art"+nd+"    NT > LGBTQ+ erotic art"+nd+"  LGBTQ+ musicals"+nd+"    NT > LGBTQ+ musicals" _
++nd+"  LGBTQ+ operas"+nd+"    NT > LGBTQ+ operas"+nd+"  Queer art"+nd+"  Transgender art"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 250, "LGBTQ+ arts and Narrower Terms"
+
+ListBox 14, 7, 130, 190, LGBTQplus_arts$, .LGBTQplus_artssub
+  
+Button 25,205,40,20, "I'm done",    .fin
+CancelButton 75,205,40,20
+Text  14, 230, 200, 8, "Based on Homosaurus v. 3.3. Updated for v.3.6."
+Text  14, 240, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_artssub=0 Then ka$ = " "
+If quick.LGBTQplus_artssub=1 Then ka$ = "LGBTQ+ arts" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000816"
+If quick.LGBTQplus_artssub=2 Then ka$ = "Aromantic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002603"
+If quick.LGBTQplus_artssub=3 Then ka$ = "Asexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002604"
+If quick.LGBTQplus_artssub=4 Then ka$ = "Bisexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002600"
+If quick.LGBTQplus_artssub=5 Then ka$ = "Demisexual art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002605"
+If quick.LGBTQplus_artssub=6 Then ka$ = "Gay art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002598"
+If quick.LGBTQplus_artssub=7 Then ka$ = "Intersex art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002602"
+If quick.LGBTQplus_artssub=8 Then ka$ = "Lesbian art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002599"
+If quick.LGBTQplus_artssub=9 Then ka$ = "LGBTQ+ cinema" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002327"
+If quick.LGBTQplus_artssub=10 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_cinema"
+If quick.LGBTQplus_artssub=11 Then ka$ = "LGBTQ+ country music" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003159"
+If quick.LGBTQplus_artssub=12 Then ka$ = "LGBTQ+ erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002579"
+If quick.LGBTQplus_artssub=13 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_erotic_art"
+If quick.LGBTQplus_artssub=14 Then ka$ = "LGBTQ+ musicals" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001031"
+If quick.LGBTQplus_artssub=15 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_musicals"
+If quick.LGBTQplus_artssub=16 Then ka$ = "LGBTQ+ operas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002886"
+If quick.LGBTQplus_artssub=17 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_operas"
+If quick.LGBTQplus_artssub=18 Then ka$ = "Queer art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002601"
+If quick.LGBTQplus_artssub=19 Then ka$ = "Transgender art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002596"
+If ka$ = " " then
+else
+CS.AddField 99, "650 7" & ka$
+end if
+
+Cancelled:   
+End Sub
+

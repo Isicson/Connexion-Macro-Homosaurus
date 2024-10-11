@@ -1,0 +1,70 @@
+'MacroName:LGBTQ_who_use_substances
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'January, 2023
+'Reviewed for 3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_who_use_substances$
+LGBTQ_who_use_substances$=" "+nd+ "LGBTQ+ people who use substances"+nd+"  LGBTQ+ people who use substances for medical purposes "+nd+"  LGBTQ+ people who use substances recreationally "+nd+"  LGBTQ+ people with addictions "+nd+"    NT > LGBTQ+ people with addictions " _
++nd+"  LGBTQ+ people with alcohol use disorders " 
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 150, "LGBTQ+ people who use substances and Narrower Terms"
+
+ListBox 14, 7, 200, 85, LGBTQ_who_use_substances$, .LGBTQ_who_use_substancessub
+  
+Button 25,93,40,20, "I'm done",    .fin
+CancelButton 75,93,40,20
+Text  14, 120, 200, 8, "Based on Homosaurus v. 3.3 (Created 1/23)"
+Text  14, 130, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_who_use_substancessub=0 Then aa$ = " "
+If quick.LGBTQ_who_use_substancessub=1 Then aa$ = "LGBTQ+ people who use substances" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000379"
+If quick.LGBTQ_who_use_substancessub=2 Then aa$ = "LGBTQ+ people who use substances for medical purposes " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002229"
+If quick.LGBTQ_who_use_substancessub=3 Then aa$ = "LGBTQ+ people who use substances recreationally " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001235"
+If quick.LGBTQ_who_use_substancessub=4 Then aa$ = "LGBTQ+ people with addictions " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001550"
+If quick.LGBTQ_who_use_substancessub=5 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_with_addictions"
+If quick.LGBTQ_who_use_substancessub=6 Then aa$ = "LGBTQ+ people with alcohol use disorders " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001540"
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

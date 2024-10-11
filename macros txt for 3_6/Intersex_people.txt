@@ -1,0 +1,68 @@
+'MacroName:Intersex_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 09/2022, updated 08/2023 for v.3.4. 08/24 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Intersex_people$
+Intersex_people$=" "+nd+ "Intersex people"+nd+"  Chimeras"+nd+"  Intersex children"+nd+"  Intersex college students"+nd+"  Intersex youth" _
++nd+"  Pregnant intersex people"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "Intersex people and Narrower Terms"
+ListBox 14, 7, 130, 90, Intersex_people$, .Intersex_peoplesub
+  
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+Text  14, 140, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.6"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Intersex_peoplesub=0 Then aa$ = " "
+If quick.Intersex_peoplesub=1 Then aa$ = "Intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000618"
+If quick.Intersex_peoplesub=2 Then aa$ = "Chimeras" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002825"
+If quick.Intersex_peoplesub=3 Then aa$ = "Intersex children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000668"
+If quick.Intersex_peoplesub=4 Then aa$ = "Intersex college students" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003039"
+If quick.Intersex_peoplesub=5 Then aa$ = "Intersex youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000674"
+If quick.Intersex_peoplesub=6 Then aa$ = "Pregnant intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003225"
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

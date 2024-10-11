@@ -1,0 +1,87 @@
+'MacroName:LGBTQplus_erotic_art
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 07/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_erotic_art$
+LGBTQplus_erotic_art$=" "+nd+ "LGBTQ+ erotic art"+nd+"  Aromantic erotic art"+nd+"  Asexual erotic art"+nd+"  Bisexual erotic art"+nd+"  Demisexual erotic art" _
++nd+"  Gay erotic art"+nd+"  Intersex erotic art"+nd+"  Lesbian erotic art"+nd+"  LGBTQ+ porn films"+nd+"    Aromantic porn films" _
++nd+"    Asexual porn films"+nd+"    Bisexual porn films"+nd+"    Demisexual porn films"+nd+"    Gay porn films"+nd+"    Intersex porn films" _
++nd+"    Lesbian porn films"+nd+"    Non-binary porn films"+nd+"    Queer porn films"+nd+"    Transgender porn films"+nd+"  Queer erotic art" _
++nd+"  Transgender erotic art"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 250, "LGBTQ+ erotic art and Narrower Terms"
+
+ListBox 14, 7, 130, 195, LGBTQplus_erotic_art$, .LGBTQplus_erotic_artsub
+  
+Button 25,205,40,20, "I'm done",    .fin
+CancelButton 75,205,40,20
+
+Text  14, 230, 200, 8, "Based on Homosaurus v.3.6"
+Text  14, 240, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_erotic_artsub=0 Then aa$ = " "
+If quick.LGBTQplus_erotic_artsub=1 Then aa$ = "LGBTQ+ erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002579"
+If quick.LGBTQplus_erotic_artsub=2 Then aa$ = "Aromantic erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002613"
+If quick.LGBTQplus_erotic_artsub=3 Then aa$ = "Asexual erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002614"
+If quick.LGBTQplus_erotic_artsub=4 Then aa$ = "Bisexual erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002609"
+If quick.LGBTQplus_erotic_artsub=5 Then aa$ = "Demisexual erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002615"
+If quick.LGBTQplus_erotic_artsub=6 Then aa$ = "Gay erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002608"
+If quick.LGBTQplus_erotic_artsub=7 Then aa$ = "Intersex erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002612"
+If quick.LGBTQplus_erotic_artsub=8 Then aa$ = "Lesbian erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002607"
+If quick.LGBTQplus_erotic_artsub=9 Then aa$ = "LGBTQ+ porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000013"
+If quick.LGBTQplus_erotic_artsub=10 Then aa$ = "Aromantic porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002557"
+If quick.LGBTQplus_erotic_artsub=11 Then aa$ = "Asexual porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002558"
+If quick.LGBTQplus_erotic_artsub=12 Then aa$ = "Bisexual porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000176"
+If quick.LGBTQplus_erotic_artsub=13 Then aa$ = "Demisexual porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002559"
+If quick.LGBTQplus_erotic_artsub=14 Then aa$ = "Gay porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000520"
+If quick.LGBTQplus_erotic_artsub=15 Then aa$ = "Intersex porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002556"
+If quick.LGBTQplus_erotic_artsub=16 Then aa$ = "Lesbian porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000765"
+If quick.LGBTQplus_erotic_artsub=17 Then aa$ = "Non-binary porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002573"
+If quick.LGBTQplus_erotic_artsub=18 Then aa$ = "Queer porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001199"
+If quick.LGBTQplus_erotic_artsub=19 Then aa$ = "Transgender porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001435"
+If quick.LGBTQplus_erotic_artsub=20 Then aa$ = "Queer erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002611"
+If quick.LGBTQplus_erotic_artsub=21 Then aa$ = "Transgender erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002610"
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub

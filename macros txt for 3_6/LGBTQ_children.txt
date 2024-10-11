@@ -1,0 +1,80 @@
+'MacroName:LGBTQ_children
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 01/2023, updated 08/2023 for v.3.4
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQ_children$
+LGBTQ_children$=" "+nd+ "LGBTQ+ children"+nd+"  Asexual children"+nd+"  Bisexual children"+nd+"    Bisexual boys"+nd+"    Bisexual girls" _
++nd+"  Gay children"+nd+"  Intersex children"+nd+"  Lesbian children"+nd+"  Non-binary children"+nd+"  Queer children" _
++nd+"  Sexually abused LGBTQ+ children"+nd+"  Transgender children"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ children and Narrower Terms"
+
+ListBox 14, 7, 130, 145, LGBTQ_children$, .LGBTQ_childrensub
+  
+Button 25,155,40,20, "I'm done",    .fin
+CancelButton 75,155,40,20
+
+Text  14, 180, 200, 8, "Based on Homosaurus v.3.3, Updated for v.3.5"
+Text  14, 190, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQ_childrensub=0 Then aa$ = " "
+If quick.LGBTQ_childrensub=1 Then aa$ = "LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000256"
+If quick.LGBTQ_childrensub=2 Then aa$ = "Asexual children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002772"
+If quick.LGBTQ_childrensub=3 Then aa$ = "Bisexual children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000140"
+If quick.LGBTQ_childrensub=4 Then aa$ = "Bisexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000137"
+If quick.LGBTQ_childrensub=5 Then aa$ = "Bisexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000152"
+If quick.LGBTQ_childrensub=6 Then aa$ = "Gay children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002363"
+If quick.LGBTQ_childrensub=7 Then aa$ = "Intersex children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000668"
+If quick.LGBTQ_childrensub=8 Then aa$ = "Lesbian children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002362"
+If quick.LGBTQ_childrensub=9 Then aa$ = "Non-binary children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002222"
+If quick.LGBTQ_childrensub=10 Then aa$ = "Queer children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001167"
+If quick.LGBTQ_childrensub=11 Then aa$ = "Sexually abused LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001307"
+If quick.LGBTQ_childrensub=12 Then aa$ = "Transgender children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001400"
+
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
