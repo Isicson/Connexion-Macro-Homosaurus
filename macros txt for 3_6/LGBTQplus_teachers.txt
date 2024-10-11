@@ -1,0 +1,76 @@
+'MacroName:LGBTQplus_teachers
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'August, 2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_teachers$
+LGBTQplus_teachers$=" "+nd+ "LGBTQ+ teachers"+nd+"  Aromantic teachers"+nd+"  Asexual teachers"+nd+"  Bisexual teachers"+nd+"  Demisexual teachers" _
++nd+"  Gay teachers"+nd+"  Greyromantic teachers"+nd+"  Intersex teachers"+nd+"  Lesbian teachers"+nd+"  Megasexual teachers" _
++nd+"  Non-binary teachers"+nd+"  Queer teachers"+nd+"  Transgender teachers"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 200, "LGBTQ+ teachers and Narrower Terms"
+
+
+ListBox 14, 7, 130, 140, LGBTQplus_teachers$, .LGBTQplus_teacherssub
+  
+Button 14,150,40,20, "I'm done",    .fin
+CancelButton 64,150,40,20
+
+Text  14, 175, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 185, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_teacherssub=0 Then aa$ = " "
+If quick.LGBTQplus_teacherssub=1 Then aa$ = "LGBTQ+ teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003247"
+If quick.LGBTQplus_teacherssub=2 Then aa$ = "Aromantic teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003248"
+If quick.LGBTQplus_teacherssub=3 Then aa$ = "Asexual teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003249"
+If quick.LGBTQplus_teacherssub=4 Then aa$ = "Bisexual teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003250"
+If quick.LGBTQplus_teacherssub=5 Then aa$ = "Demisexual teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003251"
+If quick.LGBTQplus_teacherssub=6 Then aa$ = "Gay teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003252"
+If quick.LGBTQplus_teacherssub=7 Then aa$ = "Greyromantic teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003253"
+If quick.LGBTQplus_teacherssub=8 Then aa$ = "Intersex teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003254"
+If quick.LGBTQplus_teacherssub=9 Then aa$ = "Lesbian teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003255"
+If quick.LGBTQplus_teacherssub=10 Then aa$ = "Megasexual teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003257"
+If quick.LGBTQplus_teacherssub=11 Then aa$ = "Non-binary teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003258"
+If quick.LGBTQplus_teacherssub=12 Then aa$ = "Queer teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003259"
+If quick.LGBTQplus_teacherssub=13 Then aa$ = "Transgender teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003260"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

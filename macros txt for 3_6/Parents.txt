@@ -1,0 +1,89 @@
+'MacroName:Parents
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022, Updated 07/2023 for v.3.4, 08/2024 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Parents$
+Parents$=" "+nd+ "Parents"+nd+"  Adoptive parents"+nd+"  Birth parents"+nd+"    LGBTQ+ birth parents"+nd+"  Foster parents" _
++nd+"  LGBTQ+ parents"+nd+"    NT > LGBTQ+ parents"+nd+"  Parents of crossdressers"+nd+"  Parents of LGBTQ+ people"+nd+"    Parents of asexual people" _
++nd+"    Parents of bisexual people"+nd+"    Parents of gay men"+nd+"    Parents of intersex people"+nd+"    Parents of lesbians"+nd+"    Parents of non-binary people" _
++nd+"    Parents of queer people"+nd+"    Parents of transgender people"+nd+"  Two-Spirit parents"+nd+"    Two-Spirit fathers"+nd+"    Two-Spirit mothers" _
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 250, "Parents and Narrower Terms"
+
+   ListBox 14, 7, 130, 180, Parents$, .Parentssub
+  
+  
+Button 25,205,40,20, "I'm done",    .fin
+CancelButton 75,205,40,20
+
+Text  14, 230, 200, 8, "Based on Homosaurus v. 3.3. Updated for v.3.6"
+Text  14, 240, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Parentssub=0 Then aa$ = " "
+If quick.Parentssub=1 Then aa$ = "Parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002372"
+If quick.Parentssub=2 Then aa$ = "Adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000010"
+If quick.Parentssub=3 Then aa$ = "Birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000121"
+If quick.Parentssub=4 Then aa$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.Parentssub=5 Then aa$ = "Foster parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000452"
+If quick.Parentssub=6 Then aa$ = "LGBTQ+ parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001075"
+If quick.Parentssub=7 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_parents"
+If quick.Parentssub=8 Then aa$ = "Parents of crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001076"
+If quick.Parentssub=9 Then aa$ = "Parents of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002224"
+If quick.Parentssub=10 Then aa$ = "Parents of asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002910"
+If quick.Parentssub=11 Then aa$ = "Parents of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000173"
+If quick.Parentssub=12 Then aa$ = "Parents of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000509"
+If quick.Parentssub=13 Then aa$ = "Parents of intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002742"
+If quick.Parentssub=14 Then aa$ = "Parents of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000802"
+If quick.Parentssub=15 Then aa$ = "Parents of non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002225"
+If quick.Parentssub=16 Then aa$ = "Parents of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001077"
+If quick.Parentssub=17 Then aa$ = "Parents of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001078"
+If quick.Parentssub=18 Then aa$ = "Two-Spirit parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001764"
+If quick.Parentssub=19 Then aa$ = "Two-Spirit fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003242"
+If quick.Parentssub=20 Then aa$ = "Two-Spirit mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003243"
+
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

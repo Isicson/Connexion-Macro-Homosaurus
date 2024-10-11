@@ -1,0 +1,75 @@
+'MacroName:Rural_LGBTQplus_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Rural_LGBTQplus_people$
+Rural_LGBTQplus_people$=" "+nd+ "Rural LGBTQ+ people"+nd+"  Rural aromantic people"+nd+"  Rural asexual people"+nd+"  Rural bisexual people"+nd+"  Rural gay men" _
++nd+"  Rural intersex people"+nd+"  Rural lesbians"+nd+"  Rural non-binary people"+nd+"  Rural queer people"+nd+"  Rural transgender people" _
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 155, "Rural LGBTQ+ people and Narrower Terms"
+
+   ListBox 14, 7, 130, 105, Rural_LGBTQplus_people$, .Rural_LGBTQplus_peoplesub
+  
+Button 14,110,40,20, "I'm done",    .fin
+CancelButton 64,110,40,20
+
+Text  14, 135, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 145, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Rural_LGBTQplus_peoplesub=0 Then aa$ = " "
+If quick.Rural_LGBTQplus_peoplesub=1 Then aa$ = "Rural LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003370"
+If quick.Rural_LGBTQplus_peoplesub=2 Then aa$ = "Rural aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003377"
+If quick.Rural_LGBTQplus_peoplesub=3 Then aa$ = "Rural asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003376"
+If quick.Rural_LGBTQplus_peoplesub=4 Then aa$ = "Rural bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003373"
+If quick.Rural_LGBTQplus_peoplesub=5 Then aa$ = "Rural gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003372"
+If quick.Rural_LGBTQplus_peoplesub=6 Then aa$ = "Rural intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003378"
+If quick.Rural_LGBTQplus_peoplesub=7 Then aa$ = "Rural lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003371"
+If quick.Rural_LGBTQplus_peoplesub=8 Then aa$ = "Rural non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003379"
+If quick.Rural_LGBTQplus_peoplesub=9 Then aa$ = "Rural queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003375"
+If quick.Rural_LGBTQplus_peoplesub=10 Then aa$ = "Rural transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003374"
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
