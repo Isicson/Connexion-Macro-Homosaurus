@@ -1,0 +1,103 @@
+'MacroName:LGBTQplus_artists
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022, updated 07/2024 for v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_artists$
+LGBTQplus_artists$=" "+nd+ "  LGBTQ+ artists"+nd+"    Asexual artists"+nd+"    Bisexual artists"+nd+"    Gay artists"+nd+"    Intersex artists" _
++nd+"    Lesbian artists"+nd+"    LGBTQ+ painters"+nd+"      Aromantic painters"+nd+"      Asexual painters"+nd+"      Bisexual painters" _
++nd+"      Demisexual painters"+nd+"      Gay painters"+nd+"      Greyromantic painters"+nd+"      Intersex painters"+nd+"      Lesbian painters" _
++nd+"      Megasexual painters"+nd+"      Non-binary painters"+nd+"      Queer painters"+nd+"      Transgender painters"+nd+"    LGBTQ+ photographers" _
++nd+"      Aromantic photographers"+nd+"      Asexual photographers"+nd+"      Bisexual photographers"+nd+"      Demisexual photographers"+nd+"      Gay photographers" _
++nd+"      Greyromantic photographers"+nd+"      Intersex photographers"+nd+"      Lesbian photographers"+nd+"      Megasexual photographers"+nd+"      Non-binary photographers" _
++nd+"      Queer photographers"+nd+"      Transgender photographers"+nd+"    Queer artists"+nd+"    Transgender artists"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 355, "LGBTQ+ artists and Narrower Terms"
+
+ListBox 14, 7, 130, 300, LGBTQplus_artists$, .LGBTQplus_artistssub
+  
+Button 25,310,40,20, "I'm done",    .fin
+CancelButton 75,310,40,20
+Text  14, 335, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.6"
+Text  14, 345, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_artistssub=0 Then aa$ = " "
+If quick.LGBTQplus_artistssub=1 Then aa$ = "LGBTQ+ artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000070"
+If quick.LGBTQplus_artistssub=2 Then aa$ = "Asexual artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002760"
+If quick.LGBTQplus_artistssub=3 Then aa$ = "Bisexual artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000129"
+If quick.LGBTQplus_artistssub=4 Then aa$ = "Gay artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000470"
+If quick.LGBTQplus_artistssub=5 Then aa$ = "Intersex artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002777"
+If quick.LGBTQplus_artistssub=6 Then aa$ = "Lesbian artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000720"
+If quick.LGBTQplus_artistssub=7 Then aa$ = "LGBTQ+ painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003511"
+If quick.LGBTQplus_artistssub=8 Then aa$ = "Aromantic painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003438"
+If quick.LGBTQplus_artistssub=9 Then aa$ = "Asexual painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003439"
+If quick.LGBTQplus_artistssub=10 Then aa$ = "Bisexual painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003517"
+If quick.LGBTQplus_artistssub=11 Then aa$ = "Demisexual painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003440"
+If quick.LGBTQplus_artistssub=12 Then aa$ = "Gay painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003513"
+If quick.LGBTQplus_artistssub=13 Then aa$ = "Greyromantic painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003441"
+If quick.LGBTQplus_artistssub=14 Then aa$ = "Intersex painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003435"
+If quick.LGBTQplus_artistssub=15 Then aa$ = "Lesbian painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003516"
+If quick.LGBTQplus_artistssub=16 Then aa$ = "Megasexual painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003442"
+If quick.LGBTQplus_artistssub=17 Then aa$ = "Non-binary painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003437"
+If quick.LGBTQplus_artistssub=18 Then aa$ = "Queer painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003434"
+If quick.LGBTQplus_artistssub=19 Then aa$ = "Transgender painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003518"
+If quick.LGBTQplus_artistssub=20 Then aa$ = "LGBTQ+ photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003446"
+If quick.LGBTQplus_artistssub=21 Then aa$ = "Aromantic photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003455"
+If quick.LGBTQplus_artistssub=22 Then aa$ = "Asexual photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003456"
+If quick.LGBTQplus_artistssub=23 Then aa$ = "Bisexual photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003449"
+If quick.LGBTQplus_artistssub=24 Then aa$ = "Demisexual photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003457"
+If quick.LGBTQplus_artistssub=25 Then aa$ = "Gay photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003448"
+If quick.LGBTQplus_artistssub=26 Then aa$ = "Greyromantic photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003458"
+If quick.LGBTQplus_artistssub=27 Then aa$ = "Intersex photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003452"
+If quick.LGBTQplus_artistssub=28 Then aa$ = "Lesbian photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003447"
+If quick.LGBTQplus_artistssub=29 Then aa$ = "Megasexual photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003459"
+If quick.LGBTQplus_artistssub=30 Then aa$ = "Non-binary photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003454"
+If quick.LGBTQplus_artistssub=31 Then aa$ = "Queer photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003451"
+If quick.LGBTQplus_artistssub=32 Then aa$ = "Transgender photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003450"
+If quick.LGBTQplus_artistssub=33 Then aa$ = "Queer artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001157"
+If quick.LGBTQplus_artistssub=34 Then aa$ = "Transgender artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001390"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

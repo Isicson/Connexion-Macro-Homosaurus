@@ -1,0 +1,29 @@
+umlate/double dots: [ü] è
+c with hook/cedilla: [ç] ð
+long dash/macron: [ā] å 
+accute/forward tic: [é] is â
+circumflex, closed/caret: [î] ã
+ 
+bug notes:
+in a radio button list you  must keep all option lines together.  If you place text between them, they break by letting you select multiple radio buttons / not clearing previous button fill.
+& before a letter in a string will make it a hotkey.  I currently can't get the _ to display though.
+
+quotes in text strings. use double quotes
+""uuuu""
+Temporary notes area:
+
+
+
+
+380-400 max window length for scaling displays set to 150.  400 is absolute limit
+oversized windows:
+
+main menu at 470, added compact as alternative, this can't get smaller without sacrifices.
+Medical_focused 600, 530 - fixed to 390.
+Society_oriented_part2 600, 410  - fixed to 395. can cut more out as well.
+xSociety_oriented 600,460  - fixed to 395, cut cut about 5-10 more if needed later.
+xLGBTQplus_media 400, 450 -- - fixed to 370
+xLGBTQplus_locations 400, 400 - fixed to 350
+xLGBTQ+_Identities_part3 400, 400 - fixed to 380
+xLGBTQ_literature 400, 400 - fixed to 380
+xLGBTQ_literature_655 400, 400  - fixed to 380

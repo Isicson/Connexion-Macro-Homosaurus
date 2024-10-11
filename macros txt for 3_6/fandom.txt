@@ -1,0 +1,146 @@
+'MacroName:Fandom
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+
+'Created 09/2022, updated 08/2023 for v.3.4, 08/2024 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Fandom$
+
+Fandom$=" "+nd+ "Fandom"+nd+"  Anime and manga fandom"+nd+"    Bara fandom"+nd+"      Bara"+nd+"    Bishounen" _
++nd+"    Boys' Love (Genre)"+nd+"      Danmei"+nd+"    Girls' Love (Genre)"+nd+"      Baihe"+nd+"    Hentai fandom" _
++nd+"      Hentai"+nd+"    Yaoi fandom"+nd+"      NT > Yaoi fandom"+nd+"    Yuri fandom"+nd+"      Yuri" _
++nd+"  Fandom conventions"+nd+"    Furry conventions"+nd+"    Slash conventions"+nd+"  Fandom terminology"+nd+"    Slash terminology" _
++nd+"  Fanworks"+nd+"    Content warnings"+nd+"      NT > Content warnings"+nd+"    Fanart"+nd+"      Slash art" _
++nd+"    Fanfiction"+nd+"      NT > Fanfiction"+nd+"    Slash fanworks"+nd+"      NT > Slash fanworks"+nd+"  Furry fandom" _
++nd+"    Furries"+nd+"      Fursonas"+nd+"      Fursuits"+nd+"      Yiff"+nd+"    Furry conventions" _
++nd+"  Gender in fandom"+nd+"    Homophobia in fandom"+nd+"    Intersex people in fandom"+nd+"      Intersex authors"+nd+"      Intersex fiction" _
++nd+"    Men in fandom"+nd+"      Gay men in fandom"+nd+"    Misogyny in fandom"+nd+"    Non-binary people in fandom"+nd+"    Transgender people in fandom" _
++nd+"    Transphobia in fandom"+nd+"    Two-Spirit people in fandom"+nd+"    Women in fandom"+nd+"  LGBTQ+ people in fandom"+nd+"    NT > LGBTQ+ people in fandom" _
++nd+"  People of color in fandom"+nd+"  Racism in fandom"+nd+"  Shipping in fandom"+nd+"    Pairings in fandom"+nd+"      One true pairing" _
++nd+"    Ship names in fandom"+nd+"      Kirk/Spock"+nd+"  Slash fandom"+nd+"    Slash (Genre)"+nd+"      Femslash" _
++nd+"        Lesbian erotic literature"+nd+"        Lesbian fiction"+nd+"    Slash conventions"+nd+"    Slash fanworks"+nd+"      NT > Slash fanworks" _
++nd+"    Slash fiction"+nd+"      NT > Slash fiction"+nd+"    Slash terminology"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 400, "Fandom and Narrower Terms"
+
+ListBox 14, 7, 150, 340, Fandom$, .Fandomsub
+  
+Button 25,350,40,20, "I'm done",    .fin
+CancelButton 75,350,40,20
+
+Text  14, 380, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.6"
+Text  14, 390, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Fandomsub=0 Then aa$ = " "
+If quick.Fandomsub=1 Then aa$ = "Fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002156"
+If quick.Fandomsub=2 Then aa$ = "Anime and manga fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002144"
+If quick.Fandomsub=3 Then aa$ = "Bara fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002149"
+If quick.Fandomsub=4 Then aa$ = "Bara" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002148"
+If quick.Fandomsub=5 Then aa$ = "Bishounen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002151"
+If quick.Fandomsub=6 Then aa$ = "Boys' Love (Genre)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002152"
+If quick.Fandomsub=7 Then aa$ = "Danmei" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003500"
+If quick.Fandomsub=8 Then aa$ = "Girls' Love (Genre)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003507"
+If quick.Fandomsub=9 Then aa$ = "Baihe" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003508"
+If quick.Fandomsub=10 Then aa$ = "Hentai fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002173"
+If quick.Fandomsub=11 Then aa$ = "Hentai" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002172"
+If quick.Fandomsub=12 Then aa$ = "Yaoi fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002218"
+If quick.Fandomsub=13 Then CS.RunMacro "Homosaurus_subjects.mbk!Yaoi_fandom"
+If quick.Fandomsub=14 Then aa$ = "Yuri fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002221"
+If quick.Fandomsub=15 Then aa$ = "Yuri" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002220"
+If quick.Fandomsub=16 Then aa$ = "Fandom conventions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002157"
+If quick.Fandomsub=17 Then aa$ = "Furry conventions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002166"
+If quick.Fandomsub=18 Then aa$ = "Slash conventions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002202"
+If quick.Fandomsub=19 Then aa$ = "Fandom terminology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002158"
+If quick.Fandomsub=20 Then aa$ = "Slash terminology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002208"
+If quick.Fandomsub=21 Then aa$ = "Fanworks" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002161"
+If quick.Fandomsub=22 Then aa$ = "Content warnings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001807"
+If quick.Fandomsub=23 Then CS.RunMacro "Homosaurus_subjects.mbk!Content_warnings"
+If quick.Fandomsub=24 Then aa$ = "Fanart" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002155"
+If quick.Fandomsub=25 Then aa$ = "Slash art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002201"
+If quick.Fandomsub=26 Then aa$ = "Fanfiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002159"
+If quick.Fandomsub=27 Then CS.RunMacro "Homosaurus_subjects.mbk!Fanfiction"
+If quick.Fandomsub=28 Then aa$ = "Slash fanworks" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002204"
+If quick.Fandomsub=29 Then CS.RunMacro "Homosaurus_subjects.mbk!Slash_fanworks"
+If quick.Fandomsub=30 Then aa$ = "Furry fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002167"
+If quick.Fandomsub=31 Then aa$ = "Furries" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002165"
+If quick.Fandomsub=32 Then aa$ = "Fursonas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002168"
+If quick.Fandomsub=33 Then aa$ = "Fursuits" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002169"
+If quick.Fandomsub=34 Then aa$ = "Yiff" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002219"
+If quick.Fandomsub=35 Then aa$ = "Furry conventions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002166"
+If quick.Fandomsub=36 Then aa$ = "Gender in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002171"
+If quick.Fandomsub=37 Then aa$ = "Homophobia in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002174"
+If quick.Fandomsub=38 Then aa$ = "Intersex people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002175"
+If quick.Fandomsub=39 Then aa$ = "Intersex authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001749"
+If quick.Fandomsub=40 Then aa$ = "Intersex fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001752"
+If quick.Fandomsub=41 Then aa$ = "Men in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002182"
+If quick.Fandomsub=42 Then aa$ = "Gay men in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002170"
+If quick.Fandomsub=43 Then aa$ = "Misogyny in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002183"
+If quick.Fandomsub=44 Then aa$ = "Non-binary people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002185"
+If quick.Fandomsub=45 Then aa$ = "Transgender people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002211"
+If quick.Fandomsub=46 Then aa$ = "Transphobia in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002212"
+If quick.Fandomsub=47 Then aa$ = "Two-Spirit people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002213"
+If quick.Fandomsub=48 Then aa$ = "Women in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002216"
+If quick.Fandomsub=49 Then aa$ = "LGBTQ+ people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002181"
+If quick.Fandomsub=50 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_people_in_fandom"
+If quick.Fandomsub=51 Then aa$ = "People of color in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002190"
+If quick.Fandomsub=52 Then aa$ = "Racism in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002194"
+If quick.Fandomsub=53 Then aa$ = "Shipping in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002199"
+If quick.Fandomsub=54 Then aa$ = "Pairings in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002189"
+If quick.Fandomsub=55 Then aa$ = "One true pairing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002187"
+If quick.Fandomsub=56 Then aa$ = "Ship names in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002198"
+If quick.Fandomsub=57 Then aa$ = "Kirk/Spock" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002177"
+If quick.Fandomsub=58 Then aa$ = "Slash fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002203"
+If quick.Fandomsub=59 Then aa$ = "Slash (Genre)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002200"
+If quick.Fandomsub=60 Then aa$ = "Femslash" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002162"
+If quick.Fandomsub=61 Then aa$ = "Lesbian erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001597"
+If quick.Fandomsub=62 Then aa$ = "Lesbian fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000742"
+If quick.Fandomsub=63 Then aa$ = "Slash conventions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002202"
+If quick.Fandomsub=64 Then aa$ = "Slash fanworks" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002204"
+If quick.Fandomsub=65 Then CS.RunMacro "Homosaurus_subjects.mbk!Slash_fanworks"
+If quick.Fandomsub=66 Then aa$ = "Slash fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002205"
+If quick.Fandomsub=67 Then CS.RunMacro "Homosaurus_subjects.mbk!Slash_fiction"
+If quick.Fandomsub=68 Then aa$ = "Slash terminology" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002208"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

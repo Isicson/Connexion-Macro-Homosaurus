@@ -1,0 +1,74 @@
+'MacroName:Fathers_of_LGBTQ_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created September, 2022, updated 07/2023 for v.3.4, 08/2024 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Fathers_of_LGBTQ_people$
+Fathers_of_LGBTQ_people$=" "+nd+ "Fathers of LGBTQ+ people"+nd+"  Fathers of asexual people"+nd+"  Fathers of bisexual people"+nd+"  Fathers of gay men"+nd+"  Fathers of intersex people" _
++nd+"  Fathers of lesbians"+nd+"  Fathers of non-binary people"+nd+"  Fathers of queer people"+nd+"  Fathers of transgender people"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "Fathers of LGBTQ+ people and Narrower Terms"
+
+ListBox 14, 7, 130, 110, Fathers_of_LGBTQ_people$, .Fathers_of_LGBTQ_peoplesub
+  
+Button 25,118,40,20, "I'm done",    .fin
+CancelButton 75,118,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v.3.3, Updated for v.3.6"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Fathers_of_LGBTQ_peoplesub=0 Then aa$ = " "
+If quick.Fathers_of_LGBTQ_peoplesub=1 Then aa$ = "Fathers of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002342"
+If quick.Fathers_of_LGBTQ_peoplesub=2 Then aa$ = "Fathers of asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002907"
+If quick.Fathers_of_LGBTQ_peoplesub=3 Then aa$ = "Fathers of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000424"
+If quick.Fathers_of_LGBTQ_peoplesub=4 Then aa$ = "Fathers of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000425"
+If quick.Fathers_of_LGBTQ_peoplesub=5 Then aa$ = "Fathers of intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002766"
+If quick.Fathers_of_LGBTQ_peoplesub=6 Then aa$ = "Fathers of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000426"
+If quick.Fathers_of_LGBTQ_peoplesub=7 Then aa$ = "Fathers of non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003406"
+If quick.Fathers_of_LGBTQ_peoplesub=8 Then aa$ = "Fathers of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000427"
+If quick.Fathers_of_LGBTQ_peoplesub=9 Then aa$ = "Fathers of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000428"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

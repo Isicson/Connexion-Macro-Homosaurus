@@ -1,0 +1,353 @@
+'MacroName:LGBTQ+_ethnic_groups_2_rev
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+dim uu$
+uu$ = " "
+dim vv$
+vv$ = " "
+dim yy$
+yy$ = " "
+dim bb$
+bb$ = " "
+dim cc$
+cc$ = " "
+dim dd$
+dd$ = " "
+dim ff$
+ff$ = " "
+dim gg$
+gg$ = " "
+dim qq$
+qq$ = " "
+dim rr$
+rr$ = " "
+dim ss$
+ss$ = " "
+dim tt$
+tt$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Kalash_LGBTQ_people$
+Kalash_LGBTQ_people$=" "+nd+ "Kalash LGBTQ+ people"+nd+"  Kalash asexual people"+nd+"  Kalash bisexual people"+nd+"  Kalash gay men"+nd+"  Kalash intersex people" _
++nd+"  Kalash lesbians"+nd+"  Kalash non-binary people"+nd+"  Kalash queer people"+nd+"  Kalash transgender people"
+
+dim Kashmiri_LGBTQ_people$
+Kashmiri_LGBTQ_people$=" "+nd+ "Kashmiri LGBTQ+ people"+nd+"  Kashmiri asexual people"+nd+"  Kashmiri bisexual people"+nd+"  Kashmiri gay men"+nd+"  Kashmiri intersex people" _
++nd+"  Kashmiri lesbians"+nd+"  Kashmiri non-binary people"+nd+"  Kashmiri queer people"+nd+"  Kashmiri transgender people"
+
+dim Kho_LGBTQ_people$
+Kho_LGBTQ_people$=" "+nd+ "Kho LGBTQ+ people"+nd+"  Kho asexual people"+nd+"  Kho bisexual people"+nd+"  Kho gay men"+nd+"  Kho intersex people" _
++nd+"  Kho lesbians"+nd+"  Kho non-binary people"+nd+"  Kho queer people"+nd+"  Kho transgender people"
+
+dim Konkan_LGBTQ_people$
+Konkan_LGBTQ_people$=" "+nd+ "Konkan LGBTQ+ people"+nd+"    Konkan asexual people"+nd+"    Konkan bisexual people"+nd+"    Konkan gay men"+nd+"    Konkan intersex people" _
++nd+"    Konkan lesbians"+nd+"    Konkan non-binary people"+nd+"    Konkan queer people"+nd+"    Konkan transgender people"
+
+dim Kumaoni_LGBTQ_people$
+Kumaoni_LGBTQ_people$=" "+nd+ "Kumaoni LGBTQ+ people"+nd+"    Kumaoni asexual people"+nd+"    Kumaoni bisexual people"+nd+"    Kumaoni gay men"+nd+"    Kumaoni intersex people" _
++nd+"    Kumaoni lesbians"+nd+"    Kumaoni non-binary people"+nd+"    Kumaoni queer people"+nd+"    Kumaoni transgender people"
+
+dim Kutchi_LGBTQ_people$
+Kutchi_LGBTQ_people$=" "+nd+ "Kutchi LGBTQ+ people"+nd+"  Kutchi asexual people"+nd+"  Kutchi bisexual people"+nd+"  Kutchi gay men"+nd+"  Kutchi intersex people" _
++nd+"  Kutchi lesbians"+nd+"  Kutchi non-binary people"+nd+"  Kutchi queer people"+nd+"  Kutchi transgender people"
+
+dim Maldivian_LGBTQ_people$
+Maldivian_LGBTQ_people$=" "+nd+ "Maldivian LGBTQ+ people"+nd+"  Maldivian asexual people"+nd+"  Maldivian bisexual people"+nd+"  Maldivian gay men"+nd+"  Maldivian intersex people" _
++nd+"  Maldivian lesbians"+nd+"  Maldivian non-binary people"+nd+"  Maldivian queer people"+nd+"  Maldivian transgender people"
+
+dim Ukrainian_LGBTQ_people$
+Ukrainian_LGBTQ_people$=" "+nd+ "Ukrainian LGBTQ+ people"+nd+"  Ukrainian aromantic people"+nd+"  Ukrainian asexual people"+nd+"  Ukrainian bisexual people"+nd+"  Ukrainian demisexual people" _
++nd+"  Ukrainian gay men"+nd+"  Ukrainian greyromantic people"+nd+"  Ukrainian intersex people"+nd+"  Ukrainian lesbians"+nd+"  Ukrainian megasexual people" _
++nd+"  Ukrainian non-binary people"+nd+"  Ukrainian queer people"+nd+"  Ukrainian transgender people"
+
+dim PacificIslander_Am_LGBTQ$
+PacificIslander_Am_LGBTQ$=" "+nd+ "Pacific Islander American LGBTQ+ people"+nd+"  Pacific Islander American asexual people"+nd+"  Pacific Islander American bisexual people"+nd+"  Pacific Islander American gay men"+nd+"  Pacific Islander American intersex people" _
++nd+"  Pacific Islander American lesbians"+nd+"  Pacific Islander American non-binary people"+nd+"  Pacific Islander American queer people"+nd+"  Pacific Islander American transgender people"
+
+dim Romani_LGBTQ_people$
+Romani_LGBTQ_people$=" "+nd+ "Romani LGBTQ+ people"+nd+"  Romani asexual people"+nd+"  Romani bisexual people"+nd+"  Romani gay men"+nd+"  Romani intersex people" _
++nd+"  Romani lesbians"+nd+"  Romani non-binary people"+nd+"  Romani queer people"+nd+"  Romani transgender people"
+
+dim Russian_LGBTQplus_people$
+Russian_LGBTQplus_people$=" "+nd+ "Russian LGBTQ+ people"+nd+"  Russian aromantic people"+nd+"  Russian asexual people"+nd+"  Russian bisexual people"+nd+"  Russian demisexual people" _
++nd+"  Russian gay men"+nd+"  Russian greyromantic people"+nd+"  Russian intersex people"+nd+"  Russian lesbians"+nd+"  Russian megasexual people" _
++nd+"  Russian non-binary people"+nd+"  Russian queer people"+nd+"  Russian transgender people"
+
+dim South_Asian_LGBTQ_people$
+South_Asian_LGBTQ_people$=" "+nd+ "South Asian LGBTQ+ people"+nd+"  Indian LGBTQ+ people"+nd+"    Indian asexual people"+nd+"    Indian bisexual people"+nd+"    Indian gay men" _
++nd+"    Indian intersex people"+nd+"    Indian lesbians"+nd+"    Indian queer people"+nd+"    Indian transgender people"+nd+"  South Asian asexual people" _
++nd+"  South Asian bisexual people"+nd+"  South Asian gay men"+nd+"  South Asian intersex people"+nd+"  South Asian lesbians"+nd+"  South Asian non-binary people" _
++nd+"  South Asian queer people"+nd+"  South Asian transgender people"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 620, 230, "Choose the Homosaurus term you want to use..."
+
+
+Text 14,7,100,14, "Kalash LGBTQ+ people"
+   DropListBox 14, 20, 130, 135, Kalash_LGBTQ_people$, .Kalash_LGBTQ_peoplesub
+Text 150,7,100,14, "Kashmiri LGBTQ+ people"
+   DropListBox 150, 20, 130, 135, Kashmiri_LGBTQ_people$, .Kashmiri_LGBTQ_peoplesub
+Text 285,7,100,14, "Kho LGBTQ+ people"
+   DropListBox 285, 20, 130, 135, Kho_LGBTQ_people$, .Kho_LGBTQ_peoplesub
+Text 420,7,100,14, "Konkan LGBTQ+ people"
+   DropListBox 420, 20, 130, 135, Konkan_LGBTQ_people$, .Konkan_LGBTQ_peoplesub
+
+Text 14,45,100,14, "Kumaoni LGBTQ+ people"
+   DropListBox 14, 58, 130, 135, Kumaoni_LGBTQ_people$, .Kumaoni_LGBTQ_peoplesub
+Text 150,45,100,14, "Kutchi LGBTQ+ people"
+   DropListBox 150, 58, 130, 135, Kutchi_LGBTQ_people$, .Kutchi_LGBTQ_peoplesub
+Text 285,45,100,14, "Maldivian LGBTQ+ people"
+    DropListBox 285, 58, 130, 135, Maldivian_LGBTQ_people$, .Maldivian_LGBTQ_peoplesub
+Text 420,45,200,12, "Pacific Islander American LGBTQ+ people"
+   DropListBox 420, 58, 155, 135, PacificIslander_Am_LGBTQ$, .PacificIslander_Am_LGBTQsub
+
+Text 14,83,80,12, "Romani LGBTQ+ people"
+   DropListBox 14, 96, 130, 135, Romani_LGBTQ_people$, .Romani_LGBTQ_peoplesub
+Text 150,83,80,12, "Russian LGBTQ+ people"
+   DropListBox 150, 96, 130, 110, Russian_LGBTQplus_people$, .Russian_LGBTQplus_peoplesub
+Text 285,83,130,12, "South Asian LGBTQ+ people"
+   DropListBox 285, 96, 130, 110, South_Asian_LGBTQ_people$, .South_Asian_LGBTQ_peoplesub
+Text 420,83,130,12, "Ukrainian LGBTQ+ people"
+   DropListBox 420, 96, 130, 135, Ukrainian_LGBTQ_people$, .Ukrainian_LGBTQ_peoplesub
+
+
+
+
+Button 244,207,40,20, "I'm done",    .fin
+CancelButton 310,207,40,20
+Text  14, 207, 200, 8, "Based on Homosaurus v. 3.3. Updated for v.3.6"
+Text  14, 217, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+If quick.Kalash_LGBTQ_peoplesub=0 Then qq$ = " "
+If quick.Kalash_LGBTQ_peoplesub=1 Then qq$ = "Kalash LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002247"
+If quick.Kalash_LGBTQ_peoplesub=2 Then qq$ = "Kalash asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002254"
+If quick.Kalash_LGBTQ_peoplesub=3 Then qq$ = "Kalash bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002250"
+If quick.Kalash_LGBTQ_peoplesub=4 Then qq$ = "Kalash gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002249"
+If quick.Kalash_LGBTQ_peoplesub=5 Then qq$ = "Kalash intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002253"
+If quick.Kalash_LGBTQ_peoplesub=6 Then qq$ = "Kalash lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002248"
+If quick.Kalash_LGBTQ_peoplesub=7 Then qq$ = "Kalash non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003412"
+If quick.Kalash_LGBTQ_peoplesub=8 Then qq$ = "Kalash queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002252"
+If quick.Kalash_LGBTQ_peoplesub=9 Then qq$ = "Kalash transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002251"
+If qq$ = " " then
+else
+CS.AddField 99, "650 7" & qq$
+end if
+
+
+If quick.Kashmiri_LGBTQ_peoplesub=0 Then rr$ = " "
+If quick.Kashmiri_LGBTQ_peoplesub=1 Then rr$ = "Kashmiri LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002295"
+If quick.Kashmiri_LGBTQ_peoplesub=2 Then rr$ = "Kashmiri asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002302"
+If quick.Kashmiri_LGBTQ_peoplesub=3 Then rr$ = "Kashmiri bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002298"
+If quick.Kashmiri_LGBTQ_peoplesub=4 Then rr$ = "Kashmiri gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002297"
+If quick.Kashmiri_LGBTQ_peoplesub=5 Then rr$ = "Kashmiri intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002301"
+If quick.Kashmiri_LGBTQ_peoplesub=6 Then rr$ = "Kashmiri lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002296"
+If quick.Kashmiri_LGBTQ_peoplesub=7 Then rr$ = "Kashmiri non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003414"
+If quick.Kashmiri_LGBTQ_peoplesub=8 Then rr$ = "Kashmiri queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002299"
+If quick.Kashmiri_LGBTQ_peoplesub=9 Then rr$ = "Kashmiri transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002300"
+If rr$ = " " then
+else
+CS.AddField 99, "650 7" & rr$
+end if
+
+If quick.Kho_LGBTQ_peoplesub=0 Then ss$ = " "
+If quick.Kho_LGBTQ_peoplesub=1 Then ss$ = "Kho LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002110"
+If quick.Kho_LGBTQ_peoplesub=2 Then ss$ = "Kho asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002117"
+If quick.Kho_LGBTQ_peoplesub=3 Then ss$ = "Kho bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002113"
+If quick.Kho_LGBTQ_peoplesub=4 Then ss$ = "Kho gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002112"
+If quick.Kho_LGBTQ_peoplesub=5 Then ss$ = "Kho intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002116"
+If quick.Kho_LGBTQ_peoplesub=6 Then ss$ = "Kho lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002111"
+If quick.Kho_LGBTQ_peoplesub=7 Then ss$ = "Kho non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003415"
+If quick.Kho_LGBTQ_peoplesub=8 Then ss$ = "Kho queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002115"
+If quick.Kho_LGBTQ_peoplesub=9 Then ss$ = "Kho transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002114"
+If ss$ = " " then
+else
+CS.AddField 99, "650 7" & ss$
+end if
+
+If quick.Konkan_LGBTQ_peoplesub=0 Then tt$ = " "
+If quick.Konkan_LGBTQ_peoplesub=1 Then tt$ = "Konkan LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002303"
+If quick.Konkan_LGBTQ_peoplesub=2 Then tt$ = "Konkan asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002310"
+If quick.Konkan_LGBTQ_peoplesub=3 Then tt$ = "Konkan bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002306"
+If quick.Konkan_LGBTQ_peoplesub=4 Then tt$ = "Konkan gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002305"
+If quick.Konkan_LGBTQ_peoplesub=5 Then tt$ = "Konkan intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002309"
+If quick.Konkan_LGBTQ_peoplesub=6 Then tt$ = "Konkan lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002304"
+If quick.Konkan_LGBTQ_peoplesub=7 Then tt$ = "Konkan non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003416"
+If quick.Konkan_LGBTQ_peoplesub=8 Then tt$ = "Konkan queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002307"
+If quick.Konkan_LGBTQ_peoplesub=9 Then tt$ = "Konkan transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002308"
+If tt$ = " " then
+else
+CS.AddField 99, "650 7" & tt$
+end if
+
+If quick.Kumaoni_LGBTQ_peoplesub=0 Then uu$ = " "
+If quick.Kumaoni_LGBTQ_peoplesub=1 Then uu$ = "Kumaoni LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002311"
+If quick.Kumaoni_LGBTQ_peoplesub=2 Then uu$ = "Kumaoni asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002318"
+If quick.Kumaoni_LGBTQ_peoplesub=3 Then uu$ = "Kumaoni bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002314"
+If quick.Kumaoni_LGBTQ_peoplesub=4 Then uu$ = "Kumaoni gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002313"
+If quick.Kumaoni_LGBTQ_peoplesub=5 Then uu$ = "Kumaoni intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002317"
+If quick.Kumaoni_LGBTQ_peoplesub=6 Then uu$ = "Kumaoni lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002312"
+If quick.Kumaoni_LGBTQ_peoplesub=7 Then uu$ = "Kumaoni non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003417"
+If quick.Kumaoni_LGBTQ_peoplesub=8 Then uu$ = "Kumaoni queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002316"
+If quick.Kumaoni_LGBTQ_peoplesub=9 Then uu$ = "Kumaoni transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002315"
+If uu$ = " " then
+else
+CS.AddField 99, "650 7" & uu$
+end if
+
+If quick.Kutchi_LGBTQ_peoplesub=0 Then vv$ = " "
+If quick.Kutchi_LGBTQ_peoplesub=1 Then vv$ = "Kutchi LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002319"
+If quick.Kutchi_LGBTQ_peoplesub=2 Then vv$ = "Kutchi asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002326"
+If quick.Kutchi_LGBTQ_peoplesub=3 Then vv$ = "Kutchi bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002322"
+If quick.Kutchi_LGBTQ_peoplesub=4 Then vv$ = "Kutchi gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002321"
+If quick.Kutchi_LGBTQ_peoplesub=5 Then vv$ = "Kutchi intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002324"
+If quick.Kutchi_LGBTQ_peoplesub=6 Then vv$ = "Kutchi lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002320"
+If quick.Kutchi_LGBTQ_peoplesub=7 Then vv$ = "Kutchi non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003418"
+If quick.Kutchi_LGBTQ_peoplesub=8 Then vv$ = "Kutchi queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002323"
+If quick.Kutchi_LGBTQ_peoplesub=9 Then vv$ = "Kutchi transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002325"
+If vv$ = " " then
+else
+CS.AddField 99, "650 7" & vv$
+end if
+
+
+If quick.Maldivian_LGBTQ_peoplesub=0 Then yy$ = " "
+If quick.Maldivian_LGBTQ_peoplesub=1 Then yy$ = "Maldivian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002118"
+If quick.Maldivian_LGBTQ_peoplesub=2 Then yy$ = "Maldivian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002125"
+If quick.Maldivian_LGBTQ_peoplesub=3 Then yy$ = "Maldivian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002121"
+If quick.Maldivian_LGBTQ_peoplesub=4 Then yy$ = "Maldivian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002120"
+If quick.Maldivian_LGBTQ_peoplesub=5 Then yy$ = "Maldivian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002124"
+If quick.Maldivian_LGBTQ_peoplesub=6 Then yy$ = "Maldivian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002119"
+If quick.Maldivian_LGBTQ_peoplesub=7 Then yy$ = "Maldivian non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003420"
+If quick.Maldivian_LGBTQ_peoplesub=8 Then yy$ = "Maldivian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002122"
+If quick.Maldivian_LGBTQ_peoplesub=9 Then yy$ = "Maldivian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002123"
+If yy$ = " " then
+else
+CS.AddField 99, "650 7" & yy$
+end if
+
+If quick.PacificIslander_Am_LGBTQsub=0 Then bb$ = " "
+If quick.PacificIslander_Am_LGBTQsub=1 Then bb$ = "Pacific Islander American LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001812"
+If quick.PacificIslander_Am_LGBTQsub=2 Then bb$ = "Pacific Islander American asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002926"
+If quick.PacificIslander_Am_LGBTQsub=3 Then bb$ = "Pacific Islander American bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001939"
+If quick.PacificIslander_Am_LGBTQsub=4 Then bb$ = "Pacific Islander American gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001938"
+If quick.PacificIslander_Am_LGBTQsub=5 Then bb$ = "Pacific Islander American intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001942"
+If quick.PacificIslander_Am_LGBTQsub=6 Then bb$ = "Pacific Islander American lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001937"
+If quick.PacificIslander_Am_LGBTQsub=7 Then bb$ = "Pacific Islander American non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003423"
+If quick.PacificIslander_Am_LGBTQsub=8 Then bb$ = "Pacific Islander American queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001941"
+If quick.PacificIslander_Am_LGBTQsub=9 Then bb$ = "Pacific Islander American transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001940"
+If bb$ = " " then
+else
+CS.AddField 99, "650 7" & bb$
+end if
+
+If quick.Romani_LGBTQ_peoplesub=0 Then cc$ = " "
+If quick.Romani_LGBTQ_peoplesub=1 Then cc$ = "Romani LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000875"
+If quick.Romani_LGBTQ_peoplesub=2 Then cc$ = "Romani asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002913"
+If quick.Romani_LGBTQ_peoplesub=3 Then cc$ = "Romani bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001951"
+If quick.Romani_LGBTQ_peoplesub=4 Then cc$ = "Romani gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001950"
+If quick.Romani_LGBTQ_peoplesub=5 Then cc$ = "Romani intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001954"
+If quick.Romani_LGBTQ_peoplesub=6 Then cc$ = "Romani lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001949"
+If quick.Romani_LGBTQ_peoplesub=7 Then cc$ = "Romani non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003425"
+If quick.Romani_LGBTQ_peoplesub=8 Then cc$ = "Romani queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001953"
+If quick.Romani_LGBTQ_peoplesub=9 Then cc$ = "Romani transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001952"
+If cc$ = " " then
+else
+CS.AddField 99, "650 7" & cc$
+end if
+
+If quick.Russian_LGBTQplus_peoplesub=0 Then ff$ = " "
+If quick.Russian_LGBTQplus_peoplesub=1 Then ff$ = "Russian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003319"
+If quick.Russian_LGBTQplus_peoplesub=2 Then ff$ = "Russian aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003331"
+If quick.Russian_LGBTQplus_peoplesub=3 Then ff$ = "Russian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003320"
+If quick.Russian_LGBTQplus_peoplesub=4 Then ff$ = "Russian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003321"
+If quick.Russian_LGBTQplus_peoplesub=5 Then ff$ = "Russian demisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003328"
+If quick.Russian_LGBTQplus_peoplesub=6 Then ff$ = "Russian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003322"
+If quick.Russian_LGBTQplus_peoplesub=7 Then ff$ = "Russian greyromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003330"
+If quick.Russian_LGBTQplus_peoplesub=8 Then ff$ = "Russian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003323"
+If quick.Russian_LGBTQplus_peoplesub=9 Then ff$ = "Russian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003324"
+If quick.Russian_LGBTQplus_peoplesub=10 Then ff$ = "Russian megasexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003329"
+If quick.Russian_LGBTQplus_peoplesub=11 Then ff$ = "Russian non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003326"
+If quick.Russian_LGBTQplus_peoplesub=12 Then ff$ = "Russian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003325"
+If quick.Russian_LGBTQplus_peoplesub=13 Then ff$ = "Russian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003327"
+If ff$ = " " then
+else
+CS.AddField 99, "650 7" & ff$
+end if
+
+If quick.South_Asian_LGBTQ_peoplesub=0 Then dd$ = " "
+If quick.South_Asian_LGBTQ_peoplesub=1 Then dd$ = "South Asian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002044"
+If quick.South_Asian_LGBTQ_peoplesub=2 Then dd$ = "Indian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002052"
+If quick.South_Asian_LGBTQ_peoplesub=3 Then dd$ = "Indian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002059"
+If quick.South_Asian_LGBTQ_peoplesub=4 Then dd$ = "Indian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002055"
+If quick.South_Asian_LGBTQ_peoplesub=5 Then dd$ = "Indian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002054"
+If quick.South_Asian_LGBTQ_peoplesub=6 Then dd$ = "Indian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002057"
+If quick.South_Asian_LGBTQ_peoplesub=7 Then dd$ = "Indian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002053"
+If quick.South_Asian_LGBTQ_peoplesub=8 Then dd$ = "Indian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002056"
+If quick.South_Asian_LGBTQ_peoplesub=9 Then dd$ = "Indian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002058"
+If quick.South_Asian_LGBTQ_peoplesub=10 Then dd$ = "South Asian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002051"
+If quick.South_Asian_LGBTQ_peoplesub=11 Then dd$ = "South Asian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002047"
+If quick.South_Asian_LGBTQ_peoplesub=12 Then dd$ = "South Asian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002046"
+If quick.South_Asian_LGBTQ_peoplesub=13 Then dd$ = "South Asian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002049"
+If quick.South_Asian_LGBTQ_peoplesub=14 Then dd$ = "South Asian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002045"
+If quick.South_Asian_LGBTQ_peoplesub=15 Then dd$ = "South Asian non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003426"
+If quick.South_Asian_LGBTQ_peoplesub=16 Then dd$ = "South Asian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002048"
+If quick.South_Asian_LGBTQ_peoplesub=17 Then dd$ = "South Asian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002050"
+If dd$ = " " then
+else
+CS.AddField 99, "650 7" & dd$
+end if
+
+If quick.Ukrainian_LGBTQ_peoplesub=0 Then gg$ = " "
+If quick.Ukrainian_LGBTQ_peoplesub=1 Then gg$ = "Ukrainian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003334"
+If quick.Ukrainian_LGBTQ_peoplesub=2 Then gg$ = "Ukrainian aromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003346"
+If quick.Ukrainian_LGBTQ_peoplesub=3 Then gg$ = "Ukrainian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003335"
+If quick.Ukrainian_LGBTQ_peoplesub=4 Then gg$ = "Ukrainian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003336"
+If quick.Ukrainian_LGBTQ_peoplesub=5 Then gg$ = "Ukrainian demisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003343"
+If quick.Ukrainian_LGBTQ_peoplesub=6 Then gg$ = "Ukrainian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003337"
+If quick.Ukrainian_LGBTQ_peoplesub=7 Then gg$ = "Ukrainian greyromantic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003345"
+If quick.Ukrainian_LGBTQ_peoplesub=8 Then gg$ = "Ukrainian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003338"
+If quick.Ukrainian_LGBTQ_peoplesub=9 Then gg$ = "Ukrainian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003339"
+If quick.Ukrainian_LGBTQ_peoplesub=10 Then gg$ = "Ukrainian megasexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003344"
+If quick.Ukrainian_LGBTQ_peoplesub=11 Then gg$ = "Ukrainian non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003341"
+If quick.Ukrainian_LGBTQ_peoplesub=12 Then gg$ = "Ukrainian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003340"
+If quick.Ukrainian_LGBTQ_peoplesub=13 Then gg$ = "Ukrainian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003342"
+If gg$ = " " then
+else
+CS.AddField 99, "650 7" & gg$
+end if
+
+Cancelled:   
+End Sub
+

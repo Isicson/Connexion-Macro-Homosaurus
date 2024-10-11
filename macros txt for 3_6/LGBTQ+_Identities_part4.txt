@@ -1,0 +1,215 @@
+'MacroName:LGBTQ+_Identities_part4
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created for v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+dim en$
+en$ = " "
+dim bn$
+bn$ = " "
+dim kn$
+kn$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Gender$
+Gender$=" "+nd+ "Gender"+nd+"  Assigned gender"+nd+"    Assigned female at birth"+nd+"    Assigned male at birth"+nd+"    Gender assigned at birth" _
++nd+"  Gender expression"+nd+"    Androgyny"+nd+"    Binding (Chest)"+nd+"    Clothing"+nd+"      Costumes" _
++nd+"      Lingerie"+nd+"    Crossdressing"+nd+"    Drab (LGBTQ+ culture)"+nd+"    Drag"+nd+"      Lingerie" _
++nd+"    Eonism"+nd+"    Femininities"+nd+"      Feminine of center"+nd+"      Transfemininity"+nd+"    Gender ambiguity" _
++nd+"    Gender bending"+nd+"    Gender blending"+nd+"    Gender creative"+nd+"    Gender swapping"+nd+"    Gender transgression" _
++nd+"    Hair removal"+nd+"    Masculinities"+nd+"      Female masculinity"+nd+"      Masculine of center"+nd+"      Toxic masculinity" _
++nd+"      Transmasculinity"+nd+"    Packers (Phallus)"+nd+"    Packing (Phallus)"+nd+"    Stand-to-Pee devices"+nd+"    Transfemininity" _
++nd+"    Transmasculinity"+nd+"    Tucking (Phallus)"+nd+"    Voice therapy (Gender)"+nd+"  Gender identity"+nd+"    Agender identity" _
++nd+"    Assigned gender"+nd+"    Bigender identity"+nd+"    Cisgender identity"+nd+"    Demigender identity"+nd+"    Gender creative" _
++nd+"    Gender non-conforming identity"+nd+"    Genderfluid identity"+nd+"    Genderqueer identity"+nd+"    Men"+nd+"      NT > Men" _
++nd+"    Non-binary identity"+nd+"    Non-Euro-American gender and sexual identities"+nd+"      NT > Non-Euro-American gender and sexual identities"+nd+"    Pangender identity"+nd+"    Transgender identity" _
++nd+"    Transgenderqueer identity"+nd+"    Trigender identity"+nd+"    Women"+nd+"      NT > Women"+nd+"    Xenogender identity"
+
+dim Gender_minorities$
+Gender_minorities$=" "+nd+ "Gender minorities"+nd+"  Agender people"+nd+"  Androgynous people"+nd+"  Crossdressers"+nd+"  Demigender people" _
++nd+"    Demiboys"+nd+"    Demigirls"+nd+"  Gender non-conforming people"+nd+"  Genderfluid people"+nd+"  Genderqueer people" _
++nd+"    Transgenderqueer people"+nd+"  Pangender people"+nd+"  Transgender people"+nd+"    NT > Transgender people"+nd+"  Transgenderqueer people" _
++nd+"  Trigender people"
+
+dim Relationship_minorities$
+Relationship_minorities$=" "+nd+ "Relationship minorities"+nd+"  LGBTQ+ dominants"+nd+"    NT > LGBTQ+ dominants"+nd+"  LGBTQ+ dominatrices"+nd+"    NT > LGBTQ+ dominatrices" _
++nd+"  LGBTQ+ submissives"+nd+"  Non-monogamous people"+nd+"    Anchor partners"+nd+"    Metamours"+nd+"    Nesting partners" _
++nd+"    Paramours"+nd+"    Polyamorous people"+nd+"Relationship anarchists"+nd+"  Polyamorous people"+nd+"  Polygamous people" _
++nd+"  Relationship anarchists"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 440, 320, "Choose the Homosaurus term you want to use..."
+
+
+Text 14,7,150,14, "Gender"
+   DropListBox 14,20,200,240, Gender$, .Gendersub
+Text 230,7,80,14, "Gender minorities"
+   DropListBox 230, 20, 130, 200, Gender_minorities$, .Gender_minoritiessub
+
+Text 14,45,80,14, "Relationship minorities"
+   DropListBox 14, 58, 130, 200, Relationship_minorities$, .Relationship_minoritiessub
+
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 160, 250, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 170, 200, 10, "See LGBTQ+ identity groups, page 1", .OptionButton2
+      OptionButton  14, 200, 250, 10, "See LGBTQ+ identity groups, page 2", .OptionButton3
+      OptionButton  14, 230, 250, 10, "See LGBTQ+ identity groups, page 3", .OptionButton4
+      Text 35,180,330,20, "Includes: LGBTQ+ people -- LGBTQ+ people of color -- White LGBTQ+ people -- Two-Spirit people -- Terms that are not in a hierarchy."
+      Text 35,210,330,20, "Includes: Sexual identity -- LGBTQ+ religious people -- Relationship orientation -- LGBTQ+ clergy -- Role behavior -- LGBTQ+ choruses -- LGBTQ+ parenthood --  Diversity -- Romantic minorities."
+      Text 35,240,330,30, "Includes: Pronouns -- Youth -- LGBTQ+ authors -- 2SLGBTQ+ -- Heterosexuals -- LGBTQ+ comedians -- LGBTQIA+ -- Cisgender people -- LGBTQ+ sex workers -- Alloromantic people -- HIV-positive people -- LGBTQ+ politicians -- Sexual minorities -- Appropriation of marginalized identities."
+
+Button 150,280,40,20, "I'm done",    .fin
+CancelButton 210,280,40,20
+
+Text  14, 300, 200, 8, "Based on Homosaurus v.3.6"
+Text  14, 310, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+If quick.Gendersub=0 Then en$ = " "
+If quick.Gendersub=1 Then en$ = "Gender" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000560"
+If quick.Gendersub=2 Then en$ = "Assigned gender" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000078"
+If quick.Gendersub=3 Then en$ = "Assigned female at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000077"
+If quick.Gendersub=4 Then en$ = "Assigned male at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000079"
+If quick.Gendersub=5 Then en$ = "Gender assigned at birth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000120"
+If quick.Gendersub=6 Then en$ = "Gender expression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000568"
+If quick.Gendersub=7 Then en$ = "Androgyny" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000047"
+If quick.Gendersub=8 Then en$ = "Binding (Chest)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000114"
+If quick.Gendersub=9 Then en$ = "Clothing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000289"
+If quick.Gendersub=10 Then en$ = "Costumes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001808"
+If quick.Gendersub=11 Then en$ = "Lingerie" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000970"
+If quick.Gendersub=12 Then en$ = "Crossdressing" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000318"
+If quick.Gendersub=13 Then en$ = "Drab (LGBTQ+ culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000366"
+If quick.Gendersub=14 Then en$ = "Drag" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000367"
+If quick.Gendersub=15 Then en$ = "Lingerie" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000970"
+If quick.Gendersub=16 Then en$ = "Eonism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000395"
+If quick.Gendersub=17 Then en$ = "Femininities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000389"
+If quick.Gendersub=18 Then en$ = "Feminine of center" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002043"
+If quick.Gendersub=19 Then en$ = "Transfemininity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001821"
+If quick.Gendersub=20 Then en$ = "Gender ambiguity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001899"
+If quick.Gendersub=21 Then en$ = "Gender bending" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000562"
+If quick.Gendersub=22 Then en$ = "Gender blending" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000564"
+If quick.Gendersub=23 Then en$ = "Gender creative" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001756"
+If quick.Gendersub=24 Then en$ = "Gender swapping" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000576"
+If quick.Gendersub=25 Then en$ = "Gender transgression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001816"
+If quick.Gendersub=26 Then en$ = "Hair removal" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000606"
+If quick.Gendersub=27 Then en$ = "Masculinities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000995"
+If quick.Gendersub=28 Then en$ = "Female masculinity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000432"
+If quick.Gendersub=29 Then en$ = "Masculine of center" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002061"
+If quick.Gendersub=30 Then en$ = "Toxic masculinity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001377"
+If quick.Gendersub=31 Then en$ = "Transmasculinity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001820"
+If quick.Gendersub=32 Then en$ = "Packers (Phallus)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001790"
+If quick.Gendersub=33 Then en$ = "Packing (Phallus)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001067"
+If quick.Gendersub=34 Then en$ = "Stand-to-Pee devices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001852"
+If quick.Gendersub=35 Then en$ = "Transfemininity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001821"
+If quick.Gendersub=36 Then en$ = "Transmasculinity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001820"
+If quick.Gendersub=37 Then en$ = "Tucking (Phallus)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001476"
+If quick.Gendersub=38 Then en$ = "Voice therapy (Gender)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001496"
+If quick.Gendersub=39 Then en$ = "Gender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000571"
+If quick.Gendersub=40 Then en$ = "Agender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001927"
+If quick.Gendersub=41 Then en$ = "Assigned gender" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000078"
+If quick.Gendersub=42 Then en$ = "Bigender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000110"
+If quick.Gendersub=43 Then en$ = "Cisgender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001925"
+If quick.Gendersub=44 Then en$ = "Demigender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001923"
+If quick.Gendersub=45 Then en$ = "Gender creative" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001756"
+If quick.Gendersub=46 Then en$ = "Gender non-conforming identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001922"
+If quick.Gendersub=47 Then en$ = "Genderfluid identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000569"
+If quick.Gendersub=48 Then en$ = "Genderqueer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001921"
+If quick.Gendersub=49 Then en$ = "Men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001008"
+If quick.Gendersub=50 Then CS.RunMacro "Homosaurus_subjects.mbk!Men"
+If quick.Gendersub=51 Then en$ = "Non-binary identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001920"
+If quick.Gendersub=52 Then en$ = "Non-Euro-American gender and sexual identities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000322"
+If quick.Gendersub=53 Then CS.RunMacro "Homosaurus_subjects.mbk!Non-Euro-American_gender"
+If quick.Gendersub=54 Then en$ = "Pangender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001071"
+If quick.Gendersub=55 Then en$ = "Transgender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001415"
+If quick.Gendersub=56 Then en$ = "Transgenderqueer identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001918"
+If quick.Gendersub=57 Then en$ = "Trigender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001473"
+If quick.Gendersub=58 Then en$ = "Women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001509"
+If quick.Gendersub=59 Then CS.RunMacro "Homosaurus_subjects.mbk!Women"
+If quick.Gendersub=60 Then en$ = "Xenogender identity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001670"
+If en$ = " " then
+else 
+CS.AddField 99, "650 7" & en$
+end if
+If quick.Gender_minoritiessub=0 Then bn$ = " "
+If quick.Gender_minoritiessub=1 Then bn$ = "Gender minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001817"
+If quick.Gender_minoritiessub=2 Then bn$ = "Agender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000021"
+If quick.Gender_minoritiessub=3 Then bn$ = "Androgynous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000045"
+If quick.Gender_minoritiessub=4 Then bn$ = "Crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000316"
+If quick.Gender_minoritiessub=5 Then bn$ = "Demigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000342"
+If quick.Gender_minoritiessub=6 Then bn$ = "Demiboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001653"
+If quick.Gender_minoritiessub=7 Then bn$ = "Demigirls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001652"
+If quick.Gender_minoritiessub=8 Then bn$ = "Gender non-conforming people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000574"
+If quick.Gender_minoritiessub=9 Then bn$ = "Genderfluid people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000570"
+If quick.Gender_minoritiessub=10 Then bn$ = "Genderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000582"
+If quick.Gender_minoritiessub=11 Then bn$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
+If quick.Gender_minoritiessub=12 Then bn$ = "Pangender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001072"
+If quick.Gender_minoritiessub=13 Then bn$ = "Transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001378"
+If quick.Gender_minoritiessub=14 then CS.RunMacro "Homosaurus_subjects.mbk!Transgender_people"
+If quick.Gender_minoritiessub=15 Then bn$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
+If quick.Gender_minoritiessub=16 Then bn$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
+If bn$ = " " then
+else
+CS.AddField 99, "650 7" & bn$
+end if
+
+If quick.Relationship_minoritiessub=0 Then kn$ = " "
+If quick.Relationship_minoritiessub=1 Then kn$ = "Relationship minorities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001637"
+If quick.Relationship_minoritiessub=2 Then kn$ = "LGBTQ+ dominants" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000999"
+If quick.Relationship_minoritiessub=3 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_dominants"
+If quick.Relationship_minoritiessub=4 Then kn$ = "LGBTQ+ dominatrices" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000363"
+If quick.Relationship_minoritiessub=5 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_dominatrices"
+If quick.Relationship_minoritiessub=6 Then kn$ = "LGBTQ+ submissives" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001318"
+If quick.Relationship_minoritiessub=7 Then kn$ = "Non-monogamous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001660"
+If quick.Relationship_minoritiessub=8 Then kn$ = "Anchor partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001645"
+If quick.Relationship_minoritiessub=9 Then kn$ = "Metamours" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001554"
+If quick.Relationship_minoritiessub=10 Then kn$ = "Nesting partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001657"
+If quick.Relationship_minoritiessub=11 Then kn$ = "Paramours" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001662"
+If quick.Relationship_minoritiessub=12 Then kn$ = "Polyamorous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001663"
+If quick.Relationship_minoritiessub=13 Then kn$ = "Relationship anarchists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001665"
+If quick.Relationship_minoritiessub=14 Then kn$ = "Polyamorous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001663"
+If quick.Relationship_minoritiessub=15 Then kn$ = "Polygamous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002255"
+If quick.Relationship_minoritiessub=16 Then kn$ = "Relationship anarchists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001665"
+
+If kn$ = " " then
+else 
+CS.AddField 99, "650 7" & kn$ 
+end if
+
+If quick.OptionGroup1 = 0 then OKbutton
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities"
+If quick.OptionGroup1 = 2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part2"
+If quick.OptionGroup1 = 3 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part3"
+
+Cancelled:   
+End Sub
+

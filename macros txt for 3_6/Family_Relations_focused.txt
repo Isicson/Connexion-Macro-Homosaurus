@@ -1,0 +1,512 @@
+'MacroName:Family_Relations_focused
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 01/2023, updated 07/2023 for v.3.4, 085/4 3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ka$
+ka$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+dim pa$
+pa$ = " "
+dim oa$
+oa$ = " "
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Family_members$
+Family_members$=" "+nd+ "Family members"+nd+"  Children"+nd+"    Asexual children"+nd+"    Boys"+nd+"      NT > Boys" _
++nd+"    Children of LGBTQ+ people"+nd+"      NT > Children of LGBTQ+ people"+nd+"    Children of Two-Spirit people"+nd+"    Cisgender children"+nd+"      Cisgender boys" _
++nd+"      Cisgender girls"+nd+"    Girls"+nd+"      NT > Girls"+nd+"    Heterosexual children"+nd+"      Heterosexual boys" _
++nd+"      Heterosexual girls"+nd+"    LGBTQ+ children"+nd+"      NT > LGBTQ+ children"+nd+"    Surro babies"+nd+"    Test tube babies" _
++nd+"    Turkey baster babies"+nd+"    Two-Spirit children "+nd+"      Two-Spirit daughters"+nd+"      Two-Spirit sons"+nd+"  Daughters" _
++nd+"    Daughters of LGBTQ+ people"+nd+"      NT > Daughters of LGBTQ+ people"+nd+"    LGBTQ+ daughters"+nd+"      NT > LGBTQ+ daughters"+nd+"  Family members of LGBTQ+ people" _
++nd+"  Fathers"+nd+"    Fathers of LGBTQ+ people"+nd+"      NT > Fathers of LGBTQ+ people"+nd+"    LGBTQ+ fathers"+nd+"      NT > LGBTQ+ fathers" _
++nd+"    Two-Spirit fathers"+nd+"  Grandchildren"+nd+"    Grandchildren of LGBTQ+ people"+nd+"    LGBTQ+ grandchildren"+nd+"    Grandparents" _
++nd+"    Grandparents of LGBTQ+ people"+nd+"    LGBTQ+ grandparents"+nd+"  LGBTQ+ family members"+nd+"  Mothers"+nd+"    NT > Mothers" _
++nd+"  Niblings"+nd+"  Parents"+nd+"    NT > Parents"+nd+"  Piblings"+nd+"  Siblings" _
++nd+"    Donor siblings"+nd+"    Half-siblings"+nd+"    LGBTQ+ siblings"+nd+"    Siblings of LGBTQ+ people"+nd+"  Sons" _
++nd+"    LGBTQ+ sons"+nd+"      NT > LGBTQ+ sons"+nd+"    Sons of LGBTQ+ people"+nd+"      NT > Sons of LGBTQ+ people"+nd+"    Two-Spirit sons"
+
+
+dim LGBTQplus_families$
+LGBTQplus_families$=" "+nd+ "LGBTQ+ families"+nd+"  Aromantic families"+nd+"  Asexual families"+nd+"  Bisexual families"+nd+"  Drag families" _
++nd+"    Drag fathers"+nd+"    Drag mothers"+nd+"  Gay families"+nd+"  Intersex families"+nd+"  Lesbian families" _
++nd+"  LGBTQ+ adoptive families"+nd+"    LGBTQ+ adoptive parenthood"+nd+"    LGBTQ+ fatherhood"+nd+"    LGBTQ+ motherhood"+nd+"  LGBTQ+ adoptive parents" _
++nd+"  LGBTQ+ biological parents"+nd+"    Biological parenthood"+nd+"    Genetic parenthood"+nd+"    Gestational parenthood"+nd+"      Birth parents" _
++nd+"        LGBTQ+ birth parents"+nd+"      Surrogacy"+nd+"        Gestational surrogacy"+nd+"  LGBTQ+ chosen families"+nd+"    Ballroom families" _
++nd+"    Drag families"+nd+"      Drag fathers"+nd+"      Drag mothers"+nd+"  LGBTQ+ family generations"+nd+"  LGBTQ+ foster families" _
++nd+"  LGBTQ+ foster parents"+nd+"  LGBTQ+ parents"+nd+"    NT > LGBTQ+ parents"+nd+"  LGBTQ+ partners"+nd+"    NT > LGBTQ+ partners" _
++nd+"  LGBTQ+ single parent families"+nd+"  Queer families"+nd+"  Transgender families"
+
+dim LGBTQplus_familyplanning$
+LGBTQplus_familyplanning$=" "+nd+ "LGBTQ+ family planning"+nd+"  Conception by LGBTQ+ people"+nd+"    In vitro fertilisation"+nd+"      Reciprocal in vitro fertilisation"+nd+"    Insemination" _
++nd+"      Artificial insemination"+nd+"      Donor insemination"+nd+"        Sperm donors"+nd+"      Self-insemination"+nd+"    Self-insemination" _
++nd+"    Surrogacy"+nd+"      Gestational surrogacy"+nd+"  LGBTQ+ adoption"+nd+"    LGBTQ+ adoptive parenthood"+nd+"    LGBTQ+ adoptive parents" _
++nd+"    LGBTQ+ birth parents"+nd+"    Second parent adoption"
+
+dim Miscellaneous_family$
+Miscellaneous_family$=" "+nd+ "Child custody"+nd+"Desire to have children"+nd+"Domestic partnership retirement benefits"+nd+"Fatherhood"+nd+"Single parent families" _
++nd+"Social parenthood"+nd+"Two-Spirit families"
+
+dim LGBTQplus_relationships$
+LGBTQplus_relationships$=" "+nd+ "LGBTQ+ relationships"+nd+"  Asexual relationships"+nd+"  Bisexual relationships"+nd+"  Butch-femme relationships [self-identify only]"+nd+"  Cross-cultural relationships" _
++nd+"  Friendships"+nd+"    Boys' friendships"+nd+"    Girls' friendships"+nd+"    Men's friendships"+nd+"    Romantic friendships" _
++nd+"    Women's friendships"+nd+"  Gay relationships"+nd+"  Heterosociality"+nd+"  Intergenerational relationships"+nd+"  Intersex relationships" _
++nd+"  Lesbian relationships"+nd+"  LGBTQ+ couples"+nd+"    Asexual couples"+nd+"    Bisexual couples"+nd+"    Gay couples" _
++nd+"    Intersex couples"+nd+"    Lesbian couples"+nd+"    Queer couples"+nd+"    Transgender couples"+nd+"  Queer relationships" _
++nd+"  Romantic relationships"+nd+"  Sexual relationships"+nd+"    Casual sex"+nd+"    Love triangles"+nd+"    Monogamy" _
++nd+"    Polygamy"+nd+"  Transgender relationships"
+
+dim partners$
+partners$=" "+nd+ "Partners"+nd+"  Anchor partners"+nd+"  LGBTQ+ partners"+nd+"    NT > LGBTQ+ partners"+nd+"  Nesting partners" _
++nd+"  Partners of crossdressers"+nd+"  Partners of LGBTQ+ people"+nd+"    Partners of asexual people"+nd+"    Partners of bisexual people"+nd+"    Partners of gay men" _
++nd+"    Partners of intersex people "+nd+"    Partners of lesbians"+nd+"    Partners of queer people"+nd+"    Partners of transgender people"+nd+"  Primary partners" _
++nd+"  Secondary partners"+nd+"  Two-Spirit partners"
+
+dim LGBTQplus_communities$
+LGBTQplus_communities$=" "+nd+ "LGBTQ+ communities"+nd+"  Asexual community"+nd+"  Bisexual community"+nd+"  Drag community"+nd+"    Drag families" _
++nd+"      Drag fathers"+nd+"      Drag mothers"+nd+"  Gay community"+nd+"  Intersex community"+nd+"  Kink community" _
++nd+"  Leather community"+nd+"    NT > Leather community"+nd+"  Lesbian community"+nd+"  LGBTQ+ alumni groups"+nd+"  LGBTQ+ communes" _
++nd+"  LGBTQ+ Deaf culture"+nd+"  Queer community"+nd+"  Rubber and latex community"+nd+"    Rubber and latex fetish"+nd+"    Rubbermen" _
++nd+"    Rubberwomen"+nd+"  Transgender community"
+
+dim Homosociality$
+Homosociality$=" "+nd+ "Homosociality"+nd+"  Boys' friendships"+nd+"  Girls' friendships"+nd+"  Men's friendships"+nd+"  Women's friendships"
+
+dim Living_arrangements$
+Living_arrangements$=" "+nd+ "Living arrangements"+nd+"  Civil unions"+nd+"    Civil union certificates"+nd+"    Civil union documents"+nd+"  Domestic partnerships" _
++nd+"  Marriage"+nd+"    Common law marriage"+nd+"    Heterosexual marriage"+nd+"    LGBTQ+ divorce"+nd+"      Same-sex divorce" _
++nd+"    LGBTQ+ separation"+nd+"      LGBTQ+ divorce"+nd+"    Marital status"+nd+"      Divorced people"+nd+"      Married people" _
++nd+"      Single people"+nd+"        LGBTQ+ single parents"+nd+"          LGBTQ+ single fathers"+nd+"          LGBTQ+ single mothers"+nd+"      Unmarried couples" _
++nd+"      Widowed people"+nd+"    Marriage certificates"+nd+"    Marriage licenses"+nd+"    Mixed-orientation marriage"+nd+"    Same-sex marriage" _
++nd+"    Women's marriages"
+
+dim LGBTQplus_love$
+LGBTQplus_love$=" "+nd+ "LGBTQ+ love"+nd+"  LGBTQ+ platonic love"+nd+"  LGBTQ+ unrequited love"
+
+dim Romantic_orientation$
+Romantic_orientation$=" "+nd+ "Romantic orientation"+nd+"  Biromanticism"+nd+"  Heteroromanticism"+nd+"  Homoromanticism"+nd+"  Panromanticism" _
++nd+"  Alloromanticism"+nd+"  Aromanticism"+nd+"  Demiromanticism"+nd+"  Greyromanticism"
+
+dim Miscellaneous_relat$
+Miscellaneous_relat$=" "+nd+ "Compulsory monogamy"+nd+"LGBTQ+ intimacy"+nd+"Male bonding"+nd+"Motherhood"+nd+"NRE (New Relationship Energy)" _
++nd+"Online dating"+nd+"Polyfidelity"+nd+"Significant others"+nd+"t4t"+nd+"Two-Spirit community" _
++nd+"Two-Spirit couples"+nd+"Two-Spirit relationships"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 400, 350, "Choose the Homosaurus term you want to use..."
+
+
+
+Text 14,7,100,14, "Family members"
+   DropListBox 14, 20, 150, 280, Family_members$, .Family_memberssub
+Text 200,7,80,14, "LGBTQ+ families"
+   DropListBox 200, 20, 130, 280, LGBTQplus_families$, .LGBTQplus_familiessub
+Text 14,45,120,14, "LGBTQ+ family planning"
+   DropListBox 14,58,150,250, LGBTQplus_familyplanning$, .LGBTQplus_familyplanningsub
+Text 200,45,150,135, "Family Terms that are not in a hierarchy"
+   DropListBox 200,58,130,250, Miscellaneous_family$, .Miscellaneous_familysub
+
+Text 14,83,130,130, "LGBTQ+ relationships"
+   DropListBox 14,96,155,200, LGBTQplus_relationships$, .LGBTQplus_relationshipssub
+Text 200,83,100,14, "Partners"
+   DropListBox 200,96,130,200, partners$, .partnerssub
+
+Text 14,121,200,12, "LGBTQ+ communities"
+   DropListBox 14, 135, 130, 160, LGBTQplus_communities$, .LGBTQplus_communitiessub
+Text 200,121,95,135, "Living arrangements"
+   DropListBox 200,135,130,160, Living_arrangements$, .Living_arrangementssub
+
+Text 14,159,80,14, "LGBTQ+ love"
+   DropListBox 14, 172, 130, 135, LGBTQplus_love$, .LGBTQplus_lovesub 
+Text 200,159,120,14, "Romantic orientation"
+   DropListBox 200, 172,130, 135, Romantic_orientation$, .Romantic_orientationsub
+
+Text 14,197,60,14, "Homosociality"
+   DropListBox 14,210, 130, 135, Homosociality$, .Homosocialitysub
+Text 200,197,170,135, "Relationship terms that are not in a hierarchy"
+   DropListBox 200,210,130, 90, Miscellaneous_relat$, .Miscellaneous_relatsub
+      
+Button 120,300,40,20, "I'm done",    .fin
+CancelButton 170,300,40,20
+Text  14, 325, 200, 8, "Based on Homosaurus v.3.2, Updated for v.3.6"
+Text  14, 335, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Family_memberssub=0 Then aa$ = " "
+If quick.Family_memberssub=1 Then aa$ = "Family members" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000421"
+If quick.Family_memberssub=2 Then aa$ = "Children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000255"
+If quick.Family_memberssub=3 Then aa$ = "Asexual children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002772"
+If quick.Family_memberssub=4 Then aa$ = "Boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000220"
+If quick.Family_memberssub=5 Then CS.RunMacro "Homosaurus_subjects.mbk!Boys"
+If quick.Family_memberssub=6 Then aa$ = "Children of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000260"
+If quick.Family_memberssub=7 Then CS.RunMacro "Homosaurus_subjects.mbk!Children_of_LGBTQ"
+If quick.Family_memberssub=8 Then aa$ = "Children of Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001768"
+If quick.Family_memberssub=9 Then aa$ = "Cisgender children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002282"
+If quick.Family_memberssub=10 Then aa$ = "Cisgender boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002283"
+If quick.Family_memberssub=11 Then aa$ = "Cisgender girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002284"
+If quick.Family_memberssub=12 Then aa$ = "Girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000590"
+If quick.Family_memberssub=13 Then CS.RunMacro "Homosaurus_subjects.mbk!Girls"
+If quick.Family_memberssub=14 Then aa$ = "Heterosexual children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002285"
+If quick.Family_memberssub=15 Then aa$ = "Heterosexual boys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000621"
+If quick.Family_memberssub=16 Then aa$ = "Heterosexual girls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000623"
+If quick.Family_memberssub=17 Then aa$ = "LGBTQ+ children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000256"
+If quick.Family_memberssub=18 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_children"
+If quick.Family_memberssub=19 Then aa$ = "Surro babies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002628"
+If quick.Family_memberssub=20 Then aa$ = "Test tube babies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002629"
+If quick.Family_memberssub=21 Then aa$ = "Turkey baster babies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003501"
+If quick.Family_memberssub=22 Then aa$ = "Two-Spirit children " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003332"
+If quick.Family_memberssub=23 Then aa$ = "Two-Spirit daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003241"
+If quick.Family_memberssub=24 Then aa$ = "Two-Spirit sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003244"
+If quick.Family_memberssub=25 Then aa$ = "Daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002351"
+If quick.Family_memberssub=26 Then aa$ = "Daughters of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002352"
+If quick.Family_memberssub=27 Then CS.RunMacro "Homosaurus_subjects.mbk!Daughters_LGBTQ_people"
+If quick.Family_memberssub=28 Then aa$ = "LGBTQ+ daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000330"
+If quick.Family_memberssub=29 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_daughters"
+If quick.Family_memberssub=30 Then aa$ = "Family members of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002361"
+If quick.Family_memberssub=31 Then aa$ = "Fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000423"
+If quick.Family_memberssub=32 Then aa$ = "Fathers of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002342"
+If quick.Family_memberssub=33 Then CS.RunMacro "Homosaurus_subjects.mbk!Fathers_of_LGBTQ_people"
+If quick.Family_memberssub=34 Then aa$ = "LGBTQ+ fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002337"
+If quick.Family_memberssub=35 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_fathers"
+If quick.Family_memberssub=36 Then aa$ = "Two-Spirit fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003242"
+If quick.Family_memberssub=37 Then aa$ = "Grandchildren" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000601"
+If quick.Family_memberssub=38 Then aa$ = "Grandchildren of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002357"
+If quick.Family_memberssub=39 Then aa$ = "LGBTQ+ grandchildren" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002356"
+If quick.Family_memberssub=40 Then aa$ = "Grandparents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000602"
+If quick.Family_memberssub=41 Then aa$ = "Grandparents of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002359"
+If quick.Family_memberssub=42 Then aa$ = "LGBTQ+ grandparents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002358"
+If quick.Family_memberssub=43 Then aa$ = "LGBTQ+ family members" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002360"
+If quick.Family_memberssub=44 Then aa$ = "Mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001021"
+If quick.Family_memberssub=45 Then CS.RunMacro "Homosaurus_subjects.mbk!Mothers"
+If quick.Family_memberssub=46 Then aa$ = "Niblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002294"
+If quick.Family_memberssub=47 Then aa$ = "Parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002372"
+If quick.Family_memberssub=48 Then CS.RunMacro "Homosaurus_subjects.mbk!Parents"
+If quick.Family_memberssub=49 Then aa$ = "Piblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002293"
+If quick.Family_memberssub=50 Then aa$ = "Siblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001310"
+If quick.Family_memberssub=51 Then aa$ = "Donor siblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002621"
+If quick.Family_memberssub=52 Then aa$ = "Half-siblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002623"
+If quick.Family_memberssub=53 Then aa$ = "LGBTQ+ siblings" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002349"
+If quick.Family_memberssub=54 Then aa$ = "Siblings of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002350"
+If quick.Family_memberssub=55 Then aa$ = "Sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002353"
+If quick.Family_memberssub=56 Then aa$ = "LGBTQ+ sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001329"
+If quick.Family_memberssub=57 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_sons"
+If quick.Family_memberssub=58 Then aa$ = "Sons of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002355"
+If quick.Family_memberssub=59 Then CS.RunMacro "Homosaurus_subjects.mbk!Sons_of_LGBTQ_people"
+If quick.Family_memberssub=60 Then aa$ = "Two-Spirit sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003244"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+If quick.Homosocialitysub=0 Then ba$ = " "
+If quick.Homosocialitysub=1 Then ba$ = "Homosociality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000649"
+If quick.Homosocialitysub=2 Then ba$ = "Boys' friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000221"
+If quick.Homosocialitysub=3 Then ba$ = "Girls' friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000591"
+If quick.Homosocialitysub=4 Then ba$ = "Men's friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000982"
+If quick.Homosocialitysub=5 Then ba$ = "Women's friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000429"
+If ba$ = " " then
+else
+CS.AddField 99, "650 7" & ba$
+end if
+
+If quick.LGBTQplus_communitiessub=0 Then ea$ = " "
+If quick.LGBTQplus_communitiessub=1 Then ea$ = "LGBTQ+ communities" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000297"
+If quick.LGBTQplus_communitiessub=2 Then ea$ = "Asexual community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002773"
+If quick.LGBTQplus_communitiessub=3 Then ea$ = "Bisexual community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000143"
+If quick.LGBTQplus_communitiessub=4 Then ea$ = "Drag community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000370"
+If quick.LGBTQplus_communitiessub=5 Then ea$ = "Drag families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000371"
+If quick.LGBTQplus_communitiessub=6 Then ea$ = "Drag fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000372"
+If quick.LGBTQplus_communitiessub=7 Then ea$ = "Drag mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000374"
+If quick.LGBTQplus_communitiessub=8 Then ea$ = "Gay community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000485"
+If quick.LGBTQplus_communitiessub=9 Then ea$ = "Intersex community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002931"
+If quick.LGBTQplus_communitiessub=10 Then ea$ = "Kink community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000103"
+If quick.LGBTQplus_communitiessub=11 Then ea$ = "Leather community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000705"
+If quick.LGBTQplus_communitiessub=12 Then CS.RunMacro "Homosaurus_subjects.mbk!Leather_community"
+If quick.LGBTQplus_communitiessub=13 Then ea$ = "Lesbian community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000733"
+If quick.LGBTQplus_communitiessub=14 Then ea$ = "LGBTQ+ alumni groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003032"
+If quick.LGBTQplus_communitiessub=15 Then ea$ = "LGBTQ+ communes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000842"
+If quick.LGBTQplus_communitiessub=16 Then ea$ = "LGBTQ+ Deaf culture" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001878"
+If quick.LGBTQplus_communitiessub=17 Then ea$ = "Queer community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001170"
+If quick.LGBTQplus_communitiessub=18 Then ea$ = "Rubber and latex community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001247"
+If quick.LGBTQplus_communitiessub=19 Then ea$ = "Rubber and latex fetish" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001246"
+If quick.LGBTQplus_communitiessub=20 Then ea$ = "Rubbermen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001248"
+If quick.LGBTQplus_communitiessub=21 Then ea$ = "Rubberwomen" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001249"
+If quick.LGBTQplus_communitiessub=22 Then ea$ = "Transgender community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001403"
+
+
+
+If ea$ = " " then
+else
+CS.AddField 99, "650 7" & ea$
+end if
+
+If quick.partnerssub=0 Then fa$ = " "
+If quick.partnerssub=1 Then fa$ = "Partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002365"
+If quick.partnerssub=2 Then fa$ = "Anchor partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001645"
+If quick.partnerssub=3 Then fa$ = "LGBTQ+ partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001083"
+If quick.partnerssub=4 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_partners"
+If quick.partnerssub=5 Then fa$ = "Nesting partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001657"
+If quick.partnerssub=6 Then fa$ = "Partners of crossdressers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001085"
+If quick.partnerssub=7 Then fa$ = "Partners of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002366"
+If quick.partnerssub=8 Then fa$ = "Partners of asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002911"
+If quick.partnerssub=9 Then fa$ = "Partners of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001084"
+If quick.partnerssub=10 Then fa$ = "Partners of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001086"
+If quick.partnerssub=11 Then fa$ = "Partners of intersex people " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002743"
+If quick.partnerssub=12 Then fa$ = "Partners of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001087"
+If quick.partnerssub=13 Then fa$ = "Partners of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001088"
+If quick.partnerssub=14 Then fa$ = "Partners of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001089"
+If quick.partnerssub=15 Then fa$ = "Primary partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001635"
+If quick.partnerssub=16 Then fa$ = "Secondary partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001638"
+If quick.partnerssub=17 Then fa$ = "Two-Spirit partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002717"
+
+If fa$ = " " then 
+else
+CS.AddField 99, "650 7" & fa$ 
+end if
+
+If quick.LGBTQplus_familiessub=0 Then ga$ = " "
+If quick.LGBTQplus_familiessub=1 Then ga$ = "LGBTQ+ families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000420"
+If quick.LGBTQplus_familiessub=2 Then ga$ = "Aromantic families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001757"
+If quick.LGBTQplus_familiessub=3 Then ga$ = "Asexual families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001758"
+If quick.LGBTQplus_familiessub=4 Then ga$ = "Bisexual families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000150"
+If quick.LGBTQplus_familiessub=5 Then ga$ = "Drag families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000371"
+If quick.LGBTQplus_familiessub=6 Then ga$ = "Drag fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000372"
+If quick.LGBTQplus_familiessub=7 Then ga$ = "Drag mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000374"
+If quick.LGBTQplus_familiessub=8 Then ga$ = "Gay families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000491"
+If quick.LGBTQplus_familiessub=9 Then ga$ = "Intersex families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001759"
+If quick.LGBTQplus_familiessub=10 Then ga$ = "Lesbian families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000740"
+If quick.LGBTQplus_familiessub=11 Then ga$ = "LGBTQ+ adoptive families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000810"
+If quick.LGBTQplus_familiessub=12 Then ga$ = "LGBTQ+ adoptive parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000811"
+If quick.LGBTQplus_familiessub=13 Then ga$ = "LGBTQ+ fatherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000866"
+If quick.LGBTQplus_familiessub=14 Then ga$ = "LGBTQ+ motherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000905"
+If quick.LGBTQplus_familiessub=15 Then ga$ = "LGBTQ+ adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000812"
+If quick.LGBTQplus_familiessub=16 Then ga$ = "LGBTQ+ biological parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000819"
+If quick.LGBTQplus_familiessub=17 Then ga$ = "Biological parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000116"
+If quick.LGBTQplus_familiessub=18 Then ga$ = "Genetic parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000583"
+If quick.LGBTQplus_familiessub=19 Then ga$ = "Gestational parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000587"
+If quick.LGBTQplus_familiessub=20 Then ga$ = "Birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000121"
+If quick.LGBTQplus_familiessub=21 Then ga$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.LGBTQplus_familiessub=22 Then ga$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
+If quick.LGBTQplus_familiessub=23 Then ga$ = "Gestational surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002627"
+If quick.LGBTQplus_familiessub=24 Then ga$ = "LGBTQ+ chosen families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000834"
+If quick.LGBTQplus_familiessub=25 Then ga$ = "Ballroom families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000094"
+If quick.LGBTQplus_familiessub=26 Then ga$ = "Drag families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000371"
+If quick.LGBTQplus_familiessub=27 Then ga$ = "Drag fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000372"
+If quick.LGBTQplus_familiessub=28 Then ga$ = "Drag mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000374"
+If quick.LGBTQplus_familiessub=29 Then ga$ = "LGBTQ+ family generations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002586"
+If quick.LGBTQplus_familiessub=30 Then ga$ = "LGBTQ+ foster families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000870"
+If quick.LGBTQplus_familiessub=31 Then ga$ = "LGBTQ+ foster parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000872"
+If quick.LGBTQplus_familiessub=32 Then ga$ = "LGBTQ+ parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001075"
+If quick.LGBTQplus_familiessub=33 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_parents"
+If quick.LGBTQplus_familiessub=34 Then ga$ = "LGBTQ+ partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001083"
+If quick.LGBTQplus_familiessub=35 Then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_partners"
+If quick.LGBTQplus_familiessub=36 Then ga$ = "LGBTQ+ single parent families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000943"
+If quick.LGBTQplus_familiessub=37 Then ga$ = "Queer families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001176"
+If quick.LGBTQplus_familiessub=38 Then ga$ = "Transgender families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001412"
+If ga$ = " " then
+else
+CS.AddField 99, "650 7" & ga$
+end if
+
+If quick.LGBTQplus_familyplanningsub=0 Then ha$ = " "
+If quick.LGBTQplus_familyplanningsub=1 Then ha$ = "LGBTQ+ family planning" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000864"
+If quick.LGBTQplus_familyplanningsub=2 Then ha$ = "Conception by LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000843"
+If quick.LGBTQplus_familyplanningsub=3 Then ha$ = "In vitro fertilisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000659"
+If quick.LGBTQplus_familyplanningsub=4 Then ha$ = "Reciprocal in vitro fertilisation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001234"
+If quick.LGBTQplus_familyplanningsub=5 Then ha$ = "Insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000069"
+If quick.LGBTQplus_familyplanningsub=6 Then ha$ = "Artificial insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002617"
+If quick.LGBTQplus_familyplanningsub=7 Then ha$ = "Donor insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002620"
+If quick.LGBTQplus_familyplanningsub=8 Then ha$ = "Sperm donors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001336"
+If quick.LGBTQplus_familyplanningsub=9 Then ha$ = "Self-insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001265"
+If quick.LGBTQplus_familyplanningsub=10 Then ha$ = "Self-insemination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001265"
+If quick.LGBTQplus_familyplanningsub=11 Then ha$ = "Surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001347"
+If quick.LGBTQplus_familyplanningsub=12 Then ha$ = "Gestational surrogacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002627"
+If quick.LGBTQplus_familyplanningsub=13 Then ha$ = "LGBTQ+ adoption" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000809"
+If quick.LGBTQplus_familyplanningsub=14 Then ha$ = "LGBTQ+ adoptive parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000811"
+If quick.LGBTQplus_familyplanningsub=15 Then ha$ = "LGBTQ+ adoptive parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000812"
+If quick.LGBTQplus_familyplanningsub=16 Then ha$ = "LGBTQ+ birth parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000821"
+If quick.LGBTQplus_familyplanningsub=17 Then ha$ = "Second parent adoption" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000304"
+
+If ha$ = " " then
+else
+CS.AddField 99, "650 7" & ha$
+end if
+
+If quick.LGBTQplus_relationshipssub=0 Then ka$ = " "
+If quick.LGBTQplus_relationshipssub=7 Then ka$ = "Boys' friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000221"
+If quick.LGBTQplus_relationshipssub=8 Then ka$ = "Girls' friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000591"
+If quick.LGBTQplus_relationshipssub=9 Then ka$ = "Men's friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000982"
+If quick.LGBTQplus_relationshipssub=10 Then ka$ = "Romantic friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001245"
+If quick.LGBTQplus_relationshipssub=11 Then ka$ = "Women's friendships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000429"
+If quick.LGBTQplus_relationshipssub=12 Then ka$ = "Gay relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000529"
+If quick.LGBTQplus_relationshipssub=13 Then ka$ = "Heterosociality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000628"
+If quick.LGBTQplus_relationshipssub=14 Then ka$ = "Intergenerational relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000663"
+If quick.LGBTQplus_relationshipssub=15 Then ka$ = "Intersex relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002939"
+If quick.LGBTQplus_relationshipssub=16 Then ka$ = "Lesbian relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000773"
+If quick.LGBTQplus_relationshipssub=17 Then ka$ = "LGBTQ+ couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000310"
+If quick.LGBTQplus_relationshipssub=18 Then ka$ = "Asexual couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002780"
+If quick.LGBTQplus_relationshipssub=19 Then ka$ = "Bisexual couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000145"
+If quick.LGBTQplus_relationshipssub=20 Then ka$ = "Gay couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000503"
+If quick.LGBTQplus_relationshipssub=21 Then ka$ = "Intersex couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002969"
+If quick.LGBTQplus_relationshipssub=22 Then ka$ = "Lesbian couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000735"
+If quick.LGBTQplus_relationshipssub=23 Then ka$ = "Queer couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001172"
+If quick.LGBTQplus_relationshipssub=24 Then ka$ = "Transgender couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001405"
+If quick.LGBTQplus_relationshipssub=25 Then ka$ = "Queer relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001205"
+If quick.LGBTQplus_relationshipssub=26 Then ka$ = "Romantic relationship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002514"
+If quick.LGBTQplus_relationshipssub=27 Then ka$ = "Sexual relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001302"
+If quick.LGBTQplus_relationshipssub=28 Then ka$ = "Casual sex" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000242"
+If quick.LGBTQplus_relationshipssub=29 Then ka$ = "Love triangles" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000976"
+If quick.LGBTQplus_relationshipssub=30 Then ka$ = "Monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001019"
+If quick.LGBTQplus_relationshipssub=31 Then ka$ = "Polygamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001124"
+If quick.LGBTQplus_relationshipssub=32 Then ka$ = "Transgender relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001442"
+
+If ka$ = " " then
+else
+CS.AddField 99, "650 7" & ka$
+end if
+
+
+
+
+If quick.Living_arrangementssub=0 Then ma$ = " "
+If quick.Living_arrangementssub=1 Then ma$ = "Living arrangements" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000973"
+If quick.Living_arrangementssub=2 Then ma$ = "Civil unions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000274"
+If quick.Living_arrangementssub=3 Then ma$ = "Civil union certificates" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000277"
+If quick.Living_arrangementssub=4 Then ma$ = "Civil union documents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000275"
+If quick.Living_arrangementssub=5 Then ma$ = "Domestic partnerships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000362"
+If quick.Living_arrangementssub=6 Then ma$ = "Marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000990"
+If quick.Living_arrangementssub=7 Then ma$ = "Common law marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000296"
+If quick.Living_arrangementssub=8 Then ma$ = "Heterosexual marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000625"
+If quick.Living_arrangementssub=9 Then ma$ = "LGBTQ+ divorce" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000854"
+If quick.Living_arrangementssub=10 Then ma$ = "Same-sex divorce" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001255"
+If quick.Living_arrangementssub=11 Then ma$ = "LGBTQ+ separation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000937"
+If quick.Living_arrangementssub=12 Then ma$ = "LGBTQ+ divorce" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000854"
+If quick.Living_arrangementssub=13 Then ma$ = "Marital status" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000989"
+If quick.Living_arrangementssub=14 Then ma$ = "Divorced people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000359"
+If quick.Living_arrangementssub=15 Then ma$ = "Married people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000994"
+If quick.Living_arrangementssub=16 Then ma$ = "Single people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001312"
+If quick.Living_arrangementssub=17 Then ma$ = "LGBTQ+ single parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000944"
+If quick.Living_arrangementssub=18 Then ma$ = "LGBTQ+ single fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000941"
+If quick.Living_arrangementssub=19 Then ma$ = "LGBTQ+ single mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000942"
+If quick.Living_arrangementssub=20 Then ma$ = "Unmarried couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001483"
+If quick.Living_arrangementssub=21 Then ma$ = "Widowed people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001504"
+If quick.Living_arrangementssub=22 Then ma$ = "Marriage certificates" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000991"
+If quick.Living_arrangementssub=23 Then ma$ = "Marriage licenses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000993"
+If quick.Living_arrangementssub=24 Then ma$ = "Mixed-orientation marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000158"
+If quick.Living_arrangementssub=25 Then ma$ = "Same-sex marriage" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000504"
+If quick.Living_arrangementssub=26 Then ma$ = "Women's marriages" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001514"
+
+If ma$ = " " then
+else
+CS.AddField 99, "650 7" & ma$
+end if
+
+If quick.LGBTQplus_lovesub=0 Then ca$ = " "
+If quick.LGBTQplus_lovesub=1 Then ca$ = "LGBTQ+ love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000894"
+If quick.LGBTQplus_lovesub=2 Then ca$ = "LGBTQ+ platonic love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000921"
+If quick.LGBTQplus_lovesub=3 Then ca$ = "LGBTQ+ unrequited love" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000957"
+If ca$ = " " then
+else
+CS.AddField 99, "650 7" & ca$
+end if
+
+If quick.Romantic_orientationsub=0 Then da$ = " "
+If quick.Romantic_orientationsub=1 Then da$ = "Romantic orientation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001828"
+If quick.Romantic_orientationsub=2 Then da$ = "Biromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001792"
+If quick.Romantic_orientationsub=3 Then da$ = "Heteroromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001794"
+If quick.Romantic_orientationsub=4 Then da$ = "Homoromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001793"
+If quick.Romantic_orientationsub=5 Then da$ = "Panromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001795"
+If quick.Romantic_orientationsub=6 Then da$ = "Alloromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001791"
+If quick.Romantic_orientationsub=7 Then da$ = "Aromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001644"
+If quick.Romantic_orientationsub=8 Then da$ = "Demiromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001986"
+If quick.Romantic_orientationsub=9 Then da$ = "Greyromanticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001988"
+If da$ = " " then
+else
+CS.AddField 99, "650 7" & da$
+end if
+
+If quick.Miscellaneous_relatsub=0 Then oa$ = " "
+If quick.Miscellaneous_relatsub=1 Then oa$ = "Compulsory monogamy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001650"
+If quick.Miscellaneous_relatsub=2 Then oa$ = "LGBTQ+ intimacy" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000889"
+If quick.Miscellaneous_relatsub=3 Then oa$ = "Male bonding" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000981"
+If quick.Miscellaneous_relatsub=4 Then oa$ = "Motherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001001"
+If quick.Miscellaneous_relatsub=5 Then oa$ = "NRE (New Relationship Energy)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001661"
+If quick.Miscellaneous_relatsub=6 Then oa$ = "Online dating" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000664"
+If quick.Miscellaneous_relatsub=7 Then oa$ = "Polyfidelity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001664"
+If quick.Miscellaneous_relatsub=8 Then oa$ = "Significant others" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001311"
+If quick.Miscellaneous_relatsub=9 Then oa$ = "t4t" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001780"
+If quick.Miscellaneous_relatsub=10 Then oa$ = "Two-Spirit community" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001811"
+If quick.Miscellaneous_relatsub=11 Then oa$ = "Two-Spirit couples" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002690"
+If quick.Miscellaneous_relatsub=12 Then oa$ = "Two-Spirit relationships" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002722"
+If oa$ = " " then 
+else
+CS.AddField 99, "650 7" & oa$ 
+end if
+
+If quick.Miscellaneous_familysub=0 Then pa$ = " "
+If quick.Miscellaneous_familysub=1 Then pa$ = "Child custody" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000254"
+If quick.Miscellaneous_familysub=2 Then pa$ = "Desire to have children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000347"
+If quick.Miscellaneous_familysub=3 Then pa$ = "Domestic partnership retirement benefits" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000361"
+If quick.Miscellaneous_familysub=4 Then pa$ = "Fatherhood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001093"
+If quick.Miscellaneous_familysub=5 Then pa$ = "Single parent families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001059"
+If quick.Miscellaneous_familysub=6 Then pa$ = "Social parenthood" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000451"
+If quick.Miscellaneous_familysub=7 Then pa$ = "Two-Spirit families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001760"
+
+If pa$ = " " then
+else
+CS.AddField 99, "650 7" & pa$
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,80 @@
+'MacroName:LGBTQplus_academics
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'August, 2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_academics$
+LGBTQplus_academics$=" "+nd+ "LGBTQ+ academics"+nd+"  Aromantic academics"+nd+"  Asexual academics"+nd+"  Bisexual academics"+nd+"  Demisexual academics" _
++nd+"  Gay academics"+nd+"  Greyromantic academics "+nd+"  Intersex academics"+nd+"  Lesbian academics"+nd+"  Megasexual academics" _
++nd+"  Non-binary academics"+nd+"  Queer academics"+nd+"  Transgender academics"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 190, "LGBTQ+ academics and Narrower Terms"
+
+ListBox 14, 7, 130, 135, LGBTQplus_academics$, .LGBTQplus_academicssub
+  
+Button 25,140,40,20, "I'm done",    .fin
+CancelButton 75,140,40,20
+
+Text  14, 170, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 180, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_academicssub=0 Then aa$ = " "
+If quick.LGBTQplus_academicssub=1 Then aa$ = "LGBTQ+ academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003263"
+If quick.LGBTQplus_academicssub=2 Then aa$ = "Aromantic academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003264"
+If quick.LGBTQplus_academicssub=3 Then aa$ = "Asexual academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003265"
+If quick.LGBTQplus_academicssub=4 Then aa$ = "Bisexual academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003266"
+If quick.LGBTQplus_academicssub=5 Then aa$ = "Demisexual academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003267"
+If quick.LGBTQplus_academicssub=6 Then aa$ = "Gay academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003268"
+If quick.LGBTQplus_academicssub=7 Then aa$ = "Greyromantic academics " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003269"
+If quick.LGBTQplus_academicssub=8 Then aa$ = "Intersex academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003270"
+If quick.LGBTQplus_academicssub=9 Then aa$ = "Lesbian academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003271"
+If quick.LGBTQplus_academicssub=10 Then aa$ = "Megasexual academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003272"
+If quick.LGBTQplus_academicssub=11 Then aa$ = "Non-binary academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003273"
+If quick.LGBTQplus_academicssub=12 Then aa$ = "Queer academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003274"
+If quick.LGBTQplus_academicssub=13 Then aa$ = "Transgender academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003275"
+
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+
