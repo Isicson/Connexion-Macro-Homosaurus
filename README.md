@@ -12,6 +12,8 @@ Read a .txt file to see the macro code.  This is many smaller macros bundled tog
 
 Known issues:  Diacritics have been a challenge to include and have them properly print to Connexion.  I was able to get most diacritics printing correctly to the bibliographic records, but any word that uses a long dash over the letter "a" will display a diacritic in the dropdown menus.  For example, the word Māori.
 
+All errors in this creation are my own.  I would like to thank to Walter F. Nickeson for providing the code structure for the main menu redesign and additional coding support.  His Github offers a wide array of excellent Connexion macros.
+
 This macro is based on the [Homosaurus vocabulary](https://homosaurus.org/) which is under [CC BY-NC-ND 4.0 ](https://creativecommons.org/licenses/by-nc-nd/4.0/) and has minor modifications to improve menu readability for terms duplicated within the same hierarchy.
 
 -----------------------------------------------------
