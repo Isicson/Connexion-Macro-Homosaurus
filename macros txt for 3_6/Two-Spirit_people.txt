@@ -1,0 +1,113 @@
+'MacroName:Two-Spirit_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'August, 2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim dn$
+dn$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Two_Spirit_people$
+Two_Spirit_people$=" "+nd+ "Two-Spirit people"+nd+"    Closeted Two-Spirit people"+nd+"    Pregnant Two-Spirit people"+nd+"    Rural Two-Spirit people"+nd+"    Two-Spirit academics" _
++nd+"    Two-Spirit artists"+nd+"        Two-Spirit painters"+nd+"        Two-Spirit photographers"+nd+"    Two-Spirit athletes"+nd+"    Two-Spirit authors" _
++nd+"    Two-Spirit chefs"+nd+"    Two-Spirit college students"+nd+"    Two-Spirit comedians"+nd+"    Two-Spirit disabled people"+nd+"        Two-Spirit autistic people" _
++nd+"        Two-Spirit blind people"+nd+"        Two-Spirit Deaf people"+nd+"        Two-Spirit hard of hearing people"+nd+"        Two-Spirit people with chronic illnesses"+nd+"        Two-Spirit wheelchair users" _
++nd+"    Two-Spirit families"+nd+"    Two-Spirit neurodivergent people"+nd+"        Two-Spirit autistic people"+nd+"    Two-Spirit parents"+nd+"        Two-Spirit fathers" _
++nd+"        Two-Spirit mothers"+nd+"    Two-Spirit partners"+nd+"    Two-Spirit people in fandom"+nd+"    Two-Spirit people in the workplace"+nd+"    Two-Spirit political activists" _
++nd+"    Two-Spirit politicians"+nd+"    Two-Spirit sons"+nd+"    Two-Spirit survivors of bullying"+nd+"    Two-Spirit youth survivors of bullying"+nd+"    Two-Spirit survivors of hate crimes" _
++nd+"    Two-Spirit survivors of rape"+nd+"    Two-Spirit survivors of sexual abuse"+nd+"    Two-Spirit survivors of war"+nd+"    Two-Spirit teachers"+nd+"    Two-Spirit victims of bullying" _
++nd+"    Two-Spirit youth victims of bullying"+nd+"    Two-Spirit victims of sexual abuse"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 400, "Two-Spirit people and Narrower Terms"
+
+ListBox 14, 7, 150, 350, Two_Spirit_people$, .Two_Spirit_peoplesub
+  
+Button 25,355,40,20, "I'm done",    .fin
+CancelButton 75,355,40,20
+
+Text  14, 380, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 390, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Two_Spirit_peoplesub=0 Then dn$ = " "
+If quick.Two_Spirit_peoplesub=1 Then dn$ = "Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001480"
+If quick.Two_Spirit_peoplesub=2 Then dn$ = "Closeted Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001787"
+If quick.Two_Spirit_peoplesub=3 Then dn$ = "Pregnant Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003230"
+If quick.Two_Spirit_peoplesub=4 Then dn$ = "Rural Two-Spirit people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003380"
+If quick.Two_Spirit_peoplesub=5 Then dn$ = "Two-Spirit academics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003276"
+If quick.Two_Spirit_peoplesub=6 Then dn$ = "Two-Spirit artists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002678"
+If quick.Two_Spirit_peoplesub=7 Then dn$ = "Two-Spirit painters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003436"
+If quick.Two_Spirit_peoplesub=8 Then dn$ = "Two-Spirit photographers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003453"
+If quick.Two_Spirit_peoplesub=9 Then dn$ = "Two-Spirit athletes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001936"
+If quick.Two_Spirit_peoplesub=10 Then dn$ = "Two-Spirit authors" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001750"
+If quick.Two_Spirit_peoplesub=11 Then dn$ = "Two-Spirit chefs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001778"
+If quick.Two_Spirit_peoplesub=12 Then dn$ = "Two-Spirit college students" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003046"
+If quick.Two_Spirit_peoplesub=13 Then dn$ = "Two-Spirit comedians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002709"
+If quick.Two_Spirit_peoplesub=14 Then dn$ = "Two-Spirit disabled people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002682"
+If quick.Two_Spirit_peoplesub=15 Then dn$ = "Two-Spirit autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002676"
+If quick.Two_Spirit_peoplesub=16 Then dn$ = "Two-Spirit blind people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002683"
+If quick.Two_Spirit_peoplesub=17 Then dn$ = "Two-Spirit Deaf people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002684"
+If quick.Two_Spirit_peoplesub=18 Then dn$ = "Two-Spirit hard of hearing people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002693"
+If quick.Two_Spirit_peoplesub=19 Then dn$ = "Two-Spirit people with chronic illnesses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002694"
+If quick.Two_Spirit_peoplesub=20 Then dn$ = "Two-Spirit wheelchair users" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002695"
+If quick.Two_Spirit_peoplesub=21 Then dn$ = "Two-Spirit families" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001760"
+If quick.Two_Spirit_peoplesub=22 Then dn$ = "Two-Spirit neurodivergent people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002666"
+If quick.Two_Spirit_peoplesub=23 Then dn$ = "Two-Spirit autistic people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002676"
+If quick.Two_Spirit_peoplesub=24 Then dn$ = "Two-Spirit parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001764"
+If quick.Two_Spirit_peoplesub=25 Then dn$ = "Two-Spirit fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003242"
+If quick.Two_Spirit_peoplesub=26 Then dn$ = "Two-Spirit mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003243"
+If quick.Two_Spirit_peoplesub=27 Then dn$ = "Two-Spirit partners" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002717"
+If quick.Two_Spirit_peoplesub=28 Then dn$ = "Two-Spirit people in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002213"
+If quick.Two_Spirit_peoplesub=29 Then dn$ = "Two-Spirit people in the workplace" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002035"
+If quick.Two_Spirit_peoplesub=30 Then dn$ = "Two-Spirit political activists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002657"
+If quick.Two_Spirit_peoplesub=31 Then dn$ = "Two-Spirit politicians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002817"
+If quick.Two_Spirit_peoplesub=32 Then dn$ = "Two-Spirit sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003244"
+If quick.Two_Spirit_peoplesub=33 Then dn$ = "Two-Spirit survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002006"
+If quick.Two_Spirit_peoplesub=34 Then dn$ = "Two-Spirit youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003473"
+If quick.Two_Spirit_peoplesub=35 Then dn$ = "Two-Spirit survivors of hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002726"
+If quick.Two_Spirit_peoplesub=36 Then dn$ = "Two-Spirit survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002727"
+If quick.Two_Spirit_peoplesub=37 Then dn$ = "Two-Spirit survivors of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002728"
+If quick.Two_Spirit_peoplesub=38 Then dn$ = "Two-Spirit survivors of war" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002729"
+If quick.Two_Spirit_peoplesub=39 Then dn$ = "Two-Spirit teachers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003261"
+If quick.Two_Spirit_peoplesub=40 Then dn$ = "Two-Spirit victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001997"
+If quick.Two_Spirit_peoplesub=41 Then dn$ = "Two-Spirit youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003487"
+If quick.Two_Spirit_peoplesub=42 Then dn$ = "Two-Spirit victims of sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002734"
+If dn$ = " " then 
+else
+CS.AddField 99, "650 7" & dn$ 
+end if
+
+Cancelled:   
+End Sub
+

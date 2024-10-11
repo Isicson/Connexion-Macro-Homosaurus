@@ -1,0 +1,135 @@
+'MacroName:Menu_size_test
+'MacroDescription:tests menu size for various screens.
+
+
+Sub Main
+
+Dim CS As Object
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+Begin Dialog allnotes 700, 470, "Homosaurus Subjects Macro"
+   OptionGroup .OptionGroup1
+
+      OptionButton  14,5,106,10, "LGBTQ+ Identity focused", .OptionButton1
+      OptionButton  120,5,50,10, "Page 2", .OptionButton2
+      OptionButton  180,5,50,10, "Page 3", .OptionButton3
+      OptionButton  14,55,103,10, "LGBTQ+ Location focused", .OptionButton4
+      OptionButton  14,95,103,10, "LGBTQ+ Media focused", .OptionButton5
+      OptionButton  120,95,103,10, "Page 2", .OptionButton6
+      OptionButton  14,145,103,10, "Law focused", .OptionButton7
+      OptionButton  14,175,103,10, "Sex (Physical) focused", .OptionButton8
+      OptionButton  120,175,103,10, "Page 2", .OptionButton9
+      OptionButton  14,215,103,10, "Medical/Health focused", .OptionButton10
+      OptionButton  14,265,150,10, "Family and Relationships focused", .OptionButton11
+      OptionButton  14,305,100,10, "Society focused", .OptionButton12
+      OptionButton  120,305,150,10, "Page 2", .OptionButton13
+      OptionButton  14,385,103,10, "Culture focused", .OptionButton14
+      OptionButton  14,425,103,10, "LGBTQ+ Literature (655_7)", .OptionButton15
+      OptionButton  300,425,103,10, " LGBTQ+ Literature (650_7)", .OptionButton16
+      Text 40,15,640,10, "Page 1: LGBTQ+ people -- Gender -- Miscellaneous Two-Spirit people -- Gender minorities -- Romantic minorities -- Relationship minorities -- Youth."
+      Text 40,25,640,10, "Page 2: Sexual identity -- Relationship orientation -- Diversity -- LGBTQ+ authors -- LGBTQ+ sex workers -- LGBTQ+ religious people -- LGBTQ+ clergy -- LGBTQ+ choruses."
+      Text 40,35,640,10, "Page 3: Pronouns -- 2SLGBTQ+ -- LGBTQIA+ -- Cisgender people -- HIV-positive people -- LGBTQ+ comedians -- LGBTQ+ politicians -- Appropriation of marginalized identities -- Sexual minorities."
+      Text 40,45,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,65,640,20, "Page 1: LGBTQ+ bookshops -- LGBTQ+ centers -- LGBTQ+ cultural heritage institutions -- LGBTQ+ hotels -- LGBTQ+ meeting places -- LGBTQ+ theater -- LGBTQ+ tourism -- LGBTQ+-focused businesses -- LGBTQ+-owned businesses -- Public facilities -- Sex locations -- Terms that are not in a hierarchy -- Two-Spirit focused locations."
+      Text 40,85,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,105,650,20, "Page 1: Erotica -- Gender studies -- Information provision -- LGBTQ+ autobiographies -- LGBTQ+ biographies -- LGBTQ+ books -- LGBTQ+ characters -- LGBTQ+ cinema -- LGBTQ+ literary criticism -- LGBTQ+ periodicals -- LGBTQ+ arts -- LGBTQ+ press -- LGBTQ+ publishers."
+      Text 40,125,650,10, "Page 2: LGBTQ+ radio -- LGBTQ+ television -- Social media -- LGBTQ+ Social media -- Two-Spirit Miscellaneous media -- Terms not in a hierarchy."
+      Text 40,135,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,155,650,20, "Page 1: Law -- Legal status -- Police interactions with LGBTQ+ people -- Terms that are not in a hierarchy."
+      Text 40,165,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,185,650,10, "Page 1: Sexual preference -- Eroticism -- Massage -- Physical affection -- Erogenous body parts -- Sex industry -- Sexual orientation -- Consent -- Sexuality."
+      Text 40,195,650,10, "Page 2: Sex (Act) -- Sex accessories -- Sexual practices -- Sex work -- Terms that are not in a hierarchy."
+      Text 40,205,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,225,650,20, "Page 1: MEDICAL AND HEALTH RELATED TOPICS: Medical care --Health care for LGBTQ+ people --Transitioning (Gender) -- Donors -- Sexual dysfunction -- STDs -- Castration -- Female genital mutilation -- Intersex genital mutilation -- Breast size -- Hypersexuality -- LGBTQ+ death and dying -- Assisted reproductive technology -- Sex (Body) -- Body fluids -- Terms that are not in a hierarchy."
+      Text 40,245,650,10, "Page 1: BEHAVIOR RELATED TOPICS: Mental disorders -- Risk behaviors -- Substance use in LGBTQ+ communities -- LGBTQ+ love -- Gender dysphoria -- Terms that are not in a hierarchy."
+      Text 40,255,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      
+      Text 40,275,640,30, "Page 1 -- Family members -- LGBTQ+ families -- LGBTQ+ family planning -- Family Terms that are not in a hierarchy -- LGBTQ+ relationships -- Partners -- LGBTQ+ communities -- Living arrangements -- LGBTQ+ love -- Romantic orientation -- Homosociality -- Relationship terms that are not in a hierarchy."
+      Text 40,295,650,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+
+      Text 35,315,650,10, "Page 1 -- CIVIL RIGHTS AND ACTIVISM TOPICS: Human rights -- LGBTQ+ activism -- Social movements -- Lesbian separatism -- Inclusivity -- Terms that are not in a hierarchy."
+      Text 35,325,650,20, "Page 1 -- DISCRIMINATION TOPICS: Anti-LGBTQ+ violence -- Bullying -- Censorship -- Harassment -- LGBTQ+ discrimination -- LGBTQ+ persecutions -- LGBTQ+ phobia -- Sexual violence -- Misogyny -- Racism -- Lateral oppression -- Transmisogyny -- Anti-kink discrimination -- Terms that are not in a hierarchy."
+      Text 35,345,650,10, "Page 2 -- EMPLOYMENT AND BUSINESS TOPICS: LGBTQ+ employment -- Terms that are not in a hierarchy."
+      Text 35,355,650,10, "Page 2 -- THEORY TOPICS: Feminism -- Feminists -- LGBTQ+ social processes -- Queer (Verb) -- Social norms -- Theories -- Terms that are not in a hierarchy."
+      Text 35,365,650,10, "Page 2 -- General Social Terms that are not in a hierarchy."
+      Text 40,375,640,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"      
+      
+      Text 35,395,650,20, "Page 1 -- Subcultures -- LGBTQ+ awards -- Body adornment -- Clothing -- LGBTQ+ events -- LGBTQ+ slang -- LGBTQ+ symbols -- LGBTQ+ clubs -- Body modification -- LGBTQ+ fashion -- LGBTQ+ night life -- Terms that are not in a hierarchy."
+      Text 40,415,440,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+
+      Text 120,425,150,10, "-- MARC coded as Genre headings."
+      Text 405,425,150,10, "-- MARC coded as subject headings."
+'      Text 40,465,440,10, "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    OkButton  240, 440, 50, 20
+    CancelButton  310, 440, 50, 20
+   Text  14,450,200,8, "Based on Homosaurus v.3.2. Updated for v.3.5."
+   Text  400,450,300,10, "This page lists all top level hierarchies.  Select a page to see narrower terms in each tree."
+End Dialog
+   Dim Buffy as allnotes
+   On Error Resume Next
+   Dialog Buffy
+   If Err=102 then
+      goto endm
+   End If
+ 
+If Buffy.OptionGroup1 = 0 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities"
+
+elseIf Buffy.OptionGroup1 = 1 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part2"
+
+elseIf Buffy.OptionGroup1 = 2 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part3"
+
+elseIf Buffy.OptionGroup1 = 3 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_locations"
+
+elseIf Buffy.OptionGroup1 = 4 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media"
+
+elseIf Buffy.OptionGroup1 = 5 then
+CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media_2"
+
+elseIf Buffy.OptionGroup1 = 6 then
+CS.RunMacro "Homosaurus_subjects.mbk!Legal_oriented"
+
+elseIf Buffy.OptionGroup1 = 7 then
+CS.RunMacro "Homosaurus_subjects.mbk!Sex_oriented"
+
+elseIf Buffy.OptionGroup1 = 8 then
+CS.RunMacro "Homosaurus_subjects.mbk!sex_oriented_pt2"
+
+elseIf Buffy.OptionGroup1 = 9 then
+CS.RunMacro "Homosaurus_subjects.mbk!Medical_focused"
+
+elseIf Buffy.OptionGroup1 = 10 then
+CS.RunMacro "Homosaurus_subjects.mbk!Family_Relations_focused"
+
+elseIf Buffy.OptionGroup1 = 11 then
+   CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented"
+
+   elseIf Buffy.OptionGroup1 = 12 then
+      CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented_part2"
+
+      elseIf Buffy.OptionGroup1 = 13 then
+         CS.RunMacro "Homosaurus_subjects.mbk!Culture_focused"
+
+         elseIf Buffy.OptionGroup1 = 14 then
+            CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature_655"
+
+            elseIf Buffy.OptionGroup1 = 15 then
+               CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+end if
+
+endm:
+End Sub

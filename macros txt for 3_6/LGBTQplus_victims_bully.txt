@@ -1,0 +1,112 @@
+'MacroName:LGBTQplus_victims_bully
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created by Wendy Isicson, University of North Carolina at Chapel Hill.
+'Created 11/2022, Rev. 01/2023'. 08/24 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_victims_bully$
+LGBTQplus_victims_bully$=" "+nd+ "LGBTQ+ victims of bullying"+nd+"  Asexual victims of bullying"+nd+"  Bisexual victims of bullying"+nd+"  Gay victims of bullying"+nd+"  Intersex victims of bullying" _
++nd+"  Lesbian victims of bullying"+nd+"  LGBTQ+ survivors of bullying"+nd+"    Asexual survivors of bullying"+nd+"    Bisexual survivors of bullying"+nd+"    Gay survivors of bullying" _
++nd+"    Intersex survivors of bullying"+nd+"    Lesbian survivors of bullying"+nd+"    LGBTQ+ youth survivors of bullying"+nd+"      Aromantic youth survivors of bullying"+nd+"      Asexual youth survivors of bullying" _
++nd+"      Bisexual youth survivors of bullying"+nd+"      Gay youth survivors of bullying"+nd+"      Greyromantic youth survivors of bullying"+nd+"      Intersex youth survivors of bullying"+nd+"      Lesbian youth survivors of bullying" _
++nd+"      Non-binary youth survivors of bullying"+nd+"      Queer youth survivors of bullying"+nd+"      Transgender youth survivors of bullying"+nd+"    Queer survivors of bullying"+nd+"    Transgender survivors of bullying" _
++nd+"  LGBTQ+ youth victims of bullying"+nd+"    Aromantic youth victims of bullying"+nd+"    Asexual youth victims of bullying"+nd+"    Bisexual youth victims of bullying"+nd+"    Gay youth victims of bullying" _
++nd+"    Greyromantic youth victims of bullying"+nd+"    Intersex youth victims of bullying"+nd+"    Lesbian youth victims of bullying"+nd+"    Non-binary youth victims of bullying"+nd+"    Queer youth victims of bullying" _
++nd+"    Transgender youth victims of bullying"+nd+"  Queer victims of bullying"+nd+"  Transgender victims of bullying"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 250, 400, "LGBTQ+ victims of bullying and Narrower Terms"
+
+   ListBox 14, 7, 200, 330, LGBTQplus_victims_bully$, .LGBTQplus_victims_bullysub
+  
+Button 25,350,40,20, "I'm done",    .fin
+CancelButton 75,350,40,20
+
+Text  14, 380, 200, 8, "Based on Homosaurus v. 3.2. Updated for v.3.6"
+Text  14, 390, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.LGBTQplus_victims_bullysub=0 Then aa$ = " "
+If quick.LGBTQplus_victims_bullysub=1 Then aa$ = "LGBTQ+ victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001989"
+If quick.LGBTQplus_victims_bullysub=2 Then aa$ = "Asexual victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001995"
+If quick.LGBTQplus_victims_bullysub=3 Then aa$ = "Bisexual victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001992"
+If quick.LGBTQplus_victims_bullysub=4 Then aa$ = "Gay victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001991"
+If quick.LGBTQplus_victims_bullysub=5 Then aa$ = "Intersex victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001996"
+If quick.LGBTQplus_victims_bullysub=6 Then aa$ = "Lesbian victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001990"
+If quick.LGBTQplus_victims_bullysub=7 Then aa$ = "LGBTQ+ survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001998"
+If quick.LGBTQplus_victims_bullysub=8 Then aa$ = "Asexual survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002004"
+If quick.LGBTQplus_victims_bullysub=9 Then aa$ = "Bisexual survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002001"
+If quick.LGBTQplus_victims_bullysub=10 Then aa$ = "Gay survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002000"
+If quick.LGBTQplus_victims_bullysub=11 Then aa$ = "Intersex survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002005"
+If quick.LGBTQplus_victims_bullysub=12 Then aa$ = "Lesbian survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001999"
+If quick.LGBTQplus_victims_bullysub=13 Then aa$ = "LGBTQ+ youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003460"
+If quick.LGBTQplus_victims_bullysub=14 Then aa$ = "Aromantic youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003469"
+If quick.LGBTQplus_victims_bullysub=15 Then aa$ = "Asexual youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003468"
+If quick.LGBTQplus_victims_bullysub=16 Then aa$ = "Bisexual youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003463"
+If quick.LGBTQplus_victims_bullysub=17 Then aa$ = "Gay youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003461"
+If quick.LGBTQplus_victims_bullysub=18 Then aa$ = "Greyromantic youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003470"
+If quick.LGBTQplus_victims_bullysub=19 Then aa$ = "Intersex youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003465"
+If quick.LGBTQplus_victims_bullysub=20 Then aa$ = "Lesbian youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003462"
+If quick.LGBTQplus_victims_bullysub=21 Then aa$ = "Non-binary youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003466"
+If quick.LGBTQplus_victims_bullysub=22 Then aa$ = "Queer youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003464"
+If quick.LGBTQplus_victims_bullysub=23 Then aa$ = "Transgender youth survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003467"
+If quick.LGBTQplus_victims_bullysub=24 Then aa$ = "Queer survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002003"
+If quick.LGBTQplus_victims_bullysub=25 Then aa$ = "Transgender survivors of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002002"
+If quick.LGBTQplus_victims_bullysub=26 Then aa$ = "LGBTQ+ youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003474"
+If quick.LGBTQplus_victims_bullysub=27 Then aa$ = "Aromantic youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003483"
+If quick.LGBTQplus_victims_bullysub=28 Then aa$ = "Asexual youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003482"
+If quick.LGBTQplus_victims_bullysub=29 Then aa$ = "Bisexual youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003477"
+If quick.LGBTQplus_victims_bullysub=30 Then aa$ = "Gay youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003475"
+If quick.LGBTQplus_victims_bullysub=31 Then aa$ = "Greyromantic youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003484"
+If quick.LGBTQplus_victims_bullysub=32 Then aa$ = "Intersex youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003479"
+If quick.LGBTQplus_victims_bullysub=33 Then aa$ = "Lesbian youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003476"
+If quick.LGBTQplus_victims_bullysub=34 Then aa$ = "Non-binary youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003480"
+If quick.LGBTQplus_victims_bullysub=35 Then aa$ = "Queer youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003478"
+If quick.LGBTQplus_victims_bullysub=36 Then aa$ = "Transgender youth victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003481"
+If quick.LGBTQplus_victims_bullysub=37 Then aa$ = "Queer victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001994"
+If quick.LGBTQplus_victims_bullysub=38 Then aa$ = "Transgender victims of bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001993"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,75 @@
+'MacroName:Palestinian_LGBTQ_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'August, 2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Palestinian_LGBTQ_people$
+Palestinian_LGBTQ_people$=" "+nd+ "Palestinian LGBTQ+ people"+nd+"  Palestinian asexual people"+nd+"  Palestinian bisexual people"+nd+"  Palestinian gay men"+nd+"  Palestinian intersex people" _
++nd+"  Palestinian lesbians"+nd+"  Palestinian non-binary people"+nd+"  Palestinian queer people"+nd+"  Palestinian transgender people"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 165, "Palestinian LGBTQ+ people and Narrower Terms"
+
+ListBox 14, 7, 130, 110, Palestinian_LGBTQ_people$, .Palestinian_LGBTQ_peoplesub
+  
+Button 25,118,40,20, "I'm done",    .fin
+CancelButton 75,118,40,20
+
+Text  14, 140, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 150, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Palestinian_LGBTQ_peoplesub=0 Then aa$ = " "
+If quick.Palestinian_LGBTQ_peoplesub=1 Then aa$ = "Palestinian LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003232"
+If quick.Palestinian_LGBTQ_peoplesub=2 Then aa$ = "Palestinian asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003239"
+If quick.Palestinian_LGBTQ_peoplesub=3 Then aa$ = "Palestinian bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003235"
+If quick.Palestinian_LGBTQ_peoplesub=4 Then aa$ = "Palestinian gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003233"
+If quick.Palestinian_LGBTQ_peoplesub=5 Then aa$ = "Palestinian intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003240"
+If quick.Palestinian_LGBTQ_peoplesub=6 Then aa$ = "Palestinian lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003234"
+If quick.Palestinian_LGBTQ_peoplesub=7 Then aa$ = "Palestinian non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003238"
+If quick.Palestinian_LGBTQ_peoplesub=8 Then aa$ = "Palestinian queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003236"
+If quick.Palestinian_LGBTQ_peoplesub=9 Then aa$ = "Palestinian transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003237"
+
+
+If aa$ = " " then 
+else
+CS.AddField 1, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

@@ -1,0 +1,80 @@
+'MacroName:Misc_Two-Spirit_genres
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'August, 2024
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim ca$
+ca$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Two_Spirit_misc_lit$
+Two_Spirit_misc_lit$=" "+nd+ "Two-Spirit autobiographies"+nd+"Two-Spirit biographies"+nd+"Two-Spirit comics"+nd+"Two-Spirit drama"+nd+"Two-Spirit erotic literature" _
++nd+"Two-Spirit fantasy fiction"+nd+"Two-Spirit graphic novels"+nd+"Two-Spirit horror fiction"+nd+"Two-Spirit literary criticism"+nd+"Two-Spirit mystery and detective fiction" _
++nd+"Two-Spirit poetry"+nd+"Two-Spirit romance fiction"+nd+"Two-Spirit science fiction"+nd+"Two-Spirit short stories"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 210, "Other Two-Spirit genres"
+
+ListBox 14, 7, 140, 150, Two_Spirit_misc_lit$, .Two_Spirit_misc_litsub
+  
+Button 25,160,40,20, "I'm done",    .fin
+CancelButton 75,160,40,20
+
+Text  14, 185, 200, 8, "Based on Homosaurus v. 3.6"
+Text  14, 195, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+
+If quick.Two_Spirit_misc_litsub=0 Then ca$ = " "
+If quick.Two_Spirit_misc_litsub=1 Then ca$ = "Two-Spirit autobiographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002679"
+If quick.Two_Spirit_misc_litsub=2 Then ca$ = "Two-Spirit biographies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002680"
+If quick.Two_Spirit_misc_litsub=3 Then ca$ = "Two-Spirit comics" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002643"
+If quick.Two_Spirit_misc_litsub=4 Then ca$ = "Two-Spirit drama" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002691"
+If quick.Two_Spirit_misc_litsub=5 Then ca$ = "Two-Spirit erotic literature" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002644"
+If quick.Two_Spirit_misc_litsub=6 Then ca$ = "Two-Spirit fantasy fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002646"
+If quick.Two_Spirit_misc_litsub=7 Then ca$ = "Two-Spirit graphic novels" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002648"
+If quick.Two_Spirit_misc_litsub=8 Then ca$ = "Two-Spirit horror fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002649"
+If quick.Two_Spirit_misc_litsub=9 Then ca$ = "Two-Spirit literary criticism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002698"
+If quick.Two_Spirit_misc_litsub=10 Then ca$ = "Two-Spirit mystery and detective fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002650"
+If quick.Two_Spirit_misc_litsub=11 Then ca$ = "Two-Spirit poetry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002642"
+If quick.Two_Spirit_misc_litsub=12 Then ca$ = "Two-Spirit romance fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002651"
+If quick.Two_Spirit_misc_litsub=13 Then ca$ = "Two-Spirit science fiction" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002647"
+If quick.Two_Spirit_misc_litsub=14 Then ca$ = "Two-Spirit short stories" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002686"
+If ca$ = " " then
+else
+CS.AddField 99, "650 7" & ca$ 
+end if
+
+Cancelled:   
+End Sub
+

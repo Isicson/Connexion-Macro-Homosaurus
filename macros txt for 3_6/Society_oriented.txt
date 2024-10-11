@@ -1,0 +1,602 @@
+'MacroName:Society_oriented
+'MacroDescription:Connexion macro for adding LGBTQ+ related subjects.
+'September, 2022, 8/24 v3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+dim ba$
+ba$ = " "
+dim ca$
+ca$ = " "
+dim da$
+da$ = " "
+dim ea$
+ea$ = " "
+dim fa$
+fa$ = " "
+dim ga$
+ga$ = " "
+dim ha$
+ha$ = " "
+dim ia$
+ia$ = " "
+dim ja$
+ja$ = " "
+dim ka$
+ka$ = " "
+dim oa$
+oa$ = " "
+dim la$
+la$ = " "
+dim ma$
+ma$ = " "
+dim ab$
+ab$ = " "
+dim ff$
+ff$ = " "
+dim gg$
+gg$ = " "
+dim na$
+na$ = " "
+dim qa$
+qa$ = " "
+dim pa$
+pa$ = " "
+dim ra$
+ra$ = " "
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Bullying$
+Bullying$=" "+nd+ "Bullying"+nd+"  Cyberbullying"
+
+dim Censorship$
+Censorship$=" "+nd+ "Censorship"+nd+"  LGBTQ+ censorship"+nd+"    LGBTQ+ art censorship"+nd+"    LGBTQ+ book censorship"+nd+"    LGBTQ+ film censorship" 
+
+dim Harassment$
+Harassment$=" "+nd+ "Harassment"+nd+"  Police harassment"+nd+"    Police entrapment"+nd+"    Police harassment of LGBTQ+ people"+nd+"      Police harassment of Black LGBTQ+ people" _
++nd+"      Police harassment of Indigenous LGBTQ+ people"+nd+"    Police raids"+nd+"      Police raids on LGBTQ+-related establishments"+nd+"        Police raids on LGBTQ+ bars"+nd+"        Police raids on LGBTQ+ bathhouses" _
++nd+"        Police raids on LGBTQ+ meeting places"+nd+"        Police raids on LGBTQ+ nightclubs"+nd+"  Sexual harrassement"
+
+dim Human_rights$
+Human_rights$=" "+nd+ "Human rights"+nd+"  Gender equality"+nd+"  Intersex rights"+nd+"  LGBTQ+ civil rights"+nd+"    Asexual rights" _
++nd+"    Bisexual rights"+nd+"    Gay rights"+nd+"    Lesbian rights"+nd+"    Queer rights"+nd+"    Transgender rights"
+
+dim Lesbian_separatism$
+Lesbian_separatism$=" "+nd+ "Lesbian separatism"+nd+"  Lesbian land"+nd+"  Lesbian nation"
+
+dim LGBTQplus_activism$
+LGBTQplus_activism$=" "+nd+ "  LGBTQ+ activism"+nd+"  Asexual activism"+nd+"  Bisexual activism"+nd+"  Gay activism"+nd+"  Intersex activism" _
++nd+"  Lesbian activism"+nd+"  LGBTQ+ direct action"+nd+"    LGBTQ+ action campaigns"+nd+"    LGBTQ+ civil disobedience"+nd+"    LGBTQ+ conscientious objection" _
++nd+"    LGBTQ+ demonstrations"+nd+"      Zaps"+nd+"    LGBTQ+ lobbying"+nd+"    LGBTQ+ nonviolent resistance"+nd+"    LGBTQ+ petitions" _
++nd+"    LGBTQ+ self-defence"+nd+"    Outing (LGBTQ+ culture)"+nd+"  Queer activism"+nd+"  Transgender activism"
+
+dim LGBTQplus_solidarity$
+LGBTQplus_solidarity$=" "+nd+ "LGBTQ+ solidarity"+nd+"  Aromantic solidarity"+nd+"  Asexual solidarity"+nd+"  Bisexual solidarity"+nd+"  Demisexual solidarity" _
++nd+"  Dyke solidarity"+nd+"  Gay solidarity"+nd+"  Greyromantic solidarity"+nd+"  Intersex solidarity"+nd+"  Lesbian solidarity" _
++nd+"  Megasexual solidarity"+nd+"  Non-binary solidarity"+nd+"  Queer solidarity"+nd+"  Transgender solidarity"
+
+dim Inclusivity$
+Inclusivity$=" "+nd+ "Inclusivity"+nd+"  Trans exclusivity"+nd+"  Trans inclusivity"
+
+dim LGBTQplus_discrimination$
+LGBTQplus_discrimination$=" "+nd+ "LGBTQ+ discrimination"+nd+"  Anti-bisexual discrimination"+nd+"  Anti-gay discrimination"+nd+"  Anti-intersex discrimination"+nd+"  Anti-lesbian discrimination" _
++nd+"  Anti-queer discrimination"+nd+"  Anti-transgender discrimination"+nd+"    Deadnaming"+nd+"    Trans exclusivity"+nd+"  Anti-Two-Spirit discrimination"
+
+dim LGBTQplus_persecutions$
+LGBTQplus_persecutions$=" "+nd+ "LGBTQ+ persecutions"+nd+"  LGBTQ+ defamation campaigns"+nd+"  Persecution of asexual people"+nd+"  Persecution of bisexual people"+nd+"  Persecution of gay men" _
++nd+"  Persecution of intersex people"+nd+"  Persecution of lesbians"+nd+"  Persecution of queer people"+nd+"  Persecution of transgender people"
+
+
+dim LGBTQplus_phobia$
+LGBTQplus_phobia$=" "+nd+ "LGBTQ+ phobia"+nd+"  Biphobia"+nd+"    Internalized biphobia"+nd+"      Lateral biphobia"+nd+"  Genderism" _
++nd+"    Trans-exclusionary radical feminism"+nd+"  Homophobia"+nd+"    Homophobia in fandom"+nd+"    Internalised homophobia"+nd+"      Lateral homophobia" _
++nd+"  Intersexphobia"+nd+"    Internalized intersexphobia"+nd+"      Lateral intersexphobia"+nd+"  Lesbophobia"+nd+"    Internalized lesbophobia" _
++nd+"      Lateral lesbophobia"+nd+"  Queerphobia"+nd+"    Internalized queerphobia"+nd+"      Lateral queerphobia"+nd+"  Transphobia" _
++nd+"    Internalized transphobia"+nd+"      Lateral transphobia"+nd+"    Trans-exclusionary radical feminism"+nd+"    Transphobia in fandom"
+
+dim Sexual_violence$
+Sexual_violence$=" "+nd+ "Sexual violence"+nd+"  Child sexual abuse content"+nd+"  Corrective rape"+nd+"  LGBTQ+ domestic violence"+nd+"    Intimate partner violence" _
++nd+"  LGBTQ+ sexual abuse"+nd+"  LGBTQ+ victims of rape"+nd+"    Asexual victims of rape"+nd+"    Bisexual victims of rape"+nd+"    Gay victims of rape" _
++nd+"    Lesbian victims of rape"+nd+"    LGBTQ+ survivors of rape"+nd+"      Asexual survivors of rape"+nd+"      Bisexual survivors of rape"+nd+"      Gay survivors of rape" _
++nd+"      Lesbian survivors of rape"+nd+"      Queer survivors of rape"+nd+"      Transgender survivors of rape"+nd+"    Queer victims of rape"+nd+"    Transgender victims of rape" _
++nd+"  Sexual assault"
+
+dim Social_movements$
+Social_movements$=" "+nd+ "Social movements"+nd+"  Black Lives Matter movement"+nd+"    Black Trans Lives Matter movement"+nd+"  Defund the police movement"+nd+"  Ex-gay movement" _
++nd+"  Leather and kink activism"+nd+"  LGBTQ+ movement"+nd+"    Asexual movement"+nd+"    Bisexual movement"+nd+"    Gay movement" _
++nd+"      Gay political groups"+nd+"      Gay trade union groups"+nd+"    Intersex movement"+nd+"    Lesbian movement"+nd+"      Lesbian political groups" _
++nd+"      Lesbian trade union groups"+nd+"    Queer movement"+nd+"    Transgender movement"+nd+"  Men's movement"+nd+"  Police abolitionist movement" _
++nd+"  Women's movement"
+
+dim AntiLGBTQ_violence$
+AntiLGBTQ_violence$=" "+nd+ "Anti-LGBTQ+ violence"+nd+"  Anti-asexual violence"+nd+"  Anti-bisexual violence"+nd+"  Anti-gay violence"+nd+"    Forced castration" _
++nd+"  Anti-intersex violence"+nd+"  Anti-lesbian violence"+nd+"  Anti-queer violence"+nd+"  Anti-transgender violence"+nd+"  Anti-Two-Spirit violence" _
++nd+"  LGBTQ+ domestic violence"+nd+"      Intimate partner violence"+nd+"  Murders of LGBTQ+ people"+nd+"  Police violence toward LGBTQ+ people"+nd+"      Police raids on LGBTQ+-related establishments" _
++nd+"      Shootings of LGBTQ+ people by police"
+
+dim Miscellaneous_civil$
+Miscellaneous_civil$=" "+nd+ "Anti-racism"+nd+"Gay shame"+nd+"Gender-neutral language"+nd+"Goddess movement"+nd+"Homonationalism" _
++nd+"Sexual reform"+nd+"Sexual revolution"+nd+"Two-Spirit activism "+nd+"Two-Spirit movement "+nd+"Two-Spirit rights "
+
+dim Misc_Discrimination$
+Misc_Discrimination$=" "+nd+ "Gendercide"+nd+"Hate crimes"+nd+"Hate speech"+nd+"Heterosexism"+nd+"Intolerance towards LGBTQ+ people" _
++nd+"Lavender Scare"+nd+"Misandry"+nd+"Misgendering"+nd+"Misogynoir"+nd+"Sexism" _
++nd+"Stigma"+nd+"Survivors of anti-LGBTQ+ violence"+nd+"Trans-exclusionary radical feminists"
+
+dim Racism$
+Racism$=" "+nd+ "Racism"+nd+"  Anti-Blackness"+nd+"  Racism in fandom"
+
+dim Misogyny$
+Misogyny$=" "+nd+ "Misogyny"+nd+"  Misogyny in fandom"
+
+dim Lateral_oppression$
+Lateral_oppression$=" "+nd+ "Lateral oppression"+nd+"  Lateral biphobia"+nd+"  Lateral homophobia"+nd+"  Lateral intersexphobia"+nd+"  Lateral lesbophobia" _
++nd+"  Lateral queerphobia"+nd+"  Lateral transphobia"
+
+dim Transmisogyny$
+Transmisogyny$=" "+nd+ "Transmisogyny"+nd+"  Trans-exclusionary radical feminism"
+
+dim Antikink_discrimination$
+Antikink_discrimination$=" "+nd+ "Anti-kink discrimination"+nd+"  Anti-sadomasochism"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 800, 395, "Choose the Homosaurus term you want to use..."
+
+Text 14,10,200,14, "Civil Rights and Activism topics"
+
+Text 14,30,120,14, "Human rights"
+   DropListBox 14, 43, 130, 200, Human_rights$, .Human_rightssub
+Text 200,30,200,14, "LGBTQ+ activism"
+   DropListBox 200, 43, 130, 300, LGBTQplus_activism$, .LGBTQplus_activismsub
+Text 400,30,95,135, "LGBTQ+ solidarity"
+   DropListBox 400, 43, 130, 300, LGBTQplus_solidarity$, .LGBTQplus_solidaritysub
+Text 600,30,95,135, "Social movements"
+   DropListBox 600, 43, 130, 300, Social_movements$, .Social_movementssub
+   
+
+Text 14,68,80,14, "Lesbian separatism"
+   DropListBox 14, 81, 130, 135, Lesbian_separatism$, .Lesbian_separatismsub
+Text 200,68,200,135, "Inclusivity"
+   DropListBox 200, 81, 130, 135, Inclusivity$, .Inclusivitysub
+Text 400,68,200,135, "Terms that are not in a hierarchy"
+   DropListBox 400, 81, 130, 135, Miscellaneous_civil$, .Miscellaneous_civilsub
+
+Text 14,110,200,14, "Discrimination topics"
+
+Text 14,134,80,14, "Anti-LGBTQ+ violence"
+   DropListBox 14, 147, 175, 135, AntiLGBTQ_violence$, .AntiLGBTQ_violencesub
+Text 200,134,120,14, "Bullying"
+   DropListBox 200, 147,130, 135, Bullying$, .Bullyingsub
+Text 400,134,120,14, "Censorship"
+   DropListBox 400, 147,130, 135, Censorship$, .Censorshipsub
+
+Text 14,172,80,14, "Harassment"
+   DropListBox 14, 185, 175, 135, Harassment$, .Harassmentsub
+Text 200,172,80,14, "LGBTQ+ discrimination"
+   DropListBox 200, 185, 130, 135, LGBTQplus_discrimination$, .LGBTQplus_discriminationsub
+Text 400,172,120,14, "LGBTQ+ persecutions"
+   DropListBox 400, 185,175, 135, LGBTQplus_persecutions$, .LGBTQplus_persecutionssub
+
+Text 14,205,130,135, "LGBTQ+ phobia"
+   DropListBox 14,220,130,130, LGBTQplus_phobia$, .LGBTQplus_phobiasub 
+Text 200,205,130,135, "Sexual violence"
+   DropListBox 200,220,130,300, Sexual_violence$, .Sexual_violencesub
+Text 400,205,130,130, "Misogyny"
+   DropListBox 400,220,140,300, Misogyny$, .Misogynysub
+
+Text 14,243,100,14, "Racism"
+   DropListBox 14,256,140,100, Racism$, .Racismsub
+Text 200,243,130,14, "Lateral oppression"
+   DropListBox 200,256,140,100, Lateral_oppression$, .Lateral_oppressionsub
+Text 400,243,130,100, "Transmisogyny"
+   DropListBox 400,256,140,100, Transmisogyny$, .Transmisogynysub
+
+Text 14,281,130,14, "Anti-kink discrimination"
+   DropListBox 14,292,140,100, Antikink_discrimination$, .Antikink_discriminationsub
+Text 200,281,130,14, "Terms that are not in a hierarchy"
+   DropListBox 200,292,140,100, Misc_Discrimination$, .Misc_Discriminationsub
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 312, 200, 10, "Stay on this page", .OptionButton1
+      OptionButton  14, 322, 200, 10, "See more topics", .OptionButton2
+      Text 35,331,400,15, "-- EMPLOYMENT AND BUSINESS TOPICS: LGBTQ+ employment -- Terms that are not in a hierarchy."
+      Text 35,340,445,20, "-- THEORY TOPICS: Feminism -- Feminists -- LGBTQ+ social processes -- Queer (Verb) -- Social norms -- Theories -- Terms that are not in a hierarchy."
+      Text 35,357,400,10, "-- General Social Terms that are not in a hierarchy."
+
+Button 200,360,40,20, "I'm done",    .fin
+CancelButton 260,360,40,20
+
+Text  14, 382, 380, 8, "Based on Homosaurus v. 3.2. Updated for v.3.6    |    Always click through URIs to read scope notes and confirm URI."
+'Text  14, 390, 210, 8, ""
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+ 
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.Bullyingsub=0 Then aa$ = " "
+If quick.Bullyingsub=1 Then aa$ = "Bullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000228"
+If quick.Bullyingsub=2 Then aa$ = "Cyberbullying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000324"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+If quick.Censorshipsub=0 Then ba$ = " "
+If quick.Censorshipsub=1 Then ba$ = "Censorship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000245"
+If quick.Censorshipsub=2 Then ba$ = "LGBTQ+ censorship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000829"
+If quick.Censorshipsub=3 Then ba$ = "LGBTQ+ art censorship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000815"
+If quick.Censorshipsub=4 Then ba$ = "LGBTQ+ book censorship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000825"
+If quick.Censorshipsub=5 Then ba$ = "LGBTQ+ film censorship" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000867"
+
+If ba$ = " " then
+else
+CS.AddField 99, "650 7" & ba$
+end if
+
+If quick.Harassmentsub=0 Then ca$ = " "
+If quick.Harassmentsub=1 Then ca$ = "Harassment" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000611"
+If quick.Harassmentsub=2 Then ca$ = "Police harassment" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001121"
+If quick.Harassmentsub=3 Then ca$ = "Police entrapment" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001120"
+If quick.Harassmentsub=4 Then ca$ = "Police harassment of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002375"
+If quick.Harassmentsub=5 Then ca$ = "Police harassment of Black LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002376"
+If quick.Harassmentsub=6 Then ca$ = "Police harassment of Indigenous LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002377"
+If quick.Harassmentsub=7 Then ca$ = "Police raids" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001122"
+If quick.Harassmentsub=8 Then ca$ = "Police raids on LGBTQ+-related establishments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002381"
+If quick.Harassmentsub=9 Then ca$ = "Police raids on LGBTQ+ bars" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002384"
+If quick.Harassmentsub=10 Then ca$ = "Police raids on LGBTQ+ bathhouses" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002382"
+If quick.Harassmentsub=11 Then ca$ = "Police raids on LGBTQ+ meeting places" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002383"
+If quick.Harassmentsub=12 Then ca$ = "Police raids on LGBTQ+ nightclubs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002385"
+If quick.Harassmentsub=13 Then ca$ = "Sexual harrassement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001293"
+
+If ca$ = " " then
+else
+CS.AddField 99, "650 7" & ca$ 
+end if
+
+If quick.Human_rightssub=0 Then da$ = " "
+If quick.Human_rightssub=1 Then da$ = "Human rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000652"
+If quick.Human_rightssub=2 Then da$ = "Gender equality" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002290"
+If quick.Human_rightssub=3 Then da$ = "Intersex rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000673"
+If quick.Human_rightssub=4 Then da$ = "LGBTQ+ civil rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000276"
+If quick.Human_rightssub=5 Then da$ = "Asexual rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002808"
+If quick.Human_rightssub=6 Then da$ = "Bisexual rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000183"
+If quick.Human_rightssub=7 Then da$ = "Gay rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000531"
+If quick.Human_rightssub=8 Then da$ = "Lesbian rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000775"
+If quick.Human_rightssub=9 Then da$ = "Queer rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001206"
+If quick.Human_rightssub=10 Then da$ = "Transgender rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001443"
+
+If da$ = " " then
+else
+CS.AddField 99, "650 7" & da$
+end if
+
+If quick.Lesbian_separatismsub=0 Then ea$ = " "
+If quick.Lesbian_separatismsub=1 Then ea$ = "Lesbian separatism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000778"
+If quick.Lesbian_separatismsub=2 Then ea$ = "Lesbian land" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000746"
+If quick.Lesbian_separatismsub=3 Then ea$ = "Lesbian nation" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000757"
+
+If ea$ = " " then
+else
+CS.AddField 99, "650 7" & ea$
+end if
+
+If quick.LGBTQplus_activismsub=0 Then fa$ = " "
+If quick.LGBTQplus_activismsub=1 Then fa$ = "LGBTQ+ activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000006"
+If quick.LGBTQplus_activismsub=2 Then fa$ = "Asexual activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002758"
+If quick.LGBTQplus_activismsub=3 Then fa$ = "Bisexual activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000122"
+If quick.LGBTQplus_activismsub=4 Then fa$ = "Gay activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000462"
+If quick.LGBTQplus_activismsub=5 Then fa$ = "Intersex activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002751"
+If quick.LGBTQplus_activismsub=6 Then fa$ = "Lesbian activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000713"
+If quick.LGBTQplus_activismsub=7 Then fa$ = "LGBTQ+ direct action" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000853"
+If quick.LGBTQplus_activismsub=8 Then fa$ = "LGBTQ+ action campaigns" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000808"
+If quick.LGBTQplus_activismsub=9 Then fa$ = "LGBTQ+ civil disobedience" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000835"
+If quick.LGBTQplus_activismsub=10 Then fa$ = "LGBTQ+ conscientious objection" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000844"
+If quick.LGBTQplus_activismsub=11 Then fa$ = "LGBTQ+ demonstrations" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000851"
+If quick.LGBTQplus_activismsub=12 Then fa$ = "Zaps" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001905"
+If quick.LGBTQplus_activismsub=13 Then fa$ = "LGBTQ+ lobbying" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000893"
+If quick.LGBTQplus_activismsub=14 Then fa$ = "LGBTQ+ nonviolent resistance" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000910"
+If quick.LGBTQplus_activismsub=15 Then fa$ = "LGBTQ+ petitions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000919"
+If quick.LGBTQplus_activismsub=16 Then fa$ = "LGBTQ+ self-defence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000935"
+If quick.LGBTQplus_activismsub=17 Then fa$ = "Outing (LGBTQ+ culture)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001065"
+If quick.LGBTQplus_activismsub=18 Then fa$ = "Queer activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001150"
+If quick.LGBTQplus_activismsub=19 Then fa$ = "Transgender activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001383"
+
+
+If fa$ = " " then
+else
+CS.AddField 99, "650 7" & fa$
+end if
+
+If quick.Inclusivitysub=0 Then oa$ = " "
+If quick.Inclusivitysub=1 Then oa$ = "Inclusivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002291"
+If quick.Inclusivitysub=2 Then oa$ = "Trans exclusivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001819"
+If quick.Inclusivitysub=3 Then oa$ = "Trans inclusivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001818"
+
+If oa$ = " " then
+else
+CS.AddField 99, "650 7" & oa$
+end if
+
+If quick.LGBTQplus_discriminationsub=0 Then ga$ = " "
+If quick.LGBTQplus_discriminationsub=1 Then ga$ = "LGBTQ+ discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000356"
+If quick.LGBTQplus_discriminationsub=2 Then ga$ = "Anti-asexual discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002899"
+If quick.LGBTQplus_discriminationsub=3 Then ga$ = "Anti-bisexual discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000051"
+If quick.LGBTQplus_discriminationsub=4 Then ga$ = "Anti-gay discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000055"
+If quick.LGBTQplus_discriminationsub=5 Then ga$ = "Anti-intersex discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001893"
+If quick.LGBTQplus_discriminationsub=6 Then ga$ = "Anti-lesbian discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000057"
+If quick.LGBTQplus_discriminationsub=7 Then ga$ = "Anti-queer discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000060"
+If quick.LGBTQplus_discriminationsub=8 Then ga$ = "Anti-transgender discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000062"
+If quick.LGBTQplus_discriminationsub=9 Then ga$ = "Deadnaming" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000336"
+If quick.LGBTQplus_discriminationsub=10 Then ga$ = "Trans exclusivity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001819"
+If quick.LGBTQplus_discriminationsub=11 Then ga$ = "Anti-Two-Spirit discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001885"
+
+If ga$ = " " then
+else
+CS.AddField 99, "650 7" & ga$
+end if
+
+If quick.LGBTQplus_persecutionssub=0 Then ha$ = " "
+If quick.LGBTQplus_persecutionssub=1 Then ha$ = "LGBTQ+ persecutions" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001108"
+If quick.LGBTQplus_persecutionssub=2 Then ha$ = "LGBTQ+ defamation campaigns" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000850"
+If quick.LGBTQplus_persecutionssub=3 Then ha$ = "Persecution of asexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002912"
+If quick.LGBTQplus_persecutionssub=4 Then ha$ = "Persecution of bisexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001103"
+If quick.LGBTQplus_persecutionssub=5 Then ha$ = "Persecution of gay men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001104"
+If quick.LGBTQplus_persecutionssub=6 Then ha$ = "Persecution of intersex people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002744"
+If quick.LGBTQplus_persecutionssub=7 Then ha$ = "Persecution of lesbians" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001105"
+If quick.LGBTQplus_persecutionssub=8 Then ha$ = "Persecution of queer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001106"
+If quick.LGBTQplus_persecutionssub=9 Then ha$ = "Persecution of transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001107"
+
+If ha$ = " " then
+else
+CS.AddField 99, "650 7" & ha$
+end if
+
+If quick.LGBTQplus_phobiasub=0 Then ia$ = " "
+If quick.LGBTQplus_phobiasub=1 Then ia$ = "LGBTQ+ phobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000920"
+If quick.LGBTQplus_phobiasub=2 Then ia$ = "Biphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000117"
+If quick.LGBTQplus_phobiasub=3 Then ia$ = "Internalized biphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002592"
+If quick.LGBTQplus_phobiasub=4 Then ia$ = "Lateral biphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003094"
+If quick.LGBTQplus_phobiasub=5 Then ia$ = "Genderism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000565"
+If quick.LGBTQplus_phobiasub=6 Then ia$ = "Trans-exclusionary radical feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003158"
+If quick.LGBTQplus_phobiasub=7 Then ia$ = "Homophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000646"
+If quick.LGBTQplus_phobiasub=8 Then ia$ = "Homophobia in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002174"
+If quick.LGBTQplus_phobiasub=9 Then ia$ = "Internalised homophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000391"
+If quick.LGBTQplus_phobiasub=10 Then ia$ = "Lateral homophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003093"
+If quick.LGBTQplus_phobiasub=11 Then ia$ = "Intersexphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000666"
+If quick.LGBTQplus_phobiasub=12 Then ia$ = "Internalized intersexphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002595"
+If quick.LGBTQplus_phobiasub=13 Then ia$ = "Lateral intersexphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003097"
+If quick.LGBTQplus_phobiasub=14 Then ia$ = "Lesbophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000803"
+If quick.LGBTQplus_phobiasub=15 Then ia$ = "Internalized lesbophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002591"
+If quick.LGBTQplus_phobiasub=16 Then ia$ = "Lateral lesbophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003092"
+If quick.LGBTQplus_phobiasub=17 Then ia$ = "Queerphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001229"
+If quick.LGBTQplus_phobiasub=18 Then ia$ = "Internalized queerphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002594"
+If quick.LGBTQplus_phobiasub=19 Then ia$ = "Lateral queerphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003096"
+If quick.LGBTQplus_phobiasub=20 Then ia$ = "Transphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001467"
+If quick.LGBTQplus_phobiasub=21 Then ia$ = "Internalized transphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002593"
+If quick.LGBTQplus_phobiasub=22 Then ia$ = "Lateral transphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003095"
+If quick.LGBTQplus_phobiasub=23 Then ia$ = "Trans-exclusionary radical feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003158"
+If quick.LGBTQplus_phobiasub=24 Then ia$ = "Transphobia in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002212"
+
+
+If ia$ = " " then
+else
+CS.AddField 99, "650 7" & ia$ 
+end if
+
+If quick.Sexual_violencesub=0 Then ja$ = " "
+If quick.Sexual_violencesub=1 Then ja$ = "Sexual violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001305"
+If quick.Sexual_violencesub=2 Then ja$ = "Child sexual abuse content" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003433"
+If quick.Sexual_violencesub=3 Then ja$ = "Corrective rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000306"
+If quick.Sexual_violencesub=4 Then ja$ = "LGBTQ+ domestic violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000855"
+If quick.Sexual_violencesub=5 Then ja$ = "Intimate partner violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000675"
+If quick.Sexual_violencesub=6 Then ja$ = "LGBTQ+ sexual abuse" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000938"
+If quick.Sexual_violencesub=7 Then ja$ = "LGBTQ+ victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000958"
+If quick.Sexual_violencesub=8 Then ja$ = "Asexual victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002855"
+If quick.Sexual_violencesub=9 Then ja$ = "Bisexual victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000197"
+If quick.Sexual_violencesub=10 Then ja$ = "Gay victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000552"
+If quick.Sexual_violencesub=11 Then ja$ = "Lesbian victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000793"
+If quick.Sexual_violencesub=12 Then ja$ = "LGBTQ+ survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001350"
+If quick.Sexual_violencesub=13 Then ja$ = "Asexual survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002851"
+If quick.Sexual_violencesub=14 Then ja$ = "Bisexual survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000189"
+If quick.Sexual_violencesub=15 Then ja$ = "Gay survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000541"
+If quick.Sexual_violencesub=16 Then ja$ = "Lesbian survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000783"
+If quick.Sexual_violencesub=17 Then ja$ = "Queer survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001212"
+If quick.Sexual_violencesub=18 Then ja$ = "Transgender survivors of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001449"
+If quick.Sexual_violencesub=19 Then ja$ = "Queer victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001222"
+If quick.Sexual_violencesub=20 Then ja$ = "Transgender victims of rape" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001457"
+If quick.Sexual_violencesub=21 Then ja$ = "Sexual assault" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001285"
+
+If ja$ = " " then
+else
+CS.AddField 99, "650 7" & ja$
+end if
+
+
+If quick.Social_movementssub=0 Then ka$ = " "
+If quick.Social_movementssub=1 Then ka$ = "Social movements" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001322"
+If quick.Social_movementssub=2 Then ka$ = "Black Lives Matter movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002398"
+If quick.Social_movementssub=3 Then ka$ = "Black Trans Lives Matter movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002399"
+If quick.Social_movementssub=4 Then ka$ = "Defund the police movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002390"
+If quick.Social_movementssub=5 Then ka$ = "Ex-gay movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000411"
+If quick.Social_movementssub=6 Then ka$ = "Leather and kink activism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001319"
+If quick.Social_movementssub=7 Then ka$ = "LGBTQ+ movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001026"
+If quick.Social_movementssub=8 Then ka$ = "Asexual movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002796"
+If quick.Social_movementssub=9 Then ka$ = "Bisexual movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000162"
+If quick.Social_movementssub=10 Then ka$ = "Gay movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000510"
+If quick.Social_movementssub=11 Then ka$ = "Gay political groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000519"
+If quick.Social_movementssub=12 Then ka$ = "Gay trade union groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000549"
+If quick.Social_movementssub=13 Then ka$ = "Intersex movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000672"
+If quick.Social_movementssub=14 Then ka$ = "Lesbian movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000753"
+If quick.Social_movementssub=15 Then ka$ = "Lesbian political groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000764"
+If quick.Social_movementssub=16 Then ka$ = "Lesbian trade union groups" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000791"
+If quick.Social_movementssub=17 Then ka$ = "Queer movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001187"
+If quick.Social_movementssub=18 Then ka$ = "Transgender movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001423"
+If quick.Social_movementssub=19 Then ka$ = "Men's movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001010"
+If quick.Social_movementssub=20 Then ka$ = "Police abolitionist movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002391"
+If quick.Social_movementssub=21 Then ka$ = "Women's movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000438"
+
+If quick.AntiLGBTQ_violencesub=0 Then ab$ = " "
+If quick.AntiLGBTQ_violencesub=1 Then ab$ = "Anti-LGBTQ+ violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000059"
+If quick.AntiLGBTQ_violencesub=2 Then ab$ = "Anti-asexual violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002900"
+If quick.AntiLGBTQ_violencesub=3 Then ab$ = "Anti-bisexual violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000052"
+If quick.AntiLGBTQ_violencesub=4 Then ab$ = "Anti-gay violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000056"
+If quick.AntiLGBTQ_violencesub=5 Then ab$ = "Forced castration" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000449"
+If quick.AntiLGBTQ_violencesub=6 Then ab$ = "Anti-intersex violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001770"
+If quick.AntiLGBTQ_violencesub=7 Then ab$ = "Anti-lesbian violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000058"
+If quick.AntiLGBTQ_violencesub=8 Then ab$ = "Anti-queer violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000061"
+If quick.AntiLGBTQ_violencesub=9 Then ab$ = "Anti-transgender violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000063"
+If quick.AntiLGBTQ_violencesub=10 Then ab$ = "Anti-Two-Spirit violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001769"
+If quick.AntiLGBTQ_violencesub=11 Then ab$ = "LGBTQ+ domestic violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000855"
+If quick.AntiLGBTQ_violencesub=12 Then ab$ = "Intimate partner violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000675"
+If quick.AntiLGBTQ_violencesub=13 Then ab$ = "Murders of LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000641"
+If quick.AntiLGBTQ_violencesub=14 Then ab$ = "Police violence toward LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002378"
+If quick.AntiLGBTQ_violencesub=15 Then ab$ = "Police raids on LGBTQ+-related establishments" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002381"
+If quick.AntiLGBTQ_violencesub=16 Then ab$ = "Shootings of LGBTQ+ people by police" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002395"
+
+If ab$ = " " then
+else
+CS.AddField 99, "650 7" & ab$
+end if
+
+If quick.Miscellaneous_civilsub=0 Then la$ = " "
+If quick.Miscellaneous_civilsub=1 Then la$ = "Anti-racism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002269"
+If quick.Miscellaneous_civilsub=2 Then la$ = "Gay shame" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000534"
+If quick.Miscellaneous_civilsub=3 Then la$ = "Gender-neutral language" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002259"
+If quick.Miscellaneous_civilsub=4 Then la$ = "Goddess movement" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000596"
+If quick.Miscellaneous_civilsub=5 Then la$ = "Homonationalism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000643"
+If quick.Miscellaneous_civilsub=6 Then la$ = "Sexual reform" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001301"
+If quick.Miscellaneous_civilsub=7 Then la$ = "Sexual revolution" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001303"
+If quick.Miscellaneous_civilsub=8 Then la$ = "Two-Spirit activism " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002656"
+If quick.Miscellaneous_civilsub=9 Then la$ = "Two-Spirit movement " & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002713"
+If quick.Miscellaneous_civilsub=10 Then la$ = "Two-Spirit rights" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002723"
+
+If la$ = " " then
+else
+CS.AddField 99, "650 7" & la$
+end if
+
+If quick.Misc_Discriminationsub=0 Then ma$ = " "
+If quick.Misc_Discriminationsub=1 Then ma$ = "Gendercide" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000580"
+If quick.Misc_Discriminationsub=2 Then ma$ = "Hate crimes" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000109"
+If quick.Misc_Discriminationsub=3 Then ma$ = "Hate speech" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000341"
+If quick.Misc_Discriminationsub=4 Then ma$ = "Heterosexism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000619"
+If quick.Misc_Discriminationsub=5 Then ma$ = "Intolerance towards LGBTQ+ people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000112"
+If quick.Misc_Discriminationsub=6 Then ma$ = "Lavender Scare" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000701"
+If quick.Misc_Discriminationsub=7 Then ma$ = "Misandry" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001015"
+If quick.Misc_Discriminationsub=8 Then ma$ = "Misgendering" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001016"
+If quick.Misc_Discriminationsub=9 Then ma$ = "Misogynoir" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001904"
+If quick.Misc_Discriminationsub=10 Then ma$ = "Sexism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001278"
+If quick.Misc_Discriminationsub=11 Then ma$ = "Stigma" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001561"
+If quick.Misc_Discriminationsub=12 Then ma$ = "Survivors of anti-LGBTQ+ violence" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001348"
+If quick.Misc_Discriminationsub=13 Then ma$ = "Trans-exclusionary radical feminists" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003157"
+
+
+If ma$ = " " then
+else
+CS.AddField 99, "650 7" & ma$
+end if
+
+If quick.Misogynysub=0 Then ff$ = " "
+If quick.Misogynysub=1 Then ff$ = "Misogyny" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001017"
+If quick.Misogynysub=2 Then ff$ = "Misogyny in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002183"
+If ff$ = " " then
+else
+CS.AddField 99, "650 7" & ff$
+end if
+
+If quick.Racismsub=0 Then gg$ = " "
+If quick.Racismsub=1 Then gg$ = "Racism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002038"
+If quick.Racismsub=2 Then gg$ = "Anti-Blackness" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002257"
+If quick.Racismsub=3 Then gg$ = "Racism in fandom" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002194"
+If gg$ = " " then
+else
+CS.AddField 99, "650 7" & gg$
+end if
+
+If quick.Lateral_oppressionsub=0 Then na$ = " "
+If quick.Lateral_oppressionsub=1 Then na$ = "Lateral oppression" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003091"
+If quick.Lateral_oppressionsub=2 Then na$ = "Lateral biphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003094"
+If quick.Lateral_oppressionsub=3 Then na$ = "Lateral homophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003093"
+If quick.Lateral_oppressionsub=4 Then na$ = "Lateral intersexphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003097"
+If quick.Lateral_oppressionsub=5 Then na$ = "Lateral lesbophobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003092"
+If quick.Lateral_oppressionsub=6 Then na$ = "Lateral queerphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003096"
+If quick.Lateral_oppressionsub=7 Then na$ = "Lateral transphobia" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003095"
+
+If na$ = " " then
+else
+CS.AddField 99, "650 7" & na$
+end if
+
+If quick.Transmisogynysub=0 Then qa$ = " "
+If quick.Transmisogynysub=1 Then qa$ = "Transmisogyny" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001892"
+If quick.Transmisogynysub=2 Then qa$ = "Trans-exclusionary radical feminism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003158"
+
+If qa$ = " " then
+else
+CS.AddField 99, "650 7" & qa$
+end if
+
+If quick.Antikink_discriminationsub=0 Then pa$ = " "
+If quick.Antikink_discriminationsub=1 Then pa$ = "Anti-kink discrimination" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003140"
+If quick.Antikink_discriminationsub=2 Then pa$ = "Anti-sadomasochism" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003141"
+If pa$ = " " then
+else
+CS.AddField 99, "650 7" & pa$
+end if
+
+
+If quick.Inclusivitysub=0 Then ra$ = " "
+If quick.LGBTQplus_solidaritysub=1 Then ra$ = "LGBTQ+ solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003195"
+If quick.LGBTQplus_solidaritysub=2 Then ra$ = "Aromantic solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003203"
+If quick.LGBTQplus_solidaritysub=3 Then ra$ = "Asexual solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003202"
+If quick.LGBTQplus_solidaritysub=4 Then ra$ = "Bisexual solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003198"
+If quick.LGBTQplus_solidaritysub=5 Then ra$ = "Demisexual solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003204"
+If quick.LGBTQplus_solidaritysub=6 Then ra$ = "Dyke solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003206"
+If quick.LGBTQplus_solidaritysub=7 Then ra$ = "Gay solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003197"
+If quick.LGBTQplus_solidaritysub=8 Then ra$ = "Greyromantic solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003205"
+If quick.LGBTQplus_solidaritysub=9 Then ra$ = "Intersex solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003201"
+If quick.LGBTQplus_solidaritysub=10 Then ra$ = "Lesbian solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003196"
+If quick.LGBTQplus_solidaritysub=11 Then ra$ = "Megasexual solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003207"
+If quick.LGBTQplus_solidaritysub=12 Then ra$ = "Non-binary solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003208"
+If quick.LGBTQplus_solidaritysub=13 Then ra$ = "Queer solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003200"
+If quick.LGBTQplus_solidaritysub=14 Then ra$ = "Transgender solidarity" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003199"
+If ra$ = " " then
+else
+CS.AddField 99, "650 7" & ra$
+end if
+
+If quick.OptionGroup1 = 0 then OKbutton
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented_part2"
+
+Cancelled:   
+End Sub
+

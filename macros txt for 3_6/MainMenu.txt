@@ -1,0 +1,145 @@
+'MacroName:HomosaurusMainWindow
+'MacroDescription:Connexion macro for adding Homosaurus non-fiction terms.
+'Menu created by Walter F. Nickeson
+' 11 August 2024
+'Adapted by Wendy Isicson, 09/2024
+
+
+Declare Function DlgFunct( Id$, Action%, SVal& )
+
+Global MajorCategoriesTerm( 19 ) As String
+Global MajorCategoriesDefn( 19 ) As String
+Global NEW_LINE     As String*1
+
+Sub Main
+
+Dim CS As Object
+On Error Resume Next
+Set CS = GetObject( , "Connex.Client" )
+On Error GoTo 0
+If CS Is Nothing Then Set CS = CreateObject( "Connex.Client" )
+NEW_LINE      = Chr$( 010 )
+
+MajorCategoriesTerm( 0  ) = "LGBTQ+ Identity related (page 1)"
+MajorCategoriesTerm( 1  ) = "LGBTQ+ Identity related (page 2)"
+MajorCategoriesTerm( 2  ) = "LGBTQ+ Identity related (page 3)"
+MajorCategoriesTerm( 3  ) = "LGBTQ+ Identity related (page 4)"
+MajorCategoriesTerm( 4  ) = "Family and Relationships"
+MajorCategoriesTerm( 5  ) = "LGBTQ+ Locations"
+MajorCategoriesTerm( 6  ) = "LGBTQ+ Media topics (page 1)"
+MajorCategoriesTerm( 7  ) = "LGBTQ+ Media topics (page 2)"
+MajorCategoriesTerm( 8  ) = "LGBTQ+ Culture topics"
+MajorCategoriesTerm( 9  ) = "History topics"
+MajorCategoriesTerm( 10 ) = "Medical and Health topics"
+MajorCategoriesTerm( 11 ) = "Law topics"
+MajorCategoriesTerm( 12 ) = "Sex (Physical) topics (page 1)"
+MajorCategoriesTerm( 13 ) = "Sex (Physical) topics (page 2)"
+MajorCategoriesTerm( 14 ) = "Society: Civil Rights and Activism"
+MajorCategoriesTerm( 15 ) = "Society: Discrimination"
+MajorCategoriesTerm( 16 ) = "Society: Employment and Business"
+MajorCategoriesTerm( 17 ) = "Society: Theory topics -- Terms not in a Hierarchy"
+MajorCategoriesTerm( 18 ) = "LGBTQ+ Literature (655_7)"
+MajorCategoriesTerm( 19 ) = "LGBTQ+ Literature (650_7)"
+
+MajorCategoriesDefn( 0  ) = "LGBTQ+ people" & NEW_LINE & "LGBTQ+ people of color" & NEW_LINE & "White LGBTQ+ people" & NEW_LINE & "Two-Spirit people" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 1  ) = "Sexual identity" & NEW_LINE & "LGBTQ+ religious people" & NEW_LINE & "Relationship orientation" & NEW_LINE & "LGBTQ+ clergy" & NEW_LINE & "Role behavior" & NEW_LINE & "LGBTQ+ choruses" & NEW_LINE & "LGBTQ+ parenthood" & NEW_LINE & "Diversity" & NEW_LINE & "Romantic minorities"
+MajorCategoriesDefn( 2  ) = "Pronouns" & NEW_LINE & "Youth" & NEW_LINE & "LGBTQ+ authors" & NEW_LINE & "2SLGBTQ+" & NEW_LINE & "Heterosexuals" & NEW_LINE & "LGBTQ+ comedians" & NEW_LINE & "LGBTQIA+" & NEW_LINE & "Cisgender people" & NEW_LINE & "LGBTQ+ sex workers" & NEW_LINE & "Alloromantic people" & NEW_LINE & "HIV-positive people" & NEW_LINE & "LGBTQ+ politicians" & NEW_LINE & "Sexual minorities" & NEW_LINE & "Appropriation of marginalized identities"
+MajorCategoriesDefn( 3  ) = "Gender" & NEW_LINE & "Gender minorities" & NEW_LINE & "Relationship minorities"
+MajorCategoriesDefn( 4  ) = "Family members" & NEW_LINE & "LGBTQ+ families" & NEW_LINE & "LGBTQ+ family planning" & NEW_LINE & "Family terms not in a hierarchy" & NEW_LINE & "LGBTQ+ relationships" & NEW_LINE & "Partners" & NEW_LINE & "LGBTQ+ communities" & NEW_LINE & "Living arrangements" & NEW_LINE & "LGBTQ+ love" & NEW_LINE & "Romantic orientation" & NEW_LINE & "Homosociality" & NEW_LINE & "Relationship terms not in a hierarchy"
+MajorCategoriesDefn( 5  ) = "LGBTQ+ bookshops" & NEW_LINE & "LGBTQ+ centers" & NEW_LINE & "LGBTQ+ cultural heritage institutions" & NEW_LINE & "LGBTQ+ hotels" & NEW_LINE & "LGBTQ+ meeting places" & NEW_LINE & "LGBTQ+ theater" & NEW_LINE & "LGBTQ+ tourism" & NEW_LINE & "LGBTQ+-focused businesses" & NEW_LINE & "LGBTQ+-owned businesses" & NEW_LINE & "Public facilities" & NEW_LINE & "Sex locations" & NEW_LINE & "Terms not in a hierarchy" & NEW_LINE & "Two-Spirit locations"
+MajorCategoriesDefn( 6  ) = "Erotica" & NEW_LINE & "Gender studies" & NEW_LINE & "Information provision" & NEW_LINE & "LGBTQ+ autobiographies" & NEW_LINE & "LGBTQ+ biographies" & NEW_LINE & "LGBTQ+ books" & NEW_LINE & "LGBTQ+ characters" & NEW_LINE & "LGBTQ+ cinema" & NEW_LINE & "LGBTQ+ literary criticism" & NEW_LINE & "LGBTQ+ periodicals" & NEW_LINE & "LGBTQ+ arts" & NEW_LINE & "LGBTQ+ press" & NEW_LINE & "LGBTQ+ publishers"
+MajorCategoriesDefn( 7  ) = "LGBTQ+ radio" & NEW_LINE & "LGBTQ+ television" & NEW_LINE & "Social media" & NEW_LINE & "LGBTQ+ Social media" & NEW_LINE & "LGBTQ+ websites" & NEW_LINE & "Two-Spirit media" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 8  ) = "Subcultures" & NEW_LINE & "LGBTQ+ awards" & NEW_LINE & "Body adornment" & NEW_LINE & "Clothing" & NEW_LINE & "LGBTQ+ events" & NEW_LINE & "LGBTQ+ slang" & NEW_LINE & "LGBTQ+ symbols" & NEW_LINE & "LGBTQ+ clubs" & NEW_LINE & "Body modification" & NEW_LINE & "LGBTQ+ fashion" & NEW_LINE & "LGBTQ+ night life" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 9  ) = "LGBTQ+ History" & NEW_LINE & "LGBTQ+ memorials" & NEW_LINE & "LGBTQ+ riots"
+MajorCategoriesDefn( 10 ) = "MEDICAL AND HEALTH RELATED TOPICS:" & NEW_LINE & NEW_LINE & "Medical care" & NEW_LINE & "Health care for LGBTQ+ people" & NEW_LINE & "Transitioning (Gender)" & NEW_LINE & "Donors" & NEW_LINE & "Sexual dysfunction" & NEW_LINE & "STDs" & NEW_LINE & "Castration" & NEW_LINE & "Female genital mutilation" & NEW_LINE & "Intersex genital mutilation" & NEW_LINE & "Breast size" & NEW_LINE & "Hypersexuality" & NEW_LINE & "LGBTQ+ death and dying" & NEW_LINE & "Assisted reproductive technology" & NEW_LINE & "Sex (Body)" & NEW_LINE & "Body fluids" & NEW_LINE & "Pregnant people" & NEW_LINE & "Terms not in a hierarchy" & NEW_LINE & NEW_LINE & "BEHAVIOR RELATED TOPICS:" & NEW_LINE & NEW_LINE & "Mental disorders" & NEW_LINE & "Risk behaviors" & NEW_LINE & "Substance use in LGBTQ+ communities" & NEW_LINE & "LGBTQ+ love" & NEW_LINE & "Gender dysphoria" & NEW_LINE & "Internalized oppression" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 11 ) = "Law" & NEW_LINE & "Legal status" & NEW_LINE & "Police interactions with LGBTQ+ people" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 12 ) = "Sexual preference" & NEW_LINE & "Eroticism" & NEW_LINE & "Massage" & NEW_LINE & "Physical affection" & NEW_LINE & "Erogenous body parts" & NEW_LINE & "Sex industry" & NEW_LINE & "Sexual orientation" & NEW_LINE & "Consent" & NEW_LINE & "Sexuality"
+MajorCategoriesDefn( 13 ) = "Sex (Act)" & NEW_LINE & "Sex accessories" & NEW_LINE & "Sexual practices" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 14 ) = "CIVIL RIGHTS AND ACTIVISM TOPICS" & NEW_LINE & NEW_LINE & "Human rights" & NEW_LINE & "LGBTQ+ activism" & NEW_LINE & "LGBTQ+ solidarity" & NEW_LINE & "Social movements" & NEW_LINE & "Lesbian separatism" & NEW_LINE & "Inclusivity" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 15 ) = "DISCRIMINATION TOPICS" & NEW_LINE & NEW_LINE & "Anti-LGBTQ+ violence" & NEW_LINE & "Bullying" & NEW_LINE & "Censorship" & NEW_LINE & "Harassment" & NEW_LINE & "LGBTQ+ discrimination" & NEW_LINE & "LGBTQ+ persecutions" & NEW_LINE & "LGBTQ+ phobia" & NEW_LINE & "Sexual violence" & NEW_LINE & "Misogyny" & NEW_LINE & "Racism" & NEW_LINE & "Lateral oppression" & NEW_LINE & "Transmisogyny" & NEW_LINE & "Anti-kink discrimination" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 16 ) = "EMPLOYMENT AND BUSINESS TOPICS" & NEW_LINE & NEW_LINE & "LGBTQ+ employment" & NEW_LINE & "Terms not in a hierarchy"
+MajorCategoriesDefn( 17 ) = "THEORY TOPICS" & NEW_LINE & NEW_LINE & "Feminism" & NEW_LINE & "Feminists" & NEW_LINE & "LGBTQ+ social processes" & NEW_LINE & "Queer (Verb)" & NEW_LINE & "Social norms" & NEW_LINE & "Theories" & NEW_LINE & "Terms not in a hierarchy" & NEW_LINE & NEW_LINE & "General Social Terms not in a hierarchy"
+MajorCategoriesDefn( 18 ) = "MARC coded as Genre headings (655_7)" & NEW_LINE & NEW_LINE & "LGBTQ+ literature" & NEW_LINE & "LGBTQ+ fiction" & NEW_LINE & "LGBTQ+ youth literature" & NEW_LINE & "LGBTQ+ children's literature" & NEW_LINE & "LGBTQ+ drama" & NEW_LINE & "LGBTQ+ poetry" & NEW_LINE & "LGBTQ+ comics" & NEW_LINE & "LGBTQ+ erotic literature" & NEW_LINE & "LGBTQ+ fantasy fiction" & NEW_LINE & "LGBTQ+ horror fiction" & NEW_LINE & "LGBTQ+ mystery and detective fiction" & NEW_LINE & "LGBTQ+ romance fiction" & NEW_LINE & "LGBTQ+ science fiction" & NEW_LINE & "LGBTQ+ short stories" & NEW_LINE & "Terms not in a hierarchy" & NEW_LINE & "Two-Spirit literature"
+MajorCategoriesDefn( 19 ) = "MARC coded as Subject headings (650_0)" & NEW_LINE & NEW_LINE & "LGBTQ+ literature" & NEW_LINE & "LGBTQ+ fiction" & NEW_LINE & "LGBTQ+ youth literature" & NEW_LINE & "LGBTQ+ children's literature" & NEW_LINE & "LGBTQ+ drama" & NEW_LINE & "LGBTQ+ poetry" & NEW_LINE & "LGBTQ+ comics" & NEW_LINE & "LGBTQ+ erotic literature" & NEW_LINE & "LGBTQ+ fantasy fiction" & NEW_LINE & "LGBTQ+ horror fiction" & NEW_LINE & "LGBTQ+ mystery and detective fiction" & NEW_LINE & "LGBTQ+ romance fiction" & NEW_LINE & "LGBTQ+ science fiction" & NEW_LINE & "LGBTQ+ short stories" & NEW_LINE & "Terms not in a hierarchy" & NEW_LINE & "Two-Spirit literature"
+
+Begin Dialog allnotes  406, 300, "Homosaurus Subjects Macro", .DlgFunct
+  CancelButton  310, 275,  52,  16
+  PushButton    225, 275,  76,  16, "Go to selected page"
+  ListBox        20,  20, 180, 240, MajorCategoriesTerm(),                           .MajorCatList
+  Text          210,  20, 180,  240, "",                                              .Def
+  Text           10, 270, 210,   8, "Based on Homosaurus v.3.2. Updated for v.3.6."
+  GroupBox       10,   6, 386, 265, "Broad category...                                                                 || Top-level hierarchies... "
+
+End Dialog
+
+Dim Buffy as allnotes
+On Error Resume Next
+Dialog Buffy
+If Err = 102 then
+ Exit Sub
+End If
+
+Select Case Buffy.MajorCatList
+  Case 0
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities"
+  Case 1
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part2"
+  Case 2
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part3"
+  Case 3
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ+_Identities_part4"
+  Case 4
+  CS.RunMacro "Homosaurus_subjects.mbk!Family_Relations_focused"
+  Case 5
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_locations"
+  Case 6
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media"
+  Case 7
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media_2"
+  Case 8
+  CS.RunMacro "Homosaurus_subjects.mbk!Culture_focused"
+  Case 9
+  CS.RunMacro "Homosaurus_subjects.mbk!History_topics"
+  Case 10
+  CS.RunMacro "Homosaurus_subjects.mbk!Medical_focused"
+  Case 11
+  CS.RunMacro "Homosaurus_subjects.mbk!Legal_oriented"
+  Case 12
+  CS.RunMacro "Homosaurus_subjects.mbk!Sex_oriented"
+  Case 13
+  CS.RunMacro "Homosaurus_subjects.mbk!sex_oriented_pt2"
+  Case 14
+  CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented"
+  Case 15
+  CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented"
+  Case 16
+  CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented_part2" 
+  Case 17
+  CS.RunMacro "Homosaurus_subjects.mbk!Society_oriented_part2"
+  Case 18
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature_655"
+  Case 19
+  CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature" 
+End Select
+
+End Sub
+
+'****************************************************************************************
+
+
+Function DlgFunct( Id$, Action%, SVal& )
+
+Select Case Action%
+
+  Case 1
+  DlgValue "MajorCatList", -1
+
+  Case 2
+  Select Case Id$
+   Case "MajorCatList"
+    Selection% = DlgValue( "MajorCatList" )
+    DlgText "Def", MajorCategoriesDefn( Selection% )
+  End Select
+
+End Select
+End Function

@@ -1,0 +1,75 @@
+'MacroName:Women
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'September, 2022. Updated 08/24 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Women$
+Women$=" "+nd+ "Women"+nd+"  Amazons"+nd+"  Bisexual women"+nd+"  Cisgender women"+nd+"  Heterosexual women" _
++nd+"  Pregnant women"+nd+"  Trans women"+nd+"  WLW (Women Loving Women)"+nd+"  Women who have sex with women"
+
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+
+Begin Dialog MFHL 230, 145, "Women and Narrower Terms"
+
+ListBox 14, 7, 130, 95, Women$, .Womensub
+  
+Button 25,100,40,20, "I'm done",    .fin
+CancelButton 75,100,40,20
+
+Text  14, 125, 200, 8, "Based on Homosaurus v. 3.3. Updated for v.3.6"
+Text  14, 135, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Womensub=0 Then aa$ = " "
+If quick.Womensub=1 Then aa$ = "Women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001509"
+If quick.Womensub=2 Then aa$ = "Amazons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000040"
+If quick.Womensub=3 Then aa$ = "Bisexual women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000202"
+If quick.Womensub=4 Then aa$ = "Cisgender women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000272"
+If quick.Womensub=5 Then aa$ = "Heterosexual women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000629"
+If quick.Womensub=6 Then aa$ = "Trans women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001642"
+If quick.Womensub=7 Then aa$ = "WLW (Women Loving Women)" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002279"
+If quick.Womensub=8 Then aa$ = "Women who have sex with women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001510"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
+

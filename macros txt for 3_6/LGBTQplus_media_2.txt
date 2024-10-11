@@ -1,0 +1,257 @@
+'MacroName:LGBTQplus_media_2
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Feb 2024, 8/24 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223) 
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+
+dim ma$
+ma$ = " "
+dim na$
+na$ = " "
+dim oa$
+oa$ = " "
+dim pa$
+pa$ = " "
+dim qa$
+qa$ = " "
+dim ra$
+ra$ = " "  
+dim sa$
+sa$ = " "  
+dim ta$
+ta$ = " "
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim LGBTQplus_radio$
+LGBTQplus_radio$=" "+nd+ "LGBTQ+ radio"+nd+"  Asexual radio"+nd+"  Bisexual radio"+nd+"  Gay radio"+nd+"  Intersex radio" _
++nd+"  Lesbian radio"+nd+"  Queer radio"+nd+"  Transgender radio"
+
+dim LGBTQplus_television$
+LGBTQplus_television$=" "+nd+ "LGBTQ+ television"+nd+"  Asexual television"+nd+"  Bisexual television"+nd+"  Drag television programs"+nd+"  Gay television" _
++nd+"  Intersex television"+nd+"  Lesbian television"+nd+"  Queer television"+nd+"  Transgender television"
+
+dim Two_spirit_misc_media$
+Two_spirit_misc_media$=" "+nd+ "Two-Spirit characters"+nd+"Two-Spirit erotic art"+nd+"Two-Spirit films"+nd+"  Two-Spirit erotic films"+nd+"    Two-Spirit porn films" _
++nd+"Two-Spirit operas"+nd+"Two-Spirit press"+nd+"  Two-Spirit newsletters"+nd+"  Two-Spirit newspapers"+nd+"  Two-Spirit zines" _
++nd+"Two-Spirit publishers"+nd+"Two-Spirit radio"+nd+"Two-Spirit studies"+nd+"Two-Spirit television"
+
+dim Social_media$
+Social_media$=" "+nd+ "Social media"+nd+"  Blogs"+nd+"    LGBTQ+ blogs"+nd+"      LGBTQ+ vlogs"+nd+"  Chatrooms" _
++nd+"    LGBTQ+ chatrooms"+nd+"  Dating applications"+nd+"    LGBTQ+ dating applications"+nd+"  Dating websites"+nd+"    LGBTQ+ dating websites" _
++nd+"  Internet forums"+nd+"    LGBTQ+ Internet forums"
+
+dim LGBTQplus_websites$
+LGBTQplus_websites$=" "+nd+ "LGBTQ+ websites"+nd+"  Aromantic websites"+nd+"  Asexual websites"+nd+"  Bisexual websites"+nd+"  Demisexual websites" _
++nd+"  Gay websites"+nd+"  Greyromantic websites"+nd+"  Intersex websites"+nd+"  Lesbian websites"+nd+"  LGBTQ dating websites" _
++nd+"  Megasexual websites"+nd+"  Non-binary websites"+nd+"  Queer websites"+nd+"  Transgender websites"
+
+dim LGBTQplus_social_media$
+LGBTQplus_social_media$=" "+nd+ "LGBTQ+ social media"+nd+"  LGBTQ+ blogs"+nd+"    LGBTQ+ vlogs"+nd+"  LGBTQ+ chatrooms"+nd+"  LGBTQ+ dating applications" _
++nd+"  LGBTQ+ Internet forums"
+
+dim Miscellaneous_media$
+Miscellaneous_media$=" "+nd+ "Asexual studies"+nd+"Intersex studies"+nd+"Mahu porn films"+nd+"Queer coding"
+
+dim Nude_art$
+Nude_art$=" "+nd+ "Nude art"+nd+"    Nude photographs"
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 420, 300, "Choose the Homosaurus term you want to use..."
+
+Text 14,7,100,14, "LGBTQ+ radio"
+   DropListBox 14, 20, 130, 135, LGBTQplus_radio$, .LGBTQplus_radiosub
+Text 200,7,60,14, "LGBTQ+ television"
+   DropListBox 200, 20, 130, 135, LGBTQplus_television$, .LGBTQplus_televisionsub
+Text 14,45,80,14, "Social media"
+   DropListBox 14, 58, 130, 135, Social_media$, .Social_mediasub
+Text 200,45,90,14, "LGBTQ+ Social media"
+   DropListBox 200, 58, 130, 135, LGBTQplus_social_media$, .LGBTQplus_social_mediasub
+
+Text 14,83,200,12, "LGBTQ+ websites"
+   DropListBox 14, 96, 130, 135, LGBTQplus_websites$, .LGBTQplus_websitessub
+Text 200,83,200,12, "Two-Spirit media"
+   DropListBox 200, 96, 130, 135, Two_spirit_misc_media$, .Two_spirit_misc_mediasub
+
+Text 14,121,90,14, "Nude art"
+   DropListBox 14, 134, 130, 135, Nude_art$, .Nude_artsub
+Text 200,121,90,14, "Terms not in a hierarchy."
+   DropListBox 200, 134, 130, 135, Miscellaneous_media$, .Miscellaneous_mediasub
+
+OptionGroup .OptionGroup1
+      OptionButton  14, 170, 200, 10, " Stay on this page", .OptionButton1
+      OptionButton  14, 180, 200, 10, " Go to Media topics page 1", .OptionButton2
+      OptionButton  14, 225, 200, 10, "LGBTQ+ Literature (655_7)", .OptionButton3
+      OptionButton  200, 225, 200, 10, "LGBTQ+ Literature (650_7)", .OptionButton4
+      Text 35,190,300,30, "Includes: Erotica -- Gender studies -- Information provision -- LGBTQ+ autobiographies -- LGBTQ+ biographies -- LGBTQ+ books -- LGBTQ+ characters -- LGBTQ+ cinema -- LGBTQ+ literary criticism -- LGBTQ+ periodicals -- LGBTQ+ arts -- LGBTQ+ press -- LGBTQ+ publishers."
+      Text 35,235,150,10, "MARC coded as Genre headings."
+      Text 220,235,150,10, "MARC coded as subject headings."
+      
+Button 120,250,40,20, "I'm done",    .fin
+CancelButton 190,250,40,20
+
+Text  14, 280, 210, 8, "Based on Homosaurus v. 3.2. Updated for v.3.6."
+Text  14, 290, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+
+
+'****************************************************************************************
+' 650_7 strings for bib records
+'****************************************************************************************
+
+If quick.LGBTQplus_radiosub=0 Then na$ = " "
+If quick.LGBTQplus_radiosub=1 Then na$ = "LGBTQ+ radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001231"
+If quick.LGBTQplus_radiosub=2 Then na$ = "Asexual radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002806"
+If quick.LGBTQplus_radiosub=3 Then na$ = "Bisexual radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000181"
+If quick.LGBTQplus_radiosub=4 Then na$ = "Gay radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000528"
+If quick.LGBTQplus_radiosub=5 Then na$ = "Intersex radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002938"
+If quick.LGBTQplus_radiosub=6 Then na$ = "Lesbian radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000772"
+If quick.LGBTQplus_radiosub=7 Then na$ = "Queer radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001204"
+If quick.LGBTQplus_radiosub=8 Then na$ = "Transgender radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001441"
+
+If na$ = " " then
+else
+CS.AddField 99, "650 7" & na$
+end if
+
+If quick.LGBTQplus_televisionsub=0 Then oa$ = " "
+If quick.LGBTQplus_televisionsub=1 Then oa$ = "LGBTQ+ television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001359"
+If quick.LGBTQplus_televisionsub=2 Then oa$ = "Asexual television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002854"
+If quick.LGBTQplus_televisionsub=3 Then oa$ = "Bisexual television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000193"
+If quick.LGBTQplus_televisionsub=4 Then oa$ = "Drag television programs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003245"
+If quick.LGBTQplus_televisionsub=5 Then oa$ = "Gay television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000545"
+If quick.LGBTQplus_televisionsub=6 Then oa$ = "Intersex television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002946"
+If quick.LGBTQplus_televisionsub=7 Then oa$ = "Lesbian television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000787"
+If quick.LGBTQplus_televisionsub=8 Then oa$ = "Queer television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001216"
+If quick.LGBTQplus_televisionsub=9 Then oa$ = "Transgender television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001453"
+If oa$ = " " then
+else
+CS.AddField 99, "650 7" & oa$
+end if
+
+If quick.Two_spirit_misc_mediasub=0 Then pa$ = " "
+If quick.Two_spirit_misc_mediasub=1 Then pa$ = "Two-Spirit characters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002687"
+If quick.Two_spirit_misc_mediasub=2 Then pa$ = "Two-Spirit erotic art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002606"
+If quick.Two_spirit_misc_mediasub=3 Then pa$ = "Two-Spirit films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002560"
+If quick.Two_spirit_misc_mediasub=4 Then pa$ = "Two-Spirit erotic films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002545"
+If quick.Two_spirit_misc_mediasub=5 Then pa$ = "Two-Spirit porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002555"
+If quick.Two_spirit_misc_mediasub=6 Then pa$ = "Two-Spirit operas" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003168"
+If quick.Two_spirit_misc_mediasub=7 Then pa$ = "Two-Spirit press" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002719"
+If quick.Two_spirit_misc_mediasub=8 Then pa$ = "Two-Spirit newsletters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002714"
+If quick.Two_spirit_misc_mediasub=9 Then pa$ = "Two-Spirit newspapers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002715"
+If quick.Two_spirit_misc_mediasub=10 Then pa$ = "Two-Spirit zines" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003153"
+If quick.Two_spirit_misc_mediasub=11 Then pa$ = "Two-Spirit publishers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002720"
+If quick.Two_spirit_misc_mediasub=12 Then pa$ = "Two-Spirit radio" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002721"
+If quick.Two_spirit_misc_mediasub=13 Then pa$ = "Two-Spirit studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002725"
+If quick.Two_spirit_misc_mediasub=14 Then pa$ = "Two-Spirit television" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002730"
+If pa$ = " " then
+else
+CS.AddField 99, "650 7" & pa$
+end if
+
+If quick.Social_mediasub=0 Then qa$ = " "
+If quick.Social_mediasub=1 Then qa$ = "Social media" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001321"
+If quick.Social_mediasub=2 Then qa$ = "Blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000210"
+If quick.Social_mediasub=3 Then qa$ = "LGBTQ+ blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000823"
+If quick.Social_mediasub=4 Then qa$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+If quick.Social_mediasub=5 Then qa$ = "Chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000250"
+If quick.Social_mediasub=6 Then qa$ = "LGBTQ+ chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000832"
+If quick.Social_mediasub=7 Then qa$ = "Dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000328"
+If quick.Social_mediasub=8 Then qa$ = "LGBTQ+ dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000846"
+If quick.Social_mediasub=9 Then qa$ = "Dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000329"
+If quick.Social_mediasub=10 Then qa$ = "LGBTQ+ dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000847"
+If quick.Social_mediasub=11 Then qa$ = "Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000665"
+If quick.Social_mediasub=12 Then qa$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
+
+If qa$ = " " then
+else
+CS.AddField 99, "650 7" & qa$
+end if
+
+
+If quick.Miscellaneous_mediasub=0 Then ra$ = " "
+If quick.Miscellaneous_mediasub=1 Then ra$ = "Asexual studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002849"
+If quick.Miscellaneous_mediasub=2 Then ra$ = "Intersex studies" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002934"
+If quick.Miscellaneous_mediasub=3 Then ra$ = "Maåhuå porn films" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002634"
+If quick.Miscellaneous_mediasub=4 Then ra$ = "Queer coding" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002192"
+
+If ra$ = " " then
+else
+CS.AddField 99, "650 7" & ra$
+end if
+
+If quick.LGBTQplus_social_mediasub=0 Then ma$ = " "
+If quick.LGBTQplus_social_mediasub=1 Then ma$ = "LGBTQ+ social media" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000946"
+If quick.LGBTQplus_social_mediasub=2 Then ma$ = "LGBTQ+ blogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000823"
+If quick.LGBTQplus_social_mediasub=3 Then ma$ = "LGBTQ+ vlogs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001983"
+If quick.LGBTQplus_social_mediasub=4 Then ma$ = "LGBTQ+ chatrooms" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000832"
+If quick.LGBTQplus_social_mediasub=5 Then ma$ = "LGBTQ+ dating applications" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000846"
+If quick.LGBTQplus_social_mediasub=6 Then ma$ = "LGBTQ+ Internet forums" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000888"
+If ma$ = " " then
+else
+CS.AddField 99, "650 7" & ma$
+end if
+
+If quick.LGBTQplus_websitessub=0 Then sa$ = " "
+If quick.LGBTQplus_websitessub=1 Then sa$ = "LGBTQ+ websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000962"
+If quick.LGBTQplus_websitessub=2 Then sa$ = "Aromantic websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003216"
+If quick.LGBTQplus_websitessub=3 Then sa$ = "Asexual websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003217"
+If quick.LGBTQplus_websitessub=4 Then sa$ = "Bisexual websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003212"
+If quick.LGBTQplus_websitessub=5 Then sa$ = "Demisexual websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003218"
+If quick.LGBTQplus_websitessub=6 Then sa$ = "Gay websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003211"
+If quick.LGBTQplus_websitessub=7 Then sa$ = "Greyromantic websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003219"
+If quick.LGBTQplus_websitessub=8 Then sa$ = "Intersex websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003215"
+If quick.LGBTQplus_websitessub=9 Then sa$ = "Lesbian websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003210"
+If quick.LGBTQplus_websitessub=10 Then sa$ = "LGBTQ dating websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000847"
+If quick.LGBTQplus_websitessub=11 Then sa$ = "Megasexual websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003220"
+If quick.LGBTQplus_websitessub=12 Then sa$ = "Non-binary websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003221"
+If quick.LGBTQplus_websitessub=13 Then sa$ = "Queer websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003214"
+If quick.LGBTQplus_websitessub=14 Then sa$ = "Transgender websites" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003213"
+If sa$ = " " then
+else
+CS.AddField 99, "650 7" & sa$
+end if
+
+If quick.LGBTQplus_websitessub=0 Then ta$ = " "
+If quick.Nude_artsub=1 Then ta$ = "Nude art" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001052"
+If quick.Nude_artsub=2 Then ta$ = "Nude photographs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001051"
+If ta$ = " " then
+else
+CS.AddField 99, "650 7" & ta$
+end if
+
+If quick.OptionGroup1 = 0 then OKbutton
+If quick.OptionGroup1 = 1 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQplus_media"
+If quick.OptionGroup1 = 2 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature_655"
+If quick.OptionGroup1 = 3 then CS.RunMacro "Homosaurus_subjects.mbk!LGBTQ_literature"
+
+
+
+Cancelled:   
+End Sub
+

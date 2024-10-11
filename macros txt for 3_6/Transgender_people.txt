@@ -1,0 +1,109 @@
+'MacroName:Transgender_people
+'MacroDescription:Connexion macro for adding LGBTQ+ identity related subjects.
+'Created 09/2022, updated 08/2023 for v.3.4, 08/24 v.3.6
+
+Sub Main
+   
+Dim CS As Object
+Dim sData as String
+dim sd
+sd = chr(223)
+dim nd
+nd = chr$(9)   
+    
+On Error Resume Next
+Set CS = GetObject(,"Connex.Client")
+On Error GoTo 0
+If CS Is Nothing Then
+   Set CS = CreateObject("Connex.Client")
+End If
+
+
+dim aa$
+aa$ = " "
+
+'****************************************************************************************
+' Drop-down menu selections/lists
+'****************************************************************************************
+
+dim Transgender_people$
+Transgender_people$=" "+nd+ "Transgender people"+nd+"  Agender people"+nd+"  Androgynous people"+nd+"  Bigender people"+nd+"  Closeted transgender people" _
++nd+"  Demigender people"+nd+"    Demiboys"+nd+"    Demigirls"+nd+"  FtXs"+nd+"  Genderfluid people [self-identify only]" _
++nd+"  MtXs"+nd+"  Non-binary people [self-identify only]"+nd+"    Non-binary college students"+nd+"    Non-binary parents"+nd+"    Non-binary youth" _
++nd+"      Non-binary children"+nd+"    Pregnant non-binary people"+nd+"  Older transgender people"+nd+"  Pangender people"+nd+"  Pregnant transgender people" _
++nd+"  Third gender people"+nd+"  Trans men"+nd+"  Trans women"+nd+"  Transfeminine people"+nd+"  Transgender children" _
++nd+"  Transgender college students"+nd+"  Transgender daughters"+nd+"  Transgender fathers"+nd+"  Transgender mothers"+nd+"  Transgender parents" _
++nd+"  Transgender sons"+nd+"  Transgender youth"+nd+"  Transgenderqueer people [self-identify only]"+nd+"  Transmasculine people"+nd+"  Transsexual people [self-identify only]" _
++nd+"    FtMs [mostly historical term]"+nd+"    MtFs [mostly historical term]"+nd+"  Trigender people"
+
+
+'****************************************************************************************
+' Menu layout and Titles
+'****************************************************************************************
+
+Begin Dialog MFHL 230, 400, "Transgender people and Narrower Terms"
+
+ListBox 14, 7, 170, 330, Transgender_people$, .Transgender_peoplesub
+  
+Button 25,350,40,20, "I'm done",    .fin
+CancelButton 75,350,40,20
+
+Text  14, 380, 200, 8, "Based on Homosaurus v.3.3, Updated for v.3.6"
+Text  14, 390, 210, 8, "Always click through URIs to read scope notes and confirm URI"
+
+End Dialog
+dim quick as MFHL
+On Error Goto Cancelled
+dialog quick
+   
+'****************************************************************************************
+' 650_7 strings for bib records or other macro launches
+'****************************************************************************************
+
+If quick.Transgender_peoplesub=0 Then aa$ = " "
+If quick.Transgender_peoplesub=1 Then aa$ = "Transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001378"
+If quick.Transgender_peoplesub=2 Then aa$ = "Agender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000021"
+If quick.Transgender_peoplesub=3 Then aa$ = "Androgynous people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000045"
+If quick.Transgender_peoplesub=4 Then aa$ = "Bigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000111"
+If quick.Transgender_peoplesub=5 Then aa$ = "Closeted transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001784"
+If quick.Transgender_peoplesub=6 Then aa$ = "Demigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000342"
+If quick.Transgender_peoplesub=7 Then aa$ = "Demiboys" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001653"
+If quick.Transgender_peoplesub=8 Then aa$ = "Demigirls" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001652"
+If quick.Transgender_peoplesub=9 Then aa$ = "FtXs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000457"
+If quick.Transgender_peoplesub=10 Then aa$ = "Genderfluid people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000570"
+If quick.Transgender_peoplesub=11 Then aa$ = "MtXs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001027"
+If quick.Transgender_peoplesub=12 Then aa$ = "Non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001048"
+If quick.Transgender_peoplesub=13 Then aa$ = "Non-binary college students" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003043"
+If quick.Transgender_peoplesub=14 Then aa$ = "Non-binary parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002387"
+If quick.Transgender_peoplesub=15 Then aa$ = "Non-binary youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002223"
+If quick.Transgender_peoplesub=16 Then aa$ = "Non-binary children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0002222"
+If quick.Transgender_peoplesub=17 Then aa$ = "Pregnant non-binary people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003227"
+If quick.Transgender_peoplesub=18 Then aa$ = "Older transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001058"
+If quick.Transgender_peoplesub=19 Then aa$ = "Pangender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001072"
+If quick.Transgender_peoplesub=20 Then aa$ = "Pregnant transgender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003226"
+If quick.Transgender_peoplesub=21 Then aa$ = "Third gender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001369"
+If quick.Transgender_peoplesub=22 Then aa$ = "Trans men" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001643"
+If quick.Transgender_peoplesub=23 Then aa$ = "Trans women" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001642"
+If quick.Transgender_peoplesub=24 Then aa$ = "Transfeminine people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001382"
+If quick.Transgender_peoplesub=25 Then aa$ = "Transgender children" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001400"
+If quick.Transgender_peoplesub=26 Then aa$ = "Transgender college students" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0003045"
+If quick.Transgender_peoplesub=27 Then aa$ = "Transgender daughters" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001407"
+If quick.Transgender_peoplesub=28 Then aa$ = "Transgender fathers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001413"
+If quick.Transgender_peoplesub=29 Then aa$ = "Transgender mothers" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001422"
+If quick.Transgender_peoplesub=30 Then aa$ = "Transgender parents" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001430"
+If quick.Transgender_peoplesub=31 Then aa$ = "Transgender sons" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001446"
+If quick.Transgender_peoplesub=32 Then aa$ = "Transgender youth" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001452"
+If quick.Transgender_peoplesub=33 Then aa$ = "Transgenderqueer people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001668"
+If quick.Transgender_peoplesub=34 Then aa$ = "Transmasculine people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001466"
+If quick.Transgender_peoplesub=35 Then aa$ = "Transsexual people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001381"
+If quick.Transgender_peoplesub=36 Then aa$ = "FtMs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000436"
+If quick.Transgender_peoplesub=37 Then aa$ = "MtFs" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0000986"
+If quick.Transgender_peoplesub=38 Then aa$ = "Trigender people" & " " & sd & "2 homoit" & " " & sd & "0 https://homosaurus.org/v3/homoit0001474"
+
+If aa$ = " " then 
+else
+CS.AddField 99, "650 7" & aa$ 
+end if
+
+Cancelled:   
+End Sub
