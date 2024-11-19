@@ -1,8 +1,8 @@
 'MacroName:HomosaurusMainWindow
 'MacroDescription:Connexion macro for adding Homosaurus non-fiction terms.
-'Menu created by Walter F. Nickeson
 ' 11 August 2024
-'Adapted by Wendy Isicson, 09/2024
+'Created By Wendy Isicson, 09/2024
+'Thanks to Walter F. Nickeson for some helpful ideas in creating the menu.
 
 
 Declare Function DlgFunct( Id$, Action%, SVal& )
