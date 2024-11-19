@@ -4,7 +4,7 @@ Macro for the OCLC Connexion client written by Wendy Isicson, University of Nort
 
 These macros were written and tested using Connexion client version 3.1.8196.28365 on a PC running Windows 10 and Windows 11.  Other configurations have not been tested for compatibility. 
 
-The macro book file is: Homosaurus_subjects.mbk. For installation help read the docx file.
+The macro book file is: Homosaurus_subjects.mbk. For installation help read the pbd or docx file.
 
 Optional standalone macro book file: LGBTQ_genre_lit.mbk. For installation help read the docx file. This macro book codes the MARC for literature terms as 655_7s.  It only includes the literature terms and can be bound as separate new keybind/button.
 
